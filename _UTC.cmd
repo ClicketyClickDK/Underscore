@@ -3,7 +3,7 @@ SETLOCAL&::(Don't pollute the global environment with the following)
 ::**********************************************************************
 SET $NAME=%~n0
 SET $DESCRIPTION=Set environment UTC as current date in UTC format AND UTC_FILE as valid filename
-SET $Author=Erik Bachmann, ClicketyClick.dk (E_Bachmann@ClicketyClick.dk)
+SET $Author=Erik Bachmann, ClicketyClick.dk (Erik@ClicketyClick.dk)
 SET $Source=%~dpnx0
 ::----------------------------------------------------------------------
 ::@(#)NAME
