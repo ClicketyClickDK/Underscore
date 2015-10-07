@@ -82,4 +82,6 @@ SOURCE
 
 # History
 
-2015-10-07T12:48 | Initiation : Currenty only a test version with some very old deprecated examles from http://clicketyclick.dk/development/dos/scripts/
+Date (in reverse order)| Change
+------------------|---
+2015-10-07T12:48  | Initiation : Currenty only a test version with some very old deprecated examles from http://clicketyclick.dk/development/dos/scripts/
