@@ -79,3 +79,7 @@ SOURCE
 
 (c)2011 Erik Bachmann, ClicketyClick.dk (E_Bachmann@ClicketyClick.dk)
 ```
+
+# History
+
+2015-10-07T12:48 | Initiation : Currenty only a test version with some very old deprecated examles from http://clicketyclick.dk/development/dos/scripts/
