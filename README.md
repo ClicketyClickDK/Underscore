@@ -39,6 +39,6 @@ _Debug.cmd    | (sub) Setting up debug environment for batch scripts
 
 Command | Output / Result
 ---|---
-_what what.cmd_   | Prints documentation for _what.cmd_ to STDOUT
-_what_   | Prints documentation for what script it self to STDOUT
+`what _debug.cmd`   | Prints documentation for `debug.cmd` to STDOUT
+`what`   | Prints documentation for `what.com` script it self to STDOUT
 
