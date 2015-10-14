@@ -84,4 +84,5 @@ SOURCE
 
 Date (in reverse order)| Change
 ------------------|---
+2015-10-14T23:55  | Init commit of a working version
 2015-10-07T12:48  | Initiation : Currenty only a test version with some very old deprecated examles from http://clicketyclick.dk/development/dos/scripts/
