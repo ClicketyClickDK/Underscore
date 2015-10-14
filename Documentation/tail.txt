@@ -1,0 +1,30 @@
+[tail] v.[2015-10-08] rev.[11:20:00] 
+
+NAME 
+      tail -- Print the last n lines of a file to STDOUT 
+  
+SYNOPSIS 
+      tail [File] [n] 
+  
+OPTIONS 
+  -h      Help page 
+ n   Number of lines to print, default=10  
+  
+DESCRIPTION 
+  A function like MORE, but displays only the last given number of lines  
+  
+  
+EXAMPLES 
+  
+  
+  
+SEE ALSO 
+  head.cmd        Print the first n lines of a file to STDOUT     
+   
+REFERENCE 
+  URL: http://ss64.org/viewtopic.php?id=506 
+ 
+SOURCE 
+  C:\_\tail.cmd 
+ 
+(c)2015 Simon Sheppard, ss64.org 

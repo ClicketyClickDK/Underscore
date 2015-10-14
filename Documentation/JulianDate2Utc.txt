@@ -1,0 +1,28 @@
+[JulianDate2Utc] v.[2015-10-08] rev.[11:20:00] 
+
+NAME 
+      JulianDate2Utc -- Convert Julian date [Numeric] to UTC [YYYY-MM-MM] 
+  
+SYNOPSIS 
+  JulianDate2Utc varJD stringUTC 
+ 
+OPTIONS 
+  -h      Help page 
+ 
+DESCRIPTION 
+   
+   
+EXAMPLES 
+  CALL JulianDate2utc #JD '24552172010-01-20' 
+  SET #JD 
+  #JD=2010-01-20 
+ 
+  
+  Utc2JulianDate 
+REFERENCE 
+  http://aa.usno.navy.mil/faq/docs/JD_Formula.php 
+ 
+SOURCE 
+  C:\_\JulianDate2Utc.cmd 
+ 
+(c)2015 Erik Bachmann Pedersen, ClicketyClick.dk [E_Bachmann@ClicketyClick.dk] 

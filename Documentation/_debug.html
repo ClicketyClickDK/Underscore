@@ -1,0 +1,68 @@
+<link rel="stylesheet" href="what.css" type="text/css" />
+<h2>[_Debug] v.[2015-10-08] rev.[16:00:00] </h2>
+<tt>&nbsp;&nbsp;</tt><br>
+<h3>NAME </h3>
+<tt>&nbsp;&nbsp;_Debug&nbsp;--&nbsp;Setting&nbsp;up&nbsp;debug&nbsp;environment&nbsp;for&nbsp;batch&nbsp;scripts&nbsp;</tt><br>
+<tt>&nbsp;&nbsp;</tt><br>
+<h3>SYNOPSIS </h3>
+<tt>&nbsp;&nbsp;_Debug&nbsp;{options}&nbsp;</tt><br>
+<tt>&nbsp;&nbsp;</tt><br>
+<h3>DESCRIPTION </h3>
+<tt>&nbsp;&nbsp;This&nbsp;function&nbsp;sets&nbsp;up&nbsp;two&nbsp;environment&nbsp;variables&nbsp;</tt><br>
+<tt>&nbsp;&nbsp;_Debug_&nbsp;and&nbsp;_verbose_&nbsp;as&nbsp;add&nbsp;ons&nbsp;to&nbsp;ECHO&nbsp;</tt><br>
+<tt>&nbsp;&nbsp;_LOG_&nbsp;and&nbsp;_TRACE_&nbsp;prints&nbsp;to&nbsp;log&nbsp;and&nbsp;trace&nbsp;file&nbsp;</tt><br>
+<tt>&nbsp;</tt><br>
+<tt>&nbsp;&nbsp;_Verbose_&nbsp;is&nbsp;simply&nbsp;a&nbsp;replacement&nbsp;for&nbsp;ECHO&nbsp;which&nbsp;can&nbsp;be&nbsp;switch&nbsp;off&nbsp;(Silent&nbsp;mode)&nbsp;</tt><br>
+<tt>&nbsp;&nbsp;_Verbose_&nbsp;prints&nbsp;to&nbsp;STDOUT.&nbsp;</tt><br>
+<tt>&nbsp;&nbsp;Use&nbsp;this&nbsp;feature&nbsp;instead&nbsp;of&nbsp;ECHO&nbsp;for&nbsp;printing&nbsp;standard&nbsp;info&nbsp;to&nbsp;user.&nbsp;</tt><br>
+<tt>&nbsp;</tt><br>
+<tt>&nbsp;&nbsp;_Debug_&nbsp;is&nbsp;a&nbsp;replacement&nbsp;for&nbsp;ECHO&nbsp;to&nbsp;print&nbsp;debug&nbsp;information&nbsp;to&nbsp;STDERR.&nbsp;&nbsp;</tt><br>
+<tt>&nbsp;&nbsp;By&nbsp;default&nbsp;this&nbsp;is&nbsp;switch&nbsp;off&nbsp;(Redirect&nbsp;to&nbsp;NUL)&nbsp;</tt><br>
+<tt>&nbsp;</tt><br>
+<tt>&nbsp;&nbsp;_LOG_&nbsp;is&nbsp;for&nbsp;general&nbsp;statements&nbsp;</tt><br>
+<tt>&nbsp;&nbsp;_TRACE_&nbsp;is&nbsp;only&nbsp;for&nbsp;debuging&nbsp;</tt><br>
+<tt>&nbsp;</tt><br>
+<h3>OPTIONS </h3>
+<tt>&nbsp;&nbsp;-h&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Help&nbsp;page&nbsp;</tt><br>
+<tt>&nbsp;&nbsp;&nbsp;</tt><br>
+<h3>FLAGS </h3>
+<tt>&nbsp;&nbsp;SET&nbsp;DEBUG=x&nbsp;</tt><br>
+<tt>&nbsp;&nbsp;0&#09;&#09;No&nbsp;debugging&nbsp;(default)&nbsp;</tt><br>
+<tt>&nbsp;&nbsp;1&#09;&#09;Debugging&nbsp;active&nbsp;</tt><br>
+<tt>&nbsp;&nbsp;2&#09;&#09;Debugging&nbsp;active&nbsp;and&nbsp;ECHO&nbsp;on&nbsp;</tt><br>
+<tt>&nbsp;</tt><br>
+<tt>&nbsp;&nbsp;Environment&nbsp;variable&nbsp;_DEBUG_&nbsp;will&nbsp;either&nbsp;print&nbsp;to&nbsp;NUL&nbsp;</tt><br>
+<tt>&nbsp;&nbsp;OR&nbsp;if&nbsp;active&nbsp;print&nbsp;to&nbsp;STDERR&nbsp;</tt><br>
+<tt>&nbsp;</tt><br>
+<tt>&nbsp;&nbsp;SET&nbsp;VERBOSE=x&nbsp;</tt><br>
+<tt>&nbsp;&nbsp;0&#09;&#09;Silent&nbsp;</tt><br>
+<tt>&nbsp;&nbsp;1&#09;&#09;Normal&nbsp;verbose&nbsp;(Default)&nbsp;</tt><br>
+<tt>&nbsp;</tt><br>
+<tt>&nbsp;&nbsp;Environment&nbsp;variable&nbsp;_VERBOSE_&nbsp;will&nbsp;either&nbsp;print&nbsp;to&nbsp;NUL&nbsp;</tt><br>
+<tt>&nbsp;&nbsp;OR&nbsp;if&nbsp;active&nbsp;print&nbsp;to&nbsp;STDERR&nbsp;</tt><br>
+<tt>&nbsp;</tt><br>
+<h3>EXAMPLE </h3>
+<tt>&nbsp;&nbsp;ECHO&nbsp;Default:&nbsp;Verbose&nbsp;on,&nbsp;Debug&nbsp;off&nbsp;</tt><br>
+<tt>&nbsp;&nbsp;CALL&nbsp;_debug.cmd&nbsp;</tt><br>
+<tt>&nbsp;&nbsp;1>&2&nbsp;ECHO&nbsp;verbosing&nbsp;on&nbsp;</tt><br>
+<tt>&nbsp;&nbsp;1>NUL&nbsp;2>&1&nbsp;ECHO&nbsp;Debugging&nbsp;off&nbsp;</tt><br>
+<tt>&nbsp;&nbsp;&nbsp;</tt><br>
+<tt>&nbsp;&nbsp;ECHO&nbsp;Alternative:&nbsp;Verbose&nbsp;off,&nbsp;Debug&nbsp;on&nbsp;</tt><br>
+<tt>&nbsp;&nbsp;SET&nbsp;DEBUG=1&nbsp;</tt><br>
+<tt>&nbsp;&nbsp;SET&nbsp;VERBOSE=0&nbsp;</tt><br>
+<tt>&nbsp;&nbsp;CALL&nbsp;_debug.cmd&nbsp;</tt><br>
+<tt>&nbsp;&nbsp;1>&2&nbsp;ECHO&nbsp;verbosing&nbsp;off&nbsp;</tt><br>
+<tt>&nbsp;&nbsp;1>NUL&nbsp;2>&1&nbsp;ECHO&nbsp;Debugging&nbsp;on&nbsp;</tt><br>
+<tt>&nbsp;&nbsp;&nbsp;</tt><br>
+<tt>&nbsp;&nbsp;ECHO&nbsp;Debug&nbsp;mode:&nbsp;Verbose&nbsp;on,&nbsp;Debug&nbsp;on&nbsp;level&nbsp;2&nbsp;</tt><br>
+<tt>&nbsp;&nbsp;SET&nbsp;DEBUG=2&nbsp;</tt><br>
+<tt>&nbsp;&nbsp;SET&nbsp;VERBOSE=1&nbsp;</tt><br>
+<tt>&nbsp;&nbsp;CALL&nbsp;_debug.cmd&nbsp;</tt><br>
+<tt>&nbsp;&nbsp;1>&2&nbsp;ECHO&nbsp;verbosing&nbsp;on&nbsp;</tt><br>
+<tt>&nbsp;&nbsp;1>NUL&nbsp;2>&1&nbsp;ECHO&nbsp;Debugging&nbsp;on&nbsp;(with&nbsp;Echo)&nbsp;</tt><br>
+<tt>&nbsp;&nbsp;</tt><br>
+<h3>SOURCE </h3>
+<tt>&nbsp;&nbsp;C:\_\_Debug.cmd&nbsp;</tt><br>
+<tt>&nbsp;&nbsp;</tt><br>
+<h3>(C)2015 Erik Bachmann, ClicketyClick.dk (ErikBachmann@ClicketyClick.dk) </h3>
+<hr>

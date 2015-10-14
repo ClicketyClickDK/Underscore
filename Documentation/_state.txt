@@ -1,0 +1,38 @@
+"SET $DESCRIPTION=Status part of "Action" | FINDSTR /I " $source="  1>NUL 2>&1
+[_state] v.[2015-10-08] rev.[16:00:00] 
+
+NAME 
+      _state -- Search file for pattern '@(#)' and print remainder of string 
+  
+SYNOPSIS 
+  _state 'string' 
+  
+OPTIONS 
+  -h      Help page 
+ 
+DESCRIPTION 
+  _state echos a string with the maximum length of 77 - $ActionRange to STDOUT. 
+  The string will by surrounded bye [ ] 
+  Line IS terminated by a NEWLINE 
+ 
+  _state is usually used in combination with _action.cmd to display 
+  status information durring processing 
+ 
+EXAMPLES 
+  CALL _ACTION 'Hello' 
+  CALL _STATUS 'World' 
+ 
+  Will produce the line: 
+  Hello                                             [World                   ] 
+ 
+  0 if OK 
+ 
+SEE ALSO 
+  _action.cmd 
+  _status.cmd 
+ 
+ 
+SOURCE 
+  C:\_\_state.cmd 
+ 
+(c)2015 Erik Bachmann, ClicketyClick.dk [ErikBachmann@ClicketyClick.dk] 

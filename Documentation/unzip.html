@@ -1,0 +1,34 @@
+<link rel="stylesheet" href="what.css" type="text/css" />
+<h2>[unzip] v.[01.050] rev.[2011-10-13T18:41:00] </h2>
+<h3>NAME </h3>
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;unzip&nbsp;--&nbsp;Search&nbsp;file&nbsp;for&nbsp;pattern&nbsp;'@(#)'&nbsp;and&nbsp;print&nbsp;remainder&nbsp;of&nbsp;string&nbsp;</tt><br>
+<tt>&nbsp;&nbsp;</tt><br>
+<h3>SYNOPSIS </h3>
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;unzip&nbsp;[ZIP]&nbsp;{DIR}&nbsp;</tt><br>
+<tt>&nbsp;</tt><br>
+<h3>OPTIONS </h3>
+<tt>&nbsp;&nbsp;-h&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Help&nbsp;page&nbsp;</tt><br>
+<tt>&nbsp;&nbsp;ZIP&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;FULL&nbsp;path&nbsp;and&nbsp;file&nbsp;name&nbsp;of&nbsp;a&nbsp;ZIP&nbsp;file&nbsp;</tt><br>
+<tt>&nbsp;&nbsp;DIR&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Directories&nbsp;where&nbsp;the&nbsp;archive&nbsp;should&nbsp;be&nbsp;decompressed&nbsp;</tt><br>
+<tt>&nbsp;&nbsp;</tt><br>
+<h3>DESCRIPTION </h3>
+<tt>&nbsp;&nbsp;Since&nbsp;Windows&nbsp;has&nbsp;no&nbsp;build&nbsp;in&nbsp;command&nbsp;line&nbsp;tool&nbsp;for&nbsp;compressing&nbsp;and&nbsp;</tt><br>
+<tt>&nbsp;&nbsp;uncompressing&nbsp;file&nbsp;archive.&nbsp;This&nbsp;-&nbsp;originally&nbsp;VBS&nbsp;-&nbsp;script&nbsp;was&nbsp;build.&nbsp;</tt><br>
+<tt>&nbsp;&nbsp;</tt><br>
+<h3>EXAMPLES </h3>
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ECHO:Hello&nbsp;world&nbsp;{GT}&nbsp;'{PCT}TEMP{PCT}\hello.txt'&nbsp;</tt><br>
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;unzip&nbsp;'{PCT}TEMP{PCT}\myZip.zip'&nbsp;'{PCT}TEMP{PCT}\hello.txt'&nbsp;</tt><br>
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;DIR&nbsp;'{PCT}TEMP{PCT}\myZip.zip'&nbsp;</tt><br>
+<tt>&nbsp;Or&nbsp;</tt><br>
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ECHO:Hello&nbsp;world{GT}'{PCT}TMP{PCT}\hello.txt'&nbsp;</tt><br>
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;zip.bat&nbsp;'{PCT}TMP{PCT}\hello.zip'&nbsp;'{PCT}TMP{PCT}\hello.txt'&nbsp;</tt><br>
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;DEL&nbsp;'{PCT}TMP{PCT}\hello.txt'&nbsp;</tt><br>
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;DIR&nbsp;'{PCT}TMP{PCT}\hello.txt'&nbsp;</tt><br>
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;unzip.bat&nbsp;'{PCT}TMP{PCT}\hello.zip'&nbsp;'{PCT}TMP{PCT}'&nbsp;</tt><br>
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;DIR&nbsp;'{PCT}TMP{PCT}\hello.txt'&nbsp;</tt><br>
+<tt>&nbsp;</tt><br>
+<h3>SOURCE </h3>
+<tt>&nbsp;&nbsp;C:\_\What.cmd&nbsp;</tt><br>
+<tt>&nbsp;</tt><br>
+<h3>(c)01.0 Erik Bachmann, ClicketyClick.dk (E_Bachmann@ClicketyClick.dk) </h3>
+<hr>

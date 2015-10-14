@@ -1,0 +1,24 @@
+[RoboBackup] v.[2015-10-08] rev.[11:20:00] 
+
+NAME 
+      RoboBackup -- Backup with progressbar using RoboCopy 
+  
+SYNOPSIS 
+  RoboBackup [Arguments] 
+  
+OPTIONS 
+  -h      Help page 
+ 
+DESCRIPTION 
+ 
+  
+EXAMPLES 
+  
+  
+  
+   
+ 
+SOURCE 
+  C:\_\RoboBackup.cmd 
+ 
+(c)2015 bluesxman 

@@ -1,0 +1,27 @@
+[zip] v.[01.050] rev.[2011-10-13T18:41:00] 
+
+NAME 
+      zip -- Search file for pattern '@(#)' and print remainder of string 
+  
+SYNOPSIS 
+      zip [ZIP] {FILE} 
+ 
+OPTIONS 
+  -h      Help page 
+  ZIP     FULL path and file name of a ZIP file 
+  FILE    Files / directories to be compressed 
+  
+DESCRIPTION 
+  Since Windows has no build in command line tool for compressing and 
+  uncompressing file archive. This - originally VBS - script was build. 
+  
+EXAMPLES 
+      ECHO:Hello world {GT} '{PCT}TEMP{PCT}\hello.txt' 
+      zip '{PCT}TEMP{PCT}\myZip.zip' '{PCT}TEMP{PCT}\hello.txt' 
+      DIR '{PCT}TEMP{PCT}\myZip.zip' 
+  
+ 
+SOURCE 
+  C:\_\What.cmd 
+ 
+(c)01.0 Erik Bachmann, ClicketyClick.dk (E_Bachmann@ClicketyClick.dk) 

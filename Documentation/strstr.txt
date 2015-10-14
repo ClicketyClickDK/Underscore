@@ -1,0 +1,48 @@
+[strstr] v.[2015-10-08] rev.[11:20:00] 
+
+NAME 
+      strstr -- Find string in a string 
+  
+SYNOPSIS 
+  strstr pattern string {flags} 
+  
+OPTIONS 
+  -h      Help page 
+  pattern The needle to look for 
+  string  The haystack to look in 
+  flags   Flags for FINDSTR (see FINDSTR) 
+  
+DESCRIPTION 
+  Display a tag and an indicator and delays processing for X seconds 
+  
+ 
+EXAMPLES 
+      REM Match case sensitive 
+      c:\_{GT}strstr xxx abcxXxdefx 
+      No match 
+       
+      c:\_{GT}echo 0 
+      1 
+       
+      REM Match case insensitive 
+      c:\_{GT}strstr xxx abcxXxdefx /I 
+      Match 
+      c:\_{GT}echo 0 
+      0 
+  
+ Please note the absolute exact match requires to follow the 
+ FINDSTR syntax 
+  
+      strstr /C:'Hello world' 'Hello wonderfull world'  
+ will not match - since the string pattern is not found 
+      strstr 'Hello world' 'Hello wonderfull world'  
+ will match - since both the words 'world' and 'Hello' is found 
+  
+  
+  
+  
+ 
+SOURCE 
+  C:\_\strstr.cmd 
+ 
+(c)2015 Erik Bachmann, ClicketyClick.dk [ErikBachmann@ClicketyClick.dk] 

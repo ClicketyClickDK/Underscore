@@ -1,0 +1,37 @@
+<link rel="stylesheet" href="what.css" type="text/css" />
+<h2>[getWindowTitle] v.[2015-10-08] rev.[11:20:00] </h2>
+<h3>NAME </h3>
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;getWindowTitle&nbsp;--&nbsp;Return&nbsp;Window&nbsp;title&nbsp;+&nbsp;PID&nbsp;</tt><br>
+<tt>&nbsp;&nbsp;</tt><br>
+<h3>SYNOPSIS </h3>
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;getWindowTitle&nbsp;TitleVar&nbsp;PidVar&nbsp;</tt><br>
+<tt>&nbsp;&nbsp;</tt><br>
+<h3>OPTIONS </h3>
+<tt>&nbsp;&nbsp;-h&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Help&nbsp;page&nbsp;</tt><br>
+<tt>&nbsp;</tt><br>
+<h3>DESCRIPTION </h3>
+<h3>EXAMPLES </h3>
+<tt>&nbsp;&nbsp;SET&nbsp;_STR={PCT}DATE{PCT}&nbsp;{PCT}TIME{PCT}&nbsp;</tt><br>
+<tt>&nbsp;&nbsp;title&nbsp;{PCT}_STR{PCT}&nbsp;</tt><br>
+<tt>&nbsp;&nbsp;SET&nbsp;_T=&nbsp;</tt><br>
+<tt>&nbsp;&nbsp;call&nbsp;getWindowTitle&nbsp;_t&nbsp;_pid&nbsp;</tt><br>
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><br>
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Instances...1&nbsp;</tt><br>
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Command:&nbsp;GetWindowTitle&nbsp;</tt><br>
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;PID:&nbsp;22716&nbsp;</tt><br>
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Title:&nbsp;30-03-2015&nbsp;10:31:12,09&nbsp;-&nbsp;call&nbsp;&nbsp;GetWindowTitle&nbsp;_t&nbsp;_pid&nbsp;</tt><br>
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;DoubleClick:&nbsp;YES&nbsp;</tt><br>
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;SET&nbsp;_t=30-03-2015&nbsp;10:31:12,09&nbsp;-&nbsp;call&nbsp;&nbsp;GetWindowTitle&nbsp;_t&nbsp;_pid&nbsp;</tt><br>
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><br>
+<tt>&nbsp;&nbsp;echo&nbsp;[{PCT}_t{PCT}]&nbsp;[{PCT}_pid{PCT}]&nbsp;</tt><br>
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[30-03-2015&nbsp;10:31:12,09&nbsp;-&nbsp;call&nbsp;&nbsp;GetWindowTitle&nbsp;_t&nbsp;_pid]&nbsp;[22716]&nbsp;</tt><br>
+<tt>&nbsp;&nbsp;&nbsp;</tt><br>
+<h3>REFERENCE </h3>
+<tt>&nbsp;&nbsp;Author:&nbsp;brian&nbsp;williams&nbsp;</tt><br>
+<tt>&nbsp;&nbsp;URL:&nbsp;http://www.robvanderwoude.com/files/gettitle_brianwilliams4.txt&nbsp;</tt><br>
+<tt>&nbsp;</tt><br>
+<h3>SOURCE </h3>
+<tt>&nbsp;&nbsp;C:\_\getWindowTitle.cmd&nbsp;</tt><br>
+<tt>&nbsp;</tt><br>
+<h3>(c)2015 Brian Williams </h3>
+<hr>

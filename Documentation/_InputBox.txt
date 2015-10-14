@@ -1,0 +1,37 @@
+[_InputBox] v.[01.050] rev.[2011-10-13T18:41:00] 
+
+NAME 
+      _InputBox -- Search file for pattern '@(#)' and print remainder of string 
+  
+SYNOPSIS 
+  _InputBox [Window title] [Message] [Default value] 
+  
+OPTIONS 
+  -h      Help page 
+  
+DESCRIPTION 
+  Prompting user for simple text input using input box 
+  
+EXAMPLES 
+      SET _INPUT= 
+      SET _TITLE=window title 
+      SET _MSG=Hello world.{CrLf}Please enter something for me: 
+      SET _CMD=CALL _InputBox '{PCT}_TITLE{PCT}' '{PCT}_MSG{PCT}' 'default' 
+      FOR /F 'tokens=* delims=' {PCT}{PCT}a IN ('CALL {PCT}_CMD{PCT}') DO SET _VAR={PCT}{PCT}a 
+      ECHO You entered [{PCT}_VAR{PCT}] 
+ 
+     The following exit values are returned: 
+     0   Any matches were found. 
+     1   No matches found. 
+  
+SEE ALSO 
+  _MsgBox.bat 
+ 
+REFERENCE 
+ Stephen Knight, October 2009, http://www.dragon-it.co.uk/ 
+ URL: http://scripts.dragon-it.co.uk/scripts.nsf/docs/batch-gui-inputboxOpenDocument 
+  
+SOURCE 
+  C:\_\What.cmd 
+  
+(c)01.0 Erik Bachmann, ClicketyClick.dk (E_Bachmann@ClicketyClick.dk) 

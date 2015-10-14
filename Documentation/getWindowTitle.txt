@@ -1,0 +1,36 @@
+[getWindowTitle] v.[2015-10-08] rev.[11:20:00] 
+
+NAME 
+      getWindowTitle -- Return Window title + PID 
+  
+SYNOPSIS 
+      getWindowTitle TitleVar PidVar 
+  
+OPTIONS 
+  -h      Help page 
+ 
+DESCRIPTION 
+EXAMPLES 
+  SET _STR={PCT}DATE{PCT} {PCT}TIME{PCT} 
+  title {PCT}_STR{PCT} 
+  SET _T= 
+  call getWindowTitle _t _pid 
+       
+      Instances...1 
+          Command: GetWindowTitle 
+              PID: 22716 
+            Title: 30-03-2015 10:31:12,09 - call  GetWindowTitle _t _pid 
+      DoubleClick: YES 
+      SET _t=30-03-2015 10:31:12,09 - call  GetWindowTitle _t _pid 
+       
+  echo [{PCT}_t{PCT}] [{PCT}_pid{PCT}] 
+      [30-03-2015 10:31:12,09 - call  GetWindowTitle _t _pid] [22716] 
+   
+REFERENCE 
+  Author: brian williams 
+  URL: http://www.robvanderwoude.com/files/gettitle_brianwilliams4.txt 
+ 
+SOURCE 
+  C:\_\getWindowTitle.cmd 
+ 
+(c)2015 Brian Williams 

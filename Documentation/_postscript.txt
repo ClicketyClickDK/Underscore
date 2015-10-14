@@ -1,0 +1,32 @@
+[_postscript] v.[2015-10-08] rev.[11:20:00] 
+
+NAME 
+      _postscript -- Post processing template 
+  
+SYNOPSIS 
+      _postscript [function] {arguments} 
+    
+OPTIONS 
+  -h      Help page 
+  
+DESCRIPTION 
+  Used as a post processing template with _preScript.cmd 
+  No detailed example currently available 
+  
+EXAMPLES 
+     CALL _preScript 
+     :: processing 
+     CALL _postscript 
+  
+  $ErrorLevel     Increased with OS errorlevel 
+ 
+REQUIRES 
+  _UTC                    Current time 
+  _registry.write_string  Write data to registry 
+  _debug.cmd 
+ 
+ 
+SOURCE 
+  C:\_\_postscript.cmd 
+ 
+(c)2015 Erik Bachmann, ClicketyClick.dk [ErikBachmann@ClicketyClick.dk] 

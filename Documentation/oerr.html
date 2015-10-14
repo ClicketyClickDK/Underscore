@@ -1,0 +1,72 @@
+<link rel="stylesheet" href="what.css" type="text/css" />
+<h2>[oerr] v.[2015-10-08] rev.[11:20:00] </h2>
+<h3>NAME </h3>
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;oerr&nbsp;--&nbsp;Extracts&nbsp;Error&nbsp;messaged&nbsp;from&nbsp;script&nbsp;files&nbsp;using&nbsp;uniq&nbsp;ErrorID&nbsp;</tt><br>
+<tt>&nbsp;&nbsp;</tt><br>
+<h3>SYNOPSIS </h3>
+<tt>&nbsp;&nbsp;oerr&nbsp;script&nbsp;ErrorID&nbsp;</tt><br>
+<tt>&nbsp;&nbsp;</tt><br>
+<h3>OPTIONS </h3>
+<tt>&nbsp;&nbsp;-h&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Help&nbsp;page&nbsp;</tt><br>
+<tt>&nbsp;</tt><br>
+<h3>DESCRIPTION </h3>
+<tt>&nbsp;&nbsp;This&nbsp;function&nbsp;outputs&nbsp;a&nbsp;formatted&nbsp;string&nbsp;with&nbsp;an&nbsp;enhanced&nbsp;message&nbsp;</tt><br>
+<tt>&nbsp;&nbsp;from&nbsp;within&nbsp;the&nbsp;script&nbsp;itself.&nbsp;The&nbsp;messages&nbsp;are&nbsp;stored&nbsp;in&nbsp;an&nbsp;</tt><br>
+<tt>&nbsp;&nbsp;'Additional&nbsp;Help'-table.&nbsp;</tt><br>
+<tt>&nbsp;</tt><br>
+<tt>&nbsp;&nbsp;See&nbsp;the&nbsp;source&nbsp;code&nbsp;of&nbsp;this&nbsp;script&nbsp;for&nbsp;details.&nbsp;</tt><br>
+<tt>&nbsp;</tt><br>
+<h3>ADDITIONAL HELP </h3>
+<tt>&nbsp;&nbsp;Attempting&nbsp;to&nbsp;mimic&nbsp;the&nbsp;oerr&nbsp;help&nbsp;message&nbsp;utility&nbsp;extracting&nbsp;help&nbsp;from&nbsp;a&nbsp;table&nbsp;</tt><br>
+<tt>&nbsp;&nbsp;at&nbsp;the&nbsp;end&nbsp;of&nbsp;the&nbsp;script.&nbsp;All&nbsp;lines&nbsp;matching&nbsp;the&nbsp;prefix&nbsp;'::#ERRORID'&nbsp;will&nbsp;be&nbsp;displayed.&nbsp;</tt><br>
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><br>
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;::**********************************************************************&nbsp;</tt><br>
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;::*&nbsp;Error&nbsp;messages&nbsp;(like&nbsp;Oracle&nbsp;oerr)&nbsp;</tt><br>
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;::**********************************************************************&nbsp;</tt><br>
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;::#Error.000&nbsp;Error.000&nbsp;--&nbsp;Template&nbsp;</tt><br>
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;::#Error.000&nbsp;//&nbsp;*Cause:&nbsp;&nbsp;</tt><br>
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;::#Error.000&nbsp;//&nbsp;*Action:&nbsp;&nbsp;</tt><br>
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;::-----------------------------------------------------------------------------------.......&nbsp;</tt><br>
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;::#Error.001&nbsp;Error.001&nbsp;-&nbsp;first&nbsp;error&nbsp;-&nbsp;Non&nbsp;fatal&nbsp;</tt><br>
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;::#Error.001&nbsp;//&nbsp;*Cause:&nbsp;Some&nbsp;error&nbsp;has&nbsp;occured&nbsp;(Continuing)&nbsp;</tt><br>
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;::#Error.001&nbsp;//&nbsp;*Action:&nbsp;What&nbsp;to&nbsp;do&nbsp;to&nbsp;prevent&nbsp;this&nbsp;error&nbsp;&nbsp;</tt><br>
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;::#Error.001&nbsp;//&nbsp;OR&nbsp;what&nbsp;action&nbsp;to&nbsp;take&nbsp;to&nbsp;clean&nbsp;up&nbsp;the&nbsp;mess&nbsp;</tt><br>
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;::&nbsp;</tt><br>
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;::#Error.002&nbsp;Error.002&nbsp;-&nbsp;Second&nbsp;error&nbsp;-&nbsp;Non&nbsp;fatal&nbsp;w&nbsp;emailFatal&nbsp;</tt><br>
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;::#Error.002&nbsp;//&nbsp;*Cause:&nbsp;Non&nbsp;fatal&nbsp;error&nbsp;-&nbsp;but&nbsp;sending&nbsp;email&nbsp;to&nbsp;Sysadm&nbsp;(Continuing)&nbsp;</tt><br>
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;::#Error.002&nbsp;//&nbsp;*Action:&nbsp;What&nbsp;to&nbsp;do&nbsp;to&nbsp;prevent&nbsp;this&nbsp;error&nbsp;OR&nbsp;what&nbsp;action&nbsp;to&nbsp;take&nbsp;to&nbsp;&nbsp;</tt><br>
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;::#Error.002&nbsp;//&nbsp;clean&nbsp;up&nbsp;the&nbsp;mess&nbsp;when&nbsp;script&nbsp;has&nbsp;aborted&nbsp;</tt><br>
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;::&nbsp;</tt><br>
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;::#Error.003&nbsp;Error.003&nbsp;-&nbsp;Second&nbsp;error&nbsp;-&nbsp;Fatal&nbsp;</tt><br>
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;::#Error.003&nbsp;//&nbsp;*Cause:&nbsp;Forced&nbsp;fatal&nbsp;error&nbsp;(Aborting)&nbsp;</tt><br>
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;::#Error.003&nbsp;//&nbsp;*Action:&nbsp;What&nbsp;to&nbsp;do&nbsp;to&nbsp;prevent&nbsp;this&nbsp;error&nbsp;OR&nbsp;what&nbsp;action&nbsp;to&nbsp;take&nbsp;to&nbsp;&nbsp;</tt><br>
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;::#Error.003&nbsp;//&nbsp;clean&nbsp;up&nbsp;the&nbsp;mess&nbsp;when&nbsp;script&nbsp;has&nbsp;aborted.&nbsp;</tt><br>
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;::#Error.003&nbsp;//&nbsp;Email&nbsp;send&nbsp;to&nbsp;Sysadm&nbsp;</tt><br>
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;::&nbsp;</tt><br>
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;::**********************************************************************&nbsp;</tt><br>
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><br>
+<tt>&nbsp;&nbsp;Additional&nbsp;help&nbsp;should&nbsp;be&nbsp;placed&nbsp;at&nbsp;the&nbsp;end&nbsp;of&nbsp;the&nbsp;main&nbsp;script&nbsp;</tt><br>
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><br>
+<h3>EXAMPLES </h3>
+<tt>&nbsp;&nbsp;Oerr&nbsp;oerr&nbsp;'ERROR.001'&nbsp;'Default&nbsp;message/description'&nbsp;</tt><br>
+<tt>&nbsp;&nbsp;&nbsp;</tt><br>
+<tt>&nbsp;&nbsp;Will&nbsp;display:&nbsp;</tt><br>
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><br>
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Error.001&nbsp;-&nbsp;first&nbsp;error&nbsp;-&nbsp;Non&nbsp;fatal&nbsp;</tt><br>
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//&nbsp;*Cause:&nbsp;Some&nbsp;error&nbsp;has&nbsp;occured&nbsp;(Continuing)&nbsp;</tt><br>
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//&nbsp;*Action:&nbsp;What&nbsp;to&nbsp;do&nbsp;to&nbsp;prevent&nbsp;this&nbsp;error&nbsp;</tt><br>
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//&nbsp;OR&nbsp;what&nbsp;action&nbsp;to&nbsp;take&nbsp;to&nbsp;clean&nbsp;up&nbsp;the&nbsp;mess&nbsp;</tt><br>
+<tt>&nbsp;&nbsp;&nbsp;</tt><br>
+<tt>&nbsp;&nbsp;</tt><br>
+<tt>&nbsp;&nbsp;_ErrorHandler&nbsp;</tt><br>
+<tt>&nbsp;&nbsp;&nbsp;</tt><br>
+<h3>REFERENCE </h3>
+<tt>&nbsp;&nbsp;:$reference&nbsp;http://www.dostips.com/forum/viewtopic.php?t=369&nbsp;</tt><br>
+<tt>&nbsp;&nbsp;:$created&nbsp;20080512&nbsp;:$changed&nbsp;20080512&nbsp;</tt><br>
+<tt>&nbsp;&nbsp;:$source&nbsp;http://www.dostips.com&nbsp;</tt><br>
+<tt>&nbsp;</tt><br>
+<h3>SOURCE </h3>
+<tt>&nbsp;&nbsp;C:\_\oerr.cmd&nbsp;</tt><br>
+<tt>&nbsp;</tt><br>
+<h3>(c)2015 Erik Bachmann, ClicketyClick.dk [ErikBachmann@ClicketyClick.dk] </h3>
+<hr>

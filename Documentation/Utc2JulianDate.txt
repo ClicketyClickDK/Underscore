@@ -1,0 +1,30 @@
+[Utc2JulianDate] v.[2015-10-08] rev.[11:20:00] 
+
+NAME 
+      Utc2JulianDate -- Convert UTC date [YYYY-MM-MM] to Julian date [Numeric] 
+  
+SYNOPSIS 
+  Utc2JulianDate {function} {PIPE} ALL 
+ 
+OPTIONS 
+  -h      Help page 
+ 
+DESCRIPTION 
+  Converting af human readable UTC date YYYY-MM-DD to a  
+  numeric Julian date 
+ 
+EXAMPLES 
+  CALL utc2JulianDate #JD '2010-01-20' 
+  SET #JD 
+  #JD=2455217 
+ 
+SEE ALSO 
+  JulianDate2Utc 
+   
+REFERENCE 
+  URL: http://aa.usno.navy.mil/faq/docs/JD_Formula.php 
+ 
+SOURCE 
+  C:\_\Utc2JulianDate.cmd 
+ 
+(c)2015 Erik Bachmann, ClicketyClick.dk [ErikBachmann@ClicketyClick.dk] 

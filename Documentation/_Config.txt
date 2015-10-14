@@ -1,0 +1,26 @@
+[_Config] v.[2015-10-08] rev.[16:00:00] 
+
+NAME 
+      _Config -- Global configuration file 
+  
+SYNOPSIS 
+      CALL _Config 
+    
+OPTIONS 
+  -h      Help page 
+ 
+DESCRIPTION 
+  Setting up global vars needed by most scripts like logging, trace etc.  
+  
+ENVIRONMENT 
+  _LogFile    Location of log file 
+  _TraceFile  Location of trace file 
+  _LOG_       Log command 
+  _TRACE_     Trace command 
+  _FINAL_     Footer 
+ 
+ 
+SOURCE 
+  C:\_\_Config.bat 
+ 
+(C)2015 Erik Bachmann, ClicketyClick.dk [ErikBachmann@ClicketyClick.dk] 

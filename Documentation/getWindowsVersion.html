@@ -1,0 +1,48 @@
+<link rel="stylesheet" href="what.css" type="text/css" />
+<h2>[getWindowsVersion] v.[2015-10-08] rev.[11:20:00] </h2>
+<h3>NAME </h3>
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;getWindowsVersion&nbsp;--&nbsp;Reading&nbsp;Windows&nbsp;version&nbsp;info&nbsp;from&nbsp;registry&nbsp;database&nbsp;</tt><br>
+<tt>&nbsp;&nbsp;</tt><br>
+<h3>SYNOPSIS </h3>
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;CALL&nbsp;getWindowsVersion&nbsp;</tt><br>
+<tt>&nbsp;&nbsp;</tt><br>
+<h3>OPTIONS </h3>
+<tt>&nbsp;&nbsp;-h&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Help&nbsp;page&nbsp;</tt><br>
+<tt>&nbsp;&nbsp;</tt><br>
+<h3>DESCRIPTION </h3>
+<tt>&nbsp;&nbsp;Reads&nbsp;Microsoft&nbsp;Window&nbsp;registry&nbsp;entries&nbsp;for&nbsp;Product&nbsp;Name,&nbsp;</tt><br>
+<tt>&nbsp;&nbsp;Verision,&nbsp;Build,&nbsp;CSD&nbsp;[Service&nbsp;Pack]&nbsp;and&nbsp;Installation&nbsp;Type&nbsp;</tt><br>
+<tt>&nbsp;&nbsp;Verbose&nbsp;the&nbsp;full&nbsp;name&nbsp;and&nbsp;set&nbsp;the&nbsp;following&nbsp;env&nbsp;vars:&nbsp;</tt><br>
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#HKEY_LOCAL_MACHINE.CSDVersion=Service&nbsp;Pack&nbsp;1&nbsp;</tt><br>
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#HKEY_LOCAL_MACHINE.CurrentBuild=7601&nbsp;</tt><br>
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#HKEY_LOCAL_MACHINE.CurrentVersion=6.1&nbsp;</tt><br>
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#HKEY_LOCAL_MACHINE.InstallationType=Client&nbsp;</tt><br>
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#HKEY_LOCAL_MACHINE.ProductName=Windows&nbsp;7&nbsp;Professional&nbsp;</tt><br>
+<tt>&nbsp;</tt><br>
+<h3>EXAMPLES </h3>
+<tt>&nbsp;&nbsp;CALL&nbsp;WindowsVersion.cmd&nbsp;</tt><br>
+<tt>&nbsp;</tt><br>
+<tt>&nbsp;&nbsp;Windows&nbsp;7&nbsp;Professional,&nbsp;Service&nbsp;Pack&nbsp;1&nbsp;[v.&nbsp;6.1&nbsp;Build.&nbsp;7601]&nbsp;Client&nbsp;</tt><br>
+<tt>&nbsp;&nbsp;&nbsp;</tt><br>
+<tt>&nbsp;&nbsp;set&nbsp;#&nbsp;</tt><br>
+<tt>&nbsp;&nbsp;#HKEY_LOCAL_MACHINE.CSDVersion=Service&nbsp;Pack&nbsp;1&nbsp;</tt><br>
+<tt>&nbsp;&nbsp;#HKEY_LOCAL_MACHINE.CurrentBuild=7601&nbsp;</tt><br>
+<tt>&nbsp;&nbsp;#HKEY_LOCAL_MACHINE.CurrentVersion=6.1&nbsp;</tt><br>
+<tt>&nbsp;&nbsp;#HKEY_LOCAL_MACHINE.InstallationType=Client&nbsp;</tt><br>
+<tt>&nbsp;&nbsp;#HKEY_LOCAL_MACHINE.ProductName=Windows&nbsp;7&nbsp;Professional&nbsp;</tt><br>
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><br>
+<h3>LIMITATIONS </h3>
+<tt>&nbsp;&nbsp;The&nbsp;ProcessBarMarker&nbsp;CANNOT&nbsp;be&nbsp;a&nbsp;digit&nbsp;due&nbsp;to&nbsp;redirection&nbsp;rules&nbsp;in&nbsp;&nbsp;</tt><br>
+<tt>&nbsp;&nbsp;DOS&nbsp;[Default=@]&nbsp;</tt><br>
+<tt>&nbsp;&nbsp;Avoid&nbsp;other&nbsp;special&nbsp;characters&nbsp;like&nbsp;ampersand&nbsp;or&nbsp;pipe&nbsp;</tt><br>
+<tt>&nbsp;&nbsp;</tt><br>
+<h3>EXIT STATUS </h3>
+<tt>&nbsp;&nbsp;Exit&nbsp;status&nbsp;is&nbsp;0&nbsp;if&nbsp;any&nbsp;matches&nbsp;were&nbsp;found,&nbsp;otherwise&nbsp;1.&nbsp;</tt><br>
+<tt>&nbsp;&nbsp;</tt><br>
+<tt>&nbsp;&nbsp;_registry.read_string&nbsp;</tt><br>
+<tt>&nbsp;</tt><br>
+<h3>SOURCE </h3>
+<tt>&nbsp;&nbsp;C:\_\getWindowsVersion.cmd&nbsp;</tt><br>
+<tt>&nbsp;</tt><br>
+<h3>(c)2015 Erik Bachmann, ClicketyClick.dk [ErikBachmann@ClicketyClick.dk] </h3>
+<hr>

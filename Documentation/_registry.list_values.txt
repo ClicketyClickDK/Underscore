@@ -1,0 +1,39 @@
+[_registry.list_values] v.[2015-10-08] rev.[11:20:00] 
+
+NAME 
+      _registry.list_values -- List value entries from the registration database 
+  
+SYNOPSIS 
+  _registry.list_values 'Path' 'key' 
+  
+OPTIONS 
+  -h      Help page 
+  
+DESCRIPTION 
+   list values found in the key given as first argument 
+  
+  Note: Patterns are case insensitive 
+ 
+  
+  
+EXAMPLES 
+      CALL _registry.list_values 'HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion' 
+  Will print a list of values like: 
+      SM_GamesName 
+      SM_ConfigureProgramsName 
+      :: 
+      PF_AccessoriesName 
+       
+EXIT STATUS 
+  Exit status is 0 if any matches were found, otherwise 1. 
+  1   Usage 
+  2   No key given 
+ 
+SEE ALSO 
+  _registry.write_string.cmd _registry.read_string.cmd  
+  _registry.delete_string.cmd _registry.list_keys.cmd 
+ 
+SOURCE 
+  C:\_\_registry.list_values.cmd 
+ 
+(c)2015 Erik Bachmann, ClicketyClick.dk [ErikBachmann@ClicketyClick.dk] 

@@ -1,0 +1,26 @@
+[BatchSubstitude] v.[2015-10-08] rev.[16:00:00] 
+
+NAME 
+      BatchSubstitude -- parses a File line by line and replaces a substring 
+  
+SYNOPSIS 
+      BatchSubstitude [OldStr] [NewStr] [File] 
+  
+  -h      Help page 
+      OldStr [in] - string to be replaced 
+      NewStr [in] - string to replace with 
+      File   [in] - file to be parsed 
+  
+  
+DESCRIPTION 
+  
+  
+EXAMPLES 
+  
+  
+  
+ 
+SOURCE 
+  C:\_\BatchSubstitude.bat 
+ 
+(C)2015 Erik Bachmann, ClicketyClick.dk [ErikBachmann@ClicketyClick.dk] 

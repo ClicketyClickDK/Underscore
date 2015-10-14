@@ -1,0 +1,29 @@
+[getDayOfYear] v.[2015-10-08] rev.[11:20:00] 
+
+NAME 
+      getDayOfYear -- Get day number in year 
+  
+SYNOPSIS 
+      getDayOfYear [VAR] [Date YYYY-MM-DD] 
+  
+OPTIONS 
+  -h      Help page 
+ 
+DESCRIPTION 
+  Get day number in year for a given date 
+  
+EXAMPLES 
+ 
+        getDayOfYear _doy 2015-03-30 
+        SET _doy=89 
+  
+SEE ALSO 
+  date.reference.csv  Reference file for date convertions 
+REFERENCE 
+  URL: http://www.robvanderwoude.com/files/datepart_xp.txt 
+  URL: http://disc.gsfc.nasa.gov/julian_calendar.shtml  
+ 
+SOURCE 
+  C:\_\getDayOfYear.cmd 
+ 
+(c)2015 robvanderwoude.com 

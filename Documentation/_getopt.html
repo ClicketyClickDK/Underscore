@@ -1,0 +1,61 @@
+<link rel="stylesheet" href="what.css" type="text/css" />
+<h2>[_GetOpt] v.[2015-10-08] rev.[16:00:00] </h2>
+<h3>NAME </h3>
+<tt>&nbsp;&nbsp;_GetOpt&nbsp;--&nbsp;Parse&nbsp;command&nbsp;line&nbsp;options&nbsp;and&nbsp;create&nbsp;environment&nbsp;vars&nbsp;</tt><br>
+<tt>&nbsp;&nbsp;</tt><br>
+<h3>SYNOPSIS </h3>
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;CALL&nbsp;_GetOpt&nbsp;¤PCT¤*&nbsp;</tt><br>
+<tt>&nbsp;&nbsp;</tt><br>
+<tt>&nbsp;&nbsp;SET&nbsp;$NAME=x&nbsp;</tt><br>
+<tt>&nbsp;&nbsp;::Parse&nbsp;options&nbsp;to&nbsp;current&nbsp;script&nbsp;</tt><br>
+<tt>&nbsp;&nbsp;CALL&nbsp;_GetOpt&nbsp;¤PCT¤*&nbsp;</tt><br>
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><br>
+<tt>&nbsp;&nbsp;::Show&nbsp;options&nbsp;</tt><br>
+<tt>&nbsp;&nbsp;set&nbsp;@x&nbsp;</tt><br>
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><br>
+<tt>&nbsp;&nbsp;::Clear&nbsp;env&nbsp;vars&nbsp;</tt><br>
+<tt>&nbsp;&nbsp;CALL&nbsp;_GetOpt&nbsp;</tt><br>
+<tt>&nbsp;&nbsp;</tt><br>
+<h3>DESCRIPTION </h3>
+<tt>&nbsp;&nbsp;If&nbsp;$NAME&nbsp;is&nbsp;not&nbsp;a&nbsp;defined&nbsp;environment&nbsp;var&nbsp;'UNDEFINED'&nbsp;is&nbsp;used&nbsp;as&nbsp;$NAME&nbsp;</tt><br>
+<tt>&nbsp;&nbsp;</tt><br>
+<tt>&nbsp;&nbsp;NOTE&nbsp;</tt><br>
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;If&nbsp;you&nbsp;entend&nbsp;to&nbsp;nest&nbsp;scripts&nbsp;both&nbsp;using&nbsp;_GetOpt&nbsp;you&nbsp;must&nbsp;&nbsp;</tt><br>
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;start&nbsp;the&nbsp;nested&nbsp;script&nbsp;with&nbsp;a&nbsp;SETLOCAL&nbsp;statement&nbsp;to&nbsp;preserve&nbsp;</tt><br>
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;the&nbsp;callers&nbsp;environment&nbsp;</tt><br>
+<tt>&nbsp;&nbsp;</tt><br>
+<h3>EXAMPLES: </h3>
+<tt>&nbsp;&nbsp;</tt><br>
+<tt>&nbsp;&nbsp;If&nbsp;x.bat&nbsp;contains&nbsp;the&nbsp;statement:&nbsp;</tt><br>
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;SET&nbsp;$NAME=x&nbsp;</tt><br>
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;CALL&nbsp;_GetOpt&nbsp;'_GetOpt.cmd'&nbsp;-html&nbsp;</tt><br>
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;SET&nbsp;@&nbsp;</tt><br>
+<tt>&nbsp;&nbsp;</tt><br>
+<tt>&nbsp;&nbsp;::&nbsp;Enable&nbsp;delayed&nbsp;expansion&nbsp;of&nbsp;vars&nbsp;to&nbsp;use&nbsp;content&nbsp;of&nbsp;vars&nbsp;</tt><br>
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;SETLOCAL&nbsp;ENABLEDELAYEDEXPANSION&nbsp;</tt><br>
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ECHO&nbsp;z=&nbsp;&nbsp;</tt><br>
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;SETLOCAL&nbsp;DISABLEDELAYEDEXPANSION&nbsp;</tt><br>
+<tt>&nbsp;&nbsp;</tt><br>
+<tt>&nbsp;&nbsp;::&nbsp;Or&nbsp;hard&nbsp;code&nbsp;reference&nbsp;</tt><br>
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ECHO&nbsp;a=&nbsp;</tt><br>
+<tt>&nbsp;&nbsp;</tt><br>
+<tt>&nbsp;&nbsp;::&nbsp;Clear&nbsp;flags&nbsp;</tt><br>
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;CALL&nbsp;_GetOpt&nbsp;</tt><br>
+<tt>&nbsp;&nbsp;</tt><br>
+<tt>&nbsp;Executing:&nbsp;x.bat&nbsp;-y:z&nbsp;-flag&nbsp;file&nbsp;-z:'hello&nbsp;world'&nbsp;</tt><br>
+<tt>&nbsp;&nbsp;</tt><br>
+<tt>&nbsp;x.bat&nbsp;will&nbsp;have&nbsp;the&nbsp;environment:&nbsp;</tt><br>
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$x.x=yy&nbsp;</tt><br>
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;@x.z=1&nbsp;</tt><br>
+<tt>&nbsp;&nbsp;</tt><br>
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;@x.1=file&nbsp;</tt><br>
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;@x.flag=1&nbsp;</tt><br>
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;@x.y=z&nbsp;</tt><br>
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;@x.z='hello&nbsp;world'&nbsp;</tt><br>
+<tt>&nbsp;NOTE&nbsp;Environment&nbsp;var&nbsp;DEBUG&nbsp;will&nbsp;enable&nbsp;debug&nbsp;info&nbsp;</tt><br>
+<tt>&nbsp;&nbsp;</tt><br>
+<h3>SOURCE </h3>
+<tt>&nbsp;&nbsp;C:\_\_GetOpt.cmd&nbsp;</tt><br>
+<tt>&nbsp;&nbsp;</tt><br>
+<h3>(c)2015 Erik Bachmann, ClicketyClick.dk (ErikBachmann@ClicketyClick.dk) </h3>
+<hr>

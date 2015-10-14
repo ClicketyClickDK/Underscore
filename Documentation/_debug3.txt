@@ -1,0 +1,5 @@
+[_debug3] v.[01.050] rev.[2011-10-13T18:41:00] 
+
+NAME 
+  _debug3 -- Sub script to _debug.cmd 
+  

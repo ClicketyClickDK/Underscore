@@ -1,0 +1,25 @@
+[_previousmonth] v.[2015-10-08] rev.[11:20:00] 
+
+NAME 
+      _previousmonth -- Get previous month in ISO form YYYY-MM 
+  
+SYNOPSIS 
+      _previousmonth [VAR] {YYYY-MM} 
+  
+  Will set VAR=YYYY-MM  
+  
+OPTIONS 
+  -h      Help page 
+  
+DESCRIPTION 
+  
+  
+EXAMPLES 
+  
+  
+  
+ 
+SOURCE 
+  C:\_\_previousmonth.cmd 
+ 
+(c)2015 Erik Bachmann, ClicketyClick.dk [ErikBachmann@ClicketyClick.dk] 

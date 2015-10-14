@@ -1,0 +1,26 @@
+[driveTypes] v.[2015-10-08] rev.[11:20:00] 
+
+NAME 
+      driveTypes -- List local drives available by type 
+  
+SYNOPSIS 
+      driveTypes [VAR] 
+  
+OPTIONS 
+  -h      Help page 
+  
+DESCRIPTION 
+  List all drives alphabetically and determine type 
+  
+EXAMPLES 
+      driveTypes 
+      drlist=[C:\ D:\ E:\ ] 
+      C: - Fixed Drive 
+      D: - CD-ROM Drive 
+      E: - Remote/Network Drive 
+  
+ 
+SOURCE 
+  C:\_\driveTypes.cmd 
+ 
+(c)2015 Erik Bachmann, ClicketyClick.dk [ErikBachmann@ClicketyClick.dk] 

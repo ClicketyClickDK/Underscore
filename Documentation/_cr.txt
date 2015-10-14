@@ -1,0 +1,29 @@
+[_cr] v.[2015-10-08] rev.[11:20:00] 
+
+NAME 
+  _cr -- Create a Cariage Return variable 
+  
+SYNOPSIS 
+  CALL _cr 
+  
+OPTIONS 
+  -h      Help page 
+ 
+DESCRIPTION 
+  Create a environment variable _CR with a single Cariage Return 
+  Useful for printing multiple messages on one line 
+ 
+EXAMPLES 
+  SETLOCAL ENABLEDELAYEDEXPANSION 
+  CALL _CR 
+  SET /P _=-- {PCT}CD{PCT} : OK      {EXCL}CR{EXCL}{LT}nul 
+ 
+SEE ALSO 
+  _BS.cmd     Back space 
+  _LF.cmd     Line Feed 
+ 
+ 
+SOURCE 
+  C:\_\_cr.cmd 
+ 
+(c)2015 Erik Bachmann, ClicketyClick.dk [ErikBachmann@ClicketyClick.dk] 

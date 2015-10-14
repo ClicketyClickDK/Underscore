@@ -1,0 +1,30 @@
+[_utf2oem] v.[2015-10-08] rev.[11:20:00] 
+
+NAME 
+      _utf2oem -- Convert UTF string to OEM and return in VAR 
+  
+SYNOPSIS 
+  _utf2oem ReturVar String 
+  
+OPTIONS 
+  -h      Help page 
+  
+DESCRIPTION 
+  Returns the string with UTF converted to OEM (ASCII) 
+  
+EXAMPLES 
+      CALL _utf2oem _ '+ª+©+Ñ+å+ÿ+à' 
+      ECHO  
+  
+  Will produce: 
+      æøåÆØÅ 
+  
+  
+BUGS / KNOWN PROBLEMS 
+  Special characters and diacritics are NOT converted correct 
+  _Utf2Ansi 
+ 
+SOURCE 
+  C:\_\_utf2oem.cmd 
+ 
+(c)2015 Erik Bachmann, ClicketyClick.dk [ErikBachmann@ClicketyClick.dk] 

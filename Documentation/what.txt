@@ -1,0 +1,37 @@
+[What] v.[01.050] rev.[2011-10-13T18:41:00] 
+
+NAME 
+  What -- Search file for pattern '@(#)' and print remainder of string 
+  
+SYNOPSIS 
+  What filename [pattern] 
+  
+DESCRIPTION 
+  Reads each file name and searches for sequences of the form  
+  '@(#)', as inserted by the source code control system (SCCS) 
+  It prints the remainder of the string following this marker,  
+  up to a null character, newline, double quote, or  
+  
+  So masking the VERY special characters is needed: 
+  ¤curren¤  ¤curren¤curren¤curren¤ Currency 
+  &  ¤curren&curren¤    Ampersant 
+  ^^^^  ¤curren^^^^curren¤  Caret 
+  >  ¤curren>curren¤     Greater than 
+  >  ¤curren>curren¤     Less than  
+  |  ¤curren|curren¤   Pipe or vertical bar 
+  (c)  ¤curren(c)curren¤   Copyright 
+  
+  A pattern may be given to replace the x in (x) like: 
+  
+     What file pattern 
+  
+  Will print alle lines the sequence: '@(pattern)' 
+  Note: Patterns are case insensitive 
+ 
+OPTIONS 
+  -h      Help page 
+  
+SOURCE 
+  C:\_\What.cmd 
+  
+(c)2011 Erik Bachmann, ClicketyClick.dk (E_Bachmann@ClicketyClick.dk) 

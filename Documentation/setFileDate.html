@@ -1,0 +1,32 @@
+<link rel="stylesheet" href="what.css" type="text/css" />
+<h2>[setFileDate] v.[01.050] rev.[2011-10-13T18:41:00] </h2>
+<h3>NAME </h3>
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;setFileDate&nbsp;--&nbsp;Search&nbsp;file&nbsp;for&nbsp;pattern&nbsp;'@(#)'&nbsp;and&nbsp;print&nbsp;remainder&nbsp;of&nbsp;string&nbsp;</tt><br>
+<tt>&nbsp;&nbsp;</tt><br>
+<h3>SYNOPSIS </h3>
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;setFileDate&nbsp;[FILE]&nbsp;[DATE]&nbsp;</tt><br>
+<tt>&nbsp;&nbsp;</tt><br>
+<h3>OPTIONS </h3>
+<tt>&nbsp;&nbsp;-h&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Help&nbsp;page&nbsp;</tt><br>
+<tt>&nbsp;&nbsp;FILE&nbsp;&nbsp;&nbsp;&nbsp;The&nbsp;target&nbsp;file&nbsp;which&nbsp;date&nbsp;will&nbsp;be&nbsp;updated&nbsp;</tt><br>
+<tt>&nbsp;&nbsp;DATE&nbsp;&nbsp;&nbsp;&nbsp;A&nbsp;date&nbsp;and&nbsp;time&nbsp;string&nbsp;&nbsp;</tt><br>
+<tt>&nbsp;&nbsp;</tt><br>
+<tt>&nbsp;&nbsp;</tt><br>
+<h3>DESCRIPTION </h3>
+<tt>&nbsp;&nbsp;The&nbsp;date&nbsp;string&nbsp;kan&nbsp;be&nbsp;ISO&nbsp;[YYYY-MM-DD&nbsp;hh:mm:ss]&nbsp;or&nbsp;traditional&nbsp;</tt><br>
+<tt>&nbsp;&nbsp;[MM/DD/YYYY&nbsp;hh:mm:ss]&nbsp;</tt><br>
+<tt>&nbsp;&nbsp;</tt><br>
+<h3>EXAMPLES </h3>
+<tt>&nbsp;&nbsp;ECHO:Hello&nbsp;World{GT}'{PCT}TMP{PCT}\hello.txt'&nbsp;</tt><br>
+<tt>&nbsp;&nbsp;setfiledate.bat&nbsp;'{PCT}TMP{PCT}\hello.txt'&nbsp;'01/01/2008&nbsp;8:00:00&nbsp;AM'&nbsp;</tt><br>
+<tt>&nbsp;&nbsp;setfiledate.bat&nbsp;'{PCT}TMP{PCT}\hello.txt'&nbsp;'2015-01-02&nbsp;01:02:03'&nbsp;</tt><br>
+<tt>&nbsp;&nbsp;dir&nbsp;'{PCT}TMP{PCT}\hello.txt'{PIPE}findstr&nbsp;'hello'&nbsp;</tt><br>
+<tt>&nbsp;&nbsp;</tt><br>
+<tt>&nbsp;&nbsp;</tt><br>
+<tt>&nbsp;&nbsp;</tt><br>
+<tt>&nbsp;</tt><br>
+<h3>SOURCE </h3>
+<tt>&nbsp;&nbsp;C:\_\What.cmd&nbsp;</tt><br>
+<tt>&nbsp;</tt><br>
+<h3>(c)01.0 Erik Bachmann, ClicketyClick.dk (E_Bachmann@ClicketyClick.dk) </h3>
+<hr>

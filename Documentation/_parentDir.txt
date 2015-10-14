@@ -1,0 +1,27 @@
+[_parentDir] v.[2015-10-08] rev.[11:20:00] 
+
+NAME 
+      _parentDir -- Get parent directory to a given directory 
+  
+SYNOPSIS 
+      _parentDir [VAR] {dir} 
+  
+OPTIONS 
+  -h      Help page 
+  VAR     Name of variable to return value in 
+  DIR     A given directory 
+  
+DESCRIPTION 
+  
+  
+EXAMPLES 
+      CALL _parentDir XX 'C:\Windows\system32\' 
+      SET XX 
+  Will display: 
+      XX=C:\Windows 
+  
+ 
+SOURCE 
+  C:\_\_parentDir.cmd 
+ 
+(c)2015 Erik Bachmann, ClicketyClick.dk [ErikBachmann@ClicketyClick.dk] 

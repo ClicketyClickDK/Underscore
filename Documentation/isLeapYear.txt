@@ -1,0 +1,25 @@
+[isLeapYear] v.[2015-10-08] rev.[11:20:00] 
+
+NAME 
+      isLeapYear -- Determins wether a given year is a leap year 
+  
+SYNOPSIS 
+      isLeapYear [VAR] [Year] 
+  
+OPTIONS 
+  -h      Help page 
+ 
+DESCRIPTION 
+  Set an environment variable LeapYear with the value 1 if the given year½  
+  is a leap year. 0 if no a leap year. 
+  
+EXAMPLES 
+  
+REFERENCE 
+  Author: 
+  URL: URL=http://www.robvanderwoude.com/files/datepart_xp.txt  
+ 
+SOURCE 
+  C:\_\isLeapYear.cmd 
+ 
+(c)2015 Erik Bachmann, ClicketyClick.dk [ErikBachmann@ClicketyClick.dk] 

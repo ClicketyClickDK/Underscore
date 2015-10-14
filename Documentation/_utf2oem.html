@@ -1,0 +1,31 @@
+<link rel="stylesheet" href="what.css" type="text/css" />
+<h2>[_utf2oem] v.[2015-10-08] rev.[11:20:00] </h2>
+<h3>NAME </h3>
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;_utf2oem&nbsp;--&nbsp;Convert&nbsp;UTF&nbsp;string&nbsp;to&nbsp;OEM&nbsp;and&nbsp;return&nbsp;in&nbsp;VAR&nbsp;</tt><br>
+<tt>&nbsp;&nbsp;</tt><br>
+<h3>SYNOPSIS </h3>
+<tt>&nbsp;&nbsp;_utf2oem&nbsp;ReturVar&nbsp;String&nbsp;</tt><br>
+<tt>&nbsp;&nbsp;</tt><br>
+<h3>OPTIONS </h3>
+<tt>&nbsp;&nbsp;-h&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Help&nbsp;page&nbsp;</tt><br>
+<tt>&nbsp;&nbsp;</tt><br>
+<h3>DESCRIPTION </h3>
+<tt>&nbsp;&nbsp;Returns&nbsp;the&nbsp;string&nbsp;with&nbsp;UTF&nbsp;converted&nbsp;to&nbsp;OEM&nbsp;(ASCII)&nbsp;</tt><br>
+<tt>&nbsp;&nbsp;</tt><br>
+<h3>EXAMPLES </h3>
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;CALL&nbsp;_utf2oem&nbsp;_&nbsp;'+ª+©+Ñ+å+ÿ+à'&nbsp;</tt><br>
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ECHO&nbsp;&nbsp;</tt><br>
+<tt>&nbsp;&nbsp;</tt><br>
+<tt>&nbsp;&nbsp;Will&nbsp;produce:&nbsp;</tt><br>
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;æøåÆØÅ&nbsp;</tt><br>
+<tt>&nbsp;&nbsp;</tt><br>
+<tt>&nbsp;&nbsp;</tt><br>
+<h3>BUGS / KNOWN PROBLEMS </h3>
+<tt>&nbsp;&nbsp;Special&nbsp;characters&nbsp;and&nbsp;diacritics&nbsp;are&nbsp;NOT&nbsp;converted&nbsp;correct&nbsp;</tt><br>
+<tt>&nbsp;&nbsp;_Utf2Ansi&nbsp;</tt><br>
+<tt>&nbsp;</tt><br>
+<h3>SOURCE </h3>
+<tt>&nbsp;&nbsp;C:\_\_utf2oem.cmd&nbsp;</tt><br>
+<tt>&nbsp;</tt><br>
+<h3>(c)2015 Erik Bachmann, ClicketyClick.dk [ErikBachmann@ClicketyClick.dk] </h3>
+<hr>

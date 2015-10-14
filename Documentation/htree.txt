@@ -1,0 +1,29 @@
+[htree] v.[2015-10-08] rev.[11:20:00] 
+
+NAME 
+      htree -- Graphically displays the folder structure of a drive or path in HTML 
+  
+SYNOPSIS 
+  htree [drive:][path] [/F] [/A] [ [2 
+  
+  /F   Display the names of the files in each folder. 
+  /A   Use ASCII instead of extended characters. (NO HTML) 
+  
+OPTIONS 
+  -h      Help page 
+ 
+DESCRIPTION 
+  Uses the DOS command TREE and convert the tree structure to HTML 
+  
+OUTPUT 
+ STDOUT(1)    HTML version of tree 
+ STDERR(2)    TEXT (ASCII/Extended) version 
+  
+EXAMPLES 
+  hTree {GT}html_tree.html 2{GT}ascii_tree.txt 
+ 
+ 
+SOURCE 
+  C:\_\htree.cmd 
+ 
+(c)2015 Erik Bachmann, ClicketyClick.dk [ErikBachmann@ClicketyClick.dk] 

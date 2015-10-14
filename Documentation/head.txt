@@ -1,0 +1,29 @@
+[head] v.[2015-10-08] rev.[11:20:00] 
+
+NAME 
+      head -- Print the first n lines of a file to STDOUT 
+  
+SYNOPSIS 
+  head [File] [n] 
+  
+  n = Number of lines to print, default=10 
+  
+OPTIONS 
+  -h      Help page 
+ 
+DESCRIPTION 
+  A function like MORE, but stops output after a given number of lines  
+  
+EXIT STATUS 
+  0   OK 
+  1   File not found 
+ 
+SEE ALSO 
+  tail.cmd    Print the last n lines of a file to STDOUT 
+   
+REFERENCE 
+  
+  URL=http://serverfault.com/questions/490841/how-to-display-the-first-n-lines-of-a-command-output-in-windows-the-equivalent 
+  Example by Ryan Ries 
+  
+(c)2015 Erik Bachmann, ClicketyClick.dk [ErikBachmann@ClicketyClick.dk] 

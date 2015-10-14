@@ -1,0 +1,24 @@
+[wget] v.[01.050] rev.[2011-10-13T18:41:00] 
+
+NAME 
+      wget -- Search file for pattern '@(#)' and print remainder of string 
+  
+SYNOPSIS 
+      wget [URL] [Output file] 
+  
+OPTIONS 
+  -h      Help page 
+  
+DESCRIPTION 
+  Used for downloading files from the internet 
+  using a command line batch tool. 
+  
+EXAMPLES 
+  wget 'http://clicketyclick.dk/development/dos/_/current' '{PCT}TEMP{PCT}\current.txt'  
+  
+  
+ 
+SOURCE 
+  C:\_\What.cmd 
+ 
+(c)01.0 Erik Bachmann, ClicketyClick.dk (E_Bachmann@ClicketyClick.dk) 

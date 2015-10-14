@@ -1,0 +1,28 @@
+[_registry.delete_key] v.[2015-10-08] rev.[11:20:00] 
+
+NAME 
+      _registry.delete_key -- Delete an entry from the registration database 
+  
+SYNOPSIS 
+  _registry.delete_key 'Path' 'key' 
+  
+OPTIONS 
+  -h      Help page 
+  
+DESCRIPTION 
+  _registry.delete_key deletes the entries found in the key given as first argument 
+  
+  Note: Patterns are case insensitive 
+  
+EXAMPLES 
+      CALL _registry.delete_key 'HKEY_LOCAL_MACHINE\SOFTWARE\ClicketyClick.dk\_registry.delete_key' 'Status' 
+  
+SEE ALSO 
+  _registry.delete_string.cmd     _registry.list.cmd 
+  _registry.read_string.cmd       _registry.write_string.cmd 
+ 
+ 
+SOURCE 
+  C:\_\_registry.delete_key.cmd 
+ 
+(c)2015 Erik Bachmann, ClicketyClick.dk [ErikBachmann@ClicketyClick.dk] 

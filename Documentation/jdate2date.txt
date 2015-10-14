@@ -1,0 +1,34 @@
+[jdate2date] v.[2015-10-08] rev.[11:20:00] 
+
+NAME 
+      jdate2date -- Converts ISO date to Julian date 
+  
+SYNOPSIS 
+      jdate2date [VAR] [IsoDate] 
+  
+OPTIONS 
+  -h      Help page 
+ 
+DESCRIPTION 
+  Converts a Julian date number to an ISO date [YYYY-MM-DD] 
+  
+EXAMPLES 
+      CALL jdate2date _var 2451544 
+  Should give _var=2000-01-01 
+ 
+  CALL shortDate2Iso _sdate '27/03/2015' 
+  CALL jdate2date _var {PCT}_sdate{PCT} 
+  
+SEE ALSO 
+  date2jdate.cmd      Converts ISO date to Julian date 
+  shortDate2Iso.cmd   Converts shortDate to ISO [YYYY-MM-ddThh:mm] 
+  date.reference.csv  Reference file for date convertions 
+   
+REFERENCE 
+  URL: http://en.wikipedia.org/wiki/Julian_day 
+  URL: http://en.wikipedia.org/wiki/ISO_8601  
+ 
+SOURCE 
+  C:\_\jdate2date.cmd 
+ 
+(c)2015 Erik Bachmann, ClicketyClick.dk [ErikBachmann@ClicketyClick.dk] 

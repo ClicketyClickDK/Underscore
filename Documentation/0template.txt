@@ -1,0 +1,23 @@
+[0template] v.[2015-02-19] rev.[00:00:00] 
+
+NAME 
+      0template -- Template for DOS batch script 
+  
+SYNOPSIS 
+      0template [VAR] 
+  
+OPTIONS 
+  -h      Help page 
+  
+DESCRIPTION 
+  
+  
+EXAMPLES 
+  
+  
+  
+ 
+SOURCE 
+  C:\_\0template.cmd 
+ 
+{COPY}2015 Erik Bachmann, ClicketyClick.dk [ErikBachmann@ClicketyClick.dk] 

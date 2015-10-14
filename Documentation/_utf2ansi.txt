@@ -1,0 +1,32 @@
+[_utf2ansi] v.[2015-10-08] rev.[11:20:00] 
+
+NAME 
+      _utf2ansi -- Convert UTF string to ANSI and return in VAR 
+  
+SYNOPSIS 
+  _utf2ansi ReturVar String 
+  
+OPTIONS 
+  -h      Help page 
+  
+DESCRIPTION 
+  Returns the string with UTF converted to Ansi 
+  
+EXAMPLES 
+      CALL _utf2ansi _ '+ª+©+Ñ+å+ÿ+à' 
+      ECHO  
+  
+  Will produce: 
+      µ°ÕãÏ+ 
+  
+BUGS / KNOWN PROBLEMS 
+  Special characters and diacritics are NOT converted correct 
+   
+SEE ALSO 
+  _Utf2Oem 
+   
+ 
+SOURCE 
+  C:\_\_utf2ansi.cmd 
+ 
+(c)2015 Erik Bachmann, ClicketyClick.dk [ErikBachmann@ClicketyClick.dk] 

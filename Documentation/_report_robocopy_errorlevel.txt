@@ -1,0 +1,23 @@
+[_report_robocopy_errorlevel] v.[2015-10-08] rev.[11:20:00] 
+
+NAME 
+      _report_robocopy_errorlevel -- Error handler for Robocopy 
+  
+SYNOPSIS 
+      _report_robocopy_errorlevel [errorlevel] 
+  
+OPTIONS 
+  -h      Help page 
+  
+DESCRIPTION 
+  Display an error message, description of the cause and proposed action 
+  
+EXAMPLES 
+  
+  
+  
+ 
+SOURCE 
+  C:\_\_report_robocopy_errorlevel.cmd 
+ 
+(c)2015 Erik Bachmann, ClicketyClick.dk [ErikBachmann@ClicketyClick.dk] 

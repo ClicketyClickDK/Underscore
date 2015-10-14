@@ -1,0 +1,29 @@
+[_callFunc] v.[2015-10-08] rev.[16:00:00] 
+
+NAME 
+      _callFunc -- Function call wrapper 
+  
+SYNOPSIS 
+      _callFunc [function] {arguments} 
+  
+    
+OPTIONS 
+  -h      Help page 
+  Function   The function to test  
+  Arguments  Argument to sendt to function 
+  
+DESCRIPTION 
+  Used in script template 
+  
+  $ErrorLevel     Increased with OS errorlevel 
+ 
+REQUIRES 
+  _debug.cmd 
+  _action.cmd 
+  _status.cmd 
+ 
+ 
+SOURCE 
+  C:\_\_callFunc.cmd 
+ 
+(c)2015 Erik Bachmann, ClicketyClick.dk [ErikBachmann@ClicketyClick.dk] 

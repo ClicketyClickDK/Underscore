@@ -1,0 +1,23 @@
+[checkoutArchive] v.[2015-10-08] rev.[11:20:00] 
+
+NAME 
+      checkoutArchive -- Checkout updates/install new units 
+  
+SYNOPSIS 
+      checkoutArchive [VAR] 
+  
+OPTIONS 
+  -h      Help page 
+  
+DESCRIPTION 
+  Install any newer file from Archive directory. 
+  
+  WILL overwrite any older file in scriptdirectory WITHOUT warning  
+  
+EXAMPLES 
+  
+ 
+SOURCE 
+  C:\_\checkoutArchive.cmd 
+ 
+(c)2015 Erik Bachmann, ClicketyClick.dk [ErikBachmann@ClicketyClick.dk] 

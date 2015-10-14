@@ -1,0 +1,55 @@
+<link rel="stylesheet" href="what.css" type="text/css" />
+<h2>[processBar] v.[2015-10-08] rev.[11:20:00] </h2>
+<h3>NAME </h3>
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;processBar&nbsp;--&nbsp;Progress&nbsp;bar&nbsp;weighted&nbsp;in&nbsp;pct.&nbsp;</tt><br>
+<tt>&nbsp;&nbsp;</tt><br>
+<h3>SYNOPSIS </h3>
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;processBar&nbsp;[&nbsp;[ProcessMax]&nbsp;[ProcessBarMaker]&nbsp;[CurrentValue]&nbsp;]&nbsp;</tt><br>
+<tt>&nbsp;&nbsp;</tt><br>
+<tt>&nbsp;&nbsp;Initiate&nbsp;process&nbsp;bar&nbsp;</tt><br>
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;processBar&nbsp;[ProcessMax]&nbsp;{ProcessBarMaker}&nbsp;</tt><br>
+<tt>&nbsp;&nbsp;</tt><br>
+<tt>&nbsp;&nbsp;Update&nbsp;process&nbsp;bar&nbsp;</tt><br>
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;processBar&nbsp;[CurrentValue]&nbsp;</tt><br>
+<tt>&nbsp;&nbsp;</tt><br>
+<h3>OPTIONS </h3>
+<tt>&nbsp;&nbsp;-h&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Help&nbsp;page&nbsp;</tt><br>
+<tt>&nbsp;&nbsp;ProcessMax&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The&nbsp;highest&nbsp;value&nbsp;(ie.&nbsp;100)&nbsp;</tt><br>
+<tt>&nbsp;&nbsp;ProcessBarMaker&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The&nbsp;marker&nbsp;char&nbsp;in&nbsp;the&nbsp;bar&nbsp;(Default=&nbsp;#)&nbsp;</tt><br>
+<tt>&nbsp;&nbsp;CurrentValue&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Current&nbsp;value&nbsp;in&nbsp;loop&nbsp;</tt><br>
+<tt>&nbsp;&nbsp;</tt><br>
+<h3>DESCRIPTION </h3>
+<tt>&nbsp;&nbsp;Updates&nbsp;the&nbsp;progressbar&nbsp;</tt><br>
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[################################..................]&nbsp;</tt><br>
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><br>
+<tt>&nbsp;&nbsp;This&nbsp;function&nbsp;requires&nbsp;an&nbsp;initiating&nbsp;call&nbsp;to&nbsp;processBar&nbsp;</tt><br>
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><br>
+<tt>&nbsp;&nbsp;NOTE&nbsp;There&nbsp;is&nbsp;NO&nbsp;loop&nbsp;control&nbsp;</tt><br>
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><br>
+<h3>LIMITATIONS </h3>
+<tt>&nbsp;&nbsp;The&nbsp;ProcessBarMarker&nbsp;CANNOT&nbsp;be&nbsp;a&nbsp;digit&nbsp;due&nbsp;to&nbsp;redirection&nbsp;rules&nbsp;in&nbsp;&nbsp;</tt><br>
+<tt>&nbsp;&nbsp;DOS&nbsp;[Default=@]&nbsp;</tt><br>
+<tt>&nbsp;&nbsp;Avoid&nbsp;other&nbsp;special&nbsp;characters&nbsp;like&nbsp;ampersand&nbsp;or&nbsp;pipe&nbsp;</tt><br>
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><br>
+<h3>EXAMPLES </h3>
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;SET&nbsp;_last_line=120&nbsp;</tt><br>
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><br>
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Call&nbsp;processBar&nbsp;{PCT}_last_line{PCT}&nbsp;#&nbsp;</tt><br>
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><br>
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;FOR&nbsp;/L&nbsp;{PCT}{PCT}x&nbsp;IN&nbsp;(1,1,{PCT}_last_line{PCT})&nbsp;DO&nbsp;(&nbsp;</tt><br>
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;CALL&nbsp;processBar&nbsp;{PCT}{PCT}x&nbsp;</tt><br>
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;)&nbsp;</tt><br>
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><br>
+<h3>EXIT STATUS </h3>
+<tt>&nbsp;&nbsp;Exit&nbsp;status&nbsp;is&nbsp;0&nbsp;if&nbsp;any&nbsp;matches&nbsp;were&nbsp;found,&nbsp;otherwise&nbsp;1.&nbsp;</tt><br>
+<tt>&nbsp;&nbsp;</tt><br>
+<h3>SEE ALSO </h3>
+<tt>&nbsp;&nbsp;_registry.delete_string.cmd&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;_registry.list.cmd&nbsp;</tt><br>
+<tt>&nbsp;&nbsp;_registry.read_string.cmd&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;_registry.write_string.cmd&nbsp;</tt><br>
+<tt>&nbsp;</tt><br>
+<tt>&nbsp;</tt><br>
+<h3>SOURCE </h3>
+<tt>&nbsp;&nbsp;C:\_\processBar.cmd&nbsp;</tt><br>
+<tt>&nbsp;</tt><br>
+<h3>(c)2015 Erik Bachmann, ClicketyClick.dk [ErikBachmann@ClicketyClick.dk] </h3>
+<hr>

@@ -1,0 +1,27 @@
+[which] v.[2015-10-08] rev.[11:20:00] 
+
+NAME 
+      which -- Searching for an executable on the path (or other path-like string if necessary) 
+  
+SYNOPSIS 
+  which filename 
+  
+OPTIONS 
+  -h      Help page 
+ 
+DESCRIPTION 
+  DEPRICATED - Use: Where.exe [If available] 
+  Used for identifying the location of an excetutable 
+  
+EXAMPLES 
+      CALL which reg 
+  Should echo 
+      C:\Windows\System32\reg.exe 
+  
+REFERENCE 
+  URL: http://stackoverflow.com/questions/245395/underused-features-of-windows-batch-files#246691 
+ 
+SOURCE 
+  C:\_\which.cmd 
+ 
+(c)2015 Erik Bachmann, ClicketyClick.dk [ErikBachmann@ClicketyClick.dk] 

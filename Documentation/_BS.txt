@@ -1,0 +1,54 @@
+[_BS] v.[2015-10-08] rev.[16:00:00] 
+
+NAME 
+      _BS -- Set environment variable _BS to contain a backspace 
+  
+SYNOPSIS 
+      _BS 
+  
+OPTIONS 
+  -h      Help page 
+  
+DESCRIPTION 
+  Set an environment variable to hold a backspace character.  
+  Used in text manipulation on screen 
+  
+EXAMPLES 
+      CALL _BS 
+      SET /P '_=a-{EXCL}_BS{EXCL}z' 
+  Will display:       
+      az 
+ 
+  Looping wheel to show activity   
+      CALL _BS 
+      SET /P _=Looping 1:: {LT} 
+      FOR /L a IN (1,1,) DO ( 
+         CALL :Loop a 
+       PING -w 1 -n 1 1.1.1.1 
+      ) 
+      ECHO Done 
+      GOTO :EOF 
+ 
+      :LOOP  
+          SET /A _=_BS.cmd  4 
+          IF '0' == '{EXCL}_{EXCL}' SET /P '_={PIPE}{EXCL}_BS{EXCL}'{LT}NUL 
+          IF '1' == '{EXCL}_{EXCL}' SET /P '_=/{EXCL}_BS{EXCL}'{LT}NUL 
+          IF '2' == '{EXCL}_{EXCL}' SET /P '_=-{EXCL}_BS{EXCL}'{LT}NUL 
+          IF '3' == '{EXCL}_{EXCL}' SET /P '_=\{EXCL}_BS{EXCL}'{LT}NUL 
+      GOTO :EOF 
+   
+ENVIRONMENT 
+  _BS     Holds the backspace character 
+ 
+SEE ALSO 
+  _cr.cmd     Carriage return   
+  _LF.cmd     Line Feed   
+   
+REFERENCE 
+  Author: Ed Dyreen 
+  URL: http://www.dostips.com/forum/viewtopic.php?f=3{AMP}t=2124 
+ 
+SOURCE 
+  C:\_\_BS.cmd 
+ 
+(c)2015 Erik Bachmann, ClicketyClick.dk [ErikBachmann@ClicketyClick.dk] 

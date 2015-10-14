@@ -1,0 +1,33 @@
+[unzip] v.[01.050] rev.[2011-10-13T18:41:00] 
+
+NAME 
+      unzip -- Search file for pattern '@(#)' and print remainder of string 
+  
+SYNOPSIS 
+      unzip [ZIP] {DIR} 
+ 
+OPTIONS 
+  -h      Help page 
+  ZIP     FULL path and file name of a ZIP file 
+  DIR     Directories where the archive should be decompressed 
+  
+DESCRIPTION 
+  Since Windows has no build in command line tool for compressing and 
+  uncompressing file archive. This - originally VBS - script was build. 
+  
+EXAMPLES 
+      ECHO:Hello world {GT} '{PCT}TEMP{PCT}\hello.txt' 
+      unzip '{PCT}TEMP{PCT}\myZip.zip' '{PCT}TEMP{PCT}\hello.txt' 
+      DIR '{PCT}TEMP{PCT}\myZip.zip' 
+ Or 
+      ECHO:Hello world{GT}'{PCT}TMP{PCT}\hello.txt' 
+      zip.bat '{PCT}TMP{PCT}\hello.zip' '{PCT}TMP{PCT}\hello.txt' 
+      DEL '{PCT}TMP{PCT}\hello.txt' 
+      DIR '{PCT}TMP{PCT}\hello.txt' 
+      unzip.bat '{PCT}TMP{PCT}\hello.zip' '{PCT}TMP{PCT}' 
+      DIR '{PCT}TMP{PCT}\hello.txt' 
+ 
+SOURCE 
+  C:\_\What.cmd 
+ 
+(c)01.0 Erik Bachmann, ClicketyClick.dk (E_Bachmann@ClicketyClick.dk) 

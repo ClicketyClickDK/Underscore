@@ -1,0 +1,27 @@
+[updateArchive] v.[2015-10-08] rev.[11:20:00] 
+
+NAME 
+      updateArchive -- Download an update from ClicketyClick.dk 
+  
+SYNOPSIS 
+  updateArchive [Arguments] 
+  
+OPTIONS 
+  -h      Help page 
+ 
+DESCRIPTION 
+  Read a version indicator on the source website, download the related versioned package and unpack it. 
+ 
+EXAMPLES 
+  CALL $NAME  
+   
+  
+REQUIRES 
+  wget    A non-interactive network downloader 
+  unzip   Unzip an existing ZIP archive 
+ 
+ 
+SOURCE 
+  C:\_\updateArchive.cmd 
+ 
+(c)2015 Erik Bachmann, ClicketyClick.dk [ErikBachmann@ClicketyClick.dk] 

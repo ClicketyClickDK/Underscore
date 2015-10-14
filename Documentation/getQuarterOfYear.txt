@@ -1,0 +1,30 @@
+[getQuarterOfYear] v.[2015-10-08] rev.[11:20:00] 
+
+NAME 
+      getQuarterOfYear -- Gets quarter of year for a given date 
+  
+SYNOPSIS 
+      getQuarterOfYear [YYYY-MM-DD] 
+  
+OPTIONS 
+  -h      Help page 
+ 
+DESCRIPTION 
+  January - March     1 quarter 
+  April - June        2 quarter 
+  July - September    3 quarter 
+  October - December  4 quarter 
+  
+EXAMPLES 
+       
+      getQuarterOfYear.cmd 2015-03-31 
+      QuarterOfYear=1 
+       
+      getQuarterOfYear.cmd 2015-04-01 
+      QuarterOfYear=2 
+  
+ 
+SOURCE 
+  C:\_\getQuarterOfYear.cmd 
+ 
+(c)2015 Erik Bachmann, ClicketyClick.dk [ErikBachmann@ClicketyClick.dk] 

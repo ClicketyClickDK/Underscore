@@ -1,0 +1,30 @@
+[_toUpperCase] v.[2015-10-08] rev.[11:20:00] 
+
+NAME 
+      _toUpperCase -- Will transform a given string to UPPERCASE 
+  
+SYNOPSIS 
+  _toUpperCase UpperCaseVar String 
+  
+OPTIONS 
+  -h      Help page 
+  
+DESCRIPTION 
+  Returns the string converted to uppercase letters in the environment variable given as first argument  
+  
+EXAMPLES 
+      CALL _toUpper _ 'MixCaseString' 
+      ECHO  
+  
+  Will produce: 
+      MIXEDCASESTRING 
+  
+  Special characteres and diacritics are NOT converted correct 
+  _toLowerCase 
+REFERENCE 
+  URL: http://windowsitpro.com/article/articleid/82861/jsi-tip-8971-how-can-i-change-the-case-of-string-to-all-upper-case-or-all-lower-case.html 
+ 
+SOURCE 
+  C:\_\_toUpperCase.cmd 
+ 
+(c)2015 Erik Bachmann, ClicketyClick.dk [ErikBachmann@ClicketyClick.dk] 

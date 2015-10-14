@@ -1,0 +1,34 @@
+[shortDate2Iso] v.[2015-10-08] rev.[11:20:00] 
+
+NAME 
+      shortDate2Iso -- Converts shortDate to ISO [YYYY-MM-ddThh:mm] 
+  
+SYNOPSIS 
+      shortDate2Iso [var] [shortDate] 
+  
+OPTIONS 
+  -h      Help page 
+ 
+DESCRIPTION 
+  Convert any date output in ShortDate to ISO. 
+  Like date from Date.EXE or environment variable {PCT}DATE{PCT} or DIR 
+  The function uses Windows registry to determine the valid sShortDate format 
+  Please use only the standard formats as predefined in  
+  Windows regional settings. 
+  If you invent your own formats and manipulate registry directly 
+  then you're on you own. 
+  
+EXAMPLES 
+      FOR {PCT}i IN {LPAR}C:\_\shortDate2Iso.cmd{RPAR} DO C:\_\shortDate2Iso.cmd {PCT}~ti 
+  
+ Will give you date and time of the function file in ISO format 
+ [YYYY-MM-ddThh:mm] 
+  
+REFERENCE 
+  URL: https://technet.microsoft.com/en-us/library/cc978653 
+  URL: http://stackoverflow.com/questions/203090/how-to-get-current-datetime-on-windows-command-line-in-a-suitable-format-for-us 
+ 
+SOURCE 
+  C:\_\shortDate2Iso.cmd 
+ 
+(c)2015 Erik Bachmann, ClicketyClick.dk [ErikBachmann@ClicketyClick.dk] 

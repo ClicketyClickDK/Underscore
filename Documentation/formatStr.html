@@ -1,0 +1,44 @@
+<link rel="stylesheet" href="what.css" type="text/css" />
+<h2>[formatStr] v.[2015-10-08] rev.[11:20:00] </h2>
+<h3>NAME </h3>
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;formatStr&nbsp;--&nbsp;outputs&nbsp;columns&nbsp;of&nbsp;strings&nbsp;right&nbsp;or&nbsp;left&nbsp;aligned&nbsp;</tt><br>
+<tt>&nbsp;&nbsp;</tt><br>
+<h3>SYNOPSIS </h3>
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;formatStr&nbsp;[Format]&nbsp;strX&nbsp;strY....&nbsp;</tt><br>
+<tt>&nbsp;&nbsp;</tt><br>
+<h3>OPTIONS </h3>
+<tt>&nbsp;&nbsp;-h&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Help&nbsp;page&nbsp;</tt><br>
+<tt>&nbsp;&nbsp;</tt><br>
+<h3>DESCRIPTION </h3>
+<tt>&nbsp;&nbsp;Writes&nbsp;formatted&nbsp;string&nbsp;to&nbsp;the&nbsp;standard&nbsp;output.&nbsp;&nbsp;</tt><br>
+<tt>&nbsp;&nbsp;The&nbsp;argument&nbsp;are&nbsp;formatted&nbsp;under&nbsp;control&nbsp;of&nbsp;the&nbsp;format&nbsp;string.&nbsp;</tt><br>
+<tt>&nbsp;&nbsp;The&nbsp;format&nbsp;string&nbsp;holds&nbsp;the&nbsp;operands&nbsp;to&nbsp;be&nbsp;replaced&nbsp;with&nbsp;the&nbsp;&nbsp;</tt><br>
+<tt>&nbsp;&nbsp;stings&nbsp;subsequently&nbsp;following&nbsp;the&nbsp;format&nbsp;string.&nbsp;</tt><br>
+<tt>&nbsp;&nbsp;The&nbsp;operand&nbsp;is&nbsp;a&nbsp;length&nbsp;surrounded&nbsp;by&nbsp;curled&nbsp;parentheses&nbsp;like&nbsp;{10}.&nbsp;</tt><br>
+<tt>&nbsp;&nbsp;If&nbsp;the&nbsp;length&nbsp;is&nbsp;less&nbsp;than&nbsp;zero,&nbsp;the&nbsp;string&nbsp;inserted&nbsp;will&nbsp;be&nbsp;aligned&nbsp;</tt><br>
+<tt>&nbsp;&nbsp;to&nbsp;the&nbsp;right.&nbsp;</tt><br>
+<tt>&nbsp;&nbsp;&nbsp;</tt><br>
+<h3>EXAMPLES </h3>
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;CALL&nbsp;formatStr&nbsp;'{20}[{10}]'&nbsp;'Label'&nbsp;'Hello&nbsp;world'&nbsp;</tt><br>
+<tt>&nbsp;&nbsp;Will&nbsp;show&nbsp;</tt><br>
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Label&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Hello&nbsp;worl]&nbsp;</tt><br>
+<tt>&nbsp;&nbsp;</tt><br>
+<tt>&nbsp;&nbsp;formatStr&nbsp;'[{10}][{-10}][{10}]'&nbsp;a&nbsp;spacy&nbsp;example&nbsp;</tt><br>
+<tt>&nbsp;&nbsp;[a&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;][&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;spacy][example&nbsp;&nbsp;&nbsp;]&nbsp;</tt><br>
+<tt>&nbsp;&nbsp;</tt><br>
+<tt>&nbsp;&nbsp;</tt><br>
+<h3>REFERENCE </h3>
+<tt>&nbsp;&nbsp;URL:&nbsp;http://www.dostips.com/{QUEST}t=Function.Format&nbsp;</tt><br>
+<tt>&nbsp;&nbsp;</tt><br>
+<tt>&nbsp;&nbsp;Please&nbsp;note:&nbsp;&nbsp;</tt><br>
+<tt>&nbsp;&nbsp;This&nbsp;function&nbsp;has&nbsp;the&nbsp;following&nbsp;differences&nbsp;from&nbsp;the&nbsp;DosTips&nbsp;'Format':&nbsp;</tt><br>
+<tt>&nbsp;&nbsp;1)&nbsp;Name&nbsp;changed&nbsp;to&nbsp;FormatStr&nbsp;due&nbsp;to&nbsp;similarity&nbsp;to&nbsp;the&nbsp;DOS&nbsp;format&nbsp;&nbsp;</tt><br>
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[You&nbsp;do&nbsp;NOT&nbsp;want&nbsp;to&nbsp;confuse&nbsp;these&nbsp;commands].&nbsp;</tt><br>
+<tt>&nbsp;&nbsp;2)&nbsp;'ECHO.'&nbsp;changed&nbsp;to&nbsp;'ECHO:'&nbsp;since&nbsp;the&nbsp;'.'&nbsp;sometimes&nbsp;fails&nbsp;under&nbsp;Windows&nbsp;7+&nbsp;</tt><br>
+<tt>&nbsp;&nbsp;2)&nbsp;Tags&nbsp;are&nbsp;changed&nbsp;from&nbsp;[]&nbsp;to&nbsp;{}&nbsp;since&nbsp;[]&nbsp;are&nbsp;useful&nbsp;in&nbsp;formatted&nbsp;strings&nbsp;</tt><br>
+<tt>&nbsp;&nbsp;</tt><br>
+<h3>SOURCE </h3>
+<tt>&nbsp;&nbsp;C:\_\formatStr.cmd&nbsp;</tt><br>
+<tt>&nbsp;</tt><br>
+<h3>(c)2015 http://www.dostips.com </h3>
+<hr>

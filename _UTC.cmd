@@ -3,7 +3,7 @@ SETLOCAL&::(Don't pollute the global environment with the following)
 ::**********************************************************************
 SET $NAME=%~n0
 SET $DESCRIPTION=Set environment UTC as current date in UTC format AND UTC_FILE as valid filename
-SET $Author=Erik Bachmann, ClicketyClick.dk (E_Bachmann@ClicketyClick.dk)
+SET $Author=Erik Bachmann, ClicketyClick.dk (ErikBachmann@ClicketyClick.dk)
 SET $Source=%~dpnx0
 ::----------------------------------------------------------------------
 ::@(#)NAME
@@ -44,14 +44,16 @@ SET $Source=%~dpnx0
 ::SET $VERSION=01.017&SET $REVISION=2009-03-??T00:00:00&SET $COMMENT=EBP/Reformatted
 ::SET $VERSION=01.300&SET $REVISION=2009-09-19T05:42:00&SET $COMMENT=EBP/Flags in CFG.FLAGS
 ::SET $VERSION=01.301&SET $REVISION=2009-09-20T05:56:00&SET $COMMENT=EBP/Replacing blanks with 0
-  SET $VERSION=01.302&SET $REVISION=2010-10-20T17:15:00&SET $Comment=Addding $Source/EBP
+::SET $VERSION=01.302&SET $REVISION=2010-10-20T17:15:00&SET $Comment=Addding $Source/EBP
+  SET $VERSION=2015-10-08&SET $REVISION=11:20:00&SET $COMMENT=GetOpt: Calling usage on -h and exit on error / ErikBachmann
 ::**********************************************************************
-::@(#)(C)%$Revision:~0,4% %$Author%
+::@(#)(c)%$Version:~0,4% %$Author%
 ::**********************************************************************
 
-CALL _Debug
-CALL _GetOpt %*
-CALL _Debug
+    CALL "%~dp0\_DEBUG"
+    CALL "%~dp0\_Getopt" %*&IF ERRORLEVEL 1 EXIT /B 1
+    CALL "%~dp0\_DEBUG"
+
 
 %_DEBUG_% %NAME% v.%Version% -- %Description%
 %_DEBUG_% Rev. %Revision%

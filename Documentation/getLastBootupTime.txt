@@ -1,0 +1,23 @@
+[getLastBootupTime] v.[2015-10-08] rev.[11:20:00] 
+
+NAME 
+      getLastBootupTime -- Get latest boot up time for system 
+  
+SYNOPSIS 
+      getLastBootupTime 
+  
+OPTIONS 
+  -h      Help page 
+ 
+DESCRIPTION 
+  
+  
+EXAMPLES 
+     getLastBootupTime.cmd 
+     DTS=20150328015443.064271+060 
+  
+ 
+SOURCE 
+  C:\_\getLastBootupTime.cmd 
+ 
+(c)2015 Erik Bachmann, ClicketyClick.dk [ErikBachmann@ClicketyClick.dk] 

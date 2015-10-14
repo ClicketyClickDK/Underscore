@@ -1,0 +1,36 @@
+<link rel="stylesheet" href="what.css" type="text/css" />
+<h2>[spinner] v.[2015-10-08] rev.[11:20:00] </h2>
+<h3>NAME </h3>
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;spinner&nbsp;--&nbsp;Spinner&nbsp;to&nbsp;indicate&nbsp;process&nbsp;</tt><br>
+<tt>&nbsp;&nbsp;</tt><br>
+<h3>SYNOPSIS </h3>
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;spinner&nbsp;[type]&nbsp;</tt><br>
+<tt>&nbsp;&nbsp;</tt><br>
+<h3>OPTIONS </h3>
+<tt>&nbsp;&nbsp;-h&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Help&nbsp;page&nbsp;</tt><br>
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Sequence&nbsp;'-\{PIPE}/'&nbsp;[Default]&nbsp;</tt><br>
+<tt>&nbsp;&nbsp;o&nbsp;&nbsp;&nbsp;Sequence&nbsp;'_.oO'&nbsp;&nbsp;</tt><br>
+<tt>&nbsp;&nbsp;</tt><br>
+<h3>DESCRIPTION </h3>
+<tt>&nbsp;&nbsp;A&nbsp;textual&nbsp;spinner&nbsp;to&nbsp;indicate&nbsp;that&nbsp;a&nbsp;process&nbsp;is&nbsp;running&nbsp;</tt><br>
+<tt>&nbsp;&nbsp;</tt><br>
+<h3>EXAMPLES </h3>
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;SET&nbsp;_last_line=10&nbsp;</tt><br>
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;SET&nbsp;_Spinner=&nbsp;</tt><br>
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;FOR&nbsp;/L&nbsp;{PCT}{PCT}x&nbsp;IN&nbsp;(1,1,{PCT}_last_line{PCT})&nbsp;DO&nbsp;(&nbsp;</tt><br>
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;CALL&nbsp;spinner&nbsp;</tt><br>
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;timeout&nbsp;1&nbsp;{GT}nul&nbsp;</tt><br>
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;)&nbsp;</tt><br>
+<tt>&nbsp;&nbsp;</tt><br>
+<tt>&nbsp;Or&nbsp;shorter&nbsp;</tt><br>
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;FOR&nbsp;/L&nbsp;{PCT}x&nbsp;IN&nbsp;(1,1,10)&nbsp;DO&nbsp;@CALL&nbsp;spinner{AMP}timeout&nbsp;1&nbsp;{GT}nul&nbsp;</tt><br>
+<tt>&nbsp;&nbsp;</tt><br>
+<h3>REQUIRES </h3>
+<tt>&nbsp;&nbsp;_BS&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Set&nbsp;environment&nbsp;variable&nbsp;_BS&nbsp;to&nbsp;contain&nbsp;a&nbsp;backspace&nbsp;</tt><br>
+<tt>&nbsp;</tt><br>
+<tt>&nbsp;</tt><br>
+<h3>SOURCE </h3>
+<tt>&nbsp;&nbsp;C:\_\spinner.cmd&nbsp;</tt><br>
+<tt>&nbsp;</tt><br>
+<h3>(c)2015 Erik Bachmann, ClicketyClick.dk [ErikBachmann@ClicketyClick.dk] </h3>
+<hr>

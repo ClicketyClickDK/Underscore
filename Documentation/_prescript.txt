@@ -1,0 +1,33 @@
+[_prescript] v.[2015-10-08] rev.[11:20:00] 
+
+NAME 
+      _prescript -- Pre processing template 
+  
+SYNOPSIS 
+      _prescript [function] {arguments} 
+    
+OPTIONS 
+  -h      Help page 
+  
+DESCRIPTION 
+  Used as a pre processing template with _postScript.cmd 
+  No detailed example currently available 
+  
+EXAMPLES 
+     CALL _preScript 
+     :: processing 
+     CALL _prescript 
+  
+  $ErrorLevel     Increased with OS errorlevel 
+ 
+REQUIRES 
+  _UTC                    Current time 
+  _registry.write_string  Write data to registry 
+  _debug.cmd 
+  _getopt 
+ 
+ 
+SOURCE 
+  C:\_\_prescript.cmd 
+ 
+(c)2015 Erik Bachmann, ClicketyClick.dk [ErikBachmann@ClicketyClick.dk] 

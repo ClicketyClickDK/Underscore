@@ -1,0 +1,39 @@
+
+code {
+	color:			darkgreen;
+	background:		#E5E4E2;	/* Platinum */
+}
+
+dl	{
+	text-indent:	10px; /* added the default value */
+	background:		#C3FDB8; /*	Light Jade */
+	background:		#f3FFd8; /*   */
+}
+
+dt 	{ font-weight:	bold; }
+
+pre	{
+	margin-left:	20px;
+	margin-right:	20px;
+	color:			darkgreen;
+	background:		#E5E4E2;	/* Platinum */
+	background:		#F0F8FF;	/* AliceBlue */
+}
+
+.syntax {
+	color:			red;
+	background:		#E5E4E2;	/* Platinum */
+}
+
+
+
+#TOC {border:solid black 1px; margin:10px; padding:10px;}
+.TOCEntry{font-family:sans-serief;}
+.TOCEntry a{text-decoration:none;}
+.TOCLevel1{font-size:13pt; font-weight:bold;}
+.TOCLevel2{font-size:12pt; margin-left: 10px; font-weight:bold;}
+.TOCLevel3{font-size:11pt; margin-left: 20px;font-weight:bold;}
+.TOCLevel4{font-size:10pt; margin-left: 30px;}
+.TOCSectNum{margin-right: 10px; font-weight:none;}
+/*.TOCSectNum{display:none;}
+*/

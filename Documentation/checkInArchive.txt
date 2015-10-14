@@ -1,0 +1,24 @@
+[checkInArchive] v.[2015-10-08] rev.[11:20:00] 
+
+NAME 
+      checkInArchive -- Make an archive version of batch jobs 
+  
+SYNOPSIS 
+      checkInArchive 
+  
+OPTIONS 
+  -h      Help page 
+  
+DESCRIPTION 
+  Copy any new files in the script directory to archive directory. 
+  Insert file data and time in filename 
+  
+EXAMPLES 
+  
+  
+  
+ 
+SOURCE 
+  C:\_\checkInArchive.cmd 
+ 
+(c)2015 Erik Bachmann, ClicketyClick.dk [ErikBachmann@ClicketyClick.dk] 

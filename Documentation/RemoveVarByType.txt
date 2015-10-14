@@ -1,0 +1,25 @@
+[RemoveVarByType] v.[2015-10-08] rev.[11:20:00] 
+
+NAME 
+      RemoveVarByType -- Remove variables by type / prefix 
+  
+SYNOPSIS 
+      RemoveVarByType [VAR] 
+  
+OPTIONS 
+  -h      Help page 
+ 
+DESCRIPTION 
+  Remove all variables from the environment by the variables prefix 
+  
+EXAMPLES 
+       
+              SET #x=x 
+              SET #y=y 
+              CALL removevarbytype # 
+  
+ 
+SOURCE 
+  C:\_\RemoveVarByType.cmd 
+ 
+(c)2015 Erik Bachmann, ClicketyClick.dk [ErikBachmann@ClicketyClick.dk] 

@@ -1,0 +1,23 @@
+[startScreenSaver] v.[2015-10-08] rev.[11:20:00] 
+
+NAME 
+      startScreenSaver -- Start Windows screensaver 
+  
+SYNOPSIS 
+      startScreenSaver [VAR] 
+  
+OPTIONS 
+  -h      Help page 
+ 
+DESCRIPTION 
+  
+  
+EXAMPLES 
+  
+  
+  
+ 
+SOURCE 
+  C:\_\startScreenSaver.cmd 
+ 
+(c)2015 Erik Bachmann, ClicketyClick.dk [ErikBachmann@ClicketyClick.dk] 

@@ -1,0 +1,31 @@
+[_line] v.[2015-10-08] rev.[11:20:00] 
+
+NAME 
+      _line -- Display a line of a given length 
+  
+SYNOPSIS 
+      _line [length] {char} 
+  
+OPTIONS 
+  -h      Help page 
+  length  The length of the line  
+  char    The charactor used to draw the line [Default: #]  
+  
+DESCRIPTION 
+  Displaying separator lines to improve the layout  
+  
+EXAMPLES 
+      CALL _line 10 
+ will display 
+      ########## 
+  
+      CALL _line 5 X 
+ will display 
+      XXXXX 
+  
+  
+ 
+SOURCE 
+  C:\_\_line.cmd 
+ 
+(c)2015 Erik Bachmann, ClicketyClick.dk [ErikBachmann@ClicketyClick.dk] 

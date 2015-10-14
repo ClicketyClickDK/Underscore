@@ -1,0 +1,38 @@
+<link rel="stylesheet" href="what.css" type="text/css" />
+<h2>[_is32bit] v.[2015-10-08] rev.[16:00:00] </h2>
+<h3>NAME </h3>
+<tt>&nbsp;&nbsp;_is32bit&nbsp;--&nbsp;Detects&nbsp;32&nbsp;/&nbsp;64&nbsp;architecture&nbsp;</tt><br>
+<tt>&nbsp;&nbsp;</tt><br>
+<h3>SYNOPSIS </h3>
+<tt>&nbsp;&nbsp;_is32bit&nbsp;</tt><br>
+<tt>&nbsp;&nbsp;</tt><br>
+<h3>OPTIONS </h3>
+<tt>&nbsp;&nbsp;-h&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Help&nbsp;page&nbsp;</tt><br>
+<tt>&nbsp;&nbsp;</tt><br>
+<h3>DESCRIPTION </h3>
+<tt>&nbsp;&nbsp;Uses&nbsp;the&nbsp;two&nbsp;environment&nbsp;variables&nbsp;$Is32Bit&nbsp;and&nbsp;$Is64Bit&nbsp;to&nbsp;indicate&nbsp;</tt><br>
+<tt>&nbsp;&nbsp;the&nbsp;architecture.&nbsp;&nbsp;</tt><br>
+<tt>&nbsp;&nbsp;If&nbsp;32&nbsp;bit&nbsp;$Is32Bit&nbsp;will&nbsp;be&nbsp;set&nbsp;and&nbsp;$Is64Bit&nbsp;removed.&nbsp;And&nbsp;vice&nbsp;versa&nbsp;on&nbsp;64&nbsp;bit.&nbsp;</tt><br>
+<tt>&nbsp;&nbsp;</tt><br>
+<h3>EXAMPLES </h3>
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;CALL&nbsp;_is32bit&nbsp;</tt><br>
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;SET&nbsp;$Is&nbsp;</tt><br>
+<tt>&nbsp;&nbsp;</tt><br>
+<tt>&nbsp;&nbsp;Will&nbsp;produce:&nbsp;</tt><br>
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$Is32Bit=1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;32&nbsp;bit&nbsp;architecture&nbsp;</tt><br>
+<tt>&nbsp;&nbsp;and&nbsp;</tt><br>
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$Is64Bit=1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;64&nbsp;bit&nbsp;architecture&nbsp;</tt><br>
+<tt>&nbsp;&nbsp;</tt><br>
+<tt>&nbsp;&nbsp;</tt><br>
+<tt>&nbsp;&nbsp;0&nbsp;&nbsp;&nbsp;32&nbsp;bit&nbsp;</tt><br>
+<tt>&nbsp;&nbsp;1&nbsp;&nbsp;&nbsp;64&nbsp;bit&nbsp;</tt><br>
+<tt>&nbsp;&nbsp;2&nbsp;&nbsp;&nbsp;64&nbsp;bit&nbsp;assumed&nbsp;</tt><br>
+<tt>&nbsp;</tt><br>
+<h3>REFERENCE </h3>
+<tt>&nbsp;&nbsp;OLD&nbsp;http://windowsitpro.com/article/articleid/82861/jsi-tip-8971-how-can-i-change-the-case-of-string-to-all-upper-case-or-all-lower-case.html&nbsp;</tt><br>
+<tt>&nbsp;</tt><br>
+<h3>SOURCE </h3>
+<tt>&nbsp;&nbsp;C:\_\_is32bit.cmd&nbsp;</tt><br>
+<tt>&nbsp;</tt><br>
+<h3>(C)2015 Erik Bachmann, ClicketyClick.dk [ErikBachmann@ClicketyClick.dk] </h3>
+<hr>

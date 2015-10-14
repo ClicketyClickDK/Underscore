@@ -1,0 +1,31 @@
+[ftime] v.[2015-10-08] rev.[11:20:00] 
+
+NAME 
+      ftime -- returns the file time in julian days 
+  
+SYNOPSIS 
+      ftime [VAR] [File name] 
+  
+OPTIONS 
+  -h      Help page 
+ 
+DESCRIPTION 
+  Returns the file date as a julian date in a variable 
+  
+EXAMPLES 
+  ftime _ftime ftime.cmd 
+  set _ftime 
+  _ftime=2457108 
+  
+REQUIRES 
+  shortDate2Iso   Converts shortDate to ISO [YYYY-MM-ddThh:mm] 
+  date2jdate      Converts ISO date to Julian date 
+ 
+REFERENCE 
+  URL: http://www.dostips.com/{QUEST}t=Function.ftime 
+  
+ 
+SOURCE 
+  C:\_\ftime.cmd 
+ 
+(c)2015 http://www.dostips.com 

@@ -1,0 +1,43 @@
+[_registry.read_string] v.[2015-10-08] rev.[11:20:00] 
+
+NAME 
+      _registry.read_string -- Read an entry from the registration database 
+  
+SYNOPSIS 
+  _registry.read_string 'Path' 'key' 
+  
+OPTIONS 
+  -h      Help page 
+  
+DESCRIPTION 
+  Reads the entries found in the key given as first argument 
+  
+      CALL _registry.read_string  
+      'HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion'  
+      'ProgramFilesDir' 
+  
+  Will read the key and value from the registration database 
+  and create an environment variable:  
+    #_registry.read_string.ProgramFilesDir 
+  
+  This environment variable will contain the simple data value 
+  from the registration database 
+   
+  Note: Patterns are case insensitive 
+ 
+  
+  
+EXAMPLES 
+  
+  
+  
+  Exit status is 0 if any matches were found, otherwise 1. 
+SEE ALSO 
+  _registry.delete_string.cmd     _registry.delete_key.cmd 
+  _registry.list.cmd             _registry.write_string.cmd 
+ 
+ 
+SOURCE 
+  C:\_\_registry.read_string.cmd 
+ 
+(c)2015 Erik Bachmann, ClicketyClick.dk [ErikBachmann@ClicketyClick.dk] 

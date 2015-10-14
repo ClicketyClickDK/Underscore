@@ -1,0 +1,47 @@
+[getWindowsVersion] v.[2015-10-08] rev.[11:20:00] 
+
+NAME 
+      getWindowsVersion -- Reading Windows version info from registry database 
+  
+SYNOPSIS 
+      CALL getWindowsVersion 
+  
+OPTIONS 
+  -h      Help page 
+  
+DESCRIPTION 
+  Reads Microsoft Window registry entries for Product Name, 
+  Verision, Build, CSD [Service Pack] and Installation Type 
+  Verbose the full name and set the following env vars: 
+      #HKEY_LOCAL_MACHINE.CSDVersion=Service Pack 1 
+      #HKEY_LOCAL_MACHINE.CurrentBuild=7601 
+      #HKEY_LOCAL_MACHINE.CurrentVersion=6.1 
+      #HKEY_LOCAL_MACHINE.InstallationType=Client 
+      #HKEY_LOCAL_MACHINE.ProductName=Windows 7 Professional 
+ 
+EXAMPLES 
+  CALL WindowsVersion.cmd 
+ 
+  Windows 7 Professional, Service Pack 1 [v. 6.1 Build. 7601] Client 
+   
+  set # 
+  #HKEY_LOCAL_MACHINE.CSDVersion=Service Pack 1 
+  #HKEY_LOCAL_MACHINE.CurrentBuild=7601 
+  #HKEY_LOCAL_MACHINE.CurrentVersion=6.1 
+  #HKEY_LOCAL_MACHINE.InstallationType=Client 
+  #HKEY_LOCAL_MACHINE.ProductName=Windows 7 Professional 
+       
+LIMITATIONS 
+  The ProcessBarMarker CANNOT be a digit due to redirection rules in  
+  DOS [Default=@] 
+  Avoid other special characters like ampersand or pipe 
+  
+EXIT STATUS 
+  Exit status is 0 if any matches were found, otherwise 1. 
+  
+  _registry.read_string 
+ 
+SOURCE 
+  C:\_\getWindowsVersion.cmd 
+ 
+(c)2015 Erik Bachmann, ClicketyClick.dk [ErikBachmann@ClicketyClick.dk] 

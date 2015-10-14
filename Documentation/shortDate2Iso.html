@@ -1,0 +1,35 @@
+<link rel="stylesheet" href="what.css" type="text/css" />
+<h2>[shortDate2Iso] v.[2015-10-08] rev.[11:20:00] </h2>
+<h3>NAME </h3>
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;shortDate2Iso&nbsp;--&nbsp;Converts&nbsp;shortDate&nbsp;to&nbsp;ISO&nbsp;[YYYY-MM-ddThh:mm]&nbsp;</tt><br>
+<tt>&nbsp;&nbsp;</tt><br>
+<h3>SYNOPSIS </h3>
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;shortDate2Iso&nbsp;[var]&nbsp;[shortDate]&nbsp;</tt><br>
+<tt>&nbsp;&nbsp;</tt><br>
+<h3>OPTIONS </h3>
+<tt>&nbsp;&nbsp;-h&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Help&nbsp;page&nbsp;</tt><br>
+<tt>&nbsp;</tt><br>
+<h3>DESCRIPTION </h3>
+<tt>&nbsp;&nbsp;Convert&nbsp;any&nbsp;date&nbsp;output&nbsp;in&nbsp;ShortDate&nbsp;to&nbsp;ISO.&nbsp;</tt><br>
+<tt>&nbsp;&nbsp;Like&nbsp;date&nbsp;from&nbsp;Date.EXE&nbsp;or&nbsp;environment&nbsp;variable&nbsp;{PCT}DATE{PCT}&nbsp;or&nbsp;DIR&nbsp;</tt><br>
+<tt>&nbsp;&nbsp;The&nbsp;function&nbsp;uses&nbsp;Windows&nbsp;registry&nbsp;to&nbsp;determine&nbsp;the&nbsp;valid&nbsp;sShortDate&nbsp;format&nbsp;</tt><br>
+<tt>&nbsp;&nbsp;Please&nbsp;use&nbsp;only&nbsp;the&nbsp;standard&nbsp;formats&nbsp;as&nbsp;predefined&nbsp;in&nbsp;&nbsp;</tt><br>
+<tt>&nbsp;&nbsp;Windows&nbsp;regional&nbsp;settings.&nbsp;</tt><br>
+<tt>&nbsp;&nbsp;If&nbsp;you&nbsp;invent&nbsp;your&nbsp;own&nbsp;formats&nbsp;and&nbsp;manipulate&nbsp;registry&nbsp;directly&nbsp;</tt><br>
+<tt>&nbsp;&nbsp;then&nbsp;you're&nbsp;on&nbsp;you&nbsp;own.&nbsp;</tt><br>
+<tt>&nbsp;&nbsp;</tt><br>
+<h3>EXAMPLES </h3>
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;FOR&nbsp;{PCT}i&nbsp;IN&nbsp;{LPAR}C:\_\shortDate2Iso.cmd{RPAR}&nbsp;DO&nbsp;C:\_\shortDate2Iso.cmd&nbsp;{PCT}~ti&nbsp;</tt><br>
+<tt>&nbsp;&nbsp;</tt><br>
+<tt>&nbsp;Will&nbsp;give&nbsp;you&nbsp;date&nbsp;and&nbsp;time&nbsp;of&nbsp;the&nbsp;function&nbsp;file&nbsp;in&nbsp;ISO&nbsp;format&nbsp;</tt><br>
+<tt>&nbsp;[YYYY-MM-ddThh:mm]&nbsp;</tt><br>
+<tt>&nbsp;&nbsp;</tt><br>
+<h3>REFERENCE </h3>
+<tt>&nbsp;&nbsp;URL:&nbsp;https://technet.microsoft.com/en-us/library/cc978653&nbsp;</tt><br>
+<tt>&nbsp;&nbsp;URL:&nbsp;http://stackoverflow.com/questions/203090/how-to-get-current-datetime-on-windows-command-line-in-a-suitable-format-for-us&nbsp;</tt><br>
+<tt>&nbsp;</tt><br>
+<h3>SOURCE </h3>
+<tt>&nbsp;&nbsp;C:\_\shortDate2Iso.cmd&nbsp;</tt><br>
+<tt>&nbsp;</tt><br>
+<h3>(c)2015 Erik Bachmann, ClicketyClick.dk [ErikBachmann@ClicketyClick.dk] </h3>
+<hr>

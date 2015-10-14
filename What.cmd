@@ -34,6 +34,10 @@ SET $Source=%~dpnx0
 ::@(#)  Will print alle lines the sequence: "@(pattern)"
 ::@(#)  Note: Patterns are case insensitive
 ::@(#)
+::@(#)OPTIONS
+::@(-)  Flags, parameters, arguments (NOT the Monty Python way)
+::@(#)  -h      Help page
+::@(#) 
 ::
 ::EXIT STATUS
 ::
@@ -64,6 +68,7 @@ CALL _GetOpt %*
 
 :what
     SET _SUBNAME=%~n1
+    SET _SourceName=%~f1
     SET _FileName=!@%$name%.1!
     SET _History=!@%$name%.history!
     SET _OrgName=%$name%
@@ -71,7 +76,7 @@ CALL _GetOpt %*
 
     :: No arguments = what on what
     IF "!@%$name%.1!" == "!" (
-        CALL :SELF "%~dpnx0" 
+        CALL "%~dpnx0" "%~dpnx0" 
         GOTO :EOF
     )
 
@@ -122,7 +127,7 @@ CALL _GetOpt %*
         IF DEFINED _HTML (
             ECHO ^<h3^>HISTORY^</h3^>
             ECHO ^<table border="1"^>
-			ECHO ^<tr^>^<th^>Version^</th^>^<th^>Revision^</th^>^<th width="100%%"^>Description^</th^>^</tr^>
+            ECHO ^<tr^>^<th^>Version^</th^>^<th^>Revision^</th^>^<th width="100%%"^>Description^</th^>^</tr^>
         ) ELSE (
             ECHO HISTORY
         )
@@ -145,8 +150,21 @@ GOTO :EOF
 
 :: Setting environment variables from sub script
 :SETENV
-    %~1
-    %_DEBUG_% subdefine: %~1
+:: NOTE $Source must be handled separately, since the $source referes to %~f0
+:: which will be expanded in What's scope
+    ECHO:"%~1" | FINDSTR /I " $source="  1>NUL 2>&1
+
+    SET _result=%ErrorLevel%
+
+    IF "0"=="%_result%" (
+        %_DEBUG_% Match SET $SOURCE=%_SourceName%
+        CALL SET $SOURCE=%_SourceName%
+    ) ELSE (
+        %_DEBUG_% No match %_result% %~1
+        CALL %~1
+        %_DEBUG_% subdefine: %~1
+    )
+
 GOTO :EOF
 
 ::----------------------------------------------------------------------
@@ -204,17 +222,18 @@ GOTO :EOF
             ECHO:^<h3^>!_!^</h3^>
         )
     ) ELSE (
-	    :: Plain text mode
-		CALL SET "_=%_:¤curren¤=Ï%"
-		CALL SET "_=!_:¤LT¤=>!"
-		CALL SET "_=!_:¤GT¤=>!"
-		CALL SET "_=!_:¤lPar¤=(!"
-		CALL SET "_=!_:¤rPar¤=)!"
-			CALL SET "_=!_:¤pipe¤=|!"
-			CALL SET "_=!_:¤amp¤=&!"
-			CALL SET "_=!_:¤copy¤=(c)!"
-			CALL SET "_=!_: =!"
-			CALL SET "_=!_:¤caret¤=^!"
+    :: Plain text mode
+        CALL SET "_=!_:¤LT¤=>!"
+        CALL SET "_=!_:¤GT¤=>!"
+        CALL SET "_=!_:¤lPar¤=(!"
+        CALL SET "_=!_:¤rPar¤=)!"
+        CALL SET "_=!_:¤pipe¤=|!"
+        CALL SET "_=!_:¤amp¤=&!"
+        CALL SET "_=!_:¤copy¤=(c)!"
+        CALL SET "_=!_: =!"
+        CALL SET "_=!_:¤caret¤=^!"
+        CALL SET "_=!_:¤PCT¤=o/o!"
+        ::CALL SET "_=%_:¤curren¤=Ï%"
         ECHO:!_!
     )
 

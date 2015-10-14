@@ -1,0 +1,28 @@
+[_prefunction] v.[2015-10-08] rev.[11:20:00] 
+
+NAME 
+      _prefunction -- Pre processing template for function call 
+  
+SYNOPSIS 
+      _prefunction [function] {arguments} 
+    
+OPTIONS 
+  -h      Help page 
+  
+DESCRIPTION 
+  Used as a pre processing template for more simple functions 
+  No detailed example currently available 
+  
+  $ErrorLevel     Increased with OS errorlevel 
+ 
+REQUIRES 
+  _UTC                    Current time 
+  _registry.write_string  Write data to registry 
+  _debug.cmd 
+  _getopt 
+ 
+ 
+SOURCE 
+  C:\_\_prefunction.cmd 
+ 
+(c)2015 Erik Bachmann, ClicketyClick.dk [ErikBachmann@ClicketyClick.dk] 

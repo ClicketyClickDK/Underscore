@@ -3,14 +3,14 @@ SETLOCAL ENABLEDELAYEDEXPANSION&::(Don't pollute the global environment with the
 ::**********************************************************************
 SET $NAME=%~n0
 SET $DESCRIPTION=Setting up debug environment for batch scripts
-SET $Author=Erik Bachmann, ClicketyClick.dk (E_Bachmann@ClicketyClick.dk)
+SET $Author=Erik Bachmann, ClicketyClick.dk (ErikBachmann@ClicketyClick.dk)
 SET $Source=%~dpnx0
 ::@(#) 
 ::@(#)NAME
 ::@(#)  %$Name% -- %$Description%
 ::@(#) 
 ::@(#)SYNOPSIS
-::@(#)  %$Name%
+::@(#)  %$Name% {options}
 ::@(#) 
 ::@(#)DESCRIPTION
 ::@(#)  This function sets up two environment variables
@@ -27,6 +27,10 @@ SET $Source=%~dpnx0
 ::@(#)  _LOG_ is for general statements
 ::@(#)  _TRACE_ is only for debuging
 ::@(#)
+::@(#)OPTIONS
+::@(-)  Flags, parameters, arguments (NOT the Monty Python way)
+::@(#)  -h      Help page
+::@(#)  
 ::@(#)FLAGS
 ::@(#)  SET DEBUG=x
 ::@(#)  0	No debugging (default)
@@ -74,16 +78,16 @@ SET $Source=%~dpnx0
 ::SET $VERSION=01.021&SET $REVISION=2010-10-20T17:15:00&SET $Comment=Addding $Source/EBP
 ::SET $VERSION=01.023&SET $REVISION=2010-12-02T16:43:00&SET $Comment=Addding _LOG_ and _Trace_/EBP
 ::SET $VERSION=01.024&SET $REVISION=2011-01-27T14:00:00&SET $Comment=Default $LogFile and $TraceFile/EBP
-  SET $VERSION=01.026&SET $REVISION=2011-06-06T15:03:00&SET $Comment=Stub to errorhandler/EBP
+::SET $VERSION=01.026&SET $REVISION=2011-06-06T15:03:00&SET $Comment=Stub to errorhandler/EBP
+  SET $VERSION=2015-10-08&SET $REVISION=16:00:00&SET $COMMENT=GetOpt: Calling usage and exit on error / ErikBachmann
 ::**********************************************************************
-::@(#)(C)%$Revision:~0,4% %$Author%
+::@(#)(C)%$Version:~0,4% %$Author%
 ::**********************************************************************
 ENDLOCAL
 
 ::Default
 IF NOT DEFINED $LogFile SET $LogFile=%~n0.log.txt
 IF NOT DEFINED $TraceFile SET $TraceFile=%~n0.trc.txt
-
 
 SET _DEBUG_=1^>NUL 2^>^&1 ECHO
 SET _Log_=1^>%$LogFile% 2^>^&1 ECHO
@@ -92,8 +96,9 @@ SET _VERBOSE_=1^>^&2 ECHO
 ::Stub to errorhandler
 SET _Error_=CALL %~dp0_ErrorHandler %$Source%
 
-::----------------------------------------------------------------------
+IF /I "-h!"=="%~1!" CALL "%~dp0\what" %~f0
 
+::----------------------------------------------------------------------
 
 :: Debug mode
 IF DEFINED DEBUG (

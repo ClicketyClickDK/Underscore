@@ -1,0 +1,23 @@
+[lockWorkstation] v.[2015-10-08] rev.[11:20:00] 
+
+NAME 
+      lockWorkstation -- Start Windows screensaver 
+  
+SYNOPSIS 
+      lockWorkstation [VAR] 
+  
+OPTIONS 
+  -h      Help page 
+ 
+DESCRIPTION 
+  Lock workstation - equal to pressing [Windows]+[L] 
+  
+EXAMPLES 
+  
+  
+  
+ 
+SOURCE 
+  C:\_\lockWorkstation.cmd 
+ 
+(c)2015 Erik Bachmann, ClicketyClick.dk [ErikBachmann@ClicketyClick.dk] 

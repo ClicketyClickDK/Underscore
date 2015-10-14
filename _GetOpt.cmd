@@ -2,18 +2,18 @@
 ::**********************************************************************
 SET $NAME=%~n0
 SET $DESCRIPTION=Parse command line options and create environment vars
-SET $Author=Erik Bachmann, ClicketyClick.dk (E_Bachmann@ClicketyClick.dk)
-SET $Source=%~dpnx0
+SET $Author=Erik Bachmann, ClicketyClick.dk (ErikBachmann@ClicketyClick.dk)
+SET $SOURCE=%~dpnx0
 ::----------------------------------------------------------------------
 ::@(#)NAME
 ::@(#)  %$Name% -- %$Description%
 ::@(#) 
 ::@(#)SYNOPSIS
-::@(#)      CALL %$Name% %%*
+::@(#)      CALL %$Name% ¤PCT¤*
 ::@(#) 
 ::@(#)  SET $NAME=x
 ::@(#)  ::Parse options to current script
-::@(#)  CALL %$NAME% %%*
+::@(#)  CALL %$NAME% ¤PCT¤*
 ::@(#)    
 ::@(#)  ::Show options
 ::@(#)  set @x
@@ -76,18 +76,34 @@ SET $Source=%~dpnx0
 ::SET $VERSION=01.000&SET $REVISION=2010-10-12T15:30:00&SET COMMENT=ebp/Update headers and $ARG syntax
 ::SET $VERSION=01.010&SET $REVISION=2010-10-13T23:50:00&SET COMMENT=ebp/Update headers and arg stored in @name.
 ::SET $VERSION=01.011&SET $REVISION=2010-10-20T17:15:00&SET $Comment=Addding $Source/EBP
-  SET $VERSION=01.020&SET $REVISION=2010-11-12T16:17:00&SET $Comment=Exact path to _debug/EBP
+::SET $VERSION=01.020&SET $REVISION=2010-11-12T16:17:00&SET $Comment=Exact path to _debug/EBP
+::SET $VERSION=01.050&SET $REVISION=2015-10-08T11:19:00&SET $Comment=Call to usage. Exit on error 1/EBP
+  SET $VERSION=2015-10-08&SET $REVISION=16:00:00&SET $COMMENT=GetOpt: Calling usage and exit on error / ErikBachmann
 ::**********************************************************************
-::@(#)(C)%$Revision:~0,4% %$Author%
+::@(#)(c)%$Version:~0,4% %$Author%
 ::**********************************************************************
 ENDLOCAL
 
 :MAIN
-    CALL %~dp0\_Debug
+    CALL "%~dp0\_Debug"
     CALL :init %*
-    CALL :_GetOpt %*
+    CALL :_GetOpt %*&IF ERRORLEVEL 1 EXIT /B 1
+    
+    ::SETLOCAL ENABLEDELAYEDEXPANSION
+    ::ECHO:["!@%$name%.help!"]
+    IF DEFINED @%$name%.help ECHO: Helping [%$source%]
+    IF defined @%$NAME%.?       GOTO usage
+    IF defined @%$NAME%.h       GOTO usage
+    IF defined @%$NAME%.manual  SET DEBUG=1 && GOTO usage 
+
 GOTO :EOF
 
+:usage
+    ::CALL what %~dpnx0
+    CALL "%~dp0\what.cmd" %$Source%
+    SET $ErrorLevel=1
+    EXIT /b 1
+GOTO :EOF 
 ::----------------------------------------------------------------------
 
 :init
@@ -124,6 +140,7 @@ GOTO :EOF
     :: Remove all temp vars
     FOR %%i IN (_@ _ARGC) DO CALL SET %%i=
 
+    
 GOTO :EOF
 
 ::---------------------------------------------------------------------
