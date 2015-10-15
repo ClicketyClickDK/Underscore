@@ -78,7 +78,8 @@ SET $SOURCE=%~dpnx0
 ::SET $VERSION=01.011&SET $REVISION=2010-10-20T17:15:00&SET $Comment=Addding $Source/EBP
 ::SET $VERSION=01.020&SET $REVISION=2010-11-12T16:17:00&SET $Comment=Exact path to _debug/EBP
 ::SET $VERSION=01.050&SET $REVISION=2015-10-08T11:19:00&SET $Comment=Call to usage. Exit on error 1/EBP
-  SET $VERSION=2015-10-08&SET $REVISION=16:00:00&SET $COMMENT=GetOpt: Calling usage and exit on error / ErikBachmann
+::SET $VERSION=2015-10-08&SET $REVISION=16:00:00&SET $COMMENT=GetOpt: Calling usage and exit on error / ErikBachmann
+  SET $VERSION=2015-10-15&SET $REVISION=11:22:00&SET $COMMENT=--help defaults to usage / ErikBachmann
 ::**********************************************************************
 ::@(#)(c)%$Version:~0,4% %$Author%
 ::**********************************************************************
