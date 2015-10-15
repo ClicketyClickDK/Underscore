@@ -10,7 +10,9 @@
 SETLOCAL
 SET $NAME=%~n0
 SET $DESCRIPTION=a global regular expression search+replace operation on each line of input
-SET $VERSION=2014-11-14&SET $REVISION=??&SET $COMMENT=initial
+SET $AUTHOR=Dave Benham
+SET $SOURCE=%~f0
+SET $VERSION=2014-11-14&SET $REVISION=22:26:00&SET $COMMENT=initial
 ::@(#)NAME
 ::@(-)  The name of the command or function, followed by a one-line description of what it does.
 ::@(#)      %$NAME% -- %$DESCRIPTION%
