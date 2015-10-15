@@ -16,6 +16,8 @@ The origin of the name is due to my own practises of installing the library in `
 
 >Please note! This is a library and should be used in context. Scripts may have dependencies and requires other scripts in the library. Most requires **_debug.cmd** and **_GetOpt.cmd**. 
 
+> **Do download the entire library!**
+
 ## STRUCTURE
 
 ### Directory structure
