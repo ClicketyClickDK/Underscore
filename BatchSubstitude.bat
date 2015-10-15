@@ -1,5 +1,4 @@
 @ECHO OFF
-REM -- Prepare the Command Processor --
 SETLOCAL ENABLEEXTENSIONS DISABLEDELAYEDEXPANSION
 ::(Don't pollute the global environment with the following)
 ::**********************************************************************
