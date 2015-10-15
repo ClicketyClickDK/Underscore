@@ -94,6 +94,7 @@ ENDLOCAL
     IF DEFINED @%$name%.help ECHO: Helping [%$source%]
     IF defined @%$NAME%.?       GOTO usage
     IF defined @%$NAME%.h       GOTO usage
+    IF defined @%$NAME%.-help   GOTO usage
     IF defined @%$NAME%.manual  SET DEBUG=1 && GOTO usage 
 
 GOTO :EOF
