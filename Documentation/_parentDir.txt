@@ -1,27 +1,30 @@
-[_parentDir] v.[2015-10-08] rev.[11:20:00] 
+NAME
+      %$NAME% -- %$DESCRIPTION%
+ 
+SYNOPSIS
+      %$NAME% [VAR] {dir}
+ 
+OPTIONS
+  -h      Help page
+  VAR     Name of variable to return value in
+  DIR     A given directory
+ 
+DESCRIPTION
+ 
+ 
+EXAMPLES
+      CALL %$NAME% XX "C:\Windows\system32\"
+      SET XX
+  Will display:
+      XX=C:\Windows
+ 
+REQUIRES
+  _Debug.cmd      Setting up debug environment for batch scripts 
+  _GetOpt.cmd     Parse command line options and create environment vars
 
-NAME 
-      _parentDir -- Get parent directory to a given directory 
-  
-SYNOPSIS 
-      _parentDir [VAR] {dir} 
-  
-OPTIONS 
-  -h      Help page 
-  VAR     Name of variable to return value in 
-  DIR     A given directory 
-  
-DESCRIPTION 
-  
-  
-EXAMPLES 
-      CALL _parentDir XX 'C:\Windows\system32\' 
-      SET XX 
-  Will display: 
-      XX=C:\Windows 
-  
- 
-SOURCE 
-  C:\_\_parentDir.cmd 
- 
-(c)2015 Erik Bachmann, ClicketyClick.dk [ErikBachmann@ClicketyClick.dk] 
+
+SOURCE
+  C:\Users\Erik\Documents\GitHub\Underscore\_parentDir.cmd
+
+(c)2015 Erik Bachmann, ClicketyClick.dk [ErikBachmann@ClicketyClick.dk]
+

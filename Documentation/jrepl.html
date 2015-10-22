@@ -1,244 +1,243 @@
-<link rel="stylesheet" href="what.css" type="text/css" />
-<h2>[jrepl] v.[2014-11-14] rev.[??] </h2>
-<h3>NAME </h3>
-<tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;jrepl&nbsp;--&nbsp;a&nbsp;global&nbsp;regular&nbsp;expression&nbsp;search+replace&nbsp;operation&nbsp;on&nbsp;each&nbsp;line&nbsp;of&nbsp;input&nbsp;</tt><br>
-<tt>&nbsp;&nbsp;</tt><br>
-<h3>SYNOPSIS </h3>
-<h3>JREPL  Search  Replace  [/Option  [Value]]... </h3>
-<h3>JREPL  /{QUEST}[REGEX{PIPE}REPLACE{PIPE}VERSION] </h3>
-<tt>&nbsp;</tt><br>
-<tt>&nbsp;&nbsp;Performs&nbsp;a&nbsp;global&nbsp;regular&nbsp;expression&nbsp;search&nbsp;and&nbsp;replace&nbsp;operation&nbsp;on&nbsp;</tt><br>
-<tt>&nbsp;&nbsp;each&nbsp;line&nbsp;of&nbsp;input&nbsp;from&nbsp;stdin&nbsp;and&nbsp;prints&nbsp;the&nbsp;result&nbsp;to&nbsp;stdout.&nbsp;</tt><br>
-<tt>&nbsp;</tt><br>
-<tt>&nbsp;&nbsp;Each&nbsp;parameter&nbsp;may&nbsp;be&nbsp;optionally&nbsp;enclosed&nbsp;by&nbsp;double&nbsp;quotes.&nbsp;The&nbsp;double&nbsp;</tt><br>
-<tt>&nbsp;&nbsp;quotes&nbsp;are&nbsp;not&nbsp;considered&nbsp;part&nbsp;of&nbsp;the&nbsp;argument.&nbsp;The&nbsp;quotes&nbsp;are&nbsp;required&nbsp;</tt><br>
-<tt>&nbsp;&nbsp;if&nbsp;the&nbsp;parameter&nbsp;contains&nbsp;a&nbsp;batch&nbsp;token&nbsp;delimiter&nbsp;like&nbsp;space,&nbsp;tab,&nbsp;comma,&nbsp;</tt><br>
-<tt>&nbsp;&nbsp;semicolon.&nbsp;The&nbsp;quotes&nbsp;should&nbsp;also&nbsp;be&nbsp;used&nbsp;if&nbsp;the&nbsp;argument&nbsp;contains&nbsp;a&nbsp;</tt><br>
-<tt>&nbsp;&nbsp;batch&nbsp;special&nbsp;character&nbsp;like&nbsp;{AMP},&nbsp;{PIPE},&nbsp;etc.&nbsp;so&nbsp;that&nbsp;the&nbsp;special&nbsp;character&nbsp;</tt><br>
-<tt>&nbsp;&nbsp;does&nbsp;not&nbsp;need&nbsp;to&nbsp;be&nbsp;escaped&nbsp;with&nbsp;.&nbsp;</tt><br>
-<tt>&nbsp;</tt><br>
-<tt>&nbsp;&nbsp;Search&nbsp;&nbsp;-&nbsp;By&nbsp;default,&nbsp;this&nbsp;is&nbsp;a&nbsp;case&nbsp;sensitive&nbsp;JScript&nbsp;(ECMA)&nbsp;regular&nbsp;</tt><br>
-<tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;expression&nbsp;expressed&nbsp;as&nbsp;a&nbsp;string.&nbsp;</tt><br>
-<tt>&nbsp;</tt><br>
-<tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;JScript&nbsp;regex&nbsp;syntax&nbsp;documentation&nbsp;is&nbsp;available&nbsp;at&nbsp;</tt><br>
-<tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;http://msdn.microsoft.com/en-us/library/ae5bf541(v=vs.80).aspx&nbsp;</tt><br>
-<tt>&nbsp;</tt><br>
-<tt>&nbsp;&nbsp;Replace&nbsp;-&nbsp;By&nbsp;default,&nbsp;this&nbsp;is&nbsp;the&nbsp;string&nbsp;to&nbsp;be&nbsp;used&nbsp;as&nbsp;a&nbsp;replacement&nbsp;for&nbsp;</tt><br>
-<tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;each&nbsp;found&nbsp;search&nbsp;expression.&nbsp;Full&nbsp;support&nbsp;is&nbsp;provided&nbsp;for&nbsp;</tt><br>
-<tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;substituion&nbsp;patterns&nbsp;available&nbsp;to&nbsp;the&nbsp;JScript&nbsp;replace&nbsp;method.&nbsp;</tt><br>
-<tt>&nbsp;</tt><br>
-<tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;For&nbsp;example,&nbsp;${AMP}&nbsp;represents&nbsp;the&nbsp;portion&nbsp;of&nbsp;the&nbsp;source&nbsp;that&nbsp;matched&nbsp;</tt><br>
-<tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;the&nbsp;entire&nbsp;search&nbsp;pattern,&nbsp;$1&nbsp;represents&nbsp;the&nbsp;first&nbsp;captured&nbsp;</tt><br>
-<tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;submatch,&nbsp;$2&nbsp;the&nbsp;second&nbsp;captured&nbsp;submatch,&nbsp;etc.&nbsp;A&nbsp;$&nbsp;literal&nbsp;</tt><br>
-<tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;can&nbsp;be&nbsp;escaped&nbsp;as&nbsp;$$.&nbsp;</tt><br>
-<tt>&nbsp;</tt><br>
-<tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;An&nbsp;empty&nbsp;replacement&nbsp;string&nbsp;must&nbsp;be&nbsp;represented&nbsp;as&nbsp;''.&nbsp;</tt><br>
-<tt>&nbsp;</tt><br>
-<tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Replace&nbsp;substitution&nbsp;pattern&nbsp;syntax&nbsp;is&nbsp;fully&nbsp;documented&nbsp;at&nbsp;</tt><br>
-<tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;http://msdn.microsoft.com/en-US/library/efy6s3e6(v=vs.80).aspx&nbsp;</tt><br>
-<tt>&nbsp;</tt><br>
-<tt>&nbsp;&nbsp;Options:&nbsp;&nbsp;Behavior&nbsp;may&nbsp;be&nbsp;altered&nbsp;by&nbsp;appending&nbsp;one&nbsp;or&nbsp;more&nbsp;options.&nbsp;</tt><br>
-<tt>&nbsp;&nbsp;The&nbsp;option&nbsp;names&nbsp;are&nbsp;case&nbsp;insensitive,&nbsp;and&nbsp;may&nbsp;appear&nbsp;in&nbsp;any&nbsp;order&nbsp;</tt><br>
-<tt>&nbsp;&nbsp;after&nbsp;the&nbsp;Replace&nbsp;argument.&nbsp;</tt><br>
-<tt>&nbsp;</tt><br>
-<tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;/A&nbsp;&nbsp;-&nbsp;Only&nbsp;print&nbsp;altered&nbsp;lines.&nbsp;Unaltered&nbsp;lines&nbsp;are&nbsp;discarded.&nbsp;</tt><br>
-<tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;If&nbsp;the&nbsp;/S&nbsp;option&nbsp;is&nbsp;used,&nbsp;then&nbsp;prints&nbsp;the&nbsp;result&nbsp;only&nbsp;if&nbsp;</tt><br>
-<tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;there&nbsp;was&nbsp;a&nbsp;change&nbsp;anywhere&nbsp;in&nbsp;the&nbsp;string.&nbsp;The&nbsp;/A&nbsp;option&nbsp;</tt><br>
-<tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;is&nbsp;incompatible&nbsp;with&nbsp;the&nbsp;/M&nbsp;option&nbsp;unless&nbsp;the&nbsp;/S&nbsp;option&nbsp;</tt><br>
-<tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;is&nbsp;also&nbsp;present.&nbsp;</tt><br>
-<tt>&nbsp;</tt><br>
-<tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;/B&nbsp;&nbsp;-&nbsp;The&nbsp;Search&nbsp;must&nbsp;match&nbsp;the&nbsp;beginning&nbsp;of&nbsp;a&nbsp;line.&nbsp;</tt><br>
-<tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Mostly&nbsp;used&nbsp;with&nbsp;literal&nbsp;searches.&nbsp;</tt><br>
-<tt>&nbsp;</tt><br>
-<tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;/E&nbsp;&nbsp;-&nbsp;The&nbsp;Search&nbsp;must&nbsp;match&nbsp;the&nbsp;end&nbsp;of&nbsp;a&nbsp;line.&nbsp;</tt><br>
-<tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Mostly&nbsp;used&nbsp;with&nbsp;literal&nbsp;searches.&nbsp;</tt><br>
-<tt>&nbsp;</tt><br>
-<tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;/F&nbsp;InFile&nbsp;</tt><br>
-<tt>&nbsp;</tt><br>
-<tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Input&nbsp;is&nbsp;read&nbsp;from&nbsp;file&nbsp;InFile&nbsp;instead&nbsp;of&nbsp;stdin.&nbsp;</tt><br>
-<tt>&nbsp;</tt><br>
-<tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;/I&nbsp;&nbsp;-&nbsp;Makes&nbsp;the&nbsp;search&nbsp;case-insensitive.&nbsp;</tt><br>
-<tt>&nbsp;</tt><br>
-<tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;/J&nbsp;&nbsp;-&nbsp;The&nbsp;Replace&nbsp;argument&nbsp;is&nbsp;a&nbsp;JScript&nbsp;expression.&nbsp;</tt><br>
-<tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The&nbsp;following&nbsp;variables&nbsp;contain&nbsp;details&nbsp;about&nbsp;each&nbsp;match:&nbsp;</tt><br>
-<tt>&nbsp;</tt><br>
-<tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$0&nbsp;is&nbsp;the&nbsp;substring&nbsp;that&nbsp;matched&nbsp;the&nbsp;Search&nbsp;</tt><br>
-<tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$1&nbsp;through&nbsp;$n&nbsp;are&nbsp;the&nbsp;captured&nbsp;submatch&nbsp;strings&nbsp;</tt><br>
-<tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$off&nbsp;is&nbsp;the&nbsp;offset&nbsp;where&nbsp;the&nbsp;match&nbsp;occurred&nbsp;</tt><br>
-<tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$src&nbsp;is&nbsp;the&nbsp;original&nbsp;source&nbsp;string&nbsp;</tt><br>
-<tt>&nbsp;</tt><br>
-<tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;/JBEG&nbsp;InitCode&nbsp;</tt><br>
-<tt>&nbsp;</tt><br>
-<tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;JScript&nbsp;inititialization&nbsp;code&nbsp;to&nbsp;be&nbsp;run&nbsp;prior&nbsp;to&nbsp;starting&nbsp;the&nbsp;</tt><br>
-<tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;search/replace.&nbsp;This&nbsp;is&nbsp;useful&nbsp;for&nbsp;initializing&nbsp;variables&nbsp;used&nbsp;to&nbsp;</tt><br>
-<tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;accumulate&nbsp;information&nbsp;across&nbsp;matches.&nbsp;The&nbsp;default&nbsp;is&nbsp;an&nbsp;empty&nbsp;</tt><br>
-<tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;string.&nbsp;</tt><br>
-<tt>&nbsp;</tt><br>
-<tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;/JEND&nbsp;FinalCode&nbsp;</tt><br>
-<tt>&nbsp;</tt><br>
-<tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;JScript&nbsp;termination&nbsp;code&nbsp;to&nbsp;be&nbsp;run&nbsp;after&nbsp;the&nbsp;search/replace&nbsp;has&nbsp;</tt><br>
-<tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;completed.&nbsp;This&nbsp;is&nbsp;useful&nbsp;for&nbsp;writing&nbsp;summarization&nbsp;results.&nbsp;</tt><br>
-<tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The&nbsp;default&nbsp;is&nbsp;an&nbsp;empty&nbsp;string.&nbsp;</tt><br>
-<tt>&nbsp;</tt><br>
-<tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;/JMATCH&nbsp;</tt><br>
-<tt>&nbsp;</tt><br>
-<tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Prints&nbsp;each&nbsp;Replace&nbsp;value&nbsp;on&nbsp;a&nbsp;new&nbsp;line,&nbsp;discarding&nbsp;all&nbsp;text&nbsp;</tt><br>
-<tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;that&nbsp;does&nbsp;not&nbsp;match&nbsp;the&nbsp;Search.&nbsp;The&nbsp;Replace&nbsp;argument&nbsp;is&nbsp;a&nbsp;</tt><br>
-<tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;JScript&nbsp;expression&nbsp;with&nbsp;access&nbsp;to&nbsp;the&nbsp;same&nbsp;$&nbsp;variables&nbsp;available&nbsp;</tt><br>
-<tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;to&nbsp;the&nbsp;/J&nbsp;option.&nbsp;</tt><br>
-<tt>&nbsp;</tt><br>
-<tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;/L&nbsp;&nbsp;-&nbsp;The&nbsp;Search&nbsp;is&nbsp;treated&nbsp;as&nbsp;a&nbsp;string&nbsp;literal&nbsp;instead&nbsp;of&nbsp;a&nbsp;</tt><br>
-<tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;regular&nbsp;expression.&nbsp;Also,&nbsp;all&nbsp;$&nbsp;found&nbsp;in&nbsp;the&nbsp;Replace&nbsp;string&nbsp;</tt><br>
-<tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;are&nbsp;treated&nbsp;as&nbsp;$&nbsp;literals.&nbsp;</tt><br>
-<tt>&nbsp;</tt><br>
-<tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;/M&nbsp;&nbsp;-&nbsp;Multi-line&nbsp;mode.&nbsp;The&nbsp;entire&nbsp;contents&nbsp;of&nbsp;stdin&nbsp;is&nbsp;read&nbsp;and&nbsp;</tt><br>
-<tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;processed&nbsp;in&nbsp;one&nbsp;pass&nbsp;instead&nbsp;of&nbsp;line&nbsp;by&nbsp;line,&nbsp;thus&nbsp;enabling&nbsp;</tt><br>
-<tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;search&nbsp;for&nbsp;\n.&nbsp;This&nbsp;also&nbsp;enables&nbsp;preservation&nbsp;of&nbsp;the&nbsp;original&nbsp;</tt><br>
-<tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;line&nbsp;terminators.&nbsp;If&nbsp;the&nbsp;/M&nbsp;option&nbsp;is&nbsp;not&nbsp;present,&nbsp;then&nbsp;every&nbsp;</tt><br>
-<tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;printed&nbsp;line&nbsp;is&nbsp;terminated&nbsp;with&nbsp;carriage&nbsp;return&nbsp;and&nbsp;line&nbsp;feed.&nbsp;</tt><br>
-<tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The&nbsp;/M&nbsp;option&nbsp;is&nbsp;incompatible&nbsp;with&nbsp;the&nbsp;/A&nbsp;option&nbsp;unless&nbsp;the&nbsp;/S&nbsp;</tt><br>
-<tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;option&nbsp;is&nbsp;also&nbsp;present.&nbsp;</tt><br>
-<tt>&nbsp;</tt><br>
-<tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Note:&nbsp;If&nbsp;working&nbsp;with&nbsp;binary&nbsp;data&nbsp;containing&nbsp;NULL&nbsp;bytes,&nbsp;</tt><br>
-<tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;then&nbsp;the&nbsp;/M&nbsp;option&nbsp;must&nbsp;be&nbsp;used.&nbsp;</tt><br>
-<tt>&nbsp;</tt><br>
-<tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;/N&nbsp;MinWidth&nbsp;</tt><br>
-<tt>&nbsp;</tt><br>
-<tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Precede&nbsp;each&nbsp;output&nbsp;line&nbsp;with&nbsp;the&nbsp;line&nbsp;number&nbsp;of&nbsp;the&nbsp;source&nbsp;line,&nbsp;</tt><br>
-<tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;followed&nbsp;by&nbsp;a&nbsp;colon.&nbsp;Line&nbsp;1&nbsp;is&nbsp;the&nbsp;first&nbsp;line&nbsp;of&nbsp;the&nbsp;source.&nbsp;</tt><br>
-<tt>&nbsp;</tt><br>
-<tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The&nbsp;MinWidth&nbsp;value&nbsp;specifies&nbsp;the&nbsp;minimum&nbsp;number&nbsp;of&nbsp;digits&nbsp;to&nbsp;</tt><br>
-<tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;display.&nbsp;The&nbsp;default&nbsp;value&nbsp;is&nbsp;0,&nbsp;meaning&nbsp;do&nbsp;not&nbsp;display&nbsp;the&nbsp;</tt><br>
-<tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;line&nbsp;number.&nbsp;A&nbsp;value&nbsp;of&nbsp;1&nbsp;diplays&nbsp;the&nbsp;line&nbsp;numbers&nbsp;without&nbsp;any&nbsp;</tt><br>
-<tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;zero&nbsp;padding.&nbsp;</tt><br>
-<tt>&nbsp;</tt><br>
-<tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The&nbsp;/N&nbsp;option&nbsp;is&nbsp;ignored&nbsp;if&nbsp;the&nbsp;/M&nbsp;or&nbsp;/S&nbsp;option&nbsp;is&nbsp;used.&nbsp;</tt><br>
-<tt>&nbsp;</tt><br>
-<tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;/O&nbsp;OutFile&nbsp;</tt><br>
-<tt>&nbsp;</tt><br>
-<tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Output&nbsp;is&nbsp;written&nbsp;to&nbsp;file&nbsp;OutFile&nbsp;instead&nbsp;of&nbsp;stdout.&nbsp;</tt><br>
-<tt>&nbsp;</tt><br>
-<tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;A&nbsp;value&nbsp;of&nbsp;'-'&nbsp;replaces&nbsp;the&nbsp;InFile&nbsp;with&nbsp;the&nbsp;output.&nbsp;The&nbsp;output&nbsp;</tt><br>
-<tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;is&nbsp;first&nbsp;written&nbsp;to&nbsp;a&nbsp;temporary&nbsp;file&nbsp;with&nbsp;the&nbsp;same&nbsp;name&nbsp;as&nbsp;InFile&nbsp;</tt><br>
-<tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;with&nbsp;.new&nbsp;appended.&nbsp;Upon&nbsp;completion,&nbsp;the&nbsp;temporary&nbsp;file&nbsp;is&nbsp;moved&nbsp;</tt><br>
-<tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;to&nbsp;replace&nbsp;the&nbsp;InFile.&nbsp;</tt><br>
-<tt>&nbsp;</tt><br>
-<tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;/OFF&nbsp;MinWidth&nbsp;</tt><br>
-<tt>&nbsp;</tt><br>
-<tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Ignored&nbsp;unless&nbsp;the&nbsp;/JMATCH&nbsp;option&nbsp;is&nbsp;used.&nbsp;Precede&nbsp;each&nbsp;output&nbsp;</tt><br>
-<tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;line&nbsp;with&nbsp;the&nbsp;offset&nbsp;of&nbsp;the&nbsp;match&nbsp;within&nbsp;the&nbsp;original&nbsp;source&nbsp;</tt><br>
-<tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;string,&nbsp;followed&nbsp;by&nbsp;a&nbsp;colon.&nbsp;Offset&nbsp;0&nbsp;is&nbsp;the&nbsp;first&nbsp;character&nbsp;of&nbsp;</tt><br>
-<tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;the&nbsp;source&nbsp;string.&nbsp;The&nbsp;offset&nbsp;follows&nbsp;the&nbsp;line&nbsp;number&nbsp;if&nbsp;the&nbsp;/N&nbsp;</tt><br>
-<tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;option&nbsp;is&nbsp;also&nbsp;used.&nbsp;</tt><br>
-<tt>&nbsp;</tt><br>
-<tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The&nbsp;MinWidth&nbsp;value&nbsp;specifies&nbsp;the&nbsp;minimum&nbsp;number&nbsp;of&nbsp;digits&nbsp;to&nbsp;</tt><br>
-<tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;display.&nbsp;The&nbsp;default&nbsp;value&nbsp;is&nbsp;0,&nbsp;meaning&nbsp;do&nbsp;not&nbsp;display&nbsp;the&nbsp;</tt><br>
-<tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;offset.&nbsp;A&nbsp;value&nbsp;of&nbsp;1&nbsp;displays&nbsp;the&nbsp;offsets&nbsp;without&nbsp;any&nbsp;zero&nbsp;</tt><br>
-<tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;padding.&nbsp;</tt><br>
-<tt>&nbsp;</tt><br>
-<tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;/S&nbsp;VarName&nbsp;</tt><br>
-<tt>&nbsp;</tt><br>
-<tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The&nbsp;source&nbsp;is&nbsp;read&nbsp;from&nbsp;environment&nbsp;variable&nbsp;VarName&nbsp;instead&nbsp;</tt><br>
-<tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;of&nbsp;from&nbsp;stdin.&nbsp;Without&nbsp;the&nbsp;/M&nbsp;option,&nbsp;&nbsp;anchors&nbsp;the&nbsp;beginning&nbsp;</tt><br>
-<tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;of&nbsp;the&nbsp;string,&nbsp;and&nbsp;$&nbsp;the&nbsp;end&nbsp;of&nbsp;the&nbsp;string.&nbsp;With&nbsp;the&nbsp;/M&nbsp;option,&nbsp;</tt><br>
-<tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;anchors&nbsp;the&nbsp;beginning&nbsp;of&nbsp;a&nbsp;line,&nbsp;and&nbsp;$&nbsp;the&nbsp;end&nbsp;of&nbsp;a&nbsp;line.&nbsp;</tt><br>
-<tt>&nbsp;</tt><br>
-<tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;/V&nbsp;&nbsp;-&nbsp;Search,&nbsp;Replace,&nbsp;InitCode,&nbsp;and&nbsp;FinalCode&nbsp;represent&nbsp;the&nbsp;name&nbsp;of&nbsp;</tt><br>
-<tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;environment&nbsp;variables&nbsp;that&nbsp;contain&nbsp;the&nbsp;respective&nbsp;values.&nbsp;</tt><br>
-<tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;An&nbsp;undefined&nbsp;variable&nbsp;is&nbsp;treated&nbsp;as&nbsp;an&nbsp;empty&nbsp;string.&nbsp;</tt><br>
-<tt>&nbsp;</tt><br>
-<tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;/X&nbsp;&nbsp;-&nbsp;Enables&nbsp;extended&nbsp;substitution&nbsp;pattern&nbsp;syntax&nbsp;with&nbsp;support&nbsp;</tt><br>
-<tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;for&nbsp;the&nbsp;following&nbsp;escape&nbsp;sequences&nbsp;within&nbsp;the&nbsp;Replace&nbsp;string:&nbsp;</tt><br>
-<tt>&nbsp;</tt><br>
-<tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;\\&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;Backslash&nbsp;</tt><br>
-<tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;\b&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;Backspace&nbsp;</tt><br>
-<tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;\f&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;Formfeed&nbsp;</tt><br>
-<tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;Newline&nbsp;</tt><br>
-<tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;\q&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;Quote&nbsp;</tt><br>
-<tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;\r&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;Carriage&nbsp;Return&nbsp;</tt><br>
-<tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;\t&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;Horizontal&nbsp;Tab&nbsp;</tt><br>
-<tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;\v&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;Vertical&nbsp;Tab&nbsp;</tt><br>
-<tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;\xnn&nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;ASCII&nbsp;byte&nbsp;code&nbsp;expressed&nbsp;as&nbsp;2&nbsp;hex&nbsp;digits&nbsp;</tt><br>
-<tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;\unnnn&nbsp;-&nbsp;&nbsp;Unicode&nbsp;character&nbsp;expressed&nbsp;as&nbsp;4&nbsp;hex&nbsp;digits&nbsp;</tt><br>
-<tt>&nbsp;</tt><br>
-<tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Also&nbsp;enables&nbsp;the&nbsp;\q&nbsp;escape&nbsp;sequence&nbsp;for&nbsp;the&nbsp;Search&nbsp;string.&nbsp;</tt><br>
-<tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The&nbsp;other&nbsp;escape&nbsp;sequences&nbsp;are&nbsp;already&nbsp;standard&nbsp;for&nbsp;a&nbsp;regular&nbsp;</tt><br>
-<tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;expression&nbsp;Search&nbsp;string.&nbsp;</tt><br>
-<tt>&nbsp;</tt><br>
-<tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Also&nbsp;modifies&nbsp;the&nbsp;behavior&nbsp;of&nbsp;\xnn&nbsp;in&nbsp;the&nbsp;Search&nbsp;string&nbsp;to&nbsp;work&nbsp;</tt><br>
-<tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;properly&nbsp;with&nbsp;extended&nbsp;ASCII&nbsp;byte&nbsp;codes&nbsp;(values&nbsp;above&nbsp;0x7F).&nbsp;</tt><br>
-<tt>&nbsp;</tt><br>
-<tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Extended&nbsp;escape&nbsp;sequences&nbsp;are&nbsp;supported&nbsp;even&nbsp;when&nbsp;the&nbsp;/L&nbsp;option&nbsp;</tt><br>
-<tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;is&nbsp;used.&nbsp;Both&nbsp;Search&nbsp;and&nbsp;Replace&nbsp;support&nbsp;all&nbsp;of&nbsp;the&nbsp;extended&nbsp;</tt><br>
-<tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;escape&nbsp;sequences&nbsp;if&nbsp;both&nbsp;the&nbsp;/X&nbsp;and&nbsp;/L&nbsp;opions&nbsp;are&nbsp;combined.&nbsp;</tt><br>
-<tt>&nbsp;</tt><br>
-<tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Extended&nbsp;escape&nbsp;sequences&nbsp;are&nbsp;not&nbsp;applied&nbsp;to&nbsp;JScript&nbsp;code&nbsp;when&nbsp;</tt><br>
-<tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;using&nbsp;the&nbsp;/J,&nbsp;/JMATCH,&nbsp;/JBEG,&nbsp;or&nbsp;/JEND&nbsp;options.&nbsp;Use&nbsp;the&nbsp;decode()&nbsp;</tt><br>
-<tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;method&nbsp;if&nbsp;extended&nbsp;escape&nbsp;sequences&nbsp;are&nbsp;needed&nbsp;within&nbsp;the&nbsp;code.&nbsp;</tt><br>
-<tt>&nbsp;</tt><br>
-<tt>&nbsp;&nbsp;There&nbsp;are&nbsp;global&nbsp;JScript&nbsp;variables/objects/methods&nbsp;that&nbsp;may&nbsp;be&nbsp;used&nbsp;in&nbsp;</tt><br>
-<tt>&nbsp;&nbsp;JScript&nbsp;code&nbsp;when&nbsp;using&nbsp;the&nbsp;/J,&nbsp;/JBEG,&nbsp;/JEND,&nbsp;or&nbsp;/JMATCH&nbsp;options:&nbsp;</tt><br>
-<tt>&nbsp;</tt><br>
-<tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ln&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;Within&nbsp;Replace&nbsp;code&nbsp;=&nbsp;line&nbsp;number&nbsp;where&nbsp;the&nbsp;match&nbsp;occurred.&nbsp;</tt><br>
-<tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Within&nbsp;/JEND&nbsp;code&nbsp;=&nbsp;total&nbsp;number&nbsp;of&nbsp;lines&nbsp;read.&nbsp;</tt><br>
-<tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;This&nbsp;value&nbsp;is&nbsp;always&nbsp;0&nbsp;if&nbsp;the&nbsp;/M&nbsp;or&nbsp;/S&nbsp;otion&nbsp;is&nbsp;used.&nbsp;</tt><br>
-<tt>&nbsp;</tt><br>
-<tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;env('varName')&nbsp;</tt><br>
-<tt>&nbsp;</tt><br>
-<tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Access&nbsp;to&nbsp;environment&nbsp;variable&nbsp;named&nbsp;varName.&nbsp;</tt><br>
-<tt>&nbsp;</tt><br>
-<tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;decode(string)&nbsp;</tt><br>
-<tt>&nbsp;</tt><br>
-<tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Decodes&nbsp;extended&nbsp;escape&nbsp;sequences&nbsp;within&nbsp;a&nbsp;string&nbsp;as&nbsp;defined&nbsp;</tt><br>
-<tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;by&nbsp;the&nbsp;/X&nbsp;option,&nbsp;and&nbsp;returns&nbsp;the&nbsp;result.&nbsp;All&nbsp;backslashes&nbsp;must&nbsp;</tt><br>
-<tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;be&nbsp;escaped&nbsp;an&nbsp;extra&nbsp;time&nbsp;to&nbsp;use&nbsp;this&nbsp;function&nbsp;in&nbsp;your&nbsp;code.&nbsp;</tt><br>
-<tt>&nbsp;</tt><br>
-<tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Examples:&nbsp;</tt><br>
-<tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;quote&nbsp;literal:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;decode('\\q')&nbsp;</tt><br>
-<tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;extended&nbsp;ASCII(128):&nbsp;decode('\\x80')&nbsp;</tt><br>
-<tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;backslash&nbsp;literal:&nbsp;&nbsp;&nbsp;decode('\\\\')&nbsp;</tt><br>
-<tt>&nbsp;</tt><br>
-<tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;This&nbsp;function&nbsp;is&nbsp;only&nbsp;needed&nbsp;if&nbsp;you&nbsp;use&nbsp;the&nbsp;\q&nbsp;sequence&nbsp;</tt><br>
-<tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;or&nbsp;\xnn&nbsp;for&nbsp;an&nbsp;extended&nbsp;ASCII&nbsp;code&nbsp;(values&nbsp;above&nbsp;0x7F).&nbsp;</tt><br>
-<tt>&nbsp;</tt><br>
-<tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;input&nbsp;&nbsp;-&nbsp;The&nbsp;TextStream&nbsp;object&nbsp;from&nbsp;which&nbsp;input&nbsp;is&nbsp;read.&nbsp;</tt><br>
-<tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;This&nbsp;may&nbsp;be&nbsp;stdin&nbsp;or&nbsp;a&nbsp;file.&nbsp;</tt><br>
-<tt>&nbsp;</tt><br>
-<tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;output&nbsp;-&nbsp;The&nbsp;TextStream&nbsp;object&nbsp;to&nbsp;which&nbsp;the&nbsp;output&nbsp;is&nbsp;written.&nbsp;</tt><br>
-<tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;This&nbsp;may&nbsp;be&nbsp;stdout&nbsp;or&nbsp;a&nbsp;file.&nbsp;</tt><br>
-<tt>&nbsp;</tt><br>
-<tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;stdin&nbsp;&nbsp;-&nbsp;Equivalent&nbsp;to&nbsp;WScript.StdIn&nbsp;</tt><br>
-<tt>&nbsp;</tt><br>
-<tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;stdout&nbsp;-&nbsp;Equivalent&nbsp;to&nbsp;WScript.StdOut&nbsp;</tt><br>
-<tt>&nbsp;</tt><br>
-<tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;stderr&nbsp;-&nbsp;Equivalent&nbsp;to&nbsp;WScript.StdErr&nbsp;</tt><br>
-<tt>&nbsp;</tt><br>
-<tt>&nbsp;&nbsp;Help&nbsp;is&nbsp;available&nbsp;by&nbsp;supplying&nbsp;a&nbsp;single&nbsp;argument&nbsp;beginning&nbsp;with&nbsp;/{QUEST}:&nbsp;</tt><br>
-<tt>&nbsp;</tt><br>
-<tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;/{QUEST}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;Writes&nbsp;this&nbsp;help&nbsp;documentation&nbsp;to&nbsp;stdout.&nbsp;</tt><br>
-<tt>&nbsp;</tt><br>
-<tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;/{QUEST}REGEX&nbsp;&nbsp;&nbsp;-&nbsp;Opens&nbsp;up&nbsp;Microsoft's&nbsp;JScript&nbsp;regular&nbsp;expression&nbsp;</tt><br>
-<tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;documentation&nbsp;within&nbsp;your&nbsp;browser.&nbsp;</tt><br>
-<tt>&nbsp;</tt><br>
-<tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;/{QUEST}REPLACE&nbsp;-&nbsp;Opens&nbsp;up&nbsp;Microsoft's&nbsp;JScript&nbsp;REPLACE&nbsp;documentation&nbsp;</tt><br>
-<tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;within&nbsp;your&nbsp;browser.&nbsp;</tt><br>
-<tt>&nbsp;</tt><br>
-<tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;/{QUEST}VERSION&nbsp;-&nbsp;Writes&nbsp;the&nbsp;JREPL&nbsp;version&nbsp;number&nbsp;to&nbsp;stdout.&nbsp;</tt><br>
-<tt>&nbsp;</tt><br>
-<tt>&nbsp;&nbsp;Return&nbsp;Codes:&nbsp;</tt><br>
-<tt>&nbsp;</tt><br>
-<tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;0&nbsp;=&nbsp;At&nbsp;least&nbsp;one&nbsp;change&nbsp;was&nbsp;made&nbsp;and&nbsp;/JMATCH&nbsp;not&nbsp;used&nbsp;</tt><br>
-<tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;or&nbsp;at&nbsp;least&nbsp;one&nbsp;match&nbsp;returned&nbsp;and&nbsp;/JMATCH&nbsp;was&nbsp;used&nbsp;</tt><br>
-<tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;or&nbsp;/{QUEST}&nbsp;was&nbsp;used&nbsp;</tt><br>
-<tt>&nbsp;</tt><br>
-<tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1&nbsp;=&nbsp;No&nbsp;change&nbsp;was&nbsp;made&nbsp;and&nbsp;/JMATCH&nbsp;not&nbsp;used&nbsp;</tt><br>
-<tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;or&nbsp;no&nbsp;match&nbsp;returned&nbsp;and&nbsp;/JMATCH&nbsp;was&nbsp;used&nbsp;</tt><br>
-<tt>&nbsp;</tt><br>
-<tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2&nbsp;=&nbsp;Invalid&nbsp;call&nbsp;syntax&nbsp;or&nbsp;incompatible&nbsp;options&nbsp;</tt><br>
-<tt>&nbsp;</tt><br>
-<tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3&nbsp;=&nbsp;JScript&nbsp;runtime&nbsp;error&nbsp;</tt><br>
-<tt>&nbsp;</tt><br>
-<tt>&nbsp;&nbsp;JREPL.BAT&nbsp;was&nbsp;written&nbsp;by&nbsp;Dave&nbsp;Benham,&nbsp;and&nbsp;originally&nbsp;posted&nbsp;at&nbsp;</tt><br>
-<tt>&nbsp;&nbsp;http://www.dostips.com/forum/viewtopic.php?f=3{AMP}t=6044&nbsp;</tt><br>
-<tt>&nbsp;</tt><br>
-<hr>
+<link rel='stylesheet' href='what.css' type='text/css' />
+NAME
+      %$NAME% -- %$DESCRIPTION%
+ 
+SYNOPSIS
+JREPL  Search  Replace  [/Option  [Value]]...
+JREPL  /{QUEST}[REGEX|REPLACE|VERSION]
+
+  Performs a global regular expression search and replace operation on
+  each line of input from stdin and prints the result to stdout.
+
+  Each parameter may be optionally enclosed by double quotes. The double
+  quotes are not considered part of the argument. The quotes are required
+  if the parameter contains a batch token delimiter like space, tab, comma,
+  semicolon. The quotes should also be used if the argument contains a
+  batch special character like &, |, etc. so that the special character
+  does not need to be escaped with ^.
+
+  Search  - By default, this is a case sensitive JScript (ECMA) regular
+            expression expressed as a string.
+
+            JScript regex syntax documentation is available at
+            http://msdn.microsoft.com/en-us/library/ae5bf541(v=vs.80).aspx
+
+  Replace - By default, this is the string to be used as a replacement for
+            each found search expression. Full support is provided for
+            substituion patterns available to the JScript replace method.
+
+            For example, $& represents the portion of the source that matched
+            the entire search pattern, $1 represents the first captured
+            submatch, $2 the second captured submatch, etc. A $ literal
+            can be escaped as $$.
+
+            An empty replacement string must be represented as "".
+
+            Replace substitution pattern syntax is fully documented at
+            http://msdn.microsoft.com/en-US/library/efy6s3e6(v=vs.80).aspx
+
+  Options:  Behavior may be altered by appending one or more options.
+  The option names are case insensitive, and may appear in any order
+  after the Replace argument.
+
+      /A  - Only print altered lines. Unaltered lines are discarded.
+            If the /S option is used, then prints the result only if
+            there was a change anywhere in the string. The /A option
+            is incompatible with the /M option unless the /S option
+            is also present.
+
+      /B  - The Search must match the beginning of a line.
+            Mostly used with literal searches.
+
+      /E  - The Search must match the end of a line.
+            Mostly used with literal searches.
+
+      /F InFile
+
+            Input is read from file InFile instead of stdin.
+
+      /I  - Makes the search case-insensitive.
+
+      /J  - The Replace argument is a JScript expression.
+            The following variables contain details about each match:
+
+              $0 is the substring that matched the Search
+              $1 through $n are the captured submatch strings
+              $off is the offset where the match occurred
+              $src is the original source string
+
+      /JBEG InitCode
+
+            JScript inititialization code to be run prior to starting the
+            search/replace. This is useful for initializing variables used to
+            accumulate information across matches. The default is an empty
+            string.
+
+      /JEND FinalCode
+
+            JScript termination code to be run after the search/replace has
+            completed. This is useful for writing summarization results.
+            The default is an empty string.
+
+      /JMATCH
+
+            Prints each Replace value on a new line, discarding all text
+            that does not match the Search. The Replace argument is a
+            JScript expression with access to the same $ variables available
+            to the /J option.
+
+      /L  - The Search is treated as a string literal instead of a
+            regular expression. Also, all $ found in the Replace string
+            are treated as $ literals.
+
+      /M  - Multi-line mode. The entire contents of stdin is read and
+            processed in one pass instead of line by line, thus enabling
+            search for \n. This also enables preservation of the original
+            line terminators. If the /M option is not present, then every
+            printed line is terminated with carriage return and line feed.
+            The /M option is incompatible with the /A option unless the /S
+            option is also present.
+
+            Note: If working with binary data containing NULL bytes,
+                  then the /M option must be used.
+
+      /N MinWidth
+
+            Precede each output line with the line number of the source line,
+            followed by a colon. Line 1 is the first line of the source.
+
+            The MinWidth value specifies the minimum number of digits to
+            display. The default value is 0, meaning do not display the
+            line number. A value of 1 diplays the line numbers without any
+            zero padding.
+
+            The /N option is ignored if the /M or /S option is used.
+
+      /O OutFile
+
+            Output is written to file OutFile instead of stdout.
+
+            A value of "-" replaces the InFile with the output. The output
+            is first written to a temporary file with the same name as InFile
+            with .new appended. Upon completion, the temporary file is moved
+            to replace the InFile.
+
+      /OFF MinWidth
+
+            Ignored unless the /JMATCH option is used. Precede each output
+            line with the offset of the match within the original source
+            string, followed by a colon. Offset 0 is the first character of
+            the source string. The offset follows the line number if the /N
+            option is also used.
+
+            The MinWidth value specifies the minimum number of digits to
+            display. The default value is 0, meaning do not display the
+            offset. A value of 1 displays the offsets without any zero
+            padding.
+
+      /S VarName
+
+            The source is read from environment variable VarName instead
+            of from stdin. Without the /M option, ^ anchors the beginning
+            of the string, and $ the end of the string. With the /M option,
+            ^ anchors the beginning of a line, and $ the end of a line.
+
+      /V  - Search, Replace, InitCode, and FinalCode represent the name of
+            environment variables that contain the respective values.
+            An undefined variable is treated as an empty string.
+
+      /X  - Enables extended substitution pattern syntax with support
+            for the following escape sequences within the Replace string:
+
+            \\     -  Backslash
+            \b     -  Backspace
+            \f     -  Formfeed
+            \n     -  Newline
+            \q     -  Quote
+            \r     -  Carriage Return
+            \t     -  Horizontal Tab
+            \v     -  Vertical Tab
+            \xnn   -  ASCII byte code expressed as 2 hex digits
+            \unnnn -  Unicode character expressed as 4 hex digits
+
+            Also enables the \q escape sequence for the Search string.
+            The other escape sequences are already standard for a regular
+            expression Search string.
+
+            Also modifies the behavior of \xnn in the Search string to work
+            properly with extended ASCII byte codes (values above 0x7F).
+
+            Extended escape sequences are supported even when the /L option
+            is used. Both Search and Replace support all of the extended
+            escape sequences if both the /X and /L opions are combined.
+
+            Extended escape sequences are not applied to JScript code when
+            using the /J, /JMATCH, /JBEG, or /JEND options. Use the decode()
+            method if extended escape sequences are needed within the code.
+
+  There are global JScript variables/objects/methods that may be used in
+  JScript code when using the /J, /JBEG, /JEND, or /JMATCH options:
+
+      ln     - Within Replace code = line number where the match occurred.
+               Within /JEND code = total number of lines read.
+               This value is always 0 if the /M or /S otion is used.
+
+      env('varName')
+
+               Access to environment variable named varName.
+
+      decode(string)
+
+               Decodes extended escape sequences within a string as defined
+               by the /X option, and returns the result. All backslashes must
+               be escaped an extra time to use this function in your code.
+
+               Examples:
+                   quote literal:       decode('\\q')
+                   extended ASCII(128): decode('\\x80')
+                   backslash literal:   decode('\\\\')
+
+               This function is only needed if you use the \q sequence
+               or \xnn for an extended ASCII code (values above 0x7F).
+
+      input  - The TextStream object from which input is read.
+               This may be stdin or a file.
+
+      output - The TextStream object to which the output is written.
+               This may be stdout or a file.
+
+      stdin  - Equivalent to WScript.StdIn
+
+      stdout - Equivalent to WScript.StdOut
+
+      stderr - Equivalent to WScript.StdErr
+
+  Help is available by supplying a single argument beginning with /{QUEST}:
+
+      /{QUEST}        - Writes this help documentation to stdout.
+
+      /{QUEST}REGEX   - Opens up Microsoft's JScript regular expression
+                  documentation within your browser.
+
+      /{QUEST}REPLACE - Opens up Microsoft's JScript REPLACE documentation
+                  within your browser.
+
+      /{QUEST}VERSION - Writes the JREPL version number to stdout.
+
+  Return Codes:
+
+      0 = At least one change was made and /JMATCH not used
+          or at least one match returned and /JMATCH was used
+          or /{QUEST} was used
+
+      1 = No change was made and /JMATCH not used
+          or no match returned and /JMATCH was used
+
+      2 = Invalid call syntax or incompatible options
+
+      3 = JScript runtime error
+
+  JREPL.BAT was written by Dave Benham, and originally posted at
+  http://www.dostips.com/forum/viewtopic.php?f=3&t=6044
+
+

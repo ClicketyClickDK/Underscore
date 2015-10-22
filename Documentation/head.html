@@ -1,30 +1,33 @@
-<link rel="stylesheet" href="what.css" type="text/css" />
-<h2>[head] v.[2015-10-08] rev.[11:20:00] </h2>
-<h3>NAME </h3>
-<tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;head&nbsp;--&nbsp;Print&nbsp;the&nbsp;first&nbsp;n&nbsp;lines&nbsp;of&nbsp;a&nbsp;file&nbsp;to&nbsp;STDOUT&nbsp;</tt><br>
-<tt>&nbsp;&nbsp;</tt><br>
-<h3>SYNOPSIS </h3>
-<tt>&nbsp;&nbsp;head&nbsp;[File]&nbsp;[n]&nbsp;</tt><br>
-<tt>&nbsp;&nbsp;</tt><br>
-<tt>&nbsp;&nbsp;n&nbsp;=&nbsp;Number&nbsp;of&nbsp;lines&nbsp;to&nbsp;print,&nbsp;default=10&nbsp;</tt><br>
-<tt>&nbsp;&nbsp;</tt><br>
-<h3>OPTIONS </h3>
-<tt>&nbsp;&nbsp;-h&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Help&nbsp;page&nbsp;</tt><br>
-<tt>&nbsp;</tt><br>
-<h3>DESCRIPTION </h3>
-<tt>&nbsp;&nbsp;A&nbsp;function&nbsp;like&nbsp;MORE,&nbsp;but&nbsp;stops&nbsp;output&nbsp;after&nbsp;a&nbsp;given&nbsp;number&nbsp;of&nbsp;lines&nbsp;&nbsp;</tt><br>
-<tt>&nbsp;&nbsp;</tt><br>
-<h3>EXIT STATUS </h3>
-<tt>&nbsp;&nbsp;0&nbsp;&nbsp;&nbsp;OK&nbsp;</tt><br>
-<tt>&nbsp;&nbsp;1&nbsp;&nbsp;&nbsp;File&nbsp;not&nbsp;found&nbsp;</tt><br>
-<tt>&nbsp;</tt><br>
-<h3>SEE ALSO </h3>
-<tt>&nbsp;&nbsp;tail.cmd&nbsp;&nbsp;&nbsp;&nbsp;Print&nbsp;the&nbsp;last&nbsp;n&nbsp;lines&nbsp;of&nbsp;a&nbsp;file&nbsp;to&nbsp;STDOUT&nbsp;</tt><br>
-<tt>&nbsp;&nbsp;&nbsp;</tt><br>
-<h3>REFERENCE </h3>
-<tt>&nbsp;&nbsp;</tt><br>
-<tt>&nbsp;&nbsp;URL=http://serverfault.com/questions/490841/how-to-display-the-first-n-lines-of-a-command-output-in-windows-the-equivalent&nbsp;</tt><br>
-<tt>&nbsp;&nbsp;Example&nbsp;by&nbsp;Ryan&nbsp;Ries&nbsp;</tt><br>
-<tt>&nbsp;&nbsp;</tt><br>
-<h3>(c)2015 Erik Bachmann, ClicketyClick.dk [ErikBachmann@ClicketyClick.dk] </h3>
-<hr>
+<link rel='stylesheet' href='what.css' type='text/css' />
+NAME
+      %$NAME% -- %$DESCRIPTION%
+ 
+SYNOPSIS
+  %$NAME% [File] [n]
+ 
+  n = Number of lines to print, default=10
+ 
+OPTIONS
+  -h      Help page
+
+DESCRIPTION
+  A function like MORE, but stops output after a given number of lines 
+ 
+EXIT STATUS
+  0   OK
+  1   File not found
+
+REQUIRES
+  _Debug.cmd      Setting up debug environment for batch scripts 
+  _GetOpt.cmd     Parse command line options and create environment vars
+ 
+SEE ALSO
+  tail.cmd    Print the last n lines of a file to STDOUT
+  
+REFERENCE
+ 
+  URL=http://serverfault.com/questions/490841/how-to-display-the-first-n-lines-of-a-command-output-in-windows-the-equivalent
+  Example by Ryan Ries
+ 
+(c)2015 Erik Bachmann, ClicketyClick.dk [ErikBachmann@ClicketyClick.dk]
+

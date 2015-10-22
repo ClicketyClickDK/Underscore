@@ -1,0 +1,54 @@
+<link rel='stylesheet' href='what.css' type='text/css' />
+NAME
+  %$NAME% -- %$DESCRIPTION%
+
+SYNOPSIS
+  What.1 file-name [pattern] {flags}
+  What.1 file-name [pattern]
+
+OPTIONS
+  -html       Output in HTML format
+  -history    Display file history
+
+DESCRIPTION
+  Reads each file name and searches for sequences of the form
+  "@(#)", as inserted by the source code control system (SCCS)
+  It prints the remainder of the string following this marker,
+  up to a null character, newline, double quote, or ">" character.
+
+  So masking the VERY special characters is needed:
+  {CURREN}	{LCURL}CURREN{RCURL}	Currency
+  &	{LCURL}AMP{RCURL}		Ampersand
+  ^	{LCURL}CARET{RCURL}		Caret
+  !	{LCURL}EXCL{RCURL}		Exclamation mark
+  >	{LCURL}GT{RCURL}		Greater than
+  >	{LCURL}LT{RCURL}		Less than
+  |	{LCURL}PIPE{RCURL}		Pipe or vertical bar
+  (c)	{LCURL}COPY{RCURL}		Copyright
+  {LPAR}	{LCURL}LPAR{RCURL}		Left parentheses
+  {RPAR}	{LCURL}RPAR{RCURL}		Right parentheses
+  {LCURL}	{LCURL}LCURL{RCURL}		Left curly parentheses
+  {RCURL}	{LCURL}RCURL{RCURL}		Right curly parentheses
+  %	{LCURL}PCT{RCURL}		Percent
+  {QUEST}	{LCURL}QUEST{RCURL}		Question mark
+
+  A pattern may be given to replace the x in (x) like:
+
+     What.1 file pattern
+
+  Will print all lines with the sequence: "@(pattern)"
+  Note: Patterns are case insensitive
+
+EXAMPLES
+  %$NAME% what.cmd
+
+
+EXIT STATUS
+     0   Any matches were found.
+     1   No matches found.
+
+SOURCE
+  C:\Users\Erik\Documents\GitHub\Underscore\What.1.cmd
+
+(c)%$VERSION:~0,4% Erik Bachmann, ClicketyClick.dk [ErikBachmann@ClicketyClick.dk]
+

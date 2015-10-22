@@ -1,31 +1,34 @@
-<link rel="stylesheet" href="what.css" type="text/css" />
-<h2>[Utc2JulianDate] v.[2015-10-08] rev.[11:20:00] </h2>
-<h3>NAME </h3>
-<tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Utc2JulianDate&nbsp;--&nbsp;Convert&nbsp;UTC&nbsp;date&nbsp;[YYYY-MM-MM]&nbsp;to&nbsp;Julian&nbsp;date&nbsp;[Numeric]&nbsp;</tt><br>
-<tt>&nbsp;&nbsp;</tt><br>
-<h3>SYNOPSIS </h3>
-<tt>&nbsp;&nbsp;Utc2JulianDate&nbsp;{function}&nbsp;{PIPE}&nbsp;ALL&nbsp;</tt><br>
-<tt>&nbsp;</tt><br>
-<h3>OPTIONS </h3>
-<tt>&nbsp;&nbsp;-h&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Help&nbsp;page&nbsp;</tt><br>
-<tt>&nbsp;</tt><br>
-<h3>DESCRIPTION </h3>
-<tt>&nbsp;&nbsp;Converting&nbsp;af&nbsp;human&nbsp;readable&nbsp;UTC&nbsp;date&nbsp;YYYY-MM-DD&nbsp;to&nbsp;a&nbsp;&nbsp;</tt><br>
-<tt>&nbsp;&nbsp;numeric&nbsp;Julian&nbsp;date&nbsp;</tt><br>
-<tt>&nbsp;</tt><br>
-<h3>EXAMPLES </h3>
-<tt>&nbsp;&nbsp;CALL&nbsp;utc2JulianDate&nbsp;#JD&nbsp;'2010-01-20'&nbsp;</tt><br>
-<tt>&nbsp;&nbsp;SET&nbsp;#JD&nbsp;</tt><br>
-<tt>&nbsp;&nbsp;#JD=2455217&nbsp;</tt><br>
-<tt>&nbsp;</tt><br>
-<h3>SEE ALSO </h3>
-<tt>&nbsp;&nbsp;JulianDate2Utc&nbsp;</tt><br>
-<tt>&nbsp;&nbsp;&nbsp;</tt><br>
-<h3>REFERENCE </h3>
-<tt>&nbsp;&nbsp;URL:&nbsp;http://aa.usno.navy.mil/faq/docs/JD_Formula.php&nbsp;</tt><br>
-<tt>&nbsp;</tt><br>
-<h3>SOURCE </h3>
-<tt>&nbsp;&nbsp;C:\_\Utc2JulianDate.cmd&nbsp;</tt><br>
-<tt>&nbsp;</tt><br>
-<h3>(c)2015 Erik Bachmann, ClicketyClick.dk [ErikBachmann@ClicketyClick.dk] </h3>
-<hr>
+<link rel='stylesheet' href='what.css' type='text/css' />
+NAME
+      %$NAME% -- %$DESCRIPTION%
+ 
+SYNOPSIS
+  Utc2JulianDate {function} | ALL
+
+OPTIONS
+  -h      Help page
+
+DESCRIPTION
+  Converting af human readable UTC date YYYY-MM-DD to a 
+  numeric Julian date
+
+EXAMPLES
+  CALL utc2JulianDate #JD "2010-01-20"
+  SET #JD
+  #JD=2455217
+
+REQUIRES
+  _Debug.cmd      Setting up debug environment for batch scripts 
+  _GetOpt.cmd     Parse command line options and create environment vars
+ 
+SEE ALSO
+  JulianDate2Utc
+  
+REFERENCE
+  URL: http://aa.usno.navy.mil/faq/docs/JD_Formula.php
+
+SOURCE
+  C:\Users\Erik\Documents\GitHub\Underscore\Utc2JulianDate.cmd
+
+(c)2015 Erik Bachmann, ClicketyClick.dk [ErikBachmann@ClicketyClick.dk]
+

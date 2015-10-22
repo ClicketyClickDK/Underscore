@@ -1,44 +1,47 @@
-<link rel="stylesheet" href="what.css" type="text/css" />
-<h2>[formatStr] v.[2015-10-08] rev.[11:20:00] </h2>
-<h3>NAME </h3>
-<tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;formatStr&nbsp;--&nbsp;outputs&nbsp;columns&nbsp;of&nbsp;strings&nbsp;right&nbsp;or&nbsp;left&nbsp;aligned&nbsp;</tt><br>
-<tt>&nbsp;&nbsp;</tt><br>
-<h3>SYNOPSIS </h3>
-<tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;formatStr&nbsp;[Format]&nbsp;strX&nbsp;strY....&nbsp;</tt><br>
-<tt>&nbsp;&nbsp;</tt><br>
-<h3>OPTIONS </h3>
-<tt>&nbsp;&nbsp;-h&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Help&nbsp;page&nbsp;</tt><br>
-<tt>&nbsp;&nbsp;</tt><br>
-<h3>DESCRIPTION </h3>
-<tt>&nbsp;&nbsp;Writes&nbsp;formatted&nbsp;string&nbsp;to&nbsp;the&nbsp;standard&nbsp;output.&nbsp;&nbsp;</tt><br>
-<tt>&nbsp;&nbsp;The&nbsp;argument&nbsp;are&nbsp;formatted&nbsp;under&nbsp;control&nbsp;of&nbsp;the&nbsp;format&nbsp;string.&nbsp;</tt><br>
-<tt>&nbsp;&nbsp;The&nbsp;format&nbsp;string&nbsp;holds&nbsp;the&nbsp;operands&nbsp;to&nbsp;be&nbsp;replaced&nbsp;with&nbsp;the&nbsp;&nbsp;</tt><br>
-<tt>&nbsp;&nbsp;stings&nbsp;subsequently&nbsp;following&nbsp;the&nbsp;format&nbsp;string.&nbsp;</tt><br>
-<tt>&nbsp;&nbsp;The&nbsp;operand&nbsp;is&nbsp;a&nbsp;length&nbsp;surrounded&nbsp;by&nbsp;curled&nbsp;parentheses&nbsp;like&nbsp;{10}.&nbsp;</tt><br>
-<tt>&nbsp;&nbsp;If&nbsp;the&nbsp;length&nbsp;is&nbsp;less&nbsp;than&nbsp;zero,&nbsp;the&nbsp;string&nbsp;inserted&nbsp;will&nbsp;be&nbsp;aligned&nbsp;</tt><br>
-<tt>&nbsp;&nbsp;to&nbsp;the&nbsp;right.&nbsp;</tt><br>
-<tt>&nbsp;&nbsp;&nbsp;</tt><br>
-<h3>EXAMPLES </h3>
-<tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;CALL&nbsp;formatStr&nbsp;'{20}[{10}]'&nbsp;'Label'&nbsp;'Hello&nbsp;world'&nbsp;</tt><br>
-<tt>&nbsp;&nbsp;Will&nbsp;show&nbsp;</tt><br>
-<tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Label&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Hello&nbsp;worl]&nbsp;</tt><br>
-<tt>&nbsp;&nbsp;</tt><br>
-<tt>&nbsp;&nbsp;formatStr&nbsp;'[{10}][{-10}][{10}]'&nbsp;a&nbsp;spacy&nbsp;example&nbsp;</tt><br>
-<tt>&nbsp;&nbsp;[a&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;][&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;spacy][example&nbsp;&nbsp;&nbsp;]&nbsp;</tt><br>
-<tt>&nbsp;&nbsp;</tt><br>
-<tt>&nbsp;&nbsp;</tt><br>
-<h3>REFERENCE </h3>
-<tt>&nbsp;&nbsp;URL:&nbsp;http://www.dostips.com/{QUEST}t=Function.Format&nbsp;</tt><br>
-<tt>&nbsp;&nbsp;</tt><br>
-<tt>&nbsp;&nbsp;Please&nbsp;note:&nbsp;&nbsp;</tt><br>
-<tt>&nbsp;&nbsp;This&nbsp;function&nbsp;has&nbsp;the&nbsp;following&nbsp;differences&nbsp;from&nbsp;the&nbsp;DosTips&nbsp;'Format':&nbsp;</tt><br>
-<tt>&nbsp;&nbsp;1)&nbsp;Name&nbsp;changed&nbsp;to&nbsp;FormatStr&nbsp;due&nbsp;to&nbsp;similarity&nbsp;to&nbsp;the&nbsp;DOS&nbsp;format&nbsp;&nbsp;</tt><br>
-<tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[You&nbsp;do&nbsp;NOT&nbsp;want&nbsp;to&nbsp;confuse&nbsp;these&nbsp;commands].&nbsp;</tt><br>
-<tt>&nbsp;&nbsp;2)&nbsp;'ECHO.'&nbsp;changed&nbsp;to&nbsp;'ECHO:'&nbsp;since&nbsp;the&nbsp;'.'&nbsp;sometimes&nbsp;fails&nbsp;under&nbsp;Windows&nbsp;7+&nbsp;</tt><br>
-<tt>&nbsp;&nbsp;2)&nbsp;Tags&nbsp;are&nbsp;changed&nbsp;from&nbsp;[]&nbsp;to&nbsp;{}&nbsp;since&nbsp;[]&nbsp;are&nbsp;useful&nbsp;in&nbsp;formatted&nbsp;strings&nbsp;</tt><br>
-<tt>&nbsp;&nbsp;</tt><br>
-<h3>SOURCE </h3>
-<tt>&nbsp;&nbsp;C:\_\formatStr.cmd&nbsp;</tt><br>
-<tt>&nbsp;</tt><br>
-<h3>(c)2015 http://www.dostips.com </h3>
-<hr>
+<link rel='stylesheet' href='what.css' type='text/css' />
+NAME
+      %$NAME% -- %$DESCRIPTION%
+ 
+SYNOPSIS
+      %$NAME% [Format] strX strY....
+ 
+OPTIONS
+  -h      Help page
+ 
+DESCRIPTION
+  Writes formatted string to the standard output. 
+  The argument are formatted under control of the format string.
+  The format string holds the operands to be replaced with the 
+  stings subsequently following the format string.
+  The operand is a length surrounded by curled parentheses like {10}.
+  If the length is less than zero, the string inserted will be aligned
+  to the right.
+  
+EXAMPLES
+      CALL %$NAME% "{20}[{10}]" "Label" "Hello world"
+  Will show
+      Label               [Hello worl]
+ 
+  formatStr "[{10}][{-10}][{10}]" a spacy example
+  [a         ][     spacy][example   ]
+ 
+ 
+REQUIRES
+  _Debug.cmd      Setting up debug environment for batch scripts 
+  _GetOpt.cmd     Parse command line options and create environment vars
+ 
+REFERENCE
+  URL: http://www.dostips.com/{QUEST}t=Function.Format
+ 
+  Please note: 
+  This function has the following differences from the DosTips "Format":
+  1) Name changed to FormatStr due to similarity to the DOS format 
+      [You do NOT want to confuse these commands].
+  2) "ECHO." changed to "ECHO:" since the "." sometimes fails under Windows 7+
+  2) Tags are changed from [] to {} since [] are useful in formatted strings
+ 
+SOURCE
+  C:\Users\Erik\Documents\GitHub\Underscore\formatStr.cmd
+
+(c)2015 http://www.dostips.com
+

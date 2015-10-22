@@ -1,35 +1,38 @@
-<link rel="stylesheet" href="what.css" type="text/css" />
-<h2>[_action] v.[2015-10-08] rev.[16:00:00] </h2>
-<h3>NAME </h3>
-<tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;_action&nbsp;--&nbsp;Action&nbsp;part&nbsp;of&nbsp;_action&nbsp;/&nbsp;_status&nbsp;line&nbsp;</tt><br>
-<tt>&nbsp;&nbsp;</tt><br>
-<h3>SYNOPSIS </h3>
-<tt>&nbsp;&nbsp;_action&nbsp;'string'&nbsp;</tt><br>
-<tt>&nbsp;&nbsp;</tt><br>
-<h3>OPTIONS </h3>
-<tt>&nbsp;&nbsp;-h&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Help&nbsp;page&nbsp;</tt><br>
-<tt>&nbsp;&nbsp;</tt><br>
-<h3>DESCRIPTION </h3>
-<tt>&nbsp;&nbsp;_action&nbsp;echos&nbsp;a&nbsp;string&nbsp;to&nbsp;STDOUT&nbsp;with&nbsp;the&nbsp;maximum&nbsp;length&nbsp;of&nbsp;$ActionRange.&nbsp;</tt><br>
-<tt>&nbsp;&nbsp;Line&nbsp;is&nbsp;NOT&nbsp;terminated&nbsp;by&nbsp;a&nbsp;NEWLINE&nbsp;</tt><br>
-<tt>&nbsp;</tt><br>
-<tt>&nbsp;&nbsp;_action&nbsp;is&nbsp;usually&nbsp;used&nbsp;in&nbsp;combination&nbsp;with&nbsp;_status.cmd&nbsp;to&nbsp;display&nbsp;</tt><br>
-<tt>&nbsp;&nbsp;status&nbsp;information&nbsp;durring&nbsp;processing&nbsp;</tt><br>
-<tt>&nbsp;</tt><br>
-<h3>EXAMPLE </h3>
-<tt>&nbsp;&nbsp;CALL&nbsp;_ACTION&nbsp;'Hello'&nbsp;</tt><br>
-<tt>&nbsp;&nbsp;CALL&nbsp;_STATUS&nbsp;'World'&nbsp;</tt><br>
-<tt>&nbsp;</tt><br>
-<tt>&nbsp;&nbsp;Will&nbsp;produce&nbsp;the&nbsp;line:&nbsp;</tt><br>
-<tt>&nbsp;&nbsp;Hello&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[World&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;]&nbsp;</tt><br>
-<tt>&nbsp;</tt><br>
-<tt>&nbsp;</tt><br>
-<h3>SEE ALSO </h3>
-<tt>&nbsp;&nbsp;_status.cmd&nbsp;</tt><br>
-<tt>&nbsp;&nbsp;_state.cmd&nbsp;</tt><br>
-<tt>&nbsp;</tt><br>
-<h3>SOURCE </h3>
-<tt>&nbsp;&nbsp;C:\_\_action.cmd&nbsp;</tt><br>
-<tt>&nbsp;&nbsp;</tt><br>
-<h3>(c)2015 Erik Bachmann, ClicketyClick.dk [ErikBachmann@ClicketyClick.dk] </h3>
-<hr>
+<link rel='stylesheet' href='what.css' type='text/css' />
+NAME
+      %$NAME% -- %$DESCRIPTION%
+ 
+SYNOPSIS
+  %$NAME% "string"
+ 
+OPTIONS
+  -h      Help page
+ 
+DESCRIPTION
+  %$NAME% echos a string to STDOUT with the maximum length of $ActionRange.
+  Line is NOT terminated by a NEWLINE!
+
+  %$NAME% is usually used in combination with _status.cmd to display
+  status information durring processing
+
+EXAMPLE
+  CALL _ACTION "Hello"
+  CALL _STATUS "World"
+
+  Will produce the line:
+  Hello                                             [World                   ]
+
+
+REQUIRES
+  _Debug.cmd      Setting up debug environment for batch scripts 
+  _GetOpt.cmd     Parse command line options and create environment vars
+
+SEE ALSO
+  _status.cmd
+  _state.cmd
+
+SOURCE
+  C:\Users\Erik\Documents\GitHub\Underscore\_action.cmd
+ 
+(c)2015 Erik Bachmann, ClicketyClick.dk [ErikBachmann@ClicketyClick.dk]
+

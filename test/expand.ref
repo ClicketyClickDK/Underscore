@@ -1,0 +1,7 @@
+:: This is a test
+::@(#) {EXCL}	:exclamation mark !
+::@(#) {PCT}	:percent %
+::@(#) {PIPE}	:vertical line |
+::@(#) {AMP}	:ampersand &
+
+::@(#) {CARET}	:caret

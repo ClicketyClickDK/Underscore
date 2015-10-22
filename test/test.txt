@@ -1,0 +1,8 @@
+
+::@(#) !	:exclamation mark !
+::@(#) %	:percent %
+::@(#) |	:vertical line |
+::@(#) &	:ampersand &
+
+::@(#) ^	:caret
+

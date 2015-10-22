@@ -1,29 +1,32 @@
-<link rel="stylesheet" href="what.css" type="text/css" />
-<h2>[_LF] v.[2015-10-08] rev.[11:20:00] </h2>
-<h3>NAME </h3>
-<tt>&nbsp;&nbsp;_LF&nbsp;--&nbsp;Create&nbsp;a&nbsp;newline&nbsp;[line&nbsp;feed]&nbsp;variable&nbsp;</tt><br>
-<tt>&nbsp;&nbsp;</tt><br>
-<h3>SYNOPSIS </h3>
-<tt>&nbsp;&nbsp;CALL&nbsp;_LF&nbsp;</tt><br>
-<tt>&nbsp;&nbsp;</tt><br>
-<tt>&nbsp;&nbsp;-h&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Help&nbsp;page&nbsp;</tt><br>
-<tt>&nbsp;&nbsp;</tt><br>
-<h3>DESCRIPTION </h3>
-<tt>&nbsp;&nbsp;Create&nbsp;a&nbsp;environment&nbsp;variable&nbsp;_LF&nbsp;with&nbsp;a&nbsp;single&nbsp;linefeed&nbsp;</tt><br>
-<tt>&nbsp;&nbsp;Useful&nbsp;for&nbsp;printing&nbsp;multiple&nbsp;messages&nbsp;on&nbsp;one&nbsp;line&nbsp;</tt><br>
-<tt>&nbsp;</tt><br>
-<h3>EXAMPLES </h3>
-<tt>&nbsp;&nbsp;SETLOCAL&nbsp;ENABLEDELAYEDEXPANSION&nbsp;</tt><br>
-<tt>&nbsp;&nbsp;CALL&nbsp;_LF&nbsp;</tt><br>
-<tt>&nbsp;&nbsp;SET&nbsp;/P&nbsp;_=--&nbsp;{PCT}CD{PCT}&nbsp;:&nbsp;OK&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{EXCL}_LF{EXCL}{LT}nul&nbsp;</tt><br>
-<tt>&nbsp;</tt><br>
-<h3>SEE ALSO </h3>
-<tt>&nbsp;&nbsp;_BS.cmd&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Back&nbsp;space&nbsp;</tt><br>
-<tt>&nbsp;&nbsp;_LF.cmd&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Line&nbsp;Feed&nbsp;</tt><br>
-<tt>&nbsp;</tt><br>
-<tt>&nbsp;</tt><br>
-<h3>SOURCE </h3>
-<tt>&nbsp;&nbsp;C:\_\_LF.cmd&nbsp;</tt><br>
-<tt>&nbsp;</tt><br>
-<h3>(c)2015 Erik Bachmann, ClicketyClick.dk [ErikBachmann@ClicketyClick.dk] </h3>
-<hr>
+<link rel='stylesheet' href='what.css' type='text/css' />
+NAME
+  %$NAME% -- Create a newline [line feed] variable
+ 
+SYNOPSIS
+  CALL %$NAME%
+ 
+  -h      Help page
+ 
+DESCRIPTION
+  Create a environment variable _LF with a single linefeed
+  Useful for printing multiple messages on one line
+
+EXAMPLES
+  SETLOCAL ENABLEDELAYEDEXPANSION
+  CALL _LF
+  SET /P _=-- %CD% : OK      !_LF!<nul
+
+REQUIRES
+  _Debug.cmd      Setting up debug environment for batch scripts 
+  _GetOpt.cmd     Parse command line options and create environment vars
+
+SEE ALSO
+  _BS.cmd     Back space
+  _LF.cmd     Line Feed
+
+
+SOURCE
+  C:\Users\Erik\Documents\GitHub\Underscore\_LF.cmd
+
+(c)2015 Erik Bachmann, ClicketyClick.dk [ErikBachmann@ClicketyClick.dk]
+

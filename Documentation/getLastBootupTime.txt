@@ -1,23 +1,26 @@
-[getLastBootupTime] v.[2015-10-08] rev.[11:20:00] 
+NAME
+      %$NAME% -- %$DESCRIPTION%
+ 
+SYNOPSIS
+      %$NAME%
+ 
+OPTIONS
+  -h      Help page
 
-NAME 
-      getLastBootupTime -- Get latest boot up time for system 
-  
-SYNOPSIS 
-      getLastBootupTime 
-  
-OPTIONS 
-  -h      Help page 
+DESCRIPTION
  
-DESCRIPTION 
-  
-  
-EXAMPLES 
-     getLastBootupTime.cmd 
-     DTS=20150328015443.064271+060 
-  
  
-SOURCE 
-  C:\_\getLastBootupTime.cmd 
+EXAMPLES
+     getLastBootupTime.cmd
+     DTS=20150328015443.064271+060
  
-(c)2015 Erik Bachmann, ClicketyClick.dk [ErikBachmann@ClicketyClick.dk] 
+REQUIRES
+  _Debug.cmd      Setting up debug environment for batch scripts 
+  _GetOpt.cmd     Parse command line options and create environment vars
+ 
+
+SOURCE
+  C:\Users\Erik\Documents\GitHub\Underscore\getLastBootupTime.cmd
+
+(c)2015 Erik Bachmann, ClicketyClick.dk [ErikBachmann@ClicketyClick.dk]
+
