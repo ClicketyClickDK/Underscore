@@ -1,8 +1,8 @@
 NAME
-  what -- Search file for pattern "@^^(#^^)" and print remainder of string
+  What -- Search file for pattern "@^^(#^^)" and print remainder of string
  
 SYNOPSIS
-  what filename [pattern]
+  What filename [pattern]
  
 DESCRIPTION
   Reads each file name and searches for sequences of the form 
@@ -10,10 +10,9 @@ DESCRIPTION
   It prints the remainder of the string following this marker, 
   up to a null character, newline, double quote, or ">" character.
  
- 
   A pattern may be given to replace the x in (x) like:
  
-     what file pattern
+     What file pattern
  
   Will print alle lines the sequence: "@(pattern)"
   Note: Patterns are case insensitive
@@ -26,7 +25,7 @@ REQUIRES
   _GetOpt.cmd     Parse command line options and create environment vars
  
 SOURCE
-  C:\Users\Erik\Documents\GitHub\Underscore\what.cmd
+  C:\Users\Erik\Documents\GitHub\Underscore\What.cmd
  
-(c)06:00:00 Erik Bachmann, ClicketyClick.dk (E_Bachmann@ClicketyClick.dk)
+(c)2015 Erik Bachmann, ClicketyClick.dk (E_Bachmann@ClicketyClick.dk)
 

@@ -1,8 +1,8 @@
 NAME
-      %$NAME% -- %$DESCRIPTION%
+      zip -- Search file for pattern "@^(#^)" and print remainder of string
  
 SYNOPSIS
-      %$NAME% [ZIP] {FILE}
+      zip [ZIP] {FILE}
 
 OPTIONS
   -h      Help page
@@ -15,7 +15,7 @@ DESCRIPTION
  
 EXAMPLES
       ECHO:Hello world > "%TEMP%\hello.txt"
-      %$NAME% "%TEMP%\myZip.zip" "%TEMP%\hello.txt"
+      zip "%TEMP%\myZip.zip" "%TEMP%\hello.txt"
       DIR "%TEMP%\myZip.zip"
  
 REQUIRES

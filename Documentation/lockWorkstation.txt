@@ -1,8 +1,8 @@
 NAME
-      %$NAME% -- %$DESCRIPTION%
+      lockWorkstation -- Start Windows screensaver
  
 SYNOPSIS
-      %$NAME% [VAR]
+      lockWorkstation [VAR]
  
 OPTIONS
   -h      Help page

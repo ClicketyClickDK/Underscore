@@ -1,8 +1,8 @@
 NAME
-      %$NAME% -- %$DESCRIPTION%
+      _isNumeric -- Test if argument is numeric
  
 SYNOPSIS
-      %$NAME% [VAR]
+      _isNumeric [VAR]
  
 OPTIONS
   -h      Help page

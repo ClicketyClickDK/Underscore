@@ -1,19 +1,19 @@
 NAME
-      %$NAME% -- %$DESCRIPTION%
+      _registry.delete_key -- Delete an entry from the registration database
  
 SYNOPSIS
-  %$NAME% "Path" "key"
+  _registry.delete_key "Path" "key"
  
 OPTIONS
   -h      Help page
  
 DESCRIPTION
-  %$NAME% deletes the entries found in the key given as first argument
+  _registry.delete_key deletes the entries found in the key given as first argument
  
   Note: Patterns are case insensitive
  
 EXAMPLES
-      CALL %$NAME% "HKEY_LOCAL_MACHINE\SOFTWARE\ClicketyClick.dk\%$NAME%" "Status"
+      CALL _registry.delete_key "HKEY_LOCAL_MACHINE\SOFTWARE\ClicketyClick.dk\_registry.delete_key" "Status"
  
 REQUIRES
   _Debug.cmd      Setting up debug environment for batch scripts 

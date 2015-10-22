@@ -1,8 +1,8 @@
 NAME
-      %$NAME% -- %$DESCRIPTION%
+      getWeekOfYear -- Get week number for at given date
  
 SYNOPSIS
-      %$NAME% [VAR] [ISO DATE]
+      getWeekOfYear [VAR] [ISO DATE]
  
 OPTIONS
   -h      Help page

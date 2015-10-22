@@ -1,8 +1,8 @@
 NAME
-      %$NAME% -- %$DESCRIPTION%
+      head -- Print the first n lines of a file to STDOUT
  
 SYNOPSIS
-  %$NAME% [File] [n]
+  head [File] [n]
  
   n = Number of lines to print, default=10
  

@@ -1,8 +1,8 @@
 NAME
-      %$NAME% -- %$DESCRIPTION%
+      ftime -- returns the file time in julian days
  
 SYNOPSIS
-      %$NAME% [VAR] [File name]
+      ftime [VAR] [File name]
  
 OPTIONS
   -h      Help page

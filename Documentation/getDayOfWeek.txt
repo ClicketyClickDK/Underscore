@@ -1,8 +1,8 @@
 NAME
-      %$NAME% -- %$DESCRIPTION%
+      getDayOfWeek -- Get day of week for a given date
  
 SYNOPSIS
-      %$NAME% [VAR] [YYYY-MM-DD]
+      getDayOfWeek [VAR] [YYYY-MM-DD]
  
 OPTIONS
   -h      Help page

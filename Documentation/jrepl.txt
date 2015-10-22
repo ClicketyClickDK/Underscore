@@ -1,5 +1,5 @@
 NAME
-      %$NAME% -- %$DESCRIPTION%
+      jrepl -- a global regular expression search+replace operation on each line of input
  
 SYNOPSIS
 JREPL  Search  Replace  [/Option  [Value]]...

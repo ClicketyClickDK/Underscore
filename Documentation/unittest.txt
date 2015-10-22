@@ -1,9 +1,9 @@
 NAME
-      %$NAME% -- %$DESCRIPTION%
+      unittest -- Unittest for Underscore
  
 SYNOPSIS
-      %$NAME%
-      %$NAME% [function]
+      unittest
+      unittest [function]
  
 OPTIONS
   -h      Help page

@@ -1,4 +1,4 @@
-::@ECHO OFF
+@ECHO OFF
 SETLOCAL ENABLEDELAYEDEXPANSION&::(Don't pollute the global environment with the following)
 ::**********************************************************************
 SET $NAME=%~n0

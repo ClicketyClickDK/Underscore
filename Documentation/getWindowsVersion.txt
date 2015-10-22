@@ -1,8 +1,8 @@
 NAME
-      %$NAME% -- %$DESCRIPTION%
+      getWindowsVersion -- Reading Windows version info from registry database
  
 SYNOPSIS
-      CALL %$NAME%
+      CALL getWindowsVersion
  
 OPTIONS
   -h      Help page

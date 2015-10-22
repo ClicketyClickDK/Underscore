@@ -1,0 +1,398 @@
+<html>
+  <head>
+    <title>The _ Windows Batch Library - Readme</title>
+
+	<script language="JavaScript" src="toc.js"></script>
+	<script language="JavaScript" src="underscore.js"></script>
+	
+
+	<link rel="stylesheet" href="underscore.css" title="Readme-css" media="all" type="text/css">
+	<!--link rel="stylesheet" href="readme.css" title="Readme-css" media="all" type="text/css"-->
+	<!--link rel="stylesheet" href="toc.css" title="toc-css" media="all" type="text/css"-->
+
+  </head>  <body onload="latestUpdate();toc()">
+
+
+<a name="_">  
+<h1>The _ Windows Batch Library</h1>
+</a>
+<p>By <a href="mailto:ErikBachmann@ClicketyClick.dk&subject=The_Underscore_Library">ErikBachmann@ClicketyClick.dk</a> - Latest update: <span id="latestUpdate"></span></p>
+
+<div id="TOC"></div>
+
+<!-- ************************************************************** -->
+<a name="WhatsItAllAbout">  
+<h2>WHAT'S IT ALL ABOUT</h2>
+</a>
+<dir>Mean, motive and opportunity</dir>
+
+<p><strong>The "_" Windows Batch Library</strong> (<i>The "underscore" Windows Batch Library</i>) is a collection of generic, ready-to-use batch scripts, that I've developed and refined over the years. Most of the script are self-made, but other sources or inspiration are mentioned in either $AUTHOR or URL tags in the scripts headers.</p>
+
+<p>Experience has learned me the hard way, that one cannot rely on pre-installed scripts and functionality. Often it is not possible to install binary tools like Cygwin, Unix tools or script interpreters like Perl or PHP. This leaves me with M$ tools like Debug, Basic, Visual Basic or Powerscript. Even these tools may not be available on every system.</p>
+
+<p>The scripts in this library are all pure text based source code. You should be able to install them by simply copy the library directory onto your system - and you will be ready to Rock'n'roll!</p>
+
+<p>The origin of the name is due to my own practises of installing the library in <code>C:\_\</code>. You're free to install in any directory of your own choice (like <code>%ProgramFiles%\_\</code>).</p>
+<p></p>
+
+
+<!-- ************************************************************** -->
+<a name="Structure">
+<h2>STRUCTURE</h2>
+</a>
+
+<!-- -------------------------------------------------------------- -->
+<a name="DirectoryStructure">
+<h3>Directory structure</h3>
+</a>
+<p>Let me assume, that you install the library in <code>%ProgramFiles%\_\</code></p>
+<p>The structure will then be:</p>
+
+<dl>
+	<dt><code>%programFile%\_</code>
+		<dd>Scripts and sub-functions
+	<dl>
+		<dt><code>%programFile%\_\.Archive</code>
+			<dd>Archived scripts and new scripts for update
+		<dt><code>%programFile%\_\bin</code>
+			<dd>Storage for binaries, I use frequently like Exiftool, SQLite, Blat, Putty
+		<dt><code>%programFile%\_\dev</code>
+			<dd>Test bench for new upcomming scripts
+		<dt><code>%programFile%\_\Documentation</code>
+			<dd>Documentation for each function with examples (text and HTML)
+		<dt><code>%programFile%\_\Tips</code>
+			<dd>Text description of Tips and tricks
+		<dt><code>%programFile%\_\UnitTests</code>
+			<dd>Unit Test Suite
+	</dl>
+</dl>
+
+
+<!-- -------------------------------------------------------------- -->
+<a name="ScriptStructure">
+<h3>Script structure</h3>
+</a>
+<p>Scripts can be pure WinDOS commands, jscript, VBscript - or a combination</p>
+
+<p>The naming convention is as follows</p>
+<dl>
+	<dt>xxx<span class="syntax">.CMD</span>
+		<dd>A conventional ready to use scripts.
+	<dt><span class="syntax">_</span>xxx.CMD</span>
+		<dd>A sub function that provide macro like functionality 
+		to be embedded in other scripts (i.e. has no real life of it's own).
+	<dt>xxx<span class="syntax">.BAT</span>	<dd>A wrapper to VBscript or Jscript functionality.
+
+	<dt>xxx<span class="syntax">.CSV</span>
+		<dd>Data file with reference data
+	<dt>xxx<span class="syntax">.HTML</span>
+		<dd>General documentation (like this file)
+	<dt>xxx<span class="syntax">.CSS</span>
+		<dd>Style Sheet for documentation
+</dl>
+
+<p>Each script has a header, with description of functionality, 
+source of origin, examples. 
+This is extracted to the documentation directory in a structured form 
+using <a href="documentation/what.html">the <code>what</code> command</a> .
+</p>
+<p>
+The basic structure is as in the <a href="0template.cmd">template <code>0template.cmd</code></a>
+</p>
+
+<p>
+Each script has ideally tree steps as described in the <code>:MAIN</code> section:
+<dl>
+	<dt><code>:init</code>
+		<dd>An initiation of all variables and call for initiating sub functions (like <code>_debug</code> or <code>_getopt</code>]
+	<dt><code>:Proccess</code>
+		<dd>The processing ..
+	<dt><code>:Finalize</code>
+		<dd>A Status reporting.
+</dl>
+
+Any call to another script in the library the name should be prefixed with the drive and path to the calling script. Which is assumed to be in the same directory:
+
+<code>CALL "<span id="syntax">%~dp0</span>\what"</code>
+
+
+</p>
+
+
+<!-- ************************************************************** -->
+<a name="UnitTests">
+<h2>UNIT TESTS</h2>
+</a>
+<P>
+Any script (function or sub-function) should have a unittest 
+to verify the integrity of the script. 
+These tests are stored in <code>_\unittests\</code> and run 
+using <a href="documentation/what.html">the <code>unittest</code> command</a> .
+</p>
+
+<p>The Directory <code>UnitTests</code> contains a collection of unit tests for the functions.
+</p>
+
+<p>Run the entire test suite using the command: <code>UnitTest.cmd</code></p>
+
+<p>Unittest can test an individual script:
+<pre>
+C:\_>unittest what.cmd
+what.cmd                                     [OK.                             ]
+</pre>
+
+or the entire suite of scripts (no arguments):
+
+<pre>
+C:\_>unittest
+
+unittest v.2015-03-19 -- Unittest for Underscore
+No arg
+Name                                         [                                ]
+Testing                                      [                                ]
+Script Dir                                   [C:\_\                           ]
+Unit test                                    [                                ]
+Unit Test Dir                                [C:\_\UnitTests\                 ]
+_MissingLog                                  [C:\Users\ERIKBA~1\AppData\Local ]
+_FailedLog                                   [C:\Users\ERIKBA~1\AppData\Local ]
+Scripts to process                           [83                              ]
+:
+:
+shortDate2Iso.cmd                            [OK.                             ]
+startScreenSaver.cmd                         [Skipped:Win internal=no test    ]
+strstr.cmd                                   [OK.                             ]
+tail.cmd                                     [OK.                             ]
+test.date2jdate.cmd                          [Skipping: Test module. No funct ]
+unittest.cmd                                 [Skipped:Template=no test        ]
+unzip.bat                                    [OK.                             ]
+Utc2JulianDate.cmd                           [OK.                             ]
+wget.bat                                     [FAIL [2]                        ]
+what.cmd                                     [OK.                             ]
+which.cmd                                    [OK.                             ]
+zip.bat                                      [OK.                             ]
+
+Scripts processed                            [69                              ]
+- Missing                                    [1                               ]
+- Failed                                     [4                               ]
+- Skipped                                    [14                              ]
+- Succeeded                                  [64                              ]
+Log files:
+_MissingLog                                  [C:\Users\ERIKBA~1\AppData\Local ]
+_FailedLog                                   [C:\Users\ERIKBA~1\AppData\Local ]
+
+HKEY_LOCAL_MACHINE.failed.log
+HKEY_LOCAL_MACHINE.missing.log
+All run
+</pre>
+
+<dl>
+	<dt>OK	<dd>UnitTest matched the expected result.
+
+	<dt>FAIL	<dd>Unittest did <i>not</i> match the expected result. 
+		Please consult the <code>xxx.trc</code>, <code>xxx.*dump</code> 
+		and <code>xxx.*ref</code> files in the <code>%TEMP%</code> directory
+
+	<dt>Skipped	<dd>Templates, test modules - and functionality that cannot be 
+			tested in a batch job will NOT be tested. This is indicated in the unit test.
+</dl>
+</p>
+
+<!-- -------------------------------------------------------------- -->
+<a name="WrittingAUnitTest">
+<h3>Writting a unit test</h3>
+</a>
+<p>A script like <code>myScript.cmd</code> placed in <code>_</code> should 
+have a valid unit test like <code>_\unitTests\myScript<span class="syntax">.unittest</span>.cmd</code>
+</p>
+
+<p>
+By default there are three methods of test:
+<ol>
+	<li>Simple comparison of output <code>%temp%\myScript.cmd.dump</code> to a reference file (<code>%temp%\myScript.cmd.ref</code>)
+	<li>Comparing hexdumps of output <code>%temp%\myScript.cmd.HEXdump</code> to a reference file (<code>%temp%\myScript.cmd.HEXref</code>)
+	<li>Pattern matching on the output <code>%temp%\myScript.cmd.dump</code>
+</ol>
+
+Rank:
+<ol>
+<li>IF "hexref" exists the hexdumps will be compared
+<li>If "ref" exists the ref and dump will be compared
+<li>Otherwise dump will be matched against patterns found in the original script
+</ol>
+
+<a name="SimpleComparison">
+<h4>Simple comparison</h4>
+</a>
+<p>Create a unit test file with a label named <code>:_UnitTest_<span class="syntax">myScript</span></code>.
+This is required by the <code>unittest</code> script. 
+
+Set a local environment using <code>SETLOCAL</code> and 
+shift arguments one position (since the script name is first argument)
+</p>
+
+<p>
+Write your reference to <code>%TEMP%\<span class="syntax">%0.ref</span></code>, test output to <code>%TEMP%\<span class="syntax">%0.dump</span></code> and any other output, info, debug, trace or whatever to <code>%TEMP%\%0.trc</code>
+</p>
+<pre>
+::----------------------------------------------------------------------
+:_UnitTest_<span class="syntax">myScript</span>
+SETLOCAL
+    SHIFT
+    
+    :: Create ref
+    (
+        ECHO:Hello World
+    )>"%TEMP%\<span class="syntax">%0.ref</span>" 2>>"%TEMP%\%0.trc"
+
+    :: Dump data
+    (
+        CALL %0
+    )>"%TEMP%\<span class="syntax">%0.dump</span>"
+    
+GOTO :EOF *** :_UnitTest_myScript ***
+::----------------------------------------------------------------------
+</pre>
+In this example <code>myScript.cmd</code> is supposed to echo <tt>Hello World</tt> into <code>%temp%\myscript.dump</code>
+
+<a name="HexDump">
+<h4>Hexdump</h4>
+</a>
+
+<pre>
+::---------------------------------------------------------------------
+:_UnitTest_<span class="syntax">_cr</span>
+SETLOCAL
+    SHIFT
+    :: Create ref
+    ECHO 00000000: 5B 0D 5D 0D 0A                                   [.]..>"%TEMP%\%0<span class="syntax">.HEXref</span>" 2>>"%TEMP%\%0.trc"
+    ::                ^^
+    
+    :: Dump test data
+    >"%TEMP%\%0<span class="syntax">.dump</span>" 2>>"%TEMP%\%0.trc" ECHO [!_CR!]
+
+    :: Convert to hexdump
+    CALL HexDump /A /O "%TEMP%\%0<span class="syntax">.dump</span>" >"%TEMP%\%0<span class="syntax">.hexdump</span>" 2>>"%TEMP%\%0.trc"
+GOTO :EOF *** :_CR ***
+::---------------------------------------------------------------------
+</pre>
+
+
+<a name="PatternMatching">
+<h4>Pattern matching</h4>
+</a>
+<p>The dump file is tested using patterns stored in the <code>myScript.cmd</code> itself.
+The patterns are stored in strings prefixed with <code>::MATCH::</code>. The strings are regular expressions as used by <code>FindStr</code>
+</p>
+
+<p>
+See the <a href="Documentation/matchTest.html">matchTest</a> for details
+</p>
+<pre>
+::*** Match strings for testing output --------------------------------
+::# Test strings for test matching script.bat
+<span class="syntax">::MATCH::</span>SET.$DESCRIPTION
+::MATCH:vSET.FAILURE
+</pre>
+In this example output from <code>MatchText.cmd</code> are matched with "SET.$DESCRIPTION" 
+(where "." is a wildcard matching any character)
+
+</p>
+
+<a name="SkippingTest">
+<h4>Skipping test</h4>
+</a>
+
+If for some reason, a test is impossible or misleading, you can chose to skip testing the module (please don't!) by writting a short statement to <code>%temp\%0.skip</code> and then bail out.
+<pre>
+:_UnitTest_UnitTest
+SETLOCAL
+    SHIFT
+    :: Dummy test - UnitTest is a template. No functional test
+    ECHO:<i>Skipped:Template=no test</i>>"%TEMP%\<span class="syntax">%0.skip</span>" & GOTO :EOF
+</pre>
+
+
+<!-- ************************************************************** -->
+<a name="LogDebugTraceAndTemporaryFiles">
+<h2>LOG, DEBUG, TRACE AND TEMPORARY FILES</h2>
+</a>
+
+All temporary files are written to your local temporary directory using environment variables %TEMP% or %TMP%
+
+<!-- ************************************************************** -->
+<a name="Installation">
+<h2>INSTALLATION</h2>
+</a>
+
+<!-- -------------------------------------------------------------- -->
+<a name="FirstTimeInstallation">
+<h3>FIRST TIME INSTALLATION</h3>
+</a>
+<ol>
+	<li>Create a directory to hold the library (like <code>%ProgramFiles%\_\</code> or <code>C:\_\</code>.
+	<li>Download the current library from depository: <a href="http://clicketyclick.dk/development/dos/_/">http://clicketyclick.dk/development/dos/_/</a>
+	<li>Unzip the library to the chosen directory.
+	<li>Run the <a href="Documentation/unittest.html">unittest</a> without any arguments (= test entire suite)
+</ol>
+Ready to Rock'n'Roll!
+	
+<!-- -------------------------------------------------------------- -->
+<a name="Updating">
+<h3>UPDATING</h3>
+</a>
+
+<p>
+The library is maintained using the functions:
+<dl>
+	<dt><code>checkInArchive.cmd</code>	<dd>Make an archive version of batch jobs
+	<dt><code>checkoutArchive.cmd</code>	<dd>Checkout updates/install new units (Only if archived version is newer!)
+	<dt><code>updateArchive.cmd</code>	<dd>Download an update from ClicketyClick.dk
+	<dt><code>UnitTest.cmd</code>	<dd>Runs the test suite and updates documentation using What.cmd
+</dl>
+</p>
+
+<p>
+Run the <a href="Documentation/updateArchive.html">updateArchive</a>
+The script will connect to the repository, find and download the current version, and extract the newest versions of scripts from <code>.ARCHIVE</code>
+</p>
+  <fieldset>
+    <legend>Please note</legend>
+<p>
+	IF you have made any local changes to the scripts PRIOR to 
+		the latest version in the repository. 
+		Your local change will be overwritten by the update.
+</p>
+<p>
+However: You can find your local change in the backup in <code>.ARCHIVE</code> directory.
+Before unpacking the latest version, at backup using <code><a href="Documentation/checkInArchive.html">checkInArchive</a></code> command has "archived" your file in <code>.ARCHIVE\xxxx.yyyy-mm-ddThh-mm.cmd</code>, where "yyyy-mm-ddThh-mm" is the file date in ISO format.
+</p>
+  </fieldset>
+ 
+  
+<p>
+Be very careful when updating the patched version:
+<ol>
+<li>Think about the consequences
+<li>Test intensively!!!
+<li>Send me the patch (please!!!!)
+</ol>
+
+
+<!-- ************************************************************** -->
+<a name="How-To">
+<h2>HOW-TO..</h2>
+</a>
+
+Feel free..!
+
+<!-- ************************************************************** -->
+<a name="BugFixes">
+<h2>BUG FIXES</h2>
+</a>
+
+<strong>WHEN</strong> you find a bug, require a modification or has any form of comment on this library - please do not hesitate to send me an email: <a href="mailto:ErikBachmann@ClicketyClick.dk&subject=The_Underscore_Library">ErikBachmann@ClicketyClick.dk</a>
+
+<hr>
+
+  </body>
+</html>

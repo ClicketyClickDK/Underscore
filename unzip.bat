@@ -1,4 +1,4 @@
-::'::@ECHO OFF
+::'@ECHO OFF
 ::'SETLOCAL ENABLEDELAYEDEXPANSION&::(Don't pollute the global environment with the following)
 ::'::**********************************************************************
 ::'SET $NAME=%~n0
@@ -28,16 +28,12 @@
 ::'::@(#) 
 ::'::@(#)EXAMPLES
 ::'::@(-)  Some examples of common usage.
-::'::@(#)      ECHO:Hello world {GT} "{PCT}TEMP{PCT}\hello.txt"
-::'::@(#)      %$NAME% "{PCT}TEMP{PCT}\myZip.zip" "{PCT}TEMP{PCT}\hello.txt"
-::'::@(#)      DIR "{PCT}TEMP{PCT}\myZip.zip"
-::'::@(#) Or
-::'::@(#)      ECHO:Hello world{GT}"{PCT}TMP{PCT}\hello.txt"
-::'::@(#)      zip.bat "{PCT}TMP{PCT}\hello.zip" "{PCT}TMP{PCT}\hello.txt"
-::'::@(#)      DEL "{PCT}TMP{PCT}\hello.txt"
-::'::@(#)      DIR "{PCT}TMP{PCT}\hello.txt"
-::'::@(#)      unzip.bat "{PCT}TMP{PCT}\hello.zip" "{PCT}TMP{PCT}"
-::'::@(#)      DIR "{PCT}TMP{PCT}\hello.txt"
+::'::@(#)      ECHO:Hello world>"%TMP%\hello.txt"
+::'::@(#)      CALL zip.bat "%TMP%\hello.zip" "%TMP%\hello.txt"
+::'::@(#)      DEL "%TMP%\hello.txt"
+::'::@(#)      DIR "%TMP%\hello.txt"
+::'::@(#)      CALL unzip.bat "%TMP%\hello.zip" "%TMP%"
+::'::@(#)      DIR "%TMP%\hello.txt"
 ::'::@ (#)
 ::'::@ (#)EXIT STATUS
 ::'::@(-)  Exit status / errorlevel is 0 if OK, otherwise 1+.
@@ -54,10 +50,11 @@
 ::'::@(-)  If any known
 ::'::@ (#)
 ::'::@ (#)
-::'::@ (#)REQUIRES
-::'::@(-)  Dependencies
-::'::@ (#)  
-::'::@ (#)
+::'::@(#)REQUIRES
+::'::@(-)  Dependecies
+::'::@(#)  _Debug.cmd      Setting up debug environment for batch scripts 
+::'::@(#)  _GetOpt.cmd     Parse command line options and create environment vars
+::'::@(#) 
 ::'::@ (#)SEE ALSO
 ::'::@(-)  A list of related commands or functions.
 ::'::@ (#)  
@@ -79,7 +76,8 @@
 ::'::SET $VERSION=YYYY-MM-DD&SET $REVISION=hh:mm:ss&SET $COMMENT=Description/init
 ::'::SET $VERSION=2014-01-31&SET $REVISION=13:16:00&SET $COMMENT=Description/init
 ::'::SET $VERSION=2015-02-19&SET $REVISION=16:00:00&SET $COMMENT=Autoupdate / ErikBachmann
-::'  SET $VERSION=2015-10-08&SET $REVISION=16:00:00&SET $COMMENT=GetOpt: Calling usage and exit on error / ErikBachmann
+::'::SET $VERSION=2015-10-08&SET $REVISION=16:00:00&SET $COMMENT=GetOpt: Calling usage and exit on error / ErikBachmann
+::' SET $VERSION=2015-10-22&SET $REVISION=06:00:00&SET $COMMENT=Update usage / ErikBachmann
 ::'::**********************************************************************
 ::'::@(#)(c)%$Version:~0,4% %$Author%
 ::'::**********************************************************************

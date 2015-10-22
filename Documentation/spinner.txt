@@ -1,8 +1,8 @@
 NAME
-      %$NAME% -- %$DESCRIPTION%
+      spinner -- Spinner to indicate process
  
 SYNOPSIS
-      %$NAME% [type]
+      spinner [type]
  
 OPTIONS
   -h      Help page

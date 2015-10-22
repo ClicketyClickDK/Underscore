@@ -1,8 +1,8 @@
 NAME
-      %$NAME% -- %$DESCRIPTION%
+      driveTypes -- List local drives available by type
  
 SYNOPSIS
-      %$NAME% [VAR]
+      driveTypes [VAR]
  
 OPTIONS
   -h      Help page
@@ -11,7 +11,7 @@ DESCRIPTION
   List all drives alphabetically and determine type
  
 EXAMPLES
-      %$NAME%
+      driveTypes
       drlist=[C:\ D:\ E:\ ]
       C: - Fixed Drive
       D: - CD-ROM Drive

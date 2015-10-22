@@ -1,8 +1,8 @@
 NAME
-      %$NAME% -- %$DESCRIPTION%
+      _report_robocopy_errorlevel -- Error handler for Robocopy
  
 SYNOPSIS
-      %$NAME% [errorlevel]
+      _report_robocopy_errorlevel [errorlevel]
  
 OPTIONS
   -h      Help page

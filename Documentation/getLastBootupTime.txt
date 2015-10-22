@@ -1,8 +1,8 @@
 NAME
-      %$NAME% -- %$DESCRIPTION%
+      getLastBootupTime -- Get latest boot up time for system
  
 SYNOPSIS
-      %$NAME%
+      getLastBootupTime
  
 OPTIONS
   -h      Help page

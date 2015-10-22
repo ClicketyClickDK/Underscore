@@ -1,8 +1,8 @@
 NAME
-      %$NAME% -- %$DESCRIPTION%
+      date2jDate -- Converts ISO date to Julian date
  
 SYNOPSIS
-      %$NAME% [VAR] [IsoDate]
+      date2jDate [VAR] [IsoDate]
  
 OPTIONS
   -h      Help page
@@ -11,11 +11,11 @@ DESCRIPTION
   Converts a ISO date [YYYY-MM-DD] to a Julian date number
  
 EXAMPLES
-      CALL %$NAME% _var 2015-03-27
+      CALL date2jDate _var 2015-03-27
   Should give _var=2457108
 
   CALL shortDate2Iso _sdate "27/03/2015"
-  CALL %$NAME% _var %_sdate%
+  CALL date2jDate _var %_sdate%
  
 REQUIRES
   _Debug.cmd      Setting up debug environment for batch scripts 

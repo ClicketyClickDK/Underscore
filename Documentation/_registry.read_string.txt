@@ -1,8 +1,8 @@
 NAME
-      %$NAME% -- %$DESCRIPTION%
+      _registry.read_string -- Read an entry from the registration database
  
 SYNOPSIS
-  %$NAME% "Path" "key"
+  _registry.read_string "Path" "key"
  
 OPTIONS
   -h      Help page

@@ -1,8 +1,8 @@
 NAME
-      %$NAME% -- %$DESCRIPTION%
+      _Config -- Global configuration file
  
 SYNOPSIS
-      CALL %$NAME%
+      CALL _Config
    
 OPTIONS
   -h      Help page

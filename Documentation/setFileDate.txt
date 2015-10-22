@@ -1,8 +1,8 @@
 NAME
-      %$NAME% -- %$DESCRIPTION%
+      setFileDate -- Search file for pattern "@^(#^)" and print remainder of string
  
 SYNOPSIS
-      %$NAME% [FILE] [DATE]
+      setFileDate [FILE] [DATE]
  
 OPTIONS
   -h      Help page

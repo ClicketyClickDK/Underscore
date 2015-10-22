@@ -1,5 +1,5 @@
 NAME
-      %$NAME% -- %$DESCRIPTION%
+      _errorhandler -- Echos a formatted error message w. filename, line no, errorID and additional help
  
 SYNOPSIS
   _errorhandler file uniqueStr {formatter} {offset}

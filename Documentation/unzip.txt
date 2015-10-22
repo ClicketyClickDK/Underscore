@@ -1,8 +1,8 @@
 NAME
-      %$NAME% -- %$DESCRIPTION%
+      unzip -- Search file for pattern "@^(#^)" and print remainder of string
  
 SYNOPSIS
-      %$NAME% [ZIP] {DIR}
+      unzip [ZIP] {DIR}
 
 OPTIONS
   -h      Help page

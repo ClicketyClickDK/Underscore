@@ -28,15 +28,20 @@
 ::'::@(#)      SET _INPUT=
 ::'::@(#)      SET _TITLE=window title
 ::'::@(#)      SET _MSG=Hello world.{CrLf}Please enter something for me:
-::'::@(#)      SET _CMD=CALL %$NAME% "{PCT}_TITLE{PCT}" "{PCT}_MSG{PCT}" "default"
-::'::@(#)      FOR /F "tokens=* delims=" {PCT}{PCT}a IN ('CALL {PCT}_CMD{PCT}') DO SET _VAR={PCT}{PCT}a
-::'::@(#)      ECHO You entered [{PCT}_VAR{PCT}]
+::'::@(#)      SET _CMD=CALL %$NAME% "%_TITLE%" "%_MSG%" "default"
+::'::@(#)      FOR /F "tokens=* delims=" %%a IN ('CALL %_CMD%') DO SET _VAR=%%a
+::'::@(#)      ECHO You entered [%_VAR%]
 ::'::@(#)
 ::'::@ (#)EXIT STATUS
 ::'::@(-)  Exit status / errorlevel is 0 if OK, otherwise 1+.
 ::'::@(#)     The following exit values are returned:
 ::'::@(#)     0   Any matches were found.
 ::'::@(#)     1   No matches found.
+::'::@(#) 
+::'::@(#)REQUIRES
+::'::@(-)  Dependecies
+::'::@(#)  _Debug.cmd      Setting up debug environment for batch scripts 
+::'::@(#)  _GetOpt.cmd     Parse command line options and create environment vars
 ::'::@(#) 
 ::'::@(#)SEE ALSO
 ::'::@(#)  _MsgBox.bat
@@ -53,9 +58,10 @@
 ::'::SET $VERSION=YYYY-MM-DD&SET $REVISION=hh:mm:ss&SET $COMMENT=Init / Description [xx.xxx]
 ::'::SET $VERSION=2010-10-13&SET $REVISION=15:36:00&SET $COMMENT=ErikBachmann / Initial: FindInPath [01.000]
 ::'::SET $VERSION=2014-01-11&SET $REVISION=10:59:00&SET $COMMENT=Update doc + example/ErikBachmann [01.002]
-::'  SET $VERSION=2015-02-18&SET $REVISION=19:32:00&SET $Comment=cmdized/ErikBachmann
+::'::SET $VERSION=2015-02-18&SET $REVISION=19:32:00&SET $Comment=cmdized/ErikBachmann
+::'  SET $VERSION=2015-10-21&SET $REVISION=19:05:00&SET $Comment=Update usage/ErikBachmann
 ::'::**********************************************************************
-::'::@(#)¤COPY¤%$VERSION:~0,4% %$Author%
+::'::@(#)(c)%$VERSION:~0,4% %$Author%
 ::'::**********************************************************************
 ::'CALL "%~dp0_debug"
 ::'CALL "%~dp0_GetOpt" %*&IF ERRORLEVEL 1 EXIT /B 1

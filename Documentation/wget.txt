@@ -1,8 +1,8 @@
 NAME
-      %$NAME% -- %$DESCRIPTION%
+      wget -- Search file for pattern "@^(#^)" and print remainder of string
  
 SYNOPSIS
-      %$NAME% [URL] [Output file]
+      wget [URL] [Output file]
  
 OPTIONS
   -h      Help page
@@ -12,7 +12,7 @@ DESCRIPTION
   using a command line batch tool.
  
 EXAMPLES
-  %$NAME% "http://clicketyclick.dk/development/dos/_/current" "%TEMP%\current.txt" 
+  wget "http://clicketyclick.dk/development/dos/_/current" "%TEMP%\current.txt" 
  
  
 REQUIRES

@@ -1,8 +1,8 @@
 NAME
-      %$NAME% -- %$DESCRIPTION%
+      0template -- Template for DOS batch script
  
 SYNOPSIS
-      %$NAME% [VAR]
+      0template [VAR]
  
 OPTIONS
   -h      Help page
@@ -24,5 +24,5 @@ REQUIRES
 SOURCE
   C:\Users\Erik\Documents\GitHub\Underscore\0template.cmd
 
-(c)%$VERSION:~0,4% Erik Bachmann, ClicketyClick.dk [ErikBachmann@ClicketyClick.dk]
+(c)2015 Erik Bachmann, ClicketyClick.dk [ErikBachmann@ClicketyClick.dk]
 

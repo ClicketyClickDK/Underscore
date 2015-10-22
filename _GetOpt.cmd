@@ -9,11 +9,11 @@ SET $SOURCE=%~dpnx0
 ::@(#)  %$Name% -- %$Description%
 ::@(#) 
 ::@(#)SYNOPSIS
-::@(#)      CALL %$Name% ¤PCT¤*
+::@(#)      CALL %$Name% %*
 ::@(#) 
 ::@(#)  SET $NAME=x
 ::@(#)  ::Parse options to current script
-::@(#)  CALL %$NAME% ¤PCT¤*
+::@(#)  CALL %$NAME% %*
 ::@(#)    
 ::@(#)  ::Show options
 ::@(#)  set @x
@@ -38,7 +38,7 @@ SET $SOURCE=%~dpnx0
 ::@(#) 
 ::@(#)  :: Enable delayed expansion of vars to use content of vars
 ::@(#)      SETLOCAL ENABLEDELAYEDEXPANSION
-::@(#)      ECHO z=!@%%$NAME%%.z! 
+::@(#)      ECHO z=!@%$NAME%.z! 
 ::@(#)      SETLOCAL DISABLEDELAYEDEXPANSION
 ::@(#) 
 ::@(#)  :: Or hard code reference
@@ -65,6 +65,10 @@ SET $SOURCE=%~dpnx0
 
 ::@(#) NOTE! Environment var DEBUG will enable debug info
 ::@(#) 
+::@(#)REQUIRES
+::@(-)  Dependecies
+::@(#)  _Debug.cmd      Setting up debug environment for batch scripts 
+::@(#)
 ::@(#)SOURCE
 ::@(#)  %$Source%
 ::@(#) 
@@ -79,7 +83,8 @@ SET $SOURCE=%~dpnx0
 ::SET $VERSION=01.020&SET $REVISION=2010-11-12T16:17:00&SET $Comment=Exact path to _debug/EBP
 ::SET $VERSION=01.050&SET $REVISION=2015-10-08T11:19:00&SET $Comment=Call to usage. Exit on error 1/EBP
 ::SET $VERSION=2015-10-08&SET $REVISION=16:00:00&SET $COMMENT=GetOpt: Calling usage and exit on error / ErikBachmann
-  SET $VERSION=2015-10-15&SET $REVISION=11:22:00&SET $COMMENT=--help defaults to usage / ErikBachmann
+::SET $VERSION=2015-10-15&SET $REVISION=11:22:00&SET $COMMENT=--help defaults to usage / ErikBachmann
+  SET $VERSION=2015-10-22&SET $REVISION=06:00:00&SET $COMMENT=Update usage / ErikBachmann
 ::**********************************************************************
 ::@(#)(c)%$Version:~0,4% %$Author%
 ::**********************************************************************

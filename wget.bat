@@ -1,4 +1,4 @@
-::'::@ECHO OFF
+::'@ECHO OFF
 ::'SETLOCAL ENABLEDELAYEDEXPANSION&::(Don't pollute the global environment with the following)
 ::'::**********************************************************************
 ::'SET $NAME=%~n0
@@ -27,7 +27,7 @@
 ::'::@(#) 
 ::'::@(#)EXAMPLES
 ::'::@(-)  Some examples of common usage.
-::'::@(#)  %$NAME% "http://clicketyclick.dk/development/dos/_/current" "{PCT}TEMP{PCT}\current.txt" 
+::'::@(#)  %$NAME% "http://clicketyclick.dk/development/dos/_/current" "%TEMP%\current.txt" 
 ::'::@(#) 
 ::'::@(#) 
 ::'::@ (#)EXIT STATUS
@@ -45,10 +45,11 @@
 ::'::@(-)  If any known
 ::'::@ (#)
 ::'::@ (#)
-::'::@ (#)REQUIRES
-::'::@(-)  Dependencies
-::'::@ (#)  
-::'::@ (#)
+::'::@(#)REQUIRES
+::'::@(-)  Dependecies
+::'::@(#)  _Debug.cmd      Setting up debug environment for batch scripts 
+::'::@(#)  _GetOpt.cmd     Parse command line options and create environment vars
+::'::@(#) 
 ::'::@ (#)SEE ALSO
 ::'::@(-)  A list of related commands or functions.
 ::'::@ (#)  
@@ -70,7 +71,8 @@
 ::'::SET $VERSION=YYYY-MM-DD&SET $REVISION=hh:mm:ss&SET $COMMENT=Description/init
 ::'::SET $VERSION=2015-02-19&SET $REVISION=16:00:00&SET $COMMENT=Autoupdate / ErikBachmann
 ::'::SET $VERSION=2015-04-02&SET $REVISION=09:57:00&SET $COMMENT=Update description / ErikBachmann
-::'  SET $VERSION=2015-10-08&SET $REVISION=16:00:00&SET $COMMENT=GetOpt: Calling usage and exit on error / ErikBachmann
+::'::SET $VERSION=2015-10-08&SET $REVISION=16:00:00&SET $COMMENT=GetOpt: Calling usage and exit on error / ErikBachmann
+::'  SET $VERSION=2015-10-22&SET $REVISION=06:00:00&SET $COMMENT=Update usage / ErikBachmann
 ::'::**********************************************************************
 ::'::@(#)(c)%$Version:~0,4% %$Author%
 ::'::**********************************************************************

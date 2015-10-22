@@ -1,5 +1,5 @@
 NAME
-      %$NAME% -- %$DESCRIPTION%
+      man -- an interface to the on-line reference manuals
  
 SYNOPSIS
   man [page]

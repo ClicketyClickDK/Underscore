@@ -1,5 +1,5 @@
 NAME
-      %$NAME% -- %$DESCRIPTION%
+      RoboBackup -- Backup with progressbar using RoboCopy
  
 SYNOPSIS
   RoboBackup [Arguments]

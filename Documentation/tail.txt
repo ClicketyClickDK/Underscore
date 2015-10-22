@@ -1,8 +1,8 @@
 NAME
-      %$NAME% -- %$DESCRIPTION%
+      tail -- Print the last n lines of a file to STDOUT
  
 SYNOPSIS
-      %$NAME% [File] [n]
+      tail [File] [n]
  
 OPTIONS
   -h      Help page

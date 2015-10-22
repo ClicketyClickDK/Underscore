@@ -1,5 +1,5 @@
 NAME
-      %$NAME% -- %$DESCRIPTION%
+      strstr -- Find string in a string
  
 SYNOPSIS
   strstr pattern string {flags}

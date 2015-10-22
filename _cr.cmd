@@ -29,7 +29,7 @@ SET $Source=%~f0
 ::@(-)  Some examples of common usage.
 ::@(#)  SETLOCAL ENABLEDELAYEDEXPANSION
 ::@(#)  CALL _CR
-::@(#)  SET /P _=-- {PCT}CD{PCT} : OK      {EXCL}CR{EXCL}{LT}nul
+::@(#)  SET /P _=-- %CD% : OK      !CR!<nul
 ::@(#)
 ::@ (#)EXIT STATUS
 ::@(-)  Exit status / errorlevel is 0 if OK, otherwise 1+.
@@ -47,10 +47,11 @@ SET $Source=%~f0
 ::@(-)  If any known
 ::@ (#)
 ::@ (#)
-::@ (#)REQUIRES
+::@(#)REQUIRES
 ::@(-)  Dependecies
-::@ (#)  
-::@ (#)
+::@(#)  _Debug.cmd      Setting up debug environment for batch scripts 
+::@(#)  _GetOpt.cmd     Parse command line options and create environment vars
+::@(#)
 ::@ (#)SEE ALSO
 ::@(-)  A list of related commands or functions.
 ::@(#)SEE ALSO
@@ -75,7 +76,8 @@ SET $Source=%~f0
 ::SET $VERSION=YYYY-MM-DD&SET $REVISION=hh:mm:ss&SET $COMMENT=Comment/Init [00.000]
 ::SET $VERSION=00.010&SET $REVISION=2013-10-02T198:50:00&SET $COMMENT=Intial/ErikBachmann
 ::SET $VERSION=2015-02-19&SET $REVISION=03:20:37&SET $COMMENT=Autoupdate / ErikBachmann
-  SET $VERSION=2015-10-08&SET $REVISION=11:20:00&SET $COMMENT=GetOpt: Calling usage on -h and exit on error / ErikBachmann
+::SET $VERSION=2015-10-08&SET $REVISION=11:20:00&SET $COMMENT=GetOpt: Calling usage on -h and exit on error / ErikBachmann
+  SET $VERSION=2015-10-22&SET $REVISION=06:00:00&SET $COMMENT=Update usage / ErikBachmann
 ::**********************************************************************
 ::@(#)(c)%$Version:~0,4% %$Author%
 ::**********************************************************************

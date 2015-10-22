@@ -1,4 +1,4 @@
-::@ECHO OFF
+@ECHO OFF
 SETLOCAL ENABLEDELAYEDEXPANSION&::(Don't pollute the global environment with the following)
 ::*********************************************************************
 SET $NAME=%~n0
@@ -50,7 +50,8 @@ SET $Source=%~f0
 ::@ (#)
 ::@(#)REQUIRES
 ::@(-)  Dependecies
-::@(#)  NOTE! This function requres write access to registry (admin rights)
+::@(#)  _Debug.cmd      Setting up debug environment for batch scripts 
+::@(#)  _GetOpt.cmd     Parse command line options and create environment vars
 ::@(#)
 ::@(#)SEE ALSO
 ::@(-)  A list of related commands or functions.

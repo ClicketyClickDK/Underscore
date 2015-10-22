@@ -1,5 +1,5 @@
 NAME
-      %$NAME% -- %$DESCRIPTION%
+      updateArchive -- Download an update from ClicketyClick.dk
  
 SYNOPSIS
   updateArchive [Arguments]

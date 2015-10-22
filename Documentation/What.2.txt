@@ -29,5 +29,5 @@ REQUIRES
 SOURCE
   C:\Users\Erik\Documents\GitHub\Underscore\What.2.cmd
  
-(c)06:00:00 Erik Bachmann, ClicketyClick.dk (E_Bachmann@ClicketyClick.dk)
+(c)06:0 Erik Bachmann, ClicketyClick.dk (E_Bachmann@ClicketyClick.dk)
 

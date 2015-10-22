@@ -1,8 +1,8 @@
 NAME
-  %$NAME% -- %$DESCRIPTION%
+  _is32bit -- Detects 32 / 64 architecture
  
 SYNOPSIS
-  %$NAME%
+  _is32bit
  
 OPTIONS
   -h      Help page
@@ -13,7 +13,7 @@ DESCRIPTION
   If 32 bit $Is32Bit will be set and $Is64Bit removed. And vice versa on 64 bit.
  
 EXAMPLES
-      CALL %$NAME%
+      CALL _is32bit
       SET $Is
  
   Will produce:

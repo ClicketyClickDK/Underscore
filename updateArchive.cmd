@@ -45,7 +45,9 @@ SET $SOURCE=%~f0
 ::@ (#)
 ::@ (#)
 ::@(#)REQUIRES
-::@(-)  Dependencies
+::@(-)  Dependecies
+::@(#)  _Debug.cmd      Setting up debug environment for batch scripts 
+::@(#)  _GetOpt.cmd     Parse command line options and create environment vars
 ::@(#)  wget    A non-interactive network downloader
 ::@(#)  unzip   Unzip an existing ZIP archive
 ::@(#)
