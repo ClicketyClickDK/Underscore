@@ -3,26 +3,39 @@
 SET $NAME=%~n0
 SET $DESCRIPTION=Parse command line options and create environment vars
 SET $Author=Erik Bachmann, ClicketyClick.dk (ErikBachmann@ClicketyClick.dk)
-SET $SOURCE=%~dpnx0
+SET $SOURCE=%~f0
 ::----------------------------------------------------------------------
 ::@(#)NAME
 ::@(#)  %$Name% -- %$Description%
 ::@(#) 
 ::@(#)SYNOPSIS
-::@(#)      CALL %$Name% {PCT}*
-::@(#) 
-::@(#)  SET $NAME=x
-::@(#)  ::Parse options to current script
-::@(#)  CALL %$NAME% {PCT}*
-::@(#)    
-::@(#)  ::Show options
-::@(#)  set @x
-::@(#)    
-::@(#)  ::Clear env vars
-::@(#)  CALL %$NAME%
-::@(#) 
+::@(#)      CALL %$Name% %*
+::@(#)  
+::@(#)OPTIONS
+::@(-)  Flags, parameters, arguments (NOT the Monty Python way)
+::@(#)  -h      Usage/Help page and exit 1 (Hard coded)
+::@(#)  -? /?   Usage/Help page and exit 1 (Hard coded)
+::@(#)  -! /!   Debug on (Hard coded)   See BUGS section
+::@(#)  -!- /!- Debug off (Hard coded)  See BUGS section
+::@(#)  
 ::@(#)DESCRIPTION
+::@(#)  Arguments can either be:
+::@(#)      Simple      Like a name with no prefix [filename]
+::@(#)      Option      Letter prefixed with one valid flag prefix [-h]
+::@(#)      Combined    Option with a value separated by colon [-f:name]
+::@(#)      Long        Long option [--help]
+::@(#)      Long comb.  Long option with a value [--file:name]
+::@(#)  
+::@(#)  Valid flag prefixes are  "-" or "/".
+::@(#)  The seperator between option and value can only be colon since
+::@(#)  WinDOS will treat = as a blank.
 ::@(#)  If $NAME is not a defined environment var "UNDEFINED" is used as $NAME
+::@(#)  
+::@(#)      filename            Simple argument stored in sequential numbered 
+::@(#)                          environment variables: @UNDEFINED.1=filename
+::@(#)      -file:filename      Combined argument: @UNDEFINED.file=filename
+::@(#)      /file:filename      Combined argument: @UNDEFINED.file=filename
+::@(#)      --//file:filename   Combined argument: @UNDEFINED.file=filename
 ::@(#) 
 ::@(#)  NOTE!
 ::@(#)      If you entend to nest scripts both using %$NAME% you must 
@@ -30,15 +43,24 @@ SET $SOURCE=%~dpnx0
 ::@(#)      the callers environment!
 ::@(#) 
 ::@(#)EXAMPLES:
+::@(#)  SET $NAME=x
+::@(#)  ::Parse options to current script
+::@(#)  CALL %$NAME% %*
+::@(#)    
+::@(#)  ::Show options
+::@(#)  set @x
+::@(#)    
+::@(#)  ::Clear env vars
+::@(#)  CALL %$NAME%
 ::@(#) 
 ::@(#)  If x.bat contains the statement:
 ::@(#)      SET $NAME=x
-::@(#)      CALL %$NAME% {PCT}*
+::@(#)      CALL %$NAME% %*
 ::@(#)      SET @
 ::@(#) 
 ::@(#)  :: Enable delayed expansion of vars to use content of vars
 ::@(#)      SETLOCAL ENABLEDELAYEDEXPANSION
-::@(#)      ECHO z={EXCL}@{PCT}$NAME{PCT}.z{EXCL}! 
+::@(#)      ECHO z=!@%$NAME%.z!! 
 ::@(#)      SETLOCAL DISABLEDELAYEDEXPANSION
 ::@(#) 
 ::@(#)  :: Or hard code reference
@@ -47,31 +69,53 @@ SET $SOURCE=%~dpnx0
 ::@(#)  :: Clear flags
 ::@(#)      CALL %$NAME%
 ::@(#) 
-::@(#) Executing: x.bat -y:z -flag file -z:"hello world"
+::@(#)  Executing: x.bat -y:z -flag file -z:"hello world"
 ::@(#) 
-::@(#) x.bat will have the environment:
+::@(#)  x.bat will have the environment:
 ::@(#)      $x.x=yy
 ::@(#)      @x.z=1
 ::@(#) 
-
-
-::CALL _getopt -y:z -flag file -z:"hello world"
-
+::@(#)  CALL x.bat -y:z -flag file -z:"hello world"
 ::@(#)      @x.1=file
 ::@(#)      @x.flag=1
 ::@(#)      @x.y=z
 ::@(#)      @x.z="hello world"
-
-
-::@(#) NOTE! Environment var DEBUG will enable debug info
+::@(#) 
+::@(#)  NOTE: "-flag" and "file" are NOT combined
 ::@(#) 
 ::@(#)REQUIRES
 ::@(-)  Dependecies
 ::@(#)  _Debug.cmd      Setting up debug environment for batch scripts 
-::@(#)
+::@(#)  
+::@(#)EXIT STATUS
+::@(-)  Exit status / errorlevel is 0 if OK, otherwise 1+.
+::@(#)  0   OK
+::@(#)  1   Usage (or error)
+::@(#)  
+::@(#)ENVIRONMENT
+::@(-)  Variables affected
+::@(#)  Will change environment according to the given arguments.
+::@(#) 
+::@(#)  If environment var DEBUG is defined and > 1 debug will be enabled as default.
+::@(#) 
+::@(#)BUGS / KNOWN PROBLEMS
+::@(-)  If any known
+::@(#)  -! and /! will activate debug and set env variable @x.debug=1
+::@(#)  -!- and /!- will deactivate debug BUT set env variable @x.debug=1
+::@(#)  
+::@(#)  ! flags are not available if you use delayed expantion as in 
+::@(#)  SETLOCAL ENABLEDELAYEDEXPANSION
+::@(#)  
+::@(#)REQUIRES
+::@(-)  Dependencies
+::@(#)  _Debug.cmd      Setting up debug environment for batch scripts 
+::@(#)  what.cmd        Show usage
+::@(#) 
+::@(#)REFERENCES:
+::@(#)  https://en.wikipedia.org/wiki/Getopt
+::@(#)  
 ::@(#)SOURCE
 ::@(#)  %$Source%
-::@(#) 
 ::----------------------------------------------------------------------
 ::History
 ::SET $VERSION=xx.xxx&SET $REVISION=YYYY-MM-DDThh:mm:ss&SET COMMENT=Init/Description
@@ -83,51 +127,65 @@ SET $SOURCE=%~dpnx0
 ::SET $VERSION=01.020&SET $REVISION=2010-11-12T16:17:00&SET $Comment=Exact path to _debug/EBP
 ::SET $VERSION=01.050&SET $REVISION=2015-10-08T11:19:00&SET $Comment=Call to usage. Exit on error 1/EBP
 ::SET $VERSION=2015-10-08&SET $REVISION=16:00:00&SET $COMMENT=GetOpt: Calling usage and exit on error / ErikBachmann
-  SET $VERSION=2015-10-15&SET $REVISION=11:22:00&SET $COMMENT=--help defaults to usage / ErikBachmann
+::SET $VERSION=2015-10-15&SET $REVISION=11:22:00&SET $COMMENT=--help defaults to usage / ErikBachmann
+::SET $VERSION=2015-11-05&SET $REVISION=14:27:00&SET $COMMENT=Long options and multiple prefix flags / ErikBachmann
+::SET $VERSION=2015-11-06&SET $REVISION=10:05:00&SET $COMMENT=Special usage flags hard coded -? et.al. usage/help / ErikBachmann
+::SET $VERSION=2015-11-06&SET $REVISION=10:25:00&SET $COMMENT=Special usage flags hard coded -! et.al. = debug / ErikBachmann
+  SET $VERSION=2015-11-07&SET $REVISION=17:28:00&SET $COMMENT=Clean up in debug info / ErikBachmann
 ::**********************************************************************
 ::@(#)(c)%$Version:~0,4% %$Author%
 ::**********************************************************************
 ENDLOCAL
 
 :MAIN
+    :: Hard coded check on -? --? /? flags since these are hard to pass to functions
+    ECHO:%*| findstr "\<[-/]*\?\>" >nul 2>&1
+    IF NOT ERRORLEVEL 1 GOTO usage&&GOTO :EOF
+    :: Hard coded debug flag -! --! /! since these are hard to pass to functions
+    ECHO:%*| findstr "\<[-/]*\!\>" >nul 2>&1 
+    IF NOT ERRORLEVEL 1 CALL SET DEBUG=1
+    :: Hard coded debug flag -! --! /! since these are hard to pass to functions
+    ECHO:%*| findstr "\<[-/]*\!-\>" >nul 2>&1 
+    IF NOT ERRORLEVEL 1 CALL SET DEBUG=0
+
     CALL "%~dp0\_Debug"
     CALL :init %*
     CALL :_GetOpt %*&IF ERRORLEVEL 1 EXIT /B 1
-    
-    ::SETLOCAL ENABLEDELAYEDEXPANSION
-    ::ECHO:["!@%$name%.help!"]
-    IF DEFINED @%$name%.help ECHO: Helping [%$source%]
-    IF defined @%$NAME%.?       GOTO usage
-    IF defined @%$NAME%.h       GOTO usage
-    IF defined @%$NAME%.-help   GOTO usage
-    IF defined @%$NAME%.manual  SET DEBUG=1 && GOTO usage 
 
+    :: Hard coded flags for help
+    IF defined @%$NAME%.h       GOTO usage
+    IF defined @%$NAME%.help    GOTO usage
+    ::IF defined @%$NAME%.manual  SET DEBUG=1 && SET _Pattern=&& GOTO usage
 GOTO :EOF
 
-:usage
-    ::CALL what %~dpnx0
-    CALL "%~dp0\what.cmd" %$Source%
-    SET $ErrorLevel=1
-    EXIT /b 1
-GOTO :EOF 
 ::----------------------------------------------------------------------
 
 :init
-    IF /I "--?" equ "%~1"   GOTO usage
     ENDLOCAL
     
+    SET _prefixFlags=/ -
+    SET _prefixFlagMask=%_prefixFlags: =%
+
     IF NOT DEFINED $NAME SET $NAME=UNDEFINED
     :: Set all temp vars to 0
     FOR %%i IN (_@ _ARGC) DO CALL SET %%i=0
 
     IF /I "%DEBUG%" GTR "2" %_DEBUG_% ...Remove old flags
-        FOR /F "usebackq delims==" %%C IN (`SET @%$NAME% 2^>nul`) DO IF DEFINED %%C SET %%C=
-GOTO :EOF
+    FOR /F "usebackq delims==" %%C IN (`SET @%$NAME% 2^>nul`) DO IF DEFINED %%C SET %%C=&&ECHO SET %%C=
+GOTO :EOF   *** :init ***
+
+::----------------------------------------------------------------------
+
+:usage
+    IF NOT DEFINED $Source SET $Source=%~f0
+    CALL "%~dp0\what.cmd" "%$Source%"
+    SET $ErrorLevel=1
+    EXIT /b 1
+GOTO :EOF   *** :usage ***
 
 ::----------------------------------------------------------------------
 
 :_GetOpt
-::    IF "%*!"=="!" (
     IF "%~1!"=="!" (
         %_DEBUG_% ...No arguments. Skipping
         GOTO :EOF
@@ -136,7 +194,7 @@ GOTO :EOF
         REM Dummy for %_DEBUG_
     )
 
-    %_DEBUG_% - Parsing 
+    %_DEBUG_% - Parsing [%*]
     FOR %%A IN (%*) DO (
         %_DEBUG_% .. current @[%%A]
         CALL :_parse %%A
@@ -145,46 +203,55 @@ GOTO :EOF
     %_DEBUG_% .. parsing done
     :: Remove all temp vars
     FOR %%i IN (_@ _ARGC) DO CALL SET %%i=
-
-    
-GOTO :EOF
+GOTO :EOF   *** :_GetOpt ***
 
 ::---------------------------------------------------------------------
 
 :_parse
-   SET $ARG=%~1
-   %_DEBUG_% ... Parsing(%0) "-" IN [%$ARG%]
-    IF "-" equ "%$ARG:~0,1%" (
-        CALL :__parse
-    ) ELSE (
-        CALL :_NoFlag "%$ARG%
+    SET $ARG=%~1
+
+    :: Remove prefix from flags
+    SET _FlagFound=0
+    
+    %_DEBUG_% ... Parsing(%0) "%_prefixFlags%" IN [%$ARG%]
+    FOR %%a IN (%_prefixFlags%) DO (
+        %_DEBUG_% ... Parsing[%0] "Flag found [%%a]"
+        IF "%%a"=="%$ARG:~0,1%" CALL SET /a _FlagFound+=1
     )
 
-GOTO :EOF
+    %_DEBUG_% ... Parsing(%0) Status on flags found: [%_FlagFound%]
+    FOR /F "tokens=* delims=%_prefixFlagMask%" %%a IN ("%$ARG%") DO SET "$ARG=%%a"
+    %_DEBUG_% ... Parsing(%0) w/o prefix [%$ARG%] [%_FlagFound%]
+
+    IF DEFINED _FlagFound (
+       CALL :__parse
+    ) ELSE (
+        CALL :_NoFlag "%$ARG%"
+    )
+GOTO :EOF   *** :_parse ***
 
 ::---------------------------------------------------------------------
 
 :_NoFlag
     SET /A _ARGC+=1
     SET @%$NAME%.%_ARGC%=%~1
-GOTO :EOF
+GOTO :EOF   *** :_NoFlag ***
 
 ::---------------------------------------------------------------------
 :__parse
-
-    %_DEBUG_% .... Parsing(%0): %$ARG:~1,256%
-    FOR /F "usebackq tokens=1-2 delims=:" %%C IN (`ECHO %$ARG:~1,256%`) DO (
+    %_DEBUG_% .... Parsing(%0): %$ARG%
+    FOR /F "usebackq tokens=1-2 delims=:" %%C IN (`ECHO %$ARG%`) DO (
         IF /I "" NEQ "%%D" (
-            %_DEBUG_% ...Simple argument: [%%C][%%D]
+            %_DEBUG_% ...Simple argument: [%%C]=[%%D]
             SET @%$NAME%.%%C=%%D
             %_DEBUG_% ...Setting [@%$NAME%.%%C]=[%%D]
             REM
         ) else (
             %_DEBUG_% ...Argument with value: [%%C][%%D]
-            SET @%$NAME%.%$ARG:~1,256%=1
-            %_DEBUG_% ...Setting [@%$NAME%.%$ARG:~1,256%]=[1]
+            SET @%$NAME%.%$ARG%=1
+            %_DEBUG_% ...Setting [@%$NAME%.%$ARG%]=[1]
         )
     )
-GOTO :EOF
+GOTO :EOF   *** :__parse ***
 
 ::*** END Of File ******************************************************
