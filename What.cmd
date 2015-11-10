@@ -2,7 +2,7 @@
 SETLOCAL ENABLEDELAYEDEXPANSION&::(Don't pollute the global environment with the following)
 ::**********************************************************************
 SET $NAME=%~n0
-SET $DESCRIPTION=Search file for pattern "@^(#^)" and print remainder of string
+SET $DESCRIPTION=Search file for pattern "@(#)" and print remainder of string
 SET $Author=Erik Bachmann, ClicketyClick.dk (E_Bachmann@ClicketyClick.dk)
 SET $Source=%~dpnx0
 ::----------------------------------------------------------------------
@@ -10,7 +10,7 @@ SET $Source=%~dpnx0
 ::@(#)  %$Name% -- %$Description%
 ::@(#) 
 ::@(#)SYNOPSIS
-::@(#)  %$Name% filename [pattern]
+::@(#)  %$Name% filename [pattern] {Options}
 ::@(#) 
 ::@(#)DESCRIPTION
 ::@(#)  Reads each file name and searches for sequences of the form 
@@ -55,20 +55,22 @@ SET $Source=%~dpnx0
 ::SET $VERSION=01.040&SET $REVISION=2010-10-12T23:03:00&SET $COMMENT=EBP / -html implemented
 ::SET $VERSION=01.041&SET $REVISION=2010-10-20T17:15:00&SET $Comment=Addding $Source/EBP
 ::SET $VERSION=01.050&SET $REVISION=2011-10-13T18:41:00&SET $Comment=Masking VERY special characters/EBP
-  SET $VERSION=2015-10-22&SET $REVISION=06:00:00&SET $COMMENT=Update usage / ErikBachmann
+::SET $VERSION=2015-10-22&SET $REVISION=06:00:00&SET $COMMENT=Update usage / ErikBachmann
+  SET $VERSION=2015-11-10&SET $REVISION=08:23:00&SET $COMMENT=Path to Debug, expanded $NAME / ErikBachmann
 ::**********************************************************************
 ::@(#)(c)%$Version:~0,4% %$Author%
 ::**********************************************************************
 
-CALL _Debug
-SET _fileName=%~1
-CALL _GetOpt %*
-
-SET _fileName=%~1
-
-:: Hide pattern for this very script ;-)
+:init
+    CALL "%~dp0\_DEBUG"
+    SET _fileName=%~1
+    CALL "%~dp0\_Getopt" %*&IF ERRORLEVEL 1 EXIT /B 1 
+    :: Hide pattern for this very script ;-)
     SET _PATTERN=SET ^$
-    ::FOR /F "TOKENS=1*" %%a IN ('find /i "%_PATTERN%" ^<"%_FileName%"') DO ECHO --[%%a][%%b]
+    IF DEFINED @what.html SET @what.html=html
+
+:Processing
+    :: Expand environment variables from target file
     FOR /F "TOKENS=1*" %%a IN ('find /i "%_PATTERN%" ^<"%_FileName%"') DO (
             IF /I "SET"=="%%a" (
                 %_DEBUG_%  ---[%%a] [%%b] [%%c]
@@ -78,12 +80,12 @@ SET _fileName=%~1
             )
     )
 
-SET $NAME=%_fileName:~0,-4%
-SET $SOURCE=%~f1
-IF DEFINED @what.html SET @what.html=html
-"%windir%\System32\cscript.exe" //nologo  "%~dpn0.inc.vbs" "%_FileName%" "@\(#\)" %@what.html%
-::ECHO  [%@what.html%]
-::ECHO [%_filename%] [%$NAME%]
+    SET $NAME=%~n1
+    SET $SOURCE=%~f1
+
+    "%windir%\System32\cscript.exe" //nologo  "%~dpn0.inc.vbs" "%_FileName%" "@\(#\)" %@what.html%
+    ::ECHO  [%@what.html%]
+    ::ECHO [%_filename%] [%$NAME%]
 GOTO :EOF
 
 ::----------------------------------------------------------------------
