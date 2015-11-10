@@ -1,5 +1,5 @@
 NAME
-  %$NAME% -- %$DESCRIPTION%
+  What.1 -- Find and display reference manual information from file
 
 SYNOPSIS
   What.1 file-name [pattern] {flags}
@@ -39,7 +39,7 @@ DESCRIPTION
   Note: Patterns are case insensitive
 
 EXAMPLES
-  %$NAME% what.cmd
+  What.1 what.cmd
 
 
 EXIT STATUS
@@ -49,5 +49,5 @@ EXIT STATUS
 SOURCE
   C:\Users\Erik\Documents\GitHub\Underscore\What.1.cmd
 
-(c)%$VERSION:~0,4% Erik Bachmann, ClicketyClick.dk [ErikBachmann@ClicketyClick.dk]
+(c)2015 Erik Bachmann, ClicketyClick.dk [ErikBachmann@ClicketyClick.dk]
 

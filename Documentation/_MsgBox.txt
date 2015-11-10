@@ -1,14 +1,14 @@
 NAME
-      %$NAME% -- %$DESCRIPTION%
+      _MsgBox -- Search file for pattern "@^(#^)" and print remainder of string
  
 SYNOPSIS
-  %$NAME% [ButtonID] [Window title] [Message]
+  _MsgBox [ButtonID] [Window title] [Message]
  
 OPTIONS
   -h      Help page
  
 DESCRIPTION
-  %$NAME% opens a window with:
+  _MsgBox opens a window with:
   a title, a message, type based icon and reply buttons.
 
   The return value [ErrorLevel] is the value of the button pressed.
@@ -53,7 +53,7 @@ BUTTONS
   only one number from each group
 
 EXAMPLES
-      %$NAME% 35 "_TITLE" "_MSG"
+      _MsgBox 35 "_TITLE" "_MSG"
 
   Will open a window with a question and YesNoCancel
   Select [Yes] and the script will return the value 6
@@ -99,5 +99,5 @@ SEE ALSO
 SOURCE
   C:\Users\Erik\Documents\GitHub\Underscore\_MsgBox.bat
 
-(c)%$VERSION:~0,4% Erik Bachmann, ClicketyClick.dk (E_Bachmann@ClicketyClick.dk)
+(c)2015 Erik Bachmann, ClicketyClick.dk (E_Bachmann@ClicketyClick.dk)
 

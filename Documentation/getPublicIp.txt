@@ -1,8 +1,8 @@
 NAME
-      %$NAME% -- %$DESCRIPTION%
+      getPublicIp -- Search file for pattern "@^(#^)" and print remainder of string
  
 SYNOPSIS
-      %$NAME%
+      getPublicIp
  
 OPTIONS
   -h      Help page

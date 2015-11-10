@@ -112,10 +112,11 @@ SET $Source=%~f0
 ::@(-)  If any known
 ::@ (#)
 ::@ (#)
-::@ (#)REQUIRES
+::@(#)REQUIRES
 ::@(-)  Dependecies
-::@ (#)  
-::@ (#)
+::@(#)  _Debug.cmd      Setting up debug environment for batch scripts 
+::@(#)  _GetOpt.cmd     Parse command line options and create environment vars
+::@(#)
 ::@ (#)SEE ALSO
 ::@(-)  A list of related commands or functions.
 ::@(#)  oerr

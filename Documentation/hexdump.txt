@@ -1,8 +1,8 @@
 NAME
-      %$NAME% -- %$DESCRIPTION%
+      hexdump -- Dump a file in hex format
  
 SYNOPSIS
-      %$NAME% [/option]... file
+      hexdump [/option]... file
  
   -h      Help page
     The format of the dump can be modified by the following case insensitive

@@ -1,5 +1,5 @@
 NAME
-      %$NAME% -- %$DESCRIPTION%
+      Utc2JulianDate -- Convert UTC date [YYYY-MM-MM] to Julian date [Numeric]
  
 SYNOPSIS
   Utc2JulianDate {function} | ALL

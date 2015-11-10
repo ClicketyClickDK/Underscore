@@ -1,5 +1,5 @@
 NAME
-      %$NAME% -- %$DESCRIPTION%
+      oerr -- Extracts Error messaged from script files using uniq ErrorID
  
 SYNOPSIS
   oerr script ErrorID

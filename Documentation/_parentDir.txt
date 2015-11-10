@@ -1,8 +1,8 @@
 NAME
-      %$NAME% -- %$DESCRIPTION%
+      _parentDir -- Get parent directory to a given directory
  
 SYNOPSIS
-      %$NAME% [VAR] {dir}
+      _parentDir [VAR] {dir}
  
 OPTIONS
   -h      Help page
@@ -13,7 +13,7 @@ DESCRIPTION
  
  
 EXAMPLES
-      CALL %$NAME% XX "C:\Windows\system32\"
+      CALL _parentDir XX "C:\Windows\system32\"
       SET XX
   Will display:
       XX=C:\Windows

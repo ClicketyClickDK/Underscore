@@ -1,8 +1,8 @@
 NAME
-      %$NAME% -- %$DESCRIPTION%
+      cmdize -- ??
  
 SYNOPSIS
-      %$NAME% [vbs] [...]
+      cmdize [vbs] [...]
  
 OPTIONS
   -h      Help page

@@ -1,14 +1,14 @@
 NAME
-      %$NAME% -- %$DESCRIPTION%
+      processBar -- Progress bar weighted in pct.
  
 SYNOPSIS
-      %$NAME% [ [ProcessMax] [ProcessBarMaker] [CurrentValue] ]
+      processBar [ [ProcessMax] [ProcessBarMaker] [CurrentValue] ]
  
   Initiate process bar
-      %$NAME% [ProcessMax] {ProcessBarMaker}
+      processBar [ProcessMax] {ProcessBarMaker}
  
   Update process bar
-      %$NAME% [CurrentValue]
+      processBar [CurrentValue]
  
 OPTIONS
   -h      Help page
@@ -20,7 +20,7 @@ DESCRIPTION
   Updates the progressbar
       [################################..................]
       
-  This function requires an initiating call to %$NAME%
+  This function requires an initiating call to processBar
       
   NOTE There is NO loop control!
       
@@ -32,10 +32,10 @@ LIMITATIONS
 EXAMPLES
       SET _last_line=120
       
-      Call %$NAME% %_last_line% #
+      Call processBar %_last_line% #
       
       FOR /L %%x IN (1,1,%_last_line%) DO (
-          CALL %$NAME% %%x
+          CALL processBar %%x
       )
       
 EXIT STATUS

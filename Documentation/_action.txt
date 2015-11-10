@@ -1,17 +1,17 @@
 NAME
-      %$NAME% -- %$DESCRIPTION%
+      _action -- Action part of _action / _status line
  
 SYNOPSIS
-  %$NAME% "string"
+  _action "string"
  
 OPTIONS
   -h      Help page
  
 DESCRIPTION
-  %$NAME% echos a string to STDOUT with the maximum length of $ActionRange.
+  _action echos a string to STDOUT with the maximum length of $ActionRange.
   Line is NOT terminated by a NEWLINE!
 
-  %$NAME% is usually used in combination with _status.cmd to display
+  _action is usually used in combination with _status.cmd to display
   status information durring processing
 
 EXAMPLE

@@ -1,4 +1,4 @@
-::'::@ECHO OFF
+::'@ECHO OFF
 ::'SETLOCAL ENABLEDELAYEDEXPANSION&::(Don't pollute the global environment with the following)
 ::'::**********************************************************************
 ::'SET $NAME=%~n0
@@ -28,15 +28,11 @@
 ::'::@(#) 
 ::'::@(#)EXAMPLES
 ::'::@(-)  Some examples of common usage.
-::'::@(#)      ECHO:Hello world {GT} "{PCT}TEMP{PCT}\hello.txt"
-::'::@(#)      %$NAME% "{PCT}TEMP{PCT}\myZip.zip" "{PCT}TEMP{PCT}\hello.txt"
-::'::@(#)      DIR "{PCT}TEMP{PCT}\myZip.zip"
-::'::@(#) Or
 ::'::@(#)      ECHO:Hello world{GT}"{PCT}TMP{PCT}\hello.txt"
-::'::@(#)      zip.bat "{PCT}TMP{PCT}\hello.zip" "{PCT}TMP{PCT}\hello.txt"
+::'::@(#)      CALL zip.bat "{PCT}TMP{PCT}\hello.zip" "{PCT}TMP{PCT}\hello.txt"
 ::'::@(#)      DEL "{PCT}TMP{PCT}\hello.txt"
 ::'::@(#)      DIR "{PCT}TMP{PCT}\hello.txt"
-::'::@(#)      unzip.bat "{PCT}TMP{PCT}\hello.zip" "{PCT}TMP{PCT}"
+::'::@(#)      CALL unzip.bat "{PCT}TMP{PCT}\hello.zip" "{PCT}TMP{PCT}"
 ::'::@(#)      DIR "{PCT}TMP{PCT}\hello.txt"
 ::'::@ (#)
 ::'::@ (#)EXIT STATUS
@@ -54,10 +50,11 @@
 ::'::@(-)  If any known
 ::'::@ (#)
 ::'::@ (#)
-::'::@ (#)REQUIRES
-::'::@(-)  Dependencies
-::'::@ (#)  
-::'::@ (#)
+::'::@(#)REQUIRES
+::'::@(-)  Dependecies
+::'::@(#)  _Debug.cmd      Setting up debug environment for batch scripts 
+::'::@(#)  _GetOpt.cmd     Parse command line options and create environment vars
+::'::@(#) 
 ::'::@ (#)SEE ALSO
 ::'::@(-)  A list of related commands or functions.
 ::'::@ (#)  

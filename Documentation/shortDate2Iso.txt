@@ -1,8 +1,8 @@
 NAME
-      %$NAME% -- %$DESCRIPTION%
+      shortDate2Iso -- Converts shortDate to ISO [YYYY-MM-ddThh:mm]
  
 SYNOPSIS
-      %$NAME% [var] [shortDate]
+      shortDate2Iso [var] [shortDate]
  
 OPTIONS
   -h      Help page
@@ -17,7 +17,7 @@ DESCRIPTION
   then you're on you own.
  
 EXAMPLES
-      FOR %i IN (%$SOURCE%) DO %$SOURCE% %~ti
+      FOR %i IN (C:\Users\Erik\Documents\GitHub\Underscore\shortDate2Iso.cmd) DO C:\Users\Erik\Documents\GitHub\Underscore\shortDate2Iso.cmd %~ti
  
  Will give you date and time of the function file in ISO format
  [YYYY-MM-ddThh:mm]

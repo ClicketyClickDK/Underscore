@@ -1,8 +1,8 @@
-::@ECHO OFF
+@ECHO OFF
 SETLOCAL ENABLEDELAYEDEXPANSION&::(Don't pollute the global environment with the following)
 ::*********************************************************************
 SET $NAME=%~n0
-SET $DESCRIPTION=Status part of "Action [status]" line
+SET $DESCRIPTION=Status part of 'Action [state]' line
 SET $Author=Erik Bachmann, ClicketyClick.dk [ErikBachmann@ClicketyClick.dk]
 SET $Source=%~f0
 ::----------------------------------------------------------------------
@@ -32,10 +32,15 @@ SET $Source=%~f0
 ::@(#)EXAMPLES
 ::@(-)  Some examples of common usage.
 ::@(#)  CALL _ACTION "Hello"
+::@(#)  CALL _STATE "Buddy"
+::@(#)  timeout /T 5 >nul
 ::@(#)  CALL _STATUS "World"
 ::@(#)
+::@(#)
 ::@(#)  Will produce the line:
-::@(#)  Hello                                             [World                   ]
+::@(#)      Hello                                         [Buddy                   ]
+::@(#)  and 5 sec later update the line to
+::@(#)      Hello                                         [World                   ]
 ::@(#)
 ::@ (#)EXIT STATUS
 ::@(-)  Exit status / errorlevel is 0 if OK, otherwise 1+.
@@ -53,10 +58,11 @@ SET $Source=%~f0
 ::@(-)  If any known
 ::@ (#)
 ::@ (#)
-::@ (#)REQUIRES
-::@(-)  Dependencies
-::@ (#)  
-::@ (#)
+::@(#)REQUIRES
+::@(-)  Dependecies
+::@(#)  _Debug.cmd      Setting up debug environment for batch scripts 
+::@(#)  _GetOpt.cmd     Parse command line options and create environment vars
+::@(#)
 ::@(#)SEE ALSO
 ::@(-)  A list of related commands or functions.
 ::@(#)  _action.cmd

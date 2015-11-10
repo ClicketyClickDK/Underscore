@@ -1,14 +1,14 @@
 NAME
-      %$NAME% -- %$DESCRIPTION%
+      banner -- Make posters
  
 SYNOPSIS
-      %$NAME% [strings]
+      banner [strings]
  
 OPTIONS
   -h      Help page
  
 DESCRIPTION
-  %$NAME% prints its arguments [each up to 10 characters long] 
+  banner prints its arguments [each up to 10 characters long] 
   in large letters on the standard output.
  
 EXAMPLES

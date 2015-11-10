@@ -18,15 +18,6 @@ SET $Source=%~dpnx0
 ::@(#)  It prints the remainder of the string following this marker, 
 ::@(#)  up to a null character, newline, double quote, or ">" character.
 ::@(#) 
-::@(#)  So masking the VERY special characters is needed:
-::@(#)  ¤curren¤  ¤curren¤ curren ¤curren¤ Currency
-::@(#)  ¤amp¤  ¤curren¤amp¤curren¤    Ampersant
-::@(#)  ¤caret¤  ¤curren¤caret¤curren¤  Caret
-::@(#)  ¤GT¤  ¤curren¤GT¤curren¤     Greater than
-::@(#)  ¤LT¤  ¤curren¤LT¤curren¤     Less than 
-::@(#)  ¤pipe¤  ¤curren¤pipe¤curren¤   Pipe or vertical bar
-::@(#)  ¤copy¤  ¤curren¤copy¤curren¤   Copyright
-::@(#) 
 ::@(#)  A pattern may be given to replace the x in (x) like:
 ::@(#) 
 ::@(#)     %$Name% file pattern
@@ -45,6 +36,11 @@ SET $Source=%~dpnx0
 ::     0   Any matches were found.
 ::     1   No matches found.
 ::
+::@(#)REQUIRES
+::@(-)  Dependecies
+::@(#)  _Debug.cmd      Setting up debug environment for batch scripts 
+::@(#)  _GetOpt.cmd     Parse command line options and create environment vars
+::@(#) 
 ::@(#)SOURCE
 ::@(#)  %$Source%
 ::@(#) 
@@ -58,41 +54,19 @@ SET $Source=%~dpnx0
 ::SET $VERSION=01.030&SET $REVISION=2010-10-12T21:50:00&SET $COMMENT=EBP / -history implemented
 ::SET $VERSION=01.040&SET $REVISION=2010-10-12T23:03:00&SET $COMMENT=EBP / -html implemented
 ::SET $VERSION=01.041&SET $REVISION=2010-10-20T17:15:00&SET $Comment=Addding $Source/EBP
-  SET $VERSION=01.050&SET $REVISION=2011-10-13T18:41:00&SET $Comment=Masking VERY special characters/EBP
+::SET $VERSION=01.050&SET $REVISION=2011-10-13T18:41:00&SET $Comment=Masking VERY special characters/EBP
+  SET $VERSION=2015-10-22&SET $REVISION=06:00:00&SET $COMMENT=Update usage / ErikBachmann
 ::**********************************************************************
-::@(#)¤copy¤%$Revision:~0,4% %$Author%
+::@(#)(c)%$Version:~0,4% %$Author%
 ::**********************************************************************
 
 CALL _Debug
+SET _fileName=%~1
 CALL _GetOpt %*
 
-:what
-    SET _SUBNAME=%~n1
-    SET _SourceName=%~f1
-    SET _FileName=!@%$name%.1!
-    SET _History=!@%$name%.history!
-    SET _OrgName=%$name%
-    SET _HTML=!@%$name%.html!
+SET _fileName=%~1
 
-    :: No arguments = what on what
-    IF "!@%$name%.1!" == "!" (
-        CALL "%~dpnx0" "%~dpnx0" 
-        GOTO :EOF
-    )
-
-    :: Set pattern
-    IF NOT "!@%$name%.pattern!" == "!" (
-        %_DEBUG_% User pattern: [@^(!@%$name%.pattern!^)]
-        SET _WHAT=@^(!@%$name%.pattern!^)
-    ) ELSE (
-        :: Set default pattern
-        SET _WHAT=@^(#^)
-    )
-
-    FOR /F %%a IN ("!@%$name%.1!") DO CALL SET _SUBNAME=%%~na
-    %_DEBUG_% _SUBNAME=[%_SUBNAME%]
-
-    :: Hide pattern for this very script ;-)
+:: Hide pattern for this very script ;-)
     SET _PATTERN=SET ^$
     ::FOR /F "TOKENS=1*" %%a IN ('find /i "%_PATTERN%" ^<"%_FileName%"') DO ECHO --[%%a][%%b]
     FOR /F "TOKENS=1*" %%a IN ('find /i "%_PATTERN%" ^<"%_FileName%"') DO (
@@ -104,46 +78,12 @@ CALL _GetOpt %*
             )
     )
 
-    :: Print file header
-    SET $NAME=%_SUBNAME%
-    
-    IF DEFINED $NAME (
-        IF DEFINED _HTML (
-            ECHO ^<link rel="stylesheet" href="what.css" type="text/css" /^>
-            ECHO ^<h2^>[%$NAME%] v.[%$VERSION%] rev.[%$Revision%] ^</h2^>
-        ) ELSE (
-            ECHO [%$NAME%] v.[%$VERSION%] rev.[%$Revision%] 
-            ECHO\
-        )
-    )
-
-    FOR /F "tokens=1* delims=)" %%a IN ('find /i "%_WHAT%" ^< "%_FileName%"') DO (
-        CALL :ExpandEnv "%%b"
-    )
-
-    SET _PATTERN=SET ^$VERSION
-    IF DEFINED _History (
-        ECHO\
-        IF DEFINED _HTML (
-            ECHO ^<h3^>HISTORY^</h3^>
-            ECHO ^<table border="1"^>
-            ECHO ^<tr^>^<th^>Version^</th^>^<th^>Revision^</th^>^<th width="100%%"^>Description^</th^>^</tr^>
-        ) ELSE (
-            ECHO HISTORY
-        )
-        FOR /F "TOKENS=*" %%a IN ('find /i "%_PATTERN%" ^<"!@%_OrgName%.1!"') DO (
-            FOR /F "TOKENS=1-2* Delims=^&" %%b IN ("%%a") DO (
-                    CALL :SETENVhist "%%b" "%%c" "%%d"
-            )
-        )
-        IF DEFINED _HTML (
-            ECHO ^</table^>
-        )
-    )
-    IF DEFINED _HTML (
-        ECHO ^<hr^>
-    )
-    
+SET $NAME=%_fileName:~0,-4%
+SET $SOURCE=%~f1
+IF DEFINED @what.html SET @what.html=html
+"%windir%\System32\cscript.exe" //nologo  "%~dpn0.inc.vbs" "%_FileName%" "@\(#\)" %@what.html%
+::ECHO  [%@what.html%]
+::ECHO [%_filename%] [%$NAME%]
 GOTO :EOF
 
 ::----------------------------------------------------------------------
@@ -168,109 +108,3 @@ GOTO :EOF
 GOTO :EOF
 
 ::----------------------------------------------------------------------
-
-:: Expanding variables inside what strings
-:ExpandEnv
-    SETLOCAL ENABLEDELAYEDEXPANSION
-    SET _=%*
-    SET _=%_:~1,-1% 
-::    SET _=%_:(={%
-::    SET _=%_:)=}%
-    SET _=%_:(=¤lPar¤%
-    SET _=%_:)=¤rPar¤%
-    SET _=%_:&=¤amp¤%
-::    SET _=%_:^^=¤caret¤%
-::    SET _=%_:|=¤pipe¤%
-    SET _=%_:"='%
-    SET _=%_:^^=x%
-::    SET _=%_:¤LT¤=®%
-::    SET _=%_:¤GT¤=¯%
-::    SET _=%_:¤PIPE¤=^^^|%
-
-::    CALL SET _=%_:¤LT¤=^^^^^^^<%
-::    CALL SET _=!_:¤GT¤=^^^>!
-
-::ECHO ON
-    IF DEFINED _HTML (
-        IF "{"=="%_:~0,1%" (
-			:: Sub paragraph (Deprecated!)
-            ECHO:^<h4^>%_: =^&nbsp;%^</h4^>
-        ) ELSE IF " "=="%_:~0,1%" (
-		    :: Ordinary text
-			CALL SET "_=%_:¤curren¤=&curren;%"
-			CALL SET "_=!_:¤LT¤=&lt;!"
-			CALL SET "_=!_:¤GT¤=&gt;!"
-
-			CALL SET "_=!_:¤lPar¤=(!"
-			CALL SET "_=!_:¤rPar¤=)!"
-			CALL SET "_=!_:¤pipe¤=|!"
-			CALL SET "_=!_:¤copy¤=&copy;!"
-			CALL SET "_=!_: =!"
-			CALL SET "_=!_: =&nbsp;!"
-			CALL SET "_=!_:	=&#09;&#09;!"
-			CALL SET "_=!_:	=&#09;&#09;!"
-				
-			CALL SET "_=!_:¤amp¤=&amp;!"
-			CALL SET "_=!_:¤caret¤=&#94;!"
-
-			ECHO:^<tt^>!_!^</tt^>^<br^>
-        ) ELSE (
-			:: Headlines
-			CALL SET "_=!_:¤copy¤=&copy;!"
-			CALL SET "_=!_:¤lPar¤=(!"
-			CALL SET "_=!_:¤rPar¤=)!"
-            ECHO:^<h3^>!_!^</h3^>
-        )
-    ) ELSE (
-    :: Plain text mode
-        CALL SET "_=!_:¤LT¤=>!"
-        CALL SET "_=!_:¤GT¤=>!"
-        CALL SET "_=!_:¤lPar¤=(!"
-        CALL SET "_=!_:¤rPar¤=)!"
-        CALL SET "_=!_:¤pipe¤=|!"
-        CALL SET "_=!_:¤amp¤=&!"
-        CALL SET "_=!_:¤copy¤=(c)!"
-        CALL SET "_=!_: =!"
-        CALL SET "_=!_:¤caret¤=^!"
-        CALL SET "_=!_:¤PCT¤=o/o!"
-        ::CALL SET "_=%_:¤curren¤=Ï%"
-        ECHO:!_!
-    )
-
-GOTO :EOF
-
-::----------------------------------------------------------------------
-
-:: Setting environment variables from sub script
-:SETENVhist
-    SETLOCAL
-    FOR /F "TOKENS=2* Delims==" %%a IN ("%~1") DO (
-        SET _$Version=%%a
-    )
-    FOR /F "TOKENS=2* Delims==" %%a IN ("%~2") DO (
-        SET _$Revision=%%a
-    )
-    
-    FOR /F "TOKENS=2* Delims==" %%a IN ("%~3") DO (
-        SET _$Comment=%%a
-    )
-    IF DEFINED _HTML (
-        ECHO ^<tr^>^<td^>^<tt^>v.%_$VERSION%^</tt^>^</td^>^
-        ^<td^>^<tt^>r.%_$Revision%^</tt^>^</td^>^
-        ^<td^>^<tt^>%_$Comment%^</tt^>^</td^>^</tr^>
-    ) ELSE (
-        ECHO v.%_$VERSION% r.%_$Revision% [%_$Comment%]
-    )
-    ENDLOCAL
-GOTO :EOF
-
-:Self
-    SET _=%1
-    IF DEFINED @%$name%.history SET _=%_% -history
-    IF DEFINED @%$name%.html SET _=%_% -html
-    %_DEBUG_% Self called: %_% %1
-    CALL %_% %1
-    
-GOTO :EOF
-
-::*** End of File *****************************************************

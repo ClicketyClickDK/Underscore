@@ -9,11 +9,11 @@ SET $SOURCE=%~dpnx0
 ::@(#)  %$Name% -- %$Description%
 ::@(#) 
 ::@(#)SYNOPSIS
-::@(#)      CALL %$Name% ¤PCT¤*
+::@(#)      CALL %$Name% {PCT}*
 ::@(#) 
 ::@(#)  SET $NAME=x
 ::@(#)  ::Parse options to current script
-::@(#)  CALL %$NAME% ¤PCT¤*
+::@(#)  CALL %$NAME% {PCT}*
 ::@(#)    
 ::@(#)  ::Show options
 ::@(#)  set @x
@@ -33,12 +33,12 @@ SET $SOURCE=%~dpnx0
 ::@(#) 
 ::@(#)  If x.bat contains the statement:
 ::@(#)      SET $NAME=x
-::@(#)      CALL %$NAME% %*
+::@(#)      CALL %$NAME% {PCT}*
 ::@(#)      SET @
 ::@(#) 
 ::@(#)  :: Enable delayed expansion of vars to use content of vars
 ::@(#)      SETLOCAL ENABLEDELAYEDEXPANSION
-::@(#)      ECHO z=!@%%$NAME%%.z! 
+::@(#)      ECHO z={EXCL}@{PCT}$NAME{PCT}.z{EXCL}! 
 ::@(#)      SETLOCAL DISABLEDELAYEDEXPANSION
 ::@(#) 
 ::@(#)  :: Or hard code reference
@@ -65,6 +65,10 @@ SET $SOURCE=%~dpnx0
 
 ::@(#) NOTE! Environment var DEBUG will enable debug info
 ::@(#) 
+::@(#)REQUIRES
+::@(-)  Dependecies
+::@(#)  _Debug.cmd      Setting up debug environment for batch scripts 
+::@(#)
 ::@(#)SOURCE
 ::@(#)  %$Source%
 ::@(#) 

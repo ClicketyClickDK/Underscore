@@ -1,5 +1,5 @@
 NAME
-      %$NAME% -- %$DESCRIPTION%
+      JulianDate2Utc -- Convert Julian date [Numeric] to UTC [YYYY-MM-MM]
  
 SYNOPSIS
   JulianDate2Utc varJD stringUTC

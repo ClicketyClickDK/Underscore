@@ -1,8 +1,8 @@
 NAME
-      %$NAME% -- %$DESCRIPTION%
+      RemoveVarByType -- Remove variables by type / prefix
  
 SYNOPSIS
-      %$NAME% [VAR]
+      RemoveVarByType [VAR]
  
 OPTIONS
   -h      Help page

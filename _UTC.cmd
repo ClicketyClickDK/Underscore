@@ -32,6 +32,11 @@ SET $Source=%~dpnx0
 ::@(#)  s    = one or more digits representing a decimal fraction of a second
 ::@(#)  TZD  = time zone designator (Z or +hh:mm or -hh:mm)
 ::@(#) 
+::@(#)REQUIRES
+::@(-)  Dependecies
+::@(#)  _Debug.cmd      Setting up debug environment for batch scripts 
+::@(#)  _GetOpt.cmd     Parse command line options and create environment vars
+::@(#)
 ::@(#)SOURCE
 ::@(#)  %$Source%
 ::@(#) 

@@ -1,8 +1,8 @@
 NAME
-      %$NAME% -- %$DESCRIPTION%
+      _toLowerCase -- Will transform a given string to lowercase and store in tolower
  
 SYNOPSIS
-  %$NAME% LcwerCaseVar String
+  _toLowerCase LcwerCaseVar String
  
 OPTIONS
   -h      Help page

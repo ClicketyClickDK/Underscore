@@ -1,15 +1,15 @@
 NAME
-      %$NAME% -- %$DESCRIPTION%
+      _registry.write_string -- Write an entry to the registration database
  
 SYNOPSIS
-  %$NAME% "Path" "key" "value"
+  _registry.write_string "Path" "key" "value"
  
   -h      Help page
  
 DESCRIPTION
-  %$NAME% writes a new key with the given value to the registration database:
+  _registry.write_string writes a new key with the given value to the registration database:
  
-      CALL %$NAME% "HKEY_LOCAL_MACHINE\SOFTWARE\ClicketyClick.dk\%$NAME%" "Status" "OK"
+      CALL _registry.write_string "HKEY_LOCAL_MACHINE\SOFTWARE\ClicketyClick.dk\_registry.write_string" "Status" "OK"
  
   Note: Patterns are case insensitive
 

@@ -1,8 +1,8 @@
 NAME
-      %$NAME% -- %$DESCRIPTION%
+      _callFunc -- Function call wrapper
  
 SYNOPSIS
-      %$NAME% [function] {arguments}
+      _callFunc [function] {arguments}
  
    
 OPTIONS

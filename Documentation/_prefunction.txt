@@ -1,8 +1,8 @@
 NAME
-      %$NAME% -- %$DESCRIPTION%
+      _prefunction -- Pre processing template for function call
  
 SYNOPSIS
-      %$NAME% [function] {arguments}
+      _prefunction [function] {arguments}
    
 OPTIONS
   -h      Help page

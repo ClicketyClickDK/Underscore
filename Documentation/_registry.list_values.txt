@@ -1,8 +1,8 @@
 NAME
-      %$NAME% -- %$DESCRIPTION%
+      _registry.list_values -- List value entries from the registration database
  
 SYNOPSIS
-  %$NAME% "Path" "key"
+  _registry.list_values "Path" "key"
  
 OPTIONS
   -h      Help page
@@ -15,7 +15,7 @@ DESCRIPTION
  
  
 EXAMPLES
-      CALL %$NAME% "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion"
+      CALL _registry.list_values "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion"
   Will print a list of values like:
       SM_GamesName
       SM_ConfigureProgramsName

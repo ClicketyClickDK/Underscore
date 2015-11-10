@@ -75,8 +75,8 @@
 ::'::@(#)          SET _INPUT=
 ::'::@(#)          SET _TITLE=window title
 ::'::@(#)          SET _MSG=Hello world.{CrLf}Please select:
-::'::@(#)          CALL _MsgBox.bat 35 "{PCT}_TITLE{PCT}" "{PCT}_MSG{PCT}"
-::'::@(#)          CALL :RETURN {PCT}errorlevel{PCT}
+::'::@(#)          CALL _MsgBox.bat 35 "%_TITLE%" "%_MSG%"
+::'::@(#)          CALL :RETURN %errorlevel%
 ::'::@(#)      GOTO :EOF
 ::'::@(#)      
 ::'::@(#)      :return
@@ -113,10 +113,11 @@
 ::'::@(-)  If any known
 ::'::@ (#)
 ::'::@ (#)
-::'::@ (#)REQUIRES
-::'::@(-)  Dependencies
-::'::@ (#)  
-::'::@ (#)
+::'::@(#)REQUIRES
+::'::@(-)  Dependecies
+::'::@(#)  _Debug.cmd      Setting up debug environment for batch scripts 
+::'::@(#)  _GetOpt.cmd     Parse command line options and create environment vars
+::'::@(#) 
 ::'::@(#)SEE ALSO
 ::'::@(-)  A list of related commands or functions.
 ::'::@(#)  _inputBox.bat
@@ -140,9 +141,10 @@
 ::'::SET $VERSION=2010-10-20&SET $REVISION=17:15:00&SET $COMMENT=Addding $Source/ErikBachmann [01.011]
 ::'::SET $VERSION=2011-01-17&SET $REVISION=15:43:00&SET $COMMENT=ActionRange=45/ErikBachmann [01.012]
 ::'::SET $VERSION=2015-02-18&SET $REVISION=18:16:00&SET $Comment=cdmdized/ErikBachmann
-::'  SET $VERSION=2015-10-08&SET $REVISION=09:40:00&SET $Comment=Help -h added/ErikBachmann
+::'::SET $VERSION=2015-10-08&SET $REVISION=09:40:00&SET $Comment=Help -h added/ErikBachmann
+::'  SET $VERSION=2015-10-21&SET $REVISION=19:19:00&SET $Comment=Update usage/ErikBachmann
 ::'::**********************************************************************
-::'::@(#)¤COPY¤%$VERSION:~0,4% %$Author%
+::'::@(#)(c)%$VERSION:~0,4% %$Author%
 ::'::**********************************************************************
 ::'CALL "%~dp0_debug"
 ::'CALL "%~dp0_GetOpt" %*&IF ERRORLEVEL 1 EXIT /B 1

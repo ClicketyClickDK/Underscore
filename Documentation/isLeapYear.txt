@@ -1,8 +1,8 @@
 NAME
-      %$NAME% -- %$DESCRIPTION%
+      isLeapYear -- Determins wether a given year is a leap year
  
 SYNOPSIS
-      %$NAME% [VAR] [Year]
+      isLeapYear [VAR] [Year]
  
 OPTIONS
   -h      Help page

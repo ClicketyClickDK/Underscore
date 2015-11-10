@@ -1,5 +1,5 @@
 NAME
-      %$NAME% -- %$DESCRIPTION%
+      which -- Searching for an executable on the path (or other path-like string if necessary)
  
 SYNOPSIS
   which filename

@@ -1,8 +1,8 @@
 NAME
-      %$NAME% -- %$DESCRIPTION%
+      formatStr -- outputs columns of strings right or left aligned
  
 SYNOPSIS
-      %$NAME% [Format] strX strY....
+      formatStr [Format] strX strY....
  
 OPTIONS
   -h      Help page
@@ -17,7 +17,7 @@ DESCRIPTION
   to the right.
   
 EXAMPLES
-      CALL %$NAME% "{20}[{10}]" "Label" "Hello world"
+      CALL formatStr "{20}[{10}]" "Label" "Hello world"
   Will show
       Label               [Hello worl]
  

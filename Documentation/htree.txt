@@ -1,5 +1,5 @@
 NAME
-      %$NAME% -- %$DESCRIPTION%
+      htree -- Graphically displays the folder structure of a drive or path in HTML
  
 SYNOPSIS
   htree [drive:][path] [/F] [/A] [html_tree.html] [2>ascii_tree.txt]

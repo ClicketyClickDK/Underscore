@@ -1,8 +1,8 @@
-::@ECHO OFF
+@ECHO OFF
 SETLOCAL ENABLEDELAYEDEXPANSION&::(Don't pollute the global environment with the following)
 ::**********************************************************************
 SET $NAME=%~n0
-SET $DESCRIPTION=Status part of "Action [status]" line
+SET $DESCRIPTION=Status part of Action [status] line
 SET $AUTHOR=Erik Bachmann, ClicketyClick.dk [ErikBachmann@ClicketyClick.dk]
 SET $SOURCE=%~f0
 ::@(#)NAME
@@ -31,8 +31,8 @@ SET $SOURCE=%~f0
 ::@(#)
 ::@(#)EXAMPLES
 ::@(-)  Some examples of common usage.
-::@(#)  CALL {LinkStart}_ACTION{LinkEnd} "Hello"
-::@(#)  CALL {LinkStart}_STATUS{LinkEnd} "World"
+::@(#)  CALL _ACTION "Hello"
+::@(#)  CALL _STATUS "World"
 ::@(#)
 ::@(#)  Will produce the line:
 ::@(#)  Hello                                             [World                   ]
@@ -54,14 +54,15 @@ SET $SOURCE=%~f0
 ::@(-)  If any known
 ::@ (#)
 ::@ (#)
-::@ (#)REQUIRES
-::@(-)  Dependencies
-::@ (#)  
-::@ (#)
+::@(#)REQUIRES
+::@(-)  Dependecies
+::@(#)  _Debug.cmd      Setting up debug environment for batch scripts 
+::@(#)  _GetOpt.cmd     Parse command line options and create environment vars
+::@(#)
 ::@(#)SEE ALSO
 ::@(-)  A list of related commands or functions.
-::@(#)  {LinkStart}_action.cmd{LinkEnd}
-::@(#)  {LinkStart}_state.cmd{LinkEnd}
+::@(#)  _action.cmd
+::@(#)  _state.cmd
 ::@(#)
 ::@ (#)REFERENCE
 ::@(-)  References to inspiration, clips and other documentation

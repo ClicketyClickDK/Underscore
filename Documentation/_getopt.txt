@@ -6,19 +6,19 @@ SYNOPSIS
  
   SET $NAME=x
   ::Parse options to current script
-  CALL %$NAME% %*
+  CALL _GetOpt %*
     
   ::Show options
   set @x
     
   ::Clear env vars
-  CALL %$NAME%
+  CALL _GetOpt
  
 DESCRIPTION
   If $NAME is not a defined environment var "UNDEFINED" is used as $NAME
  
   NOTE!
-      If you entend to nest scripts both using %$NAME% you must 
+      If you entend to nest scripts both using _GetOpt you must 
       start the nested script with a SETLOCAL statement to preserve
       the callers environment!
  
@@ -26,19 +26,19 @@ EXAMPLES:
  
   If x.bat contains the statement:
       SET $NAME=x
-      CALL %$NAME% %*
+      CALL _GetOpt %*
       SET @
  
   :: Enable delayed expansion of vars to use content of vars
       SETLOCAL ENABLEDELAYEDEXPANSION
-      ECHO z=!@%$NAME%.z! 
+      ECHO z=!@_GetOpt.z! 
       SETLOCAL DISABLEDELAYEDEXPANSION
  
   :: Or hard code reference
       ECHO a=%@x.z%
  
   :: Clear flags
-      CALL %$NAME%
+      CALL _GetOpt
  
  Executing: x.bat -y:z -flag file -z:"hello world"
  

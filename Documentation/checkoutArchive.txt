@@ -1,8 +1,8 @@
 NAME
-      %$NAME% -- %$DESCRIPTION%
+      checkoutArchive -- Checkout updates/install new units
  
 SYNOPSIS
-      %$NAME% [VAR]
+      checkoutArchive [VAR]
  
 OPTIONS
   -h      Help page

@@ -1,4 +1,4 @@
-      %$NAME% -- %$DESCRIPTION%
+      _isday -- Checks if time is morning, day or evening
  
 SYNOPSIS
   _isday [time] [End of morning] [start of evening]
@@ -12,11 +12,11 @@ DESCRIPTION
   Note! Night is either Morning nor evening ;-)
 
 EXAMPLES
-      CALL %$NAME% 
+      CALL _isday 
   Same as:
-      CALL %$NAME% %%TIME%%
+      CALL _isday %%TIME%%
   
-      CALL %$NAME% %%TIME%% 06:00:00 20:00:00
+      CALL _isday %%TIME%% 06:00:00 20:00:00
   Day between 06:00 and 22:00
   
   0   OK  (Daytime)

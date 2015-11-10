@@ -1,8 +1,8 @@
 NAME
-      %$NAME% -- %$DESCRIPTION%
+      getDayOfYear -- Get day number in year
  
 SYNOPSIS
-      %$NAME% [VAR] [Date YYYY-MM-DD]
+      getDayOfYear [VAR] [Date YYYY-MM-DD]
  
 OPTIONS
   -h      Help page

@@ -1,8 +1,8 @@
 NAME
-      %$NAME% -- %$DESCRIPTION%
+      getQuarterOfYear -- Gets quarter of year for a given date
  
 SYNOPSIS
-      %$NAME% [YYYY-MM-DD]
+      getQuarterOfYear [YYYY-MM-DD]
  
 OPTIONS
   -h      Help page

@@ -1,8 +1,8 @@
 NAME
-  %$NAME% -- Create a Cariage Return variable
+  _cr -- Create a Cariage Return variable
  
 SYNOPSIS
-  CALL %$NAME%
+  CALL _cr
  
 OPTIONS
   -h      Help page

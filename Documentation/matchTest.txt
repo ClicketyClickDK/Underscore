@@ -1,5 +1,5 @@
 NAME
-      %$NAME% -- %$DESCRIPTION%
+      matchTest -- Match patterns on a text file
  
 SYNOPSIS
   matchTest [target] [match]
@@ -29,7 +29,7 @@ DESCRIPTION
   Please refer to the command findstr for more info
 
 EXAMPLES
-  CALL %$NAME% %$SOURCE% %$SOURCE%
+  CALL matchTest C:\Users\Erik\Documents\GitHub\Underscore\matchTest.cmd C:\Users\Erik\Documents\GitHub\Underscore\matchTest.cmd
   
   Should display:
   

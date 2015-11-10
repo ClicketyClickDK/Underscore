@@ -1,8 +1,8 @@
 NAME
-      %$NAME% -- %$DESCRIPTION%
+      _BS -- Set environment variable _BS to contain a backspace
  
 SYNOPSIS
-      %$NAME%
+      _BS
  
 OPTIONS
   -h      Help page
@@ -12,13 +12,13 @@ DESCRIPTION
   Used in text manipulation on screen
  
 EXAMPLES
-      CALL %$NAME%
+      CALL _BS
       SET /P "_=a-!_BS!z"<nul
   Will display:      
       az
 
   Looping wheel to show activity  
-      CALL %$NAME%
+      CALL _BS
       SET /P _=Looping 1:%_max%: ><nul
       FOR /L %%a IN (1,1,%_max%) DO (
          CALL :Loop %%a

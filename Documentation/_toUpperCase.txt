@@ -1,8 +1,8 @@
 NAME
-      %$NAME% -- %$DESCRIPTION%
+      _toUpperCase -- Will transform a given string to UPPERCASE
  
 SYNOPSIS
-  %$NAME% UpperCaseVar String
+  _toUpperCase UpperCaseVar String
  
 OPTIONS
   -h      Help page

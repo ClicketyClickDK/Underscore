@@ -48,7 +48,8 @@ SET $SOURCE=%~f0
 ::@ (#)
 ::@(#)REQUIRES
 ::@(-)  Dependecies
-::@(#)  _debug.cmd
+::@(#)  _Debug.cmd      Setting up debug environment for batch scripts 
+::@(#)  _GetOpt.cmd     Parse command line options and create environment vars
 ::@(#)  _action.cmd
 ::@(#)  _status.cmd
 ::@(#)

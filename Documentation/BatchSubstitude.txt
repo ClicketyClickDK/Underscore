@@ -1,8 +1,8 @@
 NAME
-      %$NAME% -- %$DESCRIPTION%
+      BatchSubstitude -- parses a File line by line and replaces a substring
  
 SYNOPSIS
-      %$NAME% [OldStr] [NewStr] [File]
+      BatchSubstitude [OldStr] [NewStr] [File]
  
   -h      Help page
       OldStr [in] - string to be replaced

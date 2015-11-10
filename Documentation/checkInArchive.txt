@@ -1,5 +1,5 @@
 NAME
-      %$NAME% -- %$DESCRIPTION%
+      checkInArchive -- Make an archive version of batch jobs
  
 SYNOPSIS
       checkInArchive
