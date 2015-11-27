@@ -7,7 +7,7 @@ SETLOCAL
 
     SHIFT
     :: Dummy test - buildDocumentation is an internal function. No functional test
-    ECHO:Skipped:Internal function=no test>"%TEMP%\%0.skip" & GOTO :EOF
+    ECHO:Skipped:Internal=no test>"%TEMP%\%0.skip" & GOTO :EOF
     
     REM :: Create ref
     REM (

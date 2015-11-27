@@ -7,16 +7,17 @@ SETLOCAL
 :: Please note! This test will fail if no connection to the webservice mentioned in _URLstub 
 
     SHIFT
-SET _URLstub=http://clicketyclick.dk/development/dos/_/
-SET _CurrentVersion=?
-SET _versionFile=%tmp%\current
-SET _archiveFile=%tmp%\current.zip
+    SET _URLstub=http://clicketyclick.dk/development/dos/_/
+    SET _CurrentVersion=?
+    SET _versionFile=%temp%current
+    SET _archiveFile=%temp%current.zip
     
     IF EXIST "%_VersionFile%" DEL "%_VersionFile%"
     :: Dump data
     (
         rem ::CALL cscript //nologo wget.vbs "%_URLstub%current"  "%_VersionFile%"
         CALL wget.bat "%_URLstub%current"  "%_VersionFile%"
+        IF ERRORLEVEL 1 CALL :skip %ErrorLevel% >>"%TEMP%\%0.skip" 2>nul
         DIR /b /s "%_VersionFile%"
     )>"%TEMP%\%0.dump"
 
@@ -34,3 +35,6 @@ SET _archiveFile=%tmp%\current.zip
 GOTO :EOF *** :_UnitTest_wget ***
 
 ::----------------------------------------------------------------------
+:SKIP
+    Echo:Check internet connection&EXIT /B %1 
+GOTO :EOF

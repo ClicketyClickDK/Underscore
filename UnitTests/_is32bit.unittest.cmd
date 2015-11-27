@@ -4,7 +4,11 @@
 :_UnitTest__is32bit
     SHIFT
 
-    CALL _Is32bit=0
+    ::Remove old flags
+    FOR /F "usebackq delims==" %%C IN (`SET @%$NAME% 2^>nul`) DO IF DEFINED %%C SET %%C=&&ECHO SET %%C=
+
+    CALL SET _Is32bit=
+    CALL SET _Is64bit=
     >>"%TEMP%\%0.trc" ECHO:%0
 
     :: Create ref
@@ -15,7 +19,8 @@
     )>"%TEMP%\%0.ref" 2>nul
     
     >>"%TEMP%\%0.trc" ECHO :: Create dump
-    CALL %0  1>>"%TEMP%\%0.dump" 2>&1
+    
+    CALL %0 1>"%TEMP%\%0.dump" 2>&1
     SET $is 1>>"%TEMP%\%0.dump" 2>&1
     SET ErrorLevel=
     ::FOR %%A IN ($Is32Bit $Is64Bit) DO (

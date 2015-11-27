@@ -7,7 +7,7 @@ SETLOCAL
 
     SHIFT
     :: Dummy test - _msgBox is a call to the Windows interface. No functional test
-    ECHO:Skipped:Win internal=no test>"%TEMP%\%0.skip" & GOTO :EOF
+    ECHO:Skipped:Win interface=no test>"%TEMP%\%0.skip" & GOTO :EOF
 
     REM :: Create ref
     REM (

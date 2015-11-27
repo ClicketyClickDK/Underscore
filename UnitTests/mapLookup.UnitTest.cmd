@@ -27,10 +27,11 @@ SETLOCAL
 
     :: Dump data
     (
-        CALL mapLookup "%map%" "Mai" _new&ECHO.!_new!
-        CALL mapLookup "%map%" "Dec" _new&ECHO.!_new!
-        CALL mapLookup "%map%" "xxx" _new&ECHO.!_new!
-        CALL mapLookup "%map%" "Jan" _new&ECHO.!_new!
+    echo on
+        CALL mapLookup "%map%" "Mai" _new&ECHO:!_new!
+        CALL mapLookup "%map%" "Dec" _new&ECHO:!_new!
+        CALL mapLookup "%map%" "xxx" _new&ECHO:!_new!
+        CALL mapLookup "%map%" "Jan" _new&ECHO:!_new!
     )>"%TEMP%\%0.dump"
     
 GOTO :EOF *** :_UnitTest_mapLookup ***

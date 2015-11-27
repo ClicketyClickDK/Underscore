@@ -7,8 +7,8 @@ SETLOCAL
     
     :: Create ref
     (
-        ECHO:2455217
-    )>"%TEMP%\%0.hexdump" 2>>"%TEMP%\%0.trc"
+        ECHO:#JD=2455217
+    )>"%TEMP%\%0.ref" 2>>"%TEMP%\%0.trc"
 
     :: Simple dump
     CALL %0 #JD "2010-01-20"

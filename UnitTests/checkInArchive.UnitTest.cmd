@@ -9,7 +9,7 @@ SETLOCAL
     pushd "%_ScriptDir%"
     echo %CD%
 
-    CALL checkInArchive2 >>"%TEMP%\%0.trc" 2>&1
+    CALL checkInArchive >>"%TEMP%\%0.trc" 2>&1
     
     (
         ECHO:@ECHO OFF
