@@ -1,0 +1,34 @@
+NAME
+  What -- Search file for a pattern and print remainder of string
+ 
+SYNOPSIS
+  What filename [pattern] {Options}
+ 
+DESCRIPTION
+  Reads each file name and searches for sequences of the form 
+  "@(#)", as inserted by the source code control system (SCCS)
+  It prints the remainder of the string following this marker, 
+  up to a null character, newline, double quote, or ">" character.
+ 
+  A pattern may be given to replace the x in (x) like:
+ 
+     What C:\_\What.cmd X
+ 
+  Will print alle lines the sequence: "@(X)"
+  Note: Patterns are case insensitive
+
+OPTIONS
+ filename Name of the file to search
+ pattern  A substitute for the # in @(#)
+  -h      Help page
+  -html   Output in HTML (Text mode is default)
+ 
+REQUIRES
+  _Debug.cmd      Setting up debug environment for batch scripts 
+  _GetOpt.cmd     Parse command line options and create environment vars
+ 
+SOURCE
+  C:\_\What.cmd
+ 
+(c)2015 Erik Bachmann, ClicketyClick.dk (E_Bachmann@ClicketyClick.dk)
+

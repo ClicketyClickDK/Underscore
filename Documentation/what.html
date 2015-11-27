@@ -1,0 +1,35 @@
+<link rel='stylesheet' href='what.css' type='text/css' />
+<h3>NAME</span></span></h3>
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;<span&nbsp;class='name'>What&nbsp;--&nbsp;<span&nbsp;class='description'>Search&nbsp;file&nbsp;for&nbsp;a&nbsp;pattern&nbsp;and&nbsp;print&nbsp;remainder&nbsp;of&nbsp;string</span></span></tt><BR>
+<tt>&nbsp;&nbsp;&nbsp;</span></span></tt><BR>
+<h3>SYNOPSIS</span></span></h3>
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;<span&nbsp;class='name'>What&nbsp;filename&nbsp;[pattern]&nbsp;{Options}</span></span></tt><BR>
+<tt>&nbsp;&nbsp;&nbsp;</span></span></tt><BR>
+<h3>DESCRIPTION</span></span></h3>
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;Reads&nbsp;each&nbsp;file&nbsp;name&nbsp;and&nbsp;searches&nbsp;for&nbsp;sequences&nbsp;of&nbsp;the&nbsp;form&nbsp;</span></span></tt><BR>
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;"@(#)",&nbsp;as&nbsp;inserted&nbsp;by&nbsp;the&nbsp;source&nbsp;code&nbsp;control&nbsp;system&nbsp;(SCCS)</span></span></tt><BR>
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;It&nbsp;prints&nbsp;the&nbsp;remainder&nbsp;of&nbsp;the&nbsp;string&nbsp;following&nbsp;this&nbsp;marker,&nbsp;</span></span></tt><BR>
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;up&nbsp;to&nbsp;a&nbsp;null&nbsp;character,&nbsp;newline,&nbsp;double&nbsp;quote,&nbsp;or&nbsp;">"&nbsp;character.</span></span></tt><BR>
+<tt>&nbsp;&nbsp;&nbsp;</span></span></tt><BR>
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;A&nbsp;pattern&nbsp;may&nbsp;be&nbsp;given&nbsp;to&nbsp;replace&nbsp;the&nbsp;x&nbsp;in&nbsp;(x)&nbsp;like:</span></span></tt><BR>
+<tt>&nbsp;&nbsp;&nbsp;</span></span></tt><BR>
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span&nbsp;class='name'>What&nbsp;C:\_\What.cmd&nbsp;X</span></span></tt><BR>
+<tt>&nbsp;&nbsp;&nbsp;</span></span></tt><BR>
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;Will&nbsp;print&nbsp;alle&nbsp;lines&nbsp;the&nbsp;sequence:&nbsp;"@(X)"</span></span></tt><BR>
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;Note:&nbsp;Patterns&nbsp;are&nbsp;case&nbsp;insensitive</span></span></tt><BR>
+<h3></span></span></h3>
+<h3>OPTIONS</span></span></h3>
+<tt>&nbsp;&nbsp;&nbsp;filename&nbsp;Name&nbsp;of&nbsp;the&nbsp;file&nbsp;to&nbsp;search</span></span></tt><BR>
+<tt>&nbsp;&nbsp;&nbsp;pattern&nbsp;&nbsp;A&nbsp;substitute&nbsp;for&nbsp;the&nbsp;#&nbsp;in&nbsp;@(#)</span></span></tt><BR>
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;-h&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Help&nbsp;page</span></span></tt><BR>
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;-html&nbsp;&nbsp;&nbsp;Output&nbsp;in&nbsp;HTML&nbsp;(Text&nbsp;mode&nbsp;is&nbsp;default)</span></span></tt><BR>
+<tt>&nbsp;&nbsp;&nbsp;</span></span></tt><BR>
+<h3>REQUIRES</span></span></h3>
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;_Debug.cmd&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Setting&nbsp;up&nbsp;debug&nbsp;environment&nbsp;for&nbsp;batch&nbsp;scripts&nbsp;</span></span></tt><BR>
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;_GetOpt.cmd&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Parse&nbsp;command&nbsp;line&nbsp;options&nbsp;and&nbsp;create&nbsp;environment&nbsp;vars</span></span></tt><BR>
+<tt>&nbsp;&nbsp;&nbsp;</span></span></tt><BR>
+<h3>SOURCE</span></span></h3>
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;C:\_\What.cmd</span></span></tt><BR>
+<tt>&nbsp;&nbsp;&nbsp;</span></span></tt><BR>
+<h5>(c)2015 Erik Bachmann, ClicketyClick.dk (E_Bachmann@ClicketyClick.dk)</span></span></h5>
+

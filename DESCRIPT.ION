@@ -1,0 +1,116 @@
+0TEMPLATE.CMD Template for DOS batch script
+BANNER.CMD Make posters
+BUILDDOCUMENTATION.CMD Unit test processing
+CHECKINARCHIVE.CMD Make an archive version of batch jobs
+CHECKOUTARCHIVE.CMD Checkout updates/install new units
+CMDIZE.CMD Gives VBScript
+COMPAREDURATION.CMD Compare duration of two operations
+DATE2JDATE.CMD Converts ISO date to Julian date
+DRIVETYPES.CMD List local drives available by type
+DUMMY.CMD Input routine for batch using VBScript to provide input box
+DURATION.CMD Get duration between to time stamps
+Depricated.txt Depricated functions
+FORMATSTR.CMD outputs columns of strings right or left aligned
+FTIME.CMD returns the file time in julian days
+GETDAYOFWEEK.CMD Get day of week for a given date
+GETDAYOFYEAR.CMD Get day number in year
+GETFILESOLDERTHAN.CMD List files older than x days
+GETLASTBOOTUPTIME.CMD Get latest boot up time for system
+GETPUBLICIP.BAT Call to external site returns external IP
+GETQUARTEROFYEAR.CMD Gets quarter of year for a given date
+GETWEEKOFYEAR.CMD Get week number for at given date
+GETWINDOWSVERSION.CMD Reading Windows version info from registry database
+GETWINDOWTITLE.CMD Return Window title + PID
+H.CMD
+HEAD.CMD Print the first n lines of a file to STDOUT
+HEXDUMP.CMD Dump a file in hex format
+HTREE.CMD Graphically displays the folder structure of a drive or path in HTML
+ISLEAPYEAR.CMD Determins wether a given year is a leap year
+JDATE2DATE.CMD Converts ISO date to Julian date
+JREPL.BAT a global regular expression search+replace operation on each line of input
+JULIANDATE2UTC.CMD Convert Julian date [Numeric] to UTC [YYYY-MM-MM]
+LOCKWORKSTATION.CMD Start Windows screensaver
+LOOP.CMD
+MAKEDATEREFERENCE.CMD Produces a series of dates for testing
+MAN.CMD an interface to the on-line reference manuals
+MAPLOOKUP.CMD Template for DOS batch script
+MATCHTEST.CMD Match patterns on a text file
+OERR.CMD Extracts Error messaged from script files using uniq ErrorID
+PROCESSBAR.CMD Progress bar weighted in pct.
+REMOVEVARBYTYPE.CMD Remove variables by type / prefix
+ROBOBACKUP.CMD Backup with progressbar using RoboCopy
+SETFILEDATE.BAT Set a specific date on a file
+SHORTDATE2ISO.CMD Converts shortDate to ISO [YYYY-MM-ddThh:mm]
+SPINNER.CMD Spinner to indicate process
+STARTSCREENSAVER.CMD Start Windows screensaver
+TAIL.CMD Print the last n lines of a file to STDOUT
+TEST.DATE2JDATE.CMD
+TIMES.CMD Get duration of a command
+UNITTEST.CMD Unittest for Underscore
+UNZIP.BAT Unzip an existing ZIP archive
+UPDATEARCHIVE.CMD Download an update from ClicketyClick.dk
+UTC2JULIANDATE.CMD Convert UTC date [YYYY-MM-MM] to Julian date [Numeric]
+WGET.BAT A non-interactive network downloader
+WHAT.CMD Search file for a pattern and print remainder of string
+Y.CMD
+ZIP.BAT Create a ZIP archive
+_ACTION.CMD Action part of _action / _status line
+_BS.CMD Set environment variable _BS to contain a backspace
+_CALLFUNC.CMD Function call wrapper
+_CONFIG.BAT Global configuration file
+_CR.CMD Create a Cariage Return variable
+_DEBUG.CMD Setting up debug environment for batch scripts
+_DEBUG3.BAT Sub script to _debug.cmd
+_DEBUG4.BAT Sub script to _debug.cmd
+_ERRORHANDLER.CMD Echos a formatted error message w. filename, line no, errorID and additional help
+_GETOPT.CMD Parse command line options and create environment vars
+_GETOPT.SUB.CMD Parse command line options for help flags only
+_INPUTBOX.BAT Input routine for batch using VBScript to provide input box
+_IS32BIT.CMD Detects 32 / 64 architecture
+_ISDAY.CMD Checks if time is morning, day or evening
+_ISNUMERIC.CMD Test if argument is numeric
+_LF.CMD Create a newline [line feed] variable
+_LINE.CMD Display a line of a given length
+_MSGBOX.BAT Action part of "Action [status]" line
+_PARENTDIR.CMD Get parent directory to a given directory
+_POSTSCRIPT.CMD Post processing template
+_PREFUNCTION.CMD Pre processing template for function call
+_PRESCRIPT.CMD Pre processing template
+_PREVIOUSMONTH.CMD Get previous month in ISO form YYYY-MM
+_REGISTRY.DELETE_KEY.CMD Delete an entry from the registration database
+_REGISTRY.DELETE_STRING.CMD Delete an entry from the registration database
+_REGISTRY.LIST_KEYS.CMD List key entries from the registration database
+_REGISTRY.LIST_VALUES.CMD List value entries from the registration database
+_REGISTRY.READ_STRING.CMD Read an entry from the registration database
+_REGISTRY.WRITE_STRING.CMD Write an entry to the registration database
+_REPORT_ROBOCOPY_ERRORLEVEL.CMD Error handler for Robocopy
+_state.cmd Status part of "Action [state]" line. No newline
+_status.cmd Status part of Action [status] line. Adds newline
+_TOLOWERCASE.CMD Will transform a given string to lowercase and store in tolower
+_TOUPPERCASE.CMD Will transform a given string to UPPERCASE
+_UTC.CMD Set environment UTC as current date in UTC format AND UTC_FILE as valid filename
+_UTF2ANSI.CMD Convert UTF string to ANSI and return in VAR
+_UTF2OEM.CMD Convert UTF string to OEM and return in VAR
+readme.css CSS for readme.html
+toc.css CSS Table of Content for readme.html
+underscore.css General CSS
+what.css CSS for help pages (What)
+dagsnumre.kalender-365.dk.csv Date reference
+date.reference.csv Date reference
+date1.reference.csv Date reference
+isodate.reference.csv Date reference
+ref.csv Date reference
+idx.html Function index for ReadMe
+ReadMe.html ReadMe
+_ToDo.html Outstanding tasks
+toc.js Javascript for creating Table of Content
+underscore.js General Javascript
+what.js Javascript for help pages
+README.md ReadMe in Mark Down - for Github
+dagsnumre.kalender-365.dk.txt Date reference
+Depricated.txt List of deprecated functions = no longer available
+what.inc.vbs Inlude VBS for What.md
+date.reference.xls Date reference
+epoc.xlsx Date reference epoc
+DESCRIPT.ION Short hand file descriptions
+LICENSE License\n file - GNU General Public License\nÂ

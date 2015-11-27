@@ -1,0 +1,7 @@
+
+strstr.cmd         - use find or findstr
+BatchSubstitute    - use jrep.bat
+Which.cmd Use: Where.exe [If available] Used for identifying the location of an excetutable
+cEcho -- Template for DOS batch script. Requres DEBUG.EXE
+strstr  use findstr
+

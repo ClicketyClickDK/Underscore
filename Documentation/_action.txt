@@ -1,0 +1,37 @@
+NAME
+      _action -- Action part of _action / _status line
+ 
+SYNOPSIS
+  _action "string"
+ 
+OPTIONS
+  -h      Help page
+ 
+DESCRIPTION
+  _action echos a string to STDOUT with the maximum length of $ActionRange.
+  Line is NOT terminated by a NEWLINE!
+
+  _action is usually used in combination with _status.cmd to display
+  status information durring processing
+
+EXAMPLE
+  CALL _ACTION "Hello"
+  CALL _STATUS "World"
+
+  Will produce the line:
+  Hello                                             [World                   ]
+
+
+REQUIRES
+  _Debug.cmd      Setting up debug environment for batch scripts 
+  _GetOpt.cmd     Parse command line options and create environment vars
+
+SEE ALSO
+  _status.cmd
+  _state.cmd
+
+SOURCE
+  C:\_\_action.cmd
+ 
+(c)2015 Erik Bachmann, ClicketyClick.dk [ErikBachmann@ClicketyClick.dk]
+

@@ -1,0 +1,41 @@
+<link rel='stylesheet' href='what.css' type='text/css' />
+<h3>NAME</span></span></h3>
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span&nbsp;class='name'>_InputBox&nbsp;--&nbsp;<span&nbsp;class='description'>Search&nbsp;file&nbsp;for&nbsp;a&nbsp;pattern&nbsp;and&nbsp;print&nbsp;remainder&nbsp;of&nbsp;string</span></span></tt><BR>
+<tt>&nbsp;&nbsp;&nbsp;</span></span></tt><BR>
+<h3>SYNOPSIS</span></span></h3>
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;<span&nbsp;class='name'>_InputBox&nbsp;[Window&nbsp;title]&nbsp;[Message]&nbsp;[Default&nbsp;value]</span></span></tt><BR>
+<tt>&nbsp;&nbsp;&nbsp;</span></span></tt><BR>
+<h3>OPTIONS</span></span></h3>
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;-h&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Help&nbsp;page</span></span></tt><BR>
+<tt>&nbsp;&nbsp;&nbsp;</span></span></tt><BR>
+<h3>DESCRIPTION</span></span></h3>
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;Prompting&nbsp;user&nbsp;for&nbsp;simple&nbsp;text&nbsp;input&nbsp;using&nbsp;input&nbsp;box</span></span></tt><BR>
+<tt>&nbsp;&nbsp;&nbsp;</span></span></tt><BR>
+<h3>EXAMPLES</span></span></h3>
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;SET&nbsp;_INPUT=</span></span></tt><BR>
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;SET&nbsp;_TITLE=window&nbsp;title</span></span></tt><BR>
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;SET&nbsp;_MSG=Hello&nbsp;world.{CrLf}Please&nbsp;enter&nbsp;something&nbsp;for&nbsp;me:</span></span></tt><BR>
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;SET&nbsp;_CMD=CALL&nbsp;<span&nbsp;class='name'>_InputBox&nbsp;"%_TITLE%"&nbsp;"%_MSG%"&nbsp;"default"</span></span></tt><BR>
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;FOR&nbsp;/F&nbsp;"tokens=*&nbsp;delims="&nbsp;%%a&nbsp;IN&nbsp;('CALL&nbsp;%_CMD%')&nbsp;DO&nbsp;SET&nbsp;_VAR=%%a</span></span></tt><BR>
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ECHO&nbsp;You&nbsp;entered&nbsp;[%_VAR%]</span></span></tt><BR>
+<h3></span></span></h3>
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The&nbsp;following&nbsp;exit&nbsp;values&nbsp;are&nbsp;returned:</span></span></tt><BR>
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;0&nbsp;&nbsp;&nbsp;Any&nbsp;matches&nbsp;were&nbsp;found.</span></span></tt><BR>
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1&nbsp;&nbsp;&nbsp;No&nbsp;matches&nbsp;found.</span></span></tt><BR>
+<tt>&nbsp;&nbsp;&nbsp;</span></span></tt><BR>
+<h3>REQUIRES</span></span></h3>
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;_Debug.cmd&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Setting&nbsp;up&nbsp;debug&nbsp;environment&nbsp;for&nbsp;batch&nbsp;scripts&nbsp;</span></span></tt><BR>
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;_GetOpt.cmd&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Parse&nbsp;command&nbsp;line&nbsp;options&nbsp;and&nbsp;create&nbsp;environment&nbsp;vars</span></span></tt><BR>
+<tt>&nbsp;&nbsp;&nbsp;</span></span></tt><BR>
+<h3>SEE ALSO</span></span></h3>
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;_MsgBox.bat</span></span></tt><BR>
+<h3></span></span></h3>
+<h3>REFERENCE</span></span></h3>
+<tt>&nbsp;&nbsp;&nbsp;Stephen&nbsp;Knight,&nbsp;October&nbsp;2009,&nbsp;http://www.dragon-it.co.uk/</span></span></tt><BR>
+<tt>&nbsp;&nbsp;&nbsp;URL:&nbsp;http://scripts.dragon-it.co.uk/scripts.nsf/docs/batch-gui-inputbox!OpenDocument</span></span></tt><BR>
+<tt>&nbsp;&nbsp;&nbsp;</span></span></tt><BR>
+<h3>SOURCE</span></span></h3>
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;C:\_\_InputBox.bat</span></span></tt><BR>
+<tt>&nbsp;&nbsp;&nbsp;</span></span></tt><BR>
+<h5>(c)2015 Erik Bachmann, ClicketyClick.dk (E_Bachmann@ClicketyClick.dk)</span></span></h5>
+

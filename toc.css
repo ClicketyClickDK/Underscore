@@ -1,0 +1,11 @@
+
+#TOC {border:solid black 1px; margin:10px; padding:10px;}
+.TOCEntry{font-family:sans-serief;}
+.TOCEntry a{text-decoration:none;}
+.TOCLevel1{font-size:17pt; font-weight:bold;}
+.TOCLevel2{font-size:16pt; margin-left: 10px; font-weight:bold;}
+.TOCLevel3{font-size:15pt; margin-left: 20px;font-weight:bold;}
+.TOCLevel4{font-size:14pt; margin-left: 30px;}
+.TOCSectNum{margin-right: 10px; font-weight:none;}
+/*.TOCSectNum{display:none;}
+*/

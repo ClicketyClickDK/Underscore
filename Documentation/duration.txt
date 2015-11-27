@@ -1,0 +1,47 @@
+NAME
+      duration -- Get duration between to time stamps
+ 
+SYNOPSIS
+      duration
+      duration [envvar]
+      duration [flags]
+ 
+OPTIONS
+  -h          Help page
+  --selftest  Internal self test (see example below)
+  envvar      Name of variable to store time stamp
+ 
+DESCRIPTION
+  Shows the duration in milliseconds between to calls
+ 
+EXAMPLES
+  duration _ST
+  ECHO: [ do something else ]
+  duration _ST
+    
+  Will return:
+  _ST                                          [20151126132254.457000+060       ]
+  [ do something else ]
+  Start                                        [20151126132254.457000+060       ]
+  End                                          [20151126132258.533000+060       ]
+  Milliseconds                                 [4076                            ]
+  Duration                                     [00:00:04.076                    ]
+    
+EXIT STATUS
+  errorlevel is 0 if OK, otherwise 1+.
+
+FILES, 
+  Test suite in unittest\ directory
+
+REQUIRES
+  _Debug.cmd      Setting up debug environment for batch scripts 
+  _GetOpt.cmd     Parse command line options and create environment vars
+ 
+  compareDuration.cmd Compare duration of two operations
+  Times.cmd           Get duration of a command
+
+SOURCE
+  C:\_\duration.cmd
+
+(c)2015 Erik Bachmann, ClicketyClick.dk [ErikBachmann@ClicketyClick.dk]
+

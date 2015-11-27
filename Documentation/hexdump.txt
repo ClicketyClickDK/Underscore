@@ -1,0 +1,77 @@
+NAME
+      hexdump -- Dump a file in hex format
+ 
+SYNOPSIS
+      hexdump [/option]... file
+ 
+  -h      Help page
+    The format of the dump can be modified by the following case insensitive
+    options:
+  
+      /BblockSize   The blockSize after the /B specifies the number of bytes
+                    to print in each block. If the blockSize is >= 0 then /C,
+                    /D, /E, /A and /O options are ignored and the bytes are
+                    output in a continuous stream without any delimiters or
+                    linebreaks.
+                    The default blockSize is 1.
+  
+      /CblockCount  The blockCount after the /C specifies the number of blocks
+                    to include on each line of output.
+                    The default blockCount is 16.
+  
+      /DbyteDelim   The byteDelim after the /D specifies the delimiter string
+                    to use between bytes within a block.
+                    The default byteDelim is undefined (no delimiter)
+  
+      /EblockDelim  The blockDelim after the /E specifies the delimiter string
+                    to use between blocks within a line.
+                    The default blockDelim is '/E "' ^(a single space^)
+  
+      /SstartOffset The startOffset after the /S specifies the number of bytes
+                    to skip before displaying bytes.
+                    The default startOffset is 0.
+  
+      /Nlength      The length after the /N specifies the total number of
+                    bytes to display after the startOffset. The default is to
+                    display up until the end of the file.
+  
+      /A            Append the ASCII representation of the bytes to the end
+                    of each line. Non-printable and extended ASCII characters
+                    are displayed as periods.
+  
+      /O            Prefix each line with the starting offset of the line in
+                    hexadecimal notation.
+  
+      /H            Display hexDump help
+  
+    Each option must be entered as a separate argument. Numeric components to
+    options may be specified using any numeric expression supported by SET /A.
+    The option defaults may be modified by presetting a hexDumpDefaults
+    variable.
+  
+DESCRIPTION
+    Displays the content of a binary file using a pair of hexadecimal digits
+    for each byte. By default the ouput displays 16 bytes per line, with the
+    bytes (hexadecimal pairs) delimited by a space.
+ 
+ 
+EXAMPLES
+      
+      echo Hello>out.txt
+      echo world>>out.txt
+      hexdump out.txt
+      00000000: 48 65 6C 6C 6F 0D 0A 77 6F 72 6C 64 0D 0A        Hello..world..
+ 
+REQUIRES
+  _Debug.cmd      Setting up debug environment for batch scripts 
+  _GetOpt.cmd     Parse command line options and create environment vars
+ 
+REFERENCE
+   Author: Dave Benham [dbenham]
+   URL: http://www.dostips.com/forum/viewtopic.php?t=1786
+
+SOURCE
+  C:\_\hexdump.cmd
+
+(c)2015 Dave Benham [dbenham]
+

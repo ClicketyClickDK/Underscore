@@ -1,0 +1,80 @@
+
+
+/* >>> Documentation >>> */
+body { 
+	/*Background: #F5FFFF; /* Light cyan */ 
+
+}
+h2x {
+    Background:    #BDEDFF;    /* Light blue */
+    Background:    #B8E6E6;
+    color:         Red;
+    margin:        0px;
+}
+h3x {
+    Background:    #BDEDFF;    /* Light blue */
+    Background:    #CCFFFF;
+    color:         Blue;
+    margin:        5px;
+}
+h4x {
+    Background:    #BDEDFF;    /* Light blue */
+    Background:    #CCFFFF;
+    color:         Green;
+}
+tt {
+   color:          purple;
+   color:          #001A4C;
+}
+hr { width: 10 }
+
+/* <<< Documentation <<< */
+
+/* >>> TOC >>> */
+
+#TOC {border:solid black 1px; margin:10px; padding:10px;}
+.TOCEntry{font-family:sans-serief;}
+.TOCEntry a{text-decoration:none;}
+.TOCLevel1{font-size:17pt; font-weight:bold;}
+.TOCLevel2{font-size:16pt; margin-left: 10px; font-weight:bold;}
+.TOCLevel3{font-size:15pt; margin-left: 20px;font-weight:bold;}
+.TOCLevel4{font-size:14pt; margin-left: 30px;}
+.TOCSectNum{margin-right: 10px; font-weight:none;}
+/*.TOCSectNum{display:none;}
+*/
+
+/* <<< TOC <<< */
+
+
+
+/* >>> Readme >>> */
+
+code {
+	color:			darkgreen;
+	background:		#E5E4E2;	/* Platinum */
+}
+
+dl	{
+	text-indent:	10px; /* added the default value */
+	background:		#C3FDB8; /*	Light Jade */
+	background:		#f3FFd8; /*   */
+}
+
+dt 	{ font-weight:	bold; }
+
+pre	{
+	margin-left:	20px;
+	margin-right:	20px;
+	color:			darkgreen;
+	background:		#E5E4E2;	/* Platinum */
+	background:		#F0F8FF;	/* AliceBlue */
+}
+
+.syntax {
+	color:			red;
+	background:		#E5E4E2;	/* Platinum */
+}
+
+/* <<< Readme <<< */
+
+/*** End of File *****************************************************/
