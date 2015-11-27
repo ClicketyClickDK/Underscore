@@ -1,0 +1,74 @@
+NAME
+      oerr -- Extracts Error messaged from script files using uniq ErrorID
+ 
+SYNOPSIS
+  oerr script ErrorID
+ 
+OPTIONS
+  -h      Help page
+
+DESCRIPTION
+  This function outputs a formatted string with an enhanced message
+  from within the script itself. The messages are stored in an
+  "Additional Help"-table.
+
+  See the source code of this script for details.
+
+ADDITIONAL HELP
+  Attempting to mimic the oerr help message utility extracting help from a table
+  at the end of the script. All lines matching the prefix "::#ERRORID" will be displayed.
+    
+    ::**********************************************************************
+    ::* Error messages (like Oracle oerr)
+    ::**********************************************************************
+    ::^#Error.000 Error.000 -- Template
+    ::^#Error.000 // *Cause: 
+    ::^#Error.000 // *Action: 
+    ::-----------------------------------------------------------------------------------.......
+    ::^#Error.001 Error.001 - first error - Non fatal
+    ::^#Error.001 // *Cause: Some error has occured (Continuing)
+    ::^#Error.001 // *Action: What to do to prevent this error 
+    ::^#Error.001 // OR what action to take to clean up the mess
+    ::
+    ::^#Error.002 Error.002 - Second error - Non fatal w emailFatal
+    ::^#Error.002 // *Cause: Non fatal error - but sending email to Sysadm (Continuing)
+    ::^#Error.002 // *Action: What to do to prevent this error OR what action to take to 
+    ::^#Error.002 // clean up the mess when script has aborted
+    ::
+    ::^#Error.003 Error.003 - Second error - Fatal
+    ::^#Error.003 // *Cause: Forced fatal error (Aborting)
+    ::^#Error.003 // *Action: What to do to prevent this error OR what action to take to 
+    ::^#Error.003 // clean up the mess when script has aborted.
+    ::^#Error.003 // Email send to Sysadm
+    ::
+    ::**********************************************************************
+    
+  Additional help should be placed at the end of the main script
+    
+EXAMPLES
+  Oerr oerr "ERROR.001" "Default message/description"
+  
+  Will display:
+     
+     Error.001 - first error - Non fatal
+     // *Cause: Some error has occured (Continuing)
+     // *Action: What to do to prevent this error
+     // OR what action to take to clean up the mess
+  
+ 
+REQUIRES
+  _Debug.cmd      Setting up debug environment for batch scripts 
+  _GetOpt.cmd     Parse command line options and create environment vars
+ 
+  _ErrorHandler
+  
+REFERENCE
+  :$reference http://www.dostips.com/forum/viewtopic.php?t=369
+  :$created 20080512 :$changed 20080512
+  :$source http://www.dostips.com
+
+SOURCE
+  C:\_\oerr.cmd
+
+(c)2015 Erik Bachmann, ClicketyClick.dk [ErikBachmann@ClicketyClick.dk]
+

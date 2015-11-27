@@ -1,0 +1,27 @@
+NAME
+      checkoutArchive -- Checkout updates/install new units
+ 
+SYNOPSIS
+      checkoutArchive [VAR]
+ 
+OPTIONS
+  -h      Help page
+ 
+DESCRIPTION
+  Install any newer file from Archive directory.
+ 
+  WILL overwrite any older file in script directory WITHOUT warning 
+ 
+EXAMPLES
+ 
+REQUIRES
+  _Debug.cmd      Setting up debug environment for batch scripts 
+  _GetOpt.cmd     Parse command line options and create environment vars
+ 
+ checkInArchive.cmd
+
+SOURCE
+  C:\_\checkoutArchive.cmd
+
+(c)2015 Erik Bachmann, ClicketyClick.dk [ErikBachmann@ClicketyClick.dk]
+

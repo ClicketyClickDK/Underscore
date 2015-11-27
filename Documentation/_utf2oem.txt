@@ -1,0 +1,33 @@
+NAME
+      _utf2oem -- Convert UTF string to OEM and return in VAR
+ 
+SYNOPSIS
+  _utf2oem ReturVar String
+ 
+OPTIONS
+  -h      Help page
+ 
+DESCRIPTION
+  Returns the string with UTF converted to OEM (ASCII)
+ 
+EXAMPLES
+      CALL _utf2oem _ "+¶+∏+•+Ü+ò+Ö"
+      ECHO %_%
+ 
+  Will produce:
+      ëõÜíùè
+ 
+ 
+BUGS / KNOWN PROBLEMS
+  Special characters and diacritics are NOT converted correct
+REQUIRES
+  _Debug.cmd      Setting up debug environment for batch scripts 
+  _GetOpt.cmd     Parse command line options and create environment vars
+
+  _Utf2Ansi
+
+SOURCE
+  C:\_\_utf2oem.cmd
+
+(c)2015 Erik Bachmann, ClicketyClick.dk [ErikBachmann@ClicketyClick.dk]
+

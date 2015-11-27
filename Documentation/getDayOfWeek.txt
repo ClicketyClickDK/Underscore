@@ -1,0 +1,30 @@
+NAME
+      getDayOfWeek -- Get day of week for a given date
+ 
+SYNOPSIS
+      getDayOfWeek [VAR] [YYYY-MM-DD]
+ 
+OPTIONS
+  -h      Help page
+
+DESCRIPTION
+  Get day number in week: Man - Sun 0 - 6 
+ 
+EXAMPLES
+ 
+      getDayOfWeek _dow 2015-03-31
+      set _dow
+      _dow=1
+ 
+REQUIRES
+  _Debug.cmd      Setting up debug environment for batch scripts 
+  _GetOpt.cmd     Parse command line options and create environment vars
+ 
+REFERENCE
+  URL: http://stackoverflow.com/questions/11364147/setting-a-windows-batch-file-variable-to-the-day-of-the-week
+
+SOURCE
+  C:\_\getDayOfWeek.cmd
+
+(c)2015 Erik Bachmann, ClicketyClick.dk [ErikBachmann@ClicketyClick.dk]
+

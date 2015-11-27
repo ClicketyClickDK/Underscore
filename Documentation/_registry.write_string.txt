@@ -1,0 +1,32 @@
+NAME
+      _registry.write_string -- Write an entry to the registration database
+ 
+SYNOPSIS
+  _registry.write_string "Path" "key" "value"
+ 
+  -h      Help page
+ 
+DESCRIPTION
+  _registry.write_string writes a new key with the given value to the registration database:
+ 
+      CALL _registry.write_string "HKEY_LOCAL_MACHINE\SOFTWARE\ClicketyClick.dk\_registry.write_string" "Status" "OK"
+ 
+  Note: Patterns are case insensitive
+
+EXAMPLES
+ 
+ 
+ 
+REQUIRES
+  _Debug.cmd      Setting up debug environment for batch scripts 
+  _GetOpt.cmd     Parse command line options and create environment vars
+
+  _registry.delete_string.cmd     _registry.delete_key.cmd
+  _registry.read_string.cmd       _registry.list.cmd
+
+
+SOURCE
+  C:\_\_registry.write_string.cmd
+
+(c)2015 Erik Bachmann, ClicketyClick.dk [ErikBachmann@ClicketyClick.dk]
+

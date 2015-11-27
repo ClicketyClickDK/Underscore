@@ -1,0 +1,41 @@
+NAME
+      _status -- Status part of Action [status] line
+ 
+SYNOPSIS
+  _status "string"
+ 
+OPTIONS
+  -h      Help page
+  --help  Help page
+
+DESCRIPTION
+  _status echos a string with the maximum length of 77 - $ActionRange to STDOUT.
+  The string will by surrounded bye [ ]
+  Line IS terminated by a NEWLINE!
+
+  _status is usually used in combination with _action.cmd to display
+  status information durring processing
+
+EXAMPLES
+  CALL _ACTION "Hello"
+  CALL _STATUS "World"
+
+  Will produce the line:
+  Hello                                             [World                   ]
+
+  0 if OK
+
+REQUIRES
+  _Debug.cmd      Setting up debug environment for batch scripts 
+  _GetOpt.cmd     Parse command line options and create environment vars
+
+SEE ALSO
+  _action.cmd
+  _state.cmd
+
+
+SOURCE
+  C:\_\_status.cmd
+
+(c)2015 Erik Bachmann, ClicketyClick.dk [ErikBachmann@ClicketyClick.dk]
+

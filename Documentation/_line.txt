@@ -1,0 +1,34 @@
+NAME
+      _line -- Display a line of a given length
+ 
+SYNOPSIS
+      _line [length] {char}
+ 
+OPTIONS
+  -h      Help page
+  length  The length of the line 
+  char    The charactor used to draw the line [Default: #] 
+ 
+DESCRIPTION
+  Displaying separator lines to improve the layout 
+ 
+EXAMPLES
+      CALL _line 10
+ will display
+      ##########
+ 
+      CALL _line 5 X
+ will display
+      XXXXX
+ 
+ 
+REQUIRES
+  _Debug.cmd      Setting up debug environment for batch scripts 
+  _GetOpt.cmd     Parse command line options and create environment vars
+
+
+SOURCE
+  C:\_\_line.cmd
+
+(c)2015 Erik Bachmann, ClicketyClick.dk [ErikBachmann@ClicketyClick.dk]
+
