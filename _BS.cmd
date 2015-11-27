@@ -96,7 +96,8 @@ SET $Source=%~f0
 ::**********************************************************************
 
     CALL "%~dp0\_DEBUG"
-    CALL "%~dp0\_Getopt" %*&IF ERRORLEVEL 1 EXIT /B 1
+    ::CALL "%~dp0\_Getopt" %*&IF ERRORLEVEL 1 EXIT /B 1
+    ECHO:%*| findstr "\<[-/]*selftest\>" >nul 2>&1 & IF NOT ERRORLEVEL 1 CALL :SelfTest & EXIT /b 0 
 
 ENDLOCAL
 :: 

@@ -1,5 +1,5 @@
 NAME
-      cmdize -- ??
+      cmdize -- Gives VBScript
  
 SYNOPSIS
       cmdize [vbs] [...]
@@ -18,8 +18,8 @@ DESCRIPTION
 
  FEATURES
  It does comment on "Option Explicit" in VBScript.
- "<?xml?>" declaration for wsf-files is expected.
- "Option Explicit" and "<?xml?>" in a single line only are supported.
+ "<xml>" declaration for wsf-files is expected.
+ "Option Explicit" and "<xml>" in a single line only are supported.
  BOM is not supported at all.
  
 EXAMPLES
@@ -50,7 +50,7 @@ REFERENCE
  http://www.dostips.com/forum/viewtopic.php?p=33963#p33963
 
 SOURCE
-  C:\Users\Erik\Documents\GitHub\Underscore\cmdize.cmd
+  C:\_\cmdize.cmd
 
 (c)2015 Ildar Shaimordanov
 

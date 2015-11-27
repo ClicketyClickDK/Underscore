@@ -4,10 +4,12 @@ NAME
 SYNOPSIS
       unittest
       unittest [function]
+      unittest [flags]
  
 OPTIONS
-  -h      Help page
-
+  -h          Help page
+  --selftest  Internal self test (see example below)
+ 
 DESCRIPTION
   Runs a test suite for the function.
   If a function is given as argument, this specific function is tested.
@@ -57,6 +59,24 @@ EXAMPLES
     HKEY_LOCAL_MACHINE.missing.log
     All run
  
+SELFTEST
+  Testing the test methods build into unittest:
+  
+  unittest --selftest
+  
+   Running self tests
+  ::Missing - no script            [Expect: Missing                 ]
+  unittest.cmd                     [Missing                         ]
+  :: match = no hexdump or ref     [Expect: OK                      ]
+  unittest.cmd                     [OK.                             ]
+  ::Ref exists                     [Expect: OK                      ]
+  unittest.cmd                     [OK.                             ]
+  ::HEXdump exists                 [Expect: OK                      ]
+  unittest.cmd                     [OK.                             ]
+  ::Skip file exists               [Expect: Skipped:...             ]
+  unittest.cmd                     [Skipped:Internal selftest=no te ]
+  
+  All self tests are OK
 
 EXIT STATUS
   errorlevel is 0 if OK, otherwise 1+.
@@ -70,7 +90,7 @@ REQUIRES
  
 
 SOURCE
-  C:\Users\Erik\Documents\GitHub\Underscore\unittest.cmd
+  C:\_\unittest.cmd
 
 (c)2015 Erik Bachmann, ClicketyClick.dk [ErikBachmann@ClicketyClick.dk]
 

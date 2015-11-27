@@ -15,10 +15,12 @@ SET $SOURCE=%~f0
 ::@(-)  Flags, parameters, arguments (NOT the Monty Python way)
 ::@(#)  -h      Usage/Help page and exit 1 (Hard coded)
 ::@(#)  -? /?   Usage/Help page and exit 1 (Hard coded)
-::@(#)  -! /!   Debug on (Hard coded)   See BUGS section
-::@(#)  -!- /!- Debug off (Hard coded)  See BUGS section
+::@(#)  -! /!   Debug on (Hard coded)   See BUGS section. Use --Debug:1
+::@(#)  -!- /!- Debug off (Hard coded)  See BUGS section. Use --Debug:0
 ::@(#)  
 ::@(#)DESCRIPTION
+::@(#)  Build named environment variables from command line options
+::@(#)  
 ::@(#)  Arguments can either be:
 ::@(#)      Simple      Like a name with no prefix [filename]
 ::@(#)      Option      Letter prefixed with one valid flag prefix [-h]
@@ -143,11 +145,10 @@ ENDLOCAL
     IF NOT ERRORLEVEL 1 GOTO usage&&GOTO :EOF
     :: Hard coded debug flag -! --! /! since these are hard to pass to functions
     ECHO:%*| findstr "\<[-/]*\!\>" >nul 2>&1 
-    IF NOT ERRORLEVEL 1 CALL SET DEBUG=1
+    IF NOT ERRORLEVEL 1 CALL SET DEBUG=1&ECHO:Debug on
     :: Hard coded debug flag -! --! /! since these are hard to pass to functions
     ECHO:%*| findstr "\<[-/]*\!-\>" >nul 2>&1 
     IF NOT ERRORLEVEL 1 CALL SET DEBUG=0
-
     CALL "%~dp0\_Debug"
     CALL :init %*
     CALL :_GetOpt %*&IF ERRORLEVEL 1 EXIT /B 1
@@ -155,6 +156,7 @@ ENDLOCAL
     :: Hard coded flags for help
     IF defined @%$NAME%.h       GOTO usage
     IF defined @%$NAME%.help    GOTO usage
+    IF defined @%$NAME%.debug   SET DEBUG=!@%$NAME%.debug!
     ::IF defined @%$NAME%.manual  SET DEBUG=1 && SET _Pattern=&& GOTO usage
 GOTO :EOF
 
@@ -171,7 +173,7 @@ GOTO :EOF
     FOR %%i IN (_@ _ARGC) DO CALL SET %%i=0
 
     IF /I "%DEBUG%" GTR "2" %_DEBUG_% ...Remove old flags
-    FOR /F "usebackq delims==" %%C IN (`SET @%$NAME% 2^>nul`) DO IF DEFINED %%C SET %%C=&&ECHO SET %%C=
+    FOR /F "usebackq delims==" %%C IN (`SET @%$NAME% 2^>nul`) DO IF DEFINED %%C SET %%C=&&%_DEBUG_% Removing %%C=
 GOTO :EOF   *** :init ***
 
 ::----------------------------------------------------------------------

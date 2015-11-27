@@ -36,7 +36,7 @@ SEE ALSO
   _registry.delete_string.cmd _registry.list_keys.cmd
 
 SOURCE
-  C:\Users\Erik\Documents\GitHub\Underscore\_registry.list_values.cmd
+  C:\_\_registry.list_values.cmd
 
 (c)2015 Erik Bachmann, ClicketyClick.dk [ErikBachmann@ClicketyClick.dk]
 

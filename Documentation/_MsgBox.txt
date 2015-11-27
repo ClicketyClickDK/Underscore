@@ -1,5 +1,5 @@
 NAME
-      _MsgBox -- Search file for pattern "@^(#^)" and print remainder of string
+      _MsgBox -- Search file for a pattern and print remainder of string
  
 SYNOPSIS
   _MsgBox [ButtonID] [Window title] [Message]
@@ -97,7 +97,7 @@ SEE ALSO
 
 
 SOURCE
-  C:\Users\Erik\Documents\GitHub\Underscore\_MsgBox.bat
+  C:\_\_MsgBox.bat
 
 (c)2015 Erik Bachmann, ClicketyClick.dk (E_Bachmann@ClicketyClick.dk)
 

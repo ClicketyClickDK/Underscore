@@ -108,7 +108,6 @@ SET $SOURCE=%~f0
 
     CALL "%~dp0\_DEBUG"
     CALL "%~dp0\_Getopt" %*&IF ERRORLEVEL 1 EXIT /B 1
-
 ::ENDLOCAL
 
 :MAIN
@@ -136,7 +135,8 @@ GOTO :EOF
 :: inspired by
 :: URL: http://stackoverflow.com/questions/6612415/is-there-a-unit-test-framework-for-windows-batch-files
 :: answered Jul 7 '11 at 23:41 by Ryan Bemrose
-    
+
+    %_DEBUG_% %$NAME% %0 start
     FOR /F "tokens=1 delims=:" %%G in (
         'findstr "^::MATCH[:vi]*" "%_unittest%"^|findstr /n /v "^#"^|findstr /n ":"') DO (
         CALL SET _TestsExpected=%%G)
@@ -144,25 +144,25 @@ GOTO :EOF
     CALL _Status "%_TestsExpected%"
     ECHO:
     FOR /F "tokens=*" %%a in ('findstr "^::MATCH[:vi]*" "%_unittest%"') DO (
-            CALL SET _pattern=%%a
-            CALL SET _OK=OK
-            CALL SET _FAIL=FAIL
-            CALL SET _patternFlags=!_pattern:~7,2!
-            REM :: Set flags /I /V
-            IF NOT "::"=="!_patternFlags!" (
-                ECHO !_patternFlags!|FIND "v" >NUL
-                IF "0"=="!ErrorLevel!" (
-                    CALL SET _patternFlags=!_patternFlags:v= /v!
-                    CALL SET _OK=OK = not found
-                    CALL SET _FAIL=FAIL = found
-                )
-                CALL SET _patternFlags=!_patternFlags:i= /I!
+        CALL SET _pattern=%%a
+        CALL SET _OK=OK
+        CALL SET _FAIL=FAIL
+        CALL SET _patternFlags=!_pattern:~7,2!
+        REM :: Set flags /I /V
+        IF NOT "::"=="!_patternFlags!" (
+            ECHO !_patternFlags!|FIND "v" >NUL
+            IF "0"=="!ErrorLevel!" (
+                CALL SET _patternFlags=!_patternFlags:v= /v!
+                CALL SET _OK=OK = not found
+                CALL SET _FAIL=FAIL = found
             )
-            REM :: Remove remaining colons
-            CALL SET _patternFlags=!_patternFlags::= !
-            CALL SET _pattern=!_pattern:~9!
+            CALL SET _patternFlags=!_patternFlags:i= /I!
+        )
+        REM :: Remove remaining colons
+        CALL SET _patternFlags=!_patternFlags::= !
+        CALL SET _pattern=!_pattern:~9!
 
-            ECHO:!_pattern!|FindStr "^#" >nul && ECHO:[%%a]|| (
+        ECHO:!_pattern!|FindStr "^#" >nul && ECHO:[%%a]|| (
             CALL SET /A _Lines+=1
             ::CALL "_action" "!_lines!: !_pattern!"
             ECHO:!_lines!: !_pattern!
@@ -171,11 +171,13 @@ GOTO :EOF
             findstr !_patternFlags! "!_pattern!" "%~f1">NUL 2>&1 && CALL "_status" "!_OK!" || call :matchFail "!_pattern!" "!_FAIL!"
         )
     )
+    %_DEBUG_% %$NAME% %0 END
 GOTO :EOF :matchTest
 
 ::---------------------------------------------------------------------
 
 :Finalize
+    %_DEBUG_% %$NAME% %0 start
     ECHO:
     ECHO:Tests executed [%_Lines%]
     IF "%_Lines%" NEQ "%_TestsExpected%" (
@@ -183,6 +185,7 @@ GOTO :EOF :matchTest
     )
     IF 0 NEQ %_Errors% (
         ECHO:Errors: %_Errors% found on line [%_ErrorsFound:~1%]
+        EXIT /b %_Errors%
     ) ELSE ECHO:Tested [%~1] [%_lines%] OK
     ENDLOCAL&EXIT /b %_Errors%
 GOTO :EOF :Finalize

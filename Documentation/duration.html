@@ -1,0 +1,48 @@
+<link rel='stylesheet' href='what.css' type='text/css' />
+<h3>NAME</span></span></h3>
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span&nbsp;class='name'>duration&nbsp;--&nbsp;<span&nbsp;class='description'>Get&nbsp;duration&nbsp;between&nbsp;to&nbsp;time&nbsp;stamps</span></span></tt><BR>
+<tt>&nbsp;&nbsp;&nbsp;</span></span></tt><BR>
+<h3>SYNOPSIS</span></span></h3>
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span&nbsp;class='name'>duration</span></span></tt><BR>
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span&nbsp;class='name'>duration&nbsp;[envvar]</span></span></tt><BR>
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span&nbsp;class='name'>duration&nbsp;[flags]</span></span></tt><BR>
+<tt>&nbsp;&nbsp;&nbsp;</span></span></tt><BR>
+<h3>OPTIONS</span></span></h3>
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;-h&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Help&nbsp;page</span></span></tt><BR>
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;--selftest&nbsp;&nbsp;Internal&nbsp;self&nbsp;test&nbsp;(see&nbsp;example&nbsp;below)</span></span></tt><BR>
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;envvar&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Name&nbsp;of&nbsp;variable&nbsp;to&nbsp;store&nbsp;time&nbsp;stamp</span></span></tt><BR>
+<tt>&nbsp;&nbsp;&nbsp;</span></span></tt><BR>
+<h3>DESCRIPTION</span></span></h3>
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;Shows&nbsp;the&nbsp;duration&nbsp;in&nbsp;milliseconds&nbsp;between&nbsp;to&nbsp;calls</span></span></tt><BR>
+<tt>&nbsp;&nbsp;&nbsp;</span></span></tt><BR>
+<h3>EXAMPLES</span></span></h3>
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;<span&nbsp;class='name'>duration&nbsp;_ST</span></span></tt><BR>
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;ECHO:&nbsp;[&nbsp;do&nbsp;something&nbsp;else&nbsp;]</span></span></tt><BR>
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;<span&nbsp;class='name'>duration&nbsp;_ST</span></span></tt><BR>
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></span></tt><BR>
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;Will&nbsp;return:</span></span></tt><BR>
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;_ST&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[20151126132254.457000+060&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;]</span></span></tt><BR>
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;[&nbsp;do&nbsp;something&nbsp;else&nbsp;]</span></span></tt><BR>
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;Start&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[20151126132254.457000+060&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;]</span></span></tt><BR>
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;End&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[20151126132258.533000+060&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;]</span></span></tt><BR>
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;Milliseconds&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[4076&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;]</span></span></tt><BR>
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;Duration&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[00:00:04.076&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;]</span></span></tt><BR>
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></span></tt><BR>
+<h3>EXIT STATUS</span></span></h3>
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;errorlevel&nbsp;is&nbsp;0&nbsp;if&nbsp;OK,&nbsp;otherwise&nbsp;1+.</span></span></tt><BR>
+<h3></span></span></h3>
+<h3>FILES, </span></span></h3>
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;Test&nbsp;suite&nbsp;in&nbsp;unittest\&nbsp;directory</span></span></tt><BR>
+<h3></span></span></h3>
+<h3>REQUIRES</span></span></h3>
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;_Debug.cmd&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Setting&nbsp;up&nbsp;debug&nbsp;environment&nbsp;for&nbsp;batch&nbsp;scripts&nbsp;</span></span></tt><BR>
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;_GetOpt.cmd&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Parse&nbsp;command&nbsp;line&nbsp;options&nbsp;and&nbsp;create&nbsp;environment&nbsp;vars</span></span></tt><BR>
+<tt>&nbsp;&nbsp;&nbsp;</span></span></tt><BR>
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;compareDuration.cmd&nbsp;Compare&nbsp;duration&nbsp;of&nbsp;two&nbsp;operations</span></span></tt><BR>
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;Times.cmd&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Get&nbsp;duration&nbsp;of&nbsp;a&nbsp;command</span></span></tt><BR>
+<h3></span></span></h3>
+<h3>SOURCE</span></span></h3>
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;C:\_\duration.cmd</span></span></tt><BR>
+<h3></span></span></h3>
+<h5>(c)2015 Erik Bachmann, ClicketyClick.dk [ErikBachmann@ClicketyClick.dk]</span></span></h5>
+

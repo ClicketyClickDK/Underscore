@@ -2,7 +2,7 @@
 SETLOCAL ENABLEDELAYEDEXPANSION&::(Don't pollute the global environment with the following)
 ::**********************************************************************
 SET $NAME=%~n0
-SET $DESCRIPTION=??
+SET $DESCRIPTION=Gives VBScript
 SET $AUTHOR=Ildar Shaimordanov
 SET $SOURCE=%~f0
 ::@(#)NAME
@@ -32,8 +32,8 @@ SET $SOURCE=%~f0
 ::@(#)
 ::@(#) FEATURES
 ::@(#) It does comment on "Option Explicit" in VBScript.
-::@(#) "<?xml?>" declaration for wsf-files is expected.
-::@(#) "Option Explicit" and "<?xml?>" in a single line only are supported.
+::@(#) "<xml>" declaration for wsf-files is expected.
+::@(#) "Option Explicit" and "<xml>" in a single line only are supported.
 ::@(#) BOM is not supported at all.
 ::@(#) 
 ::@(#)EXAMPLES

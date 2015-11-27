@@ -24,7 +24,6 @@ SETLOCAL
 
     :: Dump data
     (
-        rem ECHO:0template is a template. No functional test
         CALL "%_scriptDir%\matchTest.cmd" "%_ScriptDir%\matchTest.cmd" "%_ScriptDir%\matchTest.cmd"
     )>"%TEMP%\%0.dump"
     

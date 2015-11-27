@@ -1,2 +1,2 @@
-")+len(Pattern) -1))
+ what.inc.vbs - VB script include file for What.cmd
 

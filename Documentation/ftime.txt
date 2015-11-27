@@ -26,7 +26,7 @@ REFERENCE
  
 
 SOURCE
-  C:\Users\Erik\Documents\GitHub\Underscore\ftime.cmd
+  C:\_\ftime.cmd
 
 (c)2015 http://www.dostips.com
 

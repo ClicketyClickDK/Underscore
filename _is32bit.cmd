@@ -82,15 +82,18 @@ SET $Source=%~f0
 ::SET $VERSION=2014-01-07&SET $REVISION=18:12:00&SET $COMMENT=Reading from Registry. Enhanced ID/ErikBachmann [01.020]
 ::SET $VERSION=2015-02-19&SET $REVISION=09:49:00&SET $COMMENT=Autoupdate / ErikBachmann
 ::SET $VERSION=2015-10-08&SET $REVISION=11:20:00&SET $COMMENT=Calling usage and exit on error / ErikBachmann
-  SET $VERSION=2015-10-08&SET $REVISION=16:00:00&SET $COMMENT=GetOpt: Calling usage and exit on error / ErikBachmann
+::SET $VERSION=2015-10-08&SET $REVISION=16:00:00&SET $COMMENT=GetOpt: Calling usage and exit on error / ErikBachmann
+  SET $VERSION=2015-11-23&SET $REVISION=16:30:00&SET $COMMENT=GetOpt replaced _getopt.sub simple call. Reduces runtime to 1/3 / ErikBachmann
 ::**********************************************************************
 ::@(#)(C)%$Version:~0,4% %$Author%
 ::**********************************************************************
 ENDLOCAL
 
     CALL "%~dp0\_DEBUG"
-    CALL "%~dp0\_Getopt" %*&IF ERRORLEVEL 1 EXIT /B 1
-    
+    ::CALL "%~dp0\_Getopt" %*&IF ERRORLEVEL 1 EXIT /B 1
+    :: Check ONLY for combinations of -h, /h, --help
+    CALL _getopt.sub %*&IF ERRORLEVEL 1 EXIT /B 1
+
     CALL "%~dp0\_registry.read_string" "HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Session Manager\Environment" "PROCESSOR_ARCHITECTURE"
     
     IF /I "x86"=="%#HKEY_LOCAL_MACHINE.PROCESSOR_ARCHITECTURE%" (

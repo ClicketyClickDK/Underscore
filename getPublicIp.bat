@@ -77,12 +77,37 @@
 ::'    CALL "%~dp0\_Getopt" %*&IF ERRORLEVEL 1 EXIT /B 1
 ::'
 ::'"%windir%\System32\cscript.exe" //nologo //e:vbscript "%~f0" %*
+::'EXIT /B %Errorlevel%
 ::'GOTO :EOF
 ' get public IP for current location
+Dim target
+' Posible targets
+'target = "http://ifconfig.me/ip"
+'target = "http://www.whatsmyip.org"
+'target = "ipinfo.io/ip"
+target = "http://ipecho.net/plain"
 Dim o
 Set o = CreateObject("MSXML2.XMLHTTP")
-o.open "GET", "http://ifconfig.me/ip", False
+On Error Resume Next
+o.open "GET", target, False
+getError(Err.Number)
 o.send
+getError(Err.Number)
 WScript.Echo o.responseText
+
+sub getError(ErrNumber)
+    If ErrNumber <> 0 Then
+        'error handling:
+        if -2146697209 = ErrNumber Then
+            WScript.Echo "No internet connection"
+        End if
+        WScript.Echo Err.Number & " Srce: " & Err.Source & " Desc: " &  Err.Description
+        WScript.Quit(Err.Number)
+        Err.Clear
+    End if
+End sub
+
+
+}
 
 '::*** End of File ******************************************************

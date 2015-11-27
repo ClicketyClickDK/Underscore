@@ -1,5 +1,5 @@
 NAME
-      setFileDate -- Search file for pattern "@^(#^)" and print remainder of string
+      setFileDate -- Search file for a pattern and print remainder of string
  
 SYNOPSIS
       setFileDate [FILE] [DATE]
@@ -18,7 +18,7 @@ EXAMPLES
   ECHO:Hello World>"%TMP%\hello.txt"
   setfiledate.bat "%TMP%\hello.txt" "01/01/2008 8:00:00 AM"
   setfiledate.bat "%TMP%\hello.txt" "2015-01-02 01:02:03"
-  DIR "%TMP%\hello.txt"|findstr "hello"
+  dir "%TMP%\hello.txt"|findstr "hello"
  
  
  
@@ -28,7 +28,7 @@ REQUIRES
  
 
 SOURCE
-  C:\Users\Erik\Documents\GitHub\Underscore\setFileDate.bat
+  C:\_\setFileDate.bat
 
 (c)2015 Erik Bachmann, ClicketyClick.dk (E_Bachmann@ClicketyClick.dk)
 

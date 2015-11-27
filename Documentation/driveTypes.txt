@@ -23,7 +23,7 @@ REQUIRES
  
 
 SOURCE
-  C:\Users\Erik\Documents\GitHub\Underscore\driveTypes.cmd
+  C:\_\driveTypes.cmd
 
 (c)2015 Erik Bachmann, ClicketyClick.dk [ErikBachmann@ClicketyClick.dk]
 

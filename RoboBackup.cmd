@@ -72,7 +72,8 @@ SET $SOURCE=%~f0
 ::SET $VERSION=YYYY-MM-DD&SET $REVISION=hh:mm:ss&SET $COMMENT=Init Description [xx.xxx]
 ::SET $VERSION=2010-10-20&SET $REVISION=00:00:00&SET $COMMENT=Initial [01.000]
 ::SET $VERSION=2015-02-19&SET $REVISION=03:11:23&SET $COMMENT=Autoupdate / ErikBachmann
-  SET $VERSION=2015-10-08&SET $REVISION=11:20:00&SET $COMMENT=GetOpt: Calling usage on -h and exit on error / ErikBachmann
+::SET $VERSION=2015-10-08&SET $REVISION=11:20:00&SET $COMMENT=GetOpt: Calling usage on -h and exit on error / ErikBachmann
+  SET $VERSION=2015-11-10&SET $REVISION=22:16:00&SET $COMMENT=/ZB requires admin rights / ErikBachmann
 ::**********************************************************************
 ::@(#)(c)%$Version:~0,4% %$Author%
 ::**********************************************************************
@@ -130,6 +131,7 @@ GOTO :EOF
     ::                /XJ :: eXclude Junction points. (normally included by default).
     ::                /SL :: copy symbolic links versus the target.
     SET _RobocopyArg=/COPY:DAT /E /R:0 /DCOPY:T /ZB /NP /SL /XJ
+    SET _RobocopyArg=/COPY:DAT /E /R:0 /DCOPY:T /NP /SL /XJ
 
     ::                 /X :: Reports all extra files, not just those that are selected.
     ::                 /V :: Produces verbose output, and shows all skipped files.
@@ -216,10 +218,10 @@ GOTO :EOF :init
 
     set /a loop.delay+=1
 
-    title Please stand by...
+    title Please stand by
 
     call :loop
-GOTO :EOF :process
+GOTO :EOF :: :process
 
 ::---------------------------------------------------------------------
 

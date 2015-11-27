@@ -24,7 +24,7 @@ SET $SOURCE=%~f0
 ::@(-)  A textual description of the functioning of the command or function.
 ::@(#)  Install any newer file from Archive directory.
 ::@(#) 
-::@(#)  WILL overwrite any older file in scriptdirectory WITHOUT warning 
+::@(#)  WILL overwrite any older file in script directory WITHOUT warning 
 ::@(#) 
 ::@(#)EXAMPLES
 ::@(-)  Some examples of common usage.
@@ -51,6 +51,7 @@ SET $SOURCE=%~f0
 ::@(#) 
 ::@ (#)SEE ALSO
 ::@(-)  A list of related commands or functions.
+::@(#) checkInArchive.cmd
 ::@ (#)  
 ::@ (#)  
 ::@ (#)REFERENCE
@@ -71,7 +72,8 @@ SET $SOURCE=%~f0
 ::SET $VERSION=2010-10-20&SET $REVISION=00:00:00&SET $COMMENT=Initial [01.000]
 ::SET $VERSION=2010-11-12&SET $REVISION=16:23:00&SET $COMMENT=Adding exact path to _prescript/ErikBachmann [01.010]
 ::SET $VERSION=2015-02-19&SET $REVISION=02:54:38&SET $COMMENT=Autoupdate / ErikBachmann
-  SET $VERSION=2015-10-08&SET $REVISION=11:20:00&SET $COMMENT=GetOpt: Calling usage on -h and exit on error / ErikBachmann
+::SET $VERSION=2015-10-08&SET $REVISION=11:20:00&SET $COMMENT=GetOpt: Calling usage on -h and exit on error / ErikBachmann
+  SET $VERSION=2015-11-12&SET $REVISION=15:32:00&SET $COMMENT=Adding Debug info / ErikBachmann
 ::**********************************************************************
 ::@(#)(c)%$Version:~0,4% %$Author%
 ::**********************************************************************
@@ -110,15 +112,19 @@ GOTO :EOF
     CALL SET _target=%~n1
     CALL SET _target=%_target:~0,-17%%~x1
     TITLE %_target%
+    %_DEBUG_% Source[%_Source%]
+    %_DEBUG_% Target[%_target%]
 
     :: Find source time
     CALL SET _FileTime=%%~t1
     CALL SET _FileTime=!_FileTime:~6,4!-!_FileTime:~3,2!-!_FileTime:~0,2!T!_FileTime:~11,5!
     CALL SET _FileTime=!_FileTime::=-!
+    %_DEBUG_% FileTime[%_FileTime%]
 
     CALL _Action "[%_target%] [%_fileTime%]"
     :: IF target does not exist COPY
     IF NOT EXIST "%_target%" (
+        %_DEBUG_% Target not found: Installing
         CALL _State "Installing"
         
         COPY /V "%_Source%" "%_target%">nul 2>&1
@@ -130,19 +136,18 @@ GOTO :EOF
         ) 
         GOTO :EOF
     )
-    
-    :: ELSE Match date
-    ::ECHO Testing date
 
     :: Find target time
     FOR %%a IN (%_target%) DO CALL SET _TargetTime=%%~ta
     CALL SET _TargetTime=!_TargetTime:~6,4!-!_TargetTime:~3,2!-!_TargetTime:~0,2!T!_TargetTime:~11,5!
     CALL SET _TargetTime=!_TargetTime::=-!
-    ::CALL _Action "[%_target%] [%_targetTime%]"
+    %_DEBUG_% _TargetTime[%_TargetTime%]
     
     IF /I "%_targetTime%" LSS "%_FileTime%" (
+        %_DEBUG_% _TargetTime[%_targetTime%] LSS _FileTime[%_FileTime%] = Update
         CALL _State "Updating..."
         TITLE Updating %_target%
+        %_DEBUG_% "%_Source%" -^> "%_target%"
         COPY /V "%_Source%" "%_target%">nul 2>&1
         IF ErrorLevel 1 (
             CALL _Status "Update FAILED"
@@ -152,20 +157,23 @@ GOTO :EOF
         )
         TITLE %_target% done
     )
-    IF /I "%_targetTime%" GTR "%_FileTime%" CALL _Status Ignore
-    IF /I "%_targetTime%" EQU "%_FileTime%" CALL _Status Identical
+    IF /I "%_targetTime%" GTR "%_FileTime%" CALL _Status Ignore&%_DEBUG_% _TargetTime[%_targetTime%] GTR _FileTime[%_FileTime%] = Ignore
+    IF /I "%_targetTime%" EQU "%_FileTime%" CALL _Status Identical&%_DEBUG_% _TargetTime[%_targetTime%] EQU _FileTime[%_FileTime%] = Identical
 GOTO :EOF
 
 :ArchiveFile
-    ::ECHO  [%~1]
+    %_DEBUG_% - %0  [%~1]
     CALL "%~dp0\_action" "- [%~1]"
     CALL SET _FileTime=%%~t1
     CALL SET _FileTime=!_FileTime:~6,4!-!_FileTime:~3,2!-!_FileTime:~0,2!T!_FileTime:~11,5!
     CALL SET _FileTime=!_FileTime::=-!
+    %_DEBUG_% _FileTime[!_FileTime!]
     CALL SET _target=%~dp1\.archive\%~n1.%_FileTime%%~x1
+    %_DEBUG_% _target[!_target!]
     
-    IF NOT EXIST "%_target%"  (
+    IF NOT EXIST "%_target%" (
         CALL "%~dp0\_status" "%_FileTime%"
+        %_DEBUG_% _target not found: Copying
         COPY "%~1" "%_target%">nul
         SET /A _FileCount+=1
     ) ELSE CALL "%~dp0\_status" "OK"

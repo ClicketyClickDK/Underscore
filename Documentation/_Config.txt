@@ -24,7 +24,7 @@ REQUIRES
 
 
 SOURCE
-  C:\Users\Erik\Documents\GitHub\Underscore\_Config.bat
+  C:\_\_Config.bat
 
 (C)2015 Erik Bachmann, ClicketyClick.dk [ErikBachmann@ClicketyClick.dk]
 

@@ -71,7 +71,7 @@ REFERENCE
    URL: http://www.dostips.com/forum/viewtopic.php?t=1786
 
 SOURCE
-  C:\Users\Erik\Documents\GitHub\Underscore\hexdump.cmd
+  C:\_\hexdump.cmd
 
 (c)2015 Dave Benham [dbenham]
 

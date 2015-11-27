@@ -71,7 +71,8 @@
 ::'::SET $VERSION=YYYY-MM-DD&SET $REVISION=hh:mm:ss&SET $COMMENT=Description/init
 ::'::SET $VERSION=2015-02-19&SET $REVISION=16:00:00&SET $COMMENT=Autoupdate / ErikBachmann
 ::'::SET $VERSION=2015-04-02&SET $REVISION=09:57:00&SET $COMMENT=Update description / ErikBachmann
-::'  SET $VERSION=2015-10-08&SET $REVISION=16:00:00&SET $COMMENT=GetOpt: Calling usage and exit on error / ErikBachmann
+::'::SET $VERSION=2015-10-08&SET $REVISION=16:00:00&SET $COMMENT=GetOpt: Calling usage and exit on error / ErikBachmann
+::'  SET $VERSION=2015-11-10&SET $REVISION=17:32:00&SET $COMMENT=Error handling: return error if no net access / ErikBachmann
 ::'::**********************************************************************
 ::'::@(#)(c)%$Version:~0,4% %$Author%
 ::'::**********************************************************************
@@ -82,7 +83,8 @@
 ::'::ENDLOCAL
 ::'
 ::'"%windir%\System32\cscript.exe" //nologo //e:vbscript "%~f0" %*
-::'goto :EOF
+::'EXIT /B %Errorlevel%
+::'GOTO :EOF
 'wget.vbs - similar to wget but written in vbscript
 'based on a script by Chrissy LeMaire
 ' https://gist.github.com/udawtr/2053179 
@@ -111,7 +113,14 @@ WScript.Echo "- To  ["+saveTo+"]"
 Set objXMLHTTP = CreateObject("MSXML2.ServerXMLHTTP")
  
 objXMLHTTP.open "GET", URL, false
+On Error Resume Next
 objXMLHTTP.send()
+If Err.Number <> 0 Then
+    'error handling:
+    WScript.Echo Err.Number & " Srce: " & Err.Source & " Desc: " &  Err.Description
+    WScript.Quit(Err.Number)
+    Err.Clear
+End If
 
 WScript.Echo "- http state ["+Cstr(objXMLHTTP.Status)+"]"
 

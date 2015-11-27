@@ -2,7 +2,7 @@
 SETLOCAL ENABLEDELAYEDEXPANSION&::(Don't pollute the global environment with the following)
 ::**********************************************************************
 SET $NAME=%~n0
-SET $DESCRIPTION=Search file for pattern "@(#)" and print remainder of string
+SET $DESCRIPTION=Search file for a pattern and print remainder of string
 SET $Author=Erik Bachmann, ClicketyClick.dk (E_Bachmann@ClicketyClick.dk)
 SET $Source=%~dpnx0
 ::----------------------------------------------------------------------
@@ -20,14 +20,17 @@ SET $Source=%~dpnx0
 ::@(#) 
 ::@(#)  A pattern may be given to replace the x in (x) like:
 ::@(#) 
-::@(#)     %$Name% file pattern
+::@(#)     %$Name% %$SOURCE% X
 ::@(#) 
-::@(#)  Will print alle lines the sequence: "@(pattern)"
+::@(#)  Will print alle lines the sequence: "@(X)"
 ::@(#)  Note: Patterns are case insensitive
 ::@(#)
 ::@(#)OPTIONS
 ::@(-)  Flags, parameters, arguments (NOT the Monty Python way)
+::@(#) filename Name of the file to search
+::@(#) pattern  A substitute for the # in @(#)
 ::@(#)  -h      Help page
+::@(#)  -html   Output in HTML (Text mode is default)
 ::@(#) 
 ::
 ::EXIT STATUS
@@ -56,17 +59,22 @@ SET $Source=%~dpnx0
 ::SET $VERSION=01.041&SET $REVISION=2010-10-20T17:15:00&SET $Comment=Addding $Source/EBP
 ::SET $VERSION=01.050&SET $REVISION=2011-10-13T18:41:00&SET $Comment=Masking VERY special characters/EBP
 ::SET $VERSION=2015-10-22&SET $REVISION=06:00:00&SET $COMMENT=Update usage / ErikBachmann
-  SET $VERSION=2015-11-10&SET $REVISION=08:23:00&SET $COMMENT=Path to Debug, expanded $NAME / ErikBachmann
+::SET $VERSION=2015-11-10&SET $REVISION=08:23:00&SET $COMMENT=Path to Debug, expanded $NAME / ErikBachmann
+  SET $VERSION=2015-11-12&SET $REVISION=14:29:00&SET $COMMENT=More on usage / ErikBachmann
 ::**********************************************************************
 ::@(#)(c)%$Version:~0,4% %$Author%
 ::**********************************************************************
 
 :init
     CALL "%~dp0\_DEBUG"
-    SET _fileName=%~1
     CALL "%~dp0\_Getopt" %*&IF ERRORLEVEL 1 EXIT /B 1 
+    CALL "%~dp0\_DEBUG"
+    SET _fileName=%~1
+
     :: Hide pattern for this very script ;-)
     SET _PATTERN=SET ^$
+    
+    :: Options
     IF DEFINED @what.html SET @what.html=html
 
 :Processing

@@ -36,7 +36,7 @@ REFERENCE
   URL: http://www.dostips.com/forum/viewtopic.php?f=3&t=193
 
 SOURCE
-  C:\Users\Erik\Documents\GitHub\Underscore\_isNumeric.cmd
+  C:\_\_isNumeric.cmd
 
 (c)2015 jeb
 

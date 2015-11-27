@@ -18,6 +18,11 @@ SETLOCAL
     (
         DIR /A:-D "%Temp%\.Archive\"|findstr ":"|findstr /V "\\"
     )>"%TEMP%\%0.dump"
+
+    :: List copied files in trace
+    DIR /S "%Temp%\.Archive\" >>"%TEMP%\%0.trc"
+    :: Remove backup to avoid conflict with other files
+    RMDIR /S/Q "%Temp%\.Archive\"
     
 GOTO :EOF *** :_UnitTest_RoboBackup ***
 

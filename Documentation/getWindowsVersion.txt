@@ -45,7 +45,7 @@ REQUIRES
   _registry.read_string
 
 SOURCE
-  C:\Users\Erik\Documents\GitHub\Underscore\getWindowsVersion.cmd
+  C:\_\getWindowsVersion.cmd
 
 (c)2015 Erik Bachmann, ClicketyClick.dk [ErikBachmann@ClicketyClick.dk]
 

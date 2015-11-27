@@ -32,7 +32,7 @@ SEE ALSO
   
 
 SOURCE
-  C:\Users\Erik\Documents\GitHub\Underscore\man.cmd
+  C:\_\man.cmd
 
 (c)2015 Erik Bachmann, ClicketyClick.dk [ErikBachmann@ClicketyClick.dk]
 

@@ -30,7 +30,8 @@ SET $SOURCE=%~f0
 ::@(#) 
 ::@(#)EXAMPLES
 ::@(-)  Some examples of common usage.
-::@(#)      FOR {PCT}i IN {LPAR}%$SOURCE%{RPAR} DO %$SOURCE% {PCT}~ti
+::@(#)      FOR %%i IN (%$SOURCE%) DO %$SOURCE% myTime %%~ti
+::@(#)      SET myTime
 ::@(#) 
 ::@(#) Will give you date and time of the function file in ISO format
 ::@(#) [YYYY-MM-ddThh:mm]

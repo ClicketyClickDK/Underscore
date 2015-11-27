@@ -82,13 +82,17 @@ SET $SOURCE=%~f0
 ::*** HISTORY **********************************************************
 ::SET $VERSION=YYYY-MM-DD&SET $REVISION=hh:mm:ss&SET $COMMENT=Description/init
 ::SET $VERSION=2007-08-30&SET $REVISION=15:13:00&SET $COMMENT=Initial/jeb
-  SET $VERSION=2015-10-08&SET $REVISION=11:20:00&SET $COMMENT=GetOpt: Calling usage on -h and exit on error / ErikBachmann
+::SET $VERSION=2015-10-08&SET $REVISION=11:20:00&SET $COMMENT=GetOpt: Calling usage on -h and exit on error / ErikBachmann
+  SET $VERSION=2015-11-23&SET $REVISION=16:30:00&SET $COMMENT=GetOpt replaced _getopt.sub simple call. Reduces runtime to 1/3 / ErikBachmann
 ::**********************************************************************
 ::@(#)(c)%$Version:~0,4% %$Author%
 ::**********************************************************************
 
     CALL "%~dp0\_DEBUG"
-    CALL "%~dp0\_Getopt" %*&IF ERRORLEVEL 1 EXIT /B 1
+    ::CALL "%~dp0\_Getopt" %*&IF ERRORLEVEL 1 EXIT /B 1
+    :: Check ONLY for combinations of -h, /h, --help
+    CALL _getopt.sub %*&IF ERRORLEVEL 1 EXIT /B 1
+
 ::ENDLOCAL
 
 :isnumeric

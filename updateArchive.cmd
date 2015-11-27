@@ -109,15 +109,16 @@ GOTO :EOF :init
     CALL _ACTION "Getting current"
     ::CALL cscript //nologo c:\_\wget.vbs "%_URLstub%current"  "%_VersionFile%"
     CALL "%~dp0\wget.bat" "%_URLstub%current"  "%_VersionFile%"
-    IF ERRORLEVEL 1 SET /A _result&=2
-    type "%_VersionFile%"
-    IF ERRORLEVEL 1 SET /A _result&=4
+
+    IF ERRORLEVEL 1 SET /A _result=2&EXIT /B %_result%
+    IF EXIST "%_VersionFile%" TYPE "%_VersionFile%"
+    IF NOT EXIST "%_VersionFile%" SET /A _result=4&EXIT /B %_result%
 
     FOR /F "Delims=;" %%a IN ('TYPE "%_VersionFile%"') DO (
         ECHO Downloading [%%~a]
         rem CALL cscript //nologo c:\_\wget.vbs "%_URLstub%%%~a"  "%_archiveFile%"
         CALL "%~dp0\wget.bat" "%_URLstub%%%~a"  "%_archiveFile%"
-        IF ERRORLEVEL 1 SET /A _result&=8
+        IF ERRORLEVEL 1 SET /A _result=8
     )
 
     CALL _Action "Unpacking"
@@ -127,15 +128,15 @@ GOTO :EOF :init
     IF NOT EXIST "%CD%\.ARCHIVE" (
         CALL _Status "Created"
         MKDIR "%CD%\.ARCHIVE"
-        IF ERRORLEVEL 1 SET /A _result&=16
+        IF ERRORLEVEL 1 SET /A _result=16
     ) ELSE CALL _Status "Found"
 
     CALL _Action "Unzipping"
     CALL _Status "%CD%\.ARCHIVE\"
 
     ::echo cscript //nologo unzipw "%_archiveFile%" "%CD%\.ARCHIVE\"
-    echo CALL "%~dp0\unzip.bat" "%_archiveFile%" "%CD%\.ARCHIVE\"
-    IF ERRORLEVEL 1 SET /A _result&=32
+    CALL "%~dp0\unzip.bat" "%_archiveFile%" "%CD%\.ARCHIVE\"
+    IF ERRORLEVEL 1 SET /A _result=32
 GOTO :EOF :Process
 
 ::---------------------------------------------------------------------

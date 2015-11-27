@@ -88,13 +88,17 @@ SET $Source=%~f0
 ::SET $VERSION=2010-12-16&SET $REVISION=15:21:00&SET $COMMENT=$StatusRange=76 - %$ActionRange% [01.002]
 ::SET $VERSION=2011-01-17&SET $REVISION=15:42:00&SET $COMMENT=$ActionRange=45 [01.003]
 ::SET $VERSION=2015-02-19&SET $REVISION=03:35:47&SET $COMMENT=Autoupdate / ErikBachmann
-  SET $VERSION=2015-10-08&SET $REVISION=16:00:00&SET $COMMENT=GetOpt: Calling usage and exit on error / ErikBachmann
+::SET $VERSION=2015-10-08&SET $REVISION=16:00:00&SET $COMMENT=GetOpt: Calling usage and exit on error / ErikBachmann
+  SET $VERSION=2015-11-23&SET $REVISION=16:30:00&SET $COMMENT=GetOpt replaced _getopt.sub simple call. Reduces runtime to 1/3 / ErikBachmann
 ::**********************************************************************
 ::@(#)(c)%$Version:~0,4% %$Author%
 ::**********************************************************************
 
     CALL "%~dp0\_DEBUG"
-    CALL "%~dp0\_Getopt" %*&IF ERRORLEVEL 1 EXIT /B 1
+    ::CALL "%~dp0\_Getopt" %*&IF ERRORLEVEL 1 EXIT /B 1
+    :: Check ONLY for combinations of -h, /h, --help
+    CALL _getopt.sub %*&IF ERRORLEVEL 1 EXIT /B 1
+
 ::ENDLOCAL
 
 :_Status

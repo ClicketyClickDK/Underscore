@@ -27,8 +27,10 @@ SET $SOURCE=%~f0
 ::@(#) 
 ::@(#)EXAMPLES
 ::@(-)  Some examples of common usage.
-::@(#) 
-::@(#) 
+::@(#)  ECHO:Hello>dummy.cmd
+::@(#)  CALL %$NAME%
+::@(#)  
+::@(#)  Will create a copy of dummy.cmd in .ARCHIVE\dummy.yyyy-mm-ddThh-mm.cmd
 ::@(#) 
 ::@ (#)EXIT STATUS
 ::@(-)  Exit status / errorlevel is 0 if OK, otherwise 1+.
@@ -52,8 +54,8 @@ SET $SOURCE=%~f0
 ::@(#) 
 ::@ (#)SEE ALSO
 ::@(-)  A list of related commands or functions.
-::@ (#)  
-::@ (#)  
+::@(#) checkOutArchive.cmd
+::@(#)  
 ::@ (#)REFERENCE
 ::@(-)  References to inspiration, clips and other documentation
 ::@ (#)  Author:
@@ -72,7 +74,8 @@ SET $SOURCE=%~f0
 ::SET $VERSION=2010-10-20&SET $REVISION=00:00:00&SET $COMMENT=Initial [01.000]
 ::SET $VERSION=2010-11-12&SET $REVISION=16:23:00&SET $COMMENT=Adding exact path to _prescript/ErikBachmann [01.010]
 ::SET $VERSION=2015-02-19&SET $REVISION=02:54:07&SET $COMMENT=Autoupdate / ErikBachmann
-  SET $VERSION=2015-10-08&SET $REVISION=11:20:00&SET $COMMENT=GetOpt: Calling usage on -h and exit on error / ErikBachmann
+::SET $VERSION=2015-10-08&SET $REVISION=11:20:00&SET $COMMENT=GetOpt: Calling usage on -h and exit on error / ErikBachmann
+  SET $VERSION=2015-11-12&SET $REVISION=15:32:00&SET $COMMENT=Adding Debug info / ErikBachmann
 ::**********************************************************************
 ::@(#)(c)%$Version:~0,4% %$Author%
 ::**********************************************************************
@@ -103,15 +106,19 @@ GOTO :EOF
 ::----------------------------------------------------------------------
 
 :ArchiveFile
-    ::ECHO  [%~1]
+    %_DEBUG_% %0 [%~1]
     CALL "%~dp0\_action" "- [%~1]"
     CALL SET _FileTime=%%~t1
     CALL SET _FileTime=!_FileTime:~6,4!-!_FileTime:~3,2!-!_FileTime:~0,2!T!_FileTime:~11,5!
     CALL SET _FileTime=!_FileTime::=-!
+    %_DEBUG_% FileTime[%_FileTime%]
+
     CALL SET _target=%~dp1\.archive\%~n1.%_FileTime%%~x1
-    
+    %_DEBUG_% Target[%_target%]
+
     IF NOT EXIST "%_target%"  (
         CALL "%~dp0\_status" "%_FileTime%"
+        %_DEBUG_% Target not found: Installing [%_target%]
         COPY "%~1" "%_target%">nul
         SET /A _FileCount+=1
     ) ELSE CALL "%~dp0\_status" "OK"

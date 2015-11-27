@@ -23,7 +23,7 @@ REQUIRES
 
 
 SOURCE
-  C:\Users\Erik\Documents\GitHub\Underscore\_callFunc.cmd
+  C:\_\_callFunc.cmd
 
 (c)2015 Erik Bachmann, ClicketyClick.dk [ErikBachmann@ClicketyClick.dk]
 

@@ -5,10 +5,12 @@
 <h3>SYNOPSIS</span></span></h3>
 <tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span&nbsp;class='name'>unittest</span></span></tt><BR>
 <tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span&nbsp;class='name'>unittest&nbsp;[function]</span></span></tt><BR>
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span&nbsp;class='name'>unittest&nbsp;[flags]</span></span></tt><BR>
 <tt>&nbsp;&nbsp;&nbsp;</span></span></tt><BR>
 <h3>OPTIONS</span></span></h3>
-<tt>&nbsp;&nbsp;&nbsp;&nbsp;-h&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Help&nbsp;page</span></span></tt><BR>
-<h3></span></span></h3>
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;-h&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Help&nbsp;page</span></span></tt><BR>
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;--selftest&nbsp;&nbsp;Internal&nbsp;self&nbsp;test&nbsp;(see&nbsp;example&nbsp;below)</span></span></tt><BR>
+<tt>&nbsp;&nbsp;&nbsp;</span></span></tt><BR>
 <h3>DESCRIPTION</span></span></h3>
 <tt>&nbsp;&nbsp;&nbsp;&nbsp;Runs&nbsp;a&nbsp;test&nbsp;suite&nbsp;for&nbsp;the&nbsp;function.</span></span></tt><BR>
 <tt>&nbsp;&nbsp;&nbsp;&nbsp;If&nbsp;a&nbsp;function&nbsp;is&nbsp;given&nbsp;as&nbsp;argument,&nbsp;this&nbsp;specific&nbsp;function&nbsp;is&nbsp;tested.</span></span></tt><BR>
@@ -58,6 +60,24 @@
 <tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;HKEY_LOCAL_MACHINE.missing.log</span></span></tt><BR>
 <tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;All&nbsp;run</span></span></tt><BR>
 <tt>&nbsp;&nbsp;&nbsp;</span></span></tt><BR>
+<h3>SELFTEST</span></span></h3>
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;Testing&nbsp;the&nbsp;test&nbsp;methods&nbsp;build&nbsp;into&nbsp;<span&nbsp;class='name'>unittest:</span></span></tt><BR>
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;</span></span></tt><BR>
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;<span&nbsp;class='name'>unittest&nbsp;--selftest</span></span></tt><BR>
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;</span></span></tt><BR>
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Running&nbsp;self&nbsp;tests</span></span></tt><BR>
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;::Missing&nbsp;-&nbsp;no&nbsp;script&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Expect:&nbsp;Missing&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;]</span></span></tt><BR>
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;unittest.cmd&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Missing&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;]</span></span></tt><BR>
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;::&nbsp;match&nbsp;=&nbsp;no&nbsp;hexdump&nbsp;or&nbsp;ref&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Expect:&nbsp;OK&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;]</span></span></tt><BR>
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;unittest.cmd&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[OK.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;]</span></span></tt><BR>
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;::Ref&nbsp;exists&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Expect:&nbsp;OK&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;]</span></span></tt><BR>
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;unittest.cmd&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[OK.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;]</span></span></tt><BR>
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;::HEXdump&nbsp;exists&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Expect:&nbsp;OK&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;]</span></span></tt><BR>
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;unittest.cmd&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[OK.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;]</span></span></tt><BR>
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;::Skip&nbsp;file&nbsp;exists&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Expect:&nbsp;Skipped:...&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;]</span></span></tt><BR>
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;unittest.cmd&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Skipped:Internal&nbsp;selftest=no&nbsp;te&nbsp;]</span></span></tt><BR>
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;</span></span></tt><BR>
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;All&nbsp;self&nbsp;tests&nbsp;are&nbsp;OK</span></span></tt><BR>
 <h3></span></span></h3>
 <h3>EXIT STATUS</span></span></h3>
 <tt>&nbsp;&nbsp;&nbsp;&nbsp;errorlevel&nbsp;is&nbsp;0&nbsp;if&nbsp;OK,&nbsp;otherwise&nbsp;1+.</span></span></tt><BR>
@@ -71,7 +91,7 @@
 <tt>&nbsp;&nbsp;&nbsp;</span></span></tt><BR>
 <h3></span></span></h3>
 <h3>SOURCE</span></span></h3>
-<tt>&nbsp;&nbsp;&nbsp;&nbsp;C:\Users\Erik\Documents\GitHub\Underscore\unittest.cmd</span></span></tt><BR>
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;C:\_\unittest.cmd</span></span></tt><BR>
 <h3></span></span></h3>
 <h5>(c)2015 Erik Bachmann, ClicketyClick.dk [ErikBachmann@ClicketyClick.dk]</span></span></h5>
 

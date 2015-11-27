@@ -1,5 +1,5 @@
 NAME
-      unzip -- Search file for pattern "@^(#^)" and print remainder of string
+      unzip -- Search file for a pattern and print remainder of string
  
 SYNOPSIS
       unzip [ZIP] {DIR}
@@ -26,7 +26,7 @@ REQUIRES
  
 
 SOURCE
-  C:\Users\Erik\Documents\GitHub\Underscore\unzip.bat
+  C:\_\unzip.bat
 
 (c)2015 Erik Bachmann, ClicketyClick.dk (E_Bachmann@ClicketyClick.dk)
 

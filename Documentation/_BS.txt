@@ -51,7 +51,7 @@ REFERENCE
   URL: http://www.dostips.com/forum/viewtopic.php?f=3&t=2124
 
 SOURCE
-  C:\Users\Erik\Documents\GitHub\Underscore\_BS.cmd
+  C:\_\_BS.cmd
 
 (c)2015 Erik Bachmann, ClicketyClick.dk [ErikBachmann@ClicketyClick.dk]
 

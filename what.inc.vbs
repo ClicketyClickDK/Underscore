@@ -1,5 +1,5 @@
 '**********************************************************************
-'*
+'*@(#) what.inc.vbs - VB script include file for What.cmd
 '*
 '*
 '*
@@ -12,6 +12,7 @@ Const ForReading = 1
 Set objRegEx = CreateObject("VBScript.RegExp")
 input=WScript.Arguments.Item(0) 'File to read
 objRegEx.Pattern=WScript.Arguments.Item(1)
+masterspace="@"
 
 If 2 < WScript.Arguments.Count Then  
    style=LCase(WScript.Arguments.Item(2))
@@ -24,7 +25,7 @@ End If
 'Wscript.Echo "style=[" & style &"] Count=[" & WScript.Arguments.Count &"]" '& WScript.Arguments.Item(2)
 
 If IsEmpty(objRegEx.Pattern) Then
-	objRegEx.Pattern = "@\(#\)"
+	objRegEx.Pattern = masterspace&"\(#\)"
 End If
 Pattern=Replace(objRegEx.Pattern, "\", "")
 
@@ -37,7 +38,8 @@ Do Until objFile.AtEndOfStream
     If colMatches.Count > 0 Then
         For Each strMatch in colMatches   
 			' Original string
-			strText = Right(strSearchString, len(strSearchString) - (InStr(strSearchString,"@(#)")+len(Pattern) -1))
+			
+			strText = Right(strSearchString, len(strSearchString) - (InStr(strSearchString,masterspace&"(#)")+len(Pattern) -1))
 			' Expand variables
 			Wscript.Echo ExpVar(strText)
         Next

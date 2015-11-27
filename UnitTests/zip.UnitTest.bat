@@ -17,7 +17,7 @@ SETLOCAL
     
     :: Create ref
     (
-        ECHO:[%TEMP%\%0.zip][133]
+        ECHO:[%TEMP%%0.zip][133]
     )>"%TEMP%\%0.ref" 2>>"%TEMP%\%0.trc"
 
     :: Dump data

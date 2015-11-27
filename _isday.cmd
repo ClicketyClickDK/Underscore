@@ -80,17 +80,20 @@ SET $SOURCE=%~f0
 ::SET $VERSION=2010-10-27&SET $REVISION=15:15:00&SET $COMMENT=Initial [01.000]
 ::SET $VERSION=2014-01-07&SET $REVISION=15:09:00&SET $COMMENT=Bugfix on return value/ErikBachmann [01.001]
 ::SET $VERSION=2015-02-19&SET $REVISION=03:25:37&SET $COMMENT=Autoupdate / ErikBachmann
-  SET $VERSION=2015-10-08&SET $REVISION=11:20:00&SET $COMMENT=GetOpt: Calling usage on -h and exit on error / ErikBachmann
+::SET $VERSION=2015-10-08&SET $REVISION=11:20:00&SET $COMMENT=GetOpt: Calling usage on -h and exit on error / ErikBachmann
+  SET $VERSION=2015-11-23&SET $REVISION=16:30:00&SET $COMMENT=GetOpt replaced _getopt.sub simple call. Reduces runtime to 1/3 / ErikBachmann
 ::**********************************************************************
 ::@(#)(c)%$Version:~0,4% %$Author%
 ::**********************************************************************
     CALL "%~dp0\_DEBUG"
-    CALL "%~dp0\_Getopt" %*&IF ERRORLEVEL 1 EXIT /B 1
+    ::CALL "%~dp0\_Getopt" %*&IF ERRORLEVEL 1 EXIT /B 1
+    :: Check ONLY for combinations of -h, /h, --help
+    CALL _getopt.sub %*&IF ERRORLEVEL 1 EXIT /B 1
 ::ENDLOCAL
 
 :MAIN
     CALL SET _Periode=99
-    CALL _PreFunction %* || ( EXIT /B 1 )
+    ::CALL _PreFunction %* || ( EXIT /B 1 )
 
     CALL :Init %*
     CALL :IsDay "%_Time%"
