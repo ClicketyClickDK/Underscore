@@ -1,0 +1,26 @@
+NAME
+      lockWorkstation -- Start Windows screensaver
+ 
+SYNOPSIS
+      lockWorkstation [VAR]
+ 
+OPTIONS
+  -h      Help page
+
+DESCRIPTION
+  Lock workstation - equal to pressing [Windows]+[L]
+ 
+EXAMPLES
+ 
+ 
+ 
+REQUIRES
+  _Debug.cmd      Setting up debug environment for batch scripts 
+  _GetOpt.cmd     Parse command line options and create environment vars
+ 
+
+SOURCE
+  C:\_\lockWorkstation.cmd
+
+(c)2015 Erik Bachmann, ClicketyClick.dk [ErikBachmann@ClicketyClick.dk]
+

@@ -1,0 +1,242 @@
+NAME
+      jrepl -- a global regular expression search+replace operation on each line of input
+ 
+SYNOPSIS
+JREPL  Search  Replace  [/Option  [Value]]...
+JREPL  /{QUEST}[REGEX|REPLACE|VERSION]
+
+  Performs a global regular expression search and replace operation on
+  each line of input from stdin and prints the result to stdout.
+
+  Each parameter may be optionally enclosed by double quotes. The double
+  quotes are not considered part of the argument. The quotes are required
+  if the parameter contains a batch token delimiter like space, tab, comma,
+  semicolon. The quotes should also be used if the argument contains a
+  batch special character like &, |, etc. so that the special character
+  does not need to be escaped with ^.
+
+  Search  - By default, this is a case sensitive JScript (ECMA) regular
+            expression expressed as a string.
+
+            JScript regex syntax documentation is available at
+            http://msdn.microsoft.com/en-us/library/ae5bf541(v=vs.80).aspx
+
+  Replace - By default, this is the string to be used as a replacement for
+            each found search expression. Full support is provided for
+            substituion patterns available to the JScript replace method.
+
+            For example, $& represents the portion of the source that matched
+            the entire search pattern, $1 represents the first captured
+            submatch, $2 the second captured submatch, etc. A $ literal
+            can be escaped as $$.
+
+            An empty replacement string must be represented as "".
+
+            Replace substitution pattern syntax is fully documented at
+            http://msdn.microsoft.com/en-US/library/efy6s3e6(v=vs.80).aspx
+
+  Options:  Behavior may be altered by appending one or more options.
+  The option names are case insensitive, and may appear in any order
+  after the Replace argument.
+
+      /A  - Only print altered lines. Unaltered lines are discarded.
+            If the /S option is used, then prints the result only if
+            there was a change anywhere in the string. The /A option
+            is incompatible with the /M option unless the /S option
+            is also present.
+
+      /B  - The Search must match the beginning of a line.
+            Mostly used with literal searches.
+
+      /E  - The Search must match the end of a line.
+            Mostly used with literal searches.
+
+      /F InFile
+
+            Input is read from file InFile instead of stdin.
+
+      /I  - Makes the search case-insensitive.
+
+      /J  - The Replace argument is a JScript expression.
+            The following variables contain details about each match:
+
+              $0 is the substring that matched the Search
+              $1 through $n are the captured submatch strings
+              $off is the offset where the match occurred
+              $src is the original source string
+
+      /JBEG InitCode
+
+            JScript inititialization code to be run prior to starting the
+            search/replace. This is useful for initializing variables used to
+            accumulate information across matches. The default is an empty
+            string.
+
+      /JEND FinalCode
+
+            JScript termination code to be run after the search/replace has
+            completed. This is useful for writing summarization results.
+            The default is an empty string.
+
+      /JMATCH
+
+            Prints each Replace value on a new line, discarding all text
+            that does not match the Search. The Replace argument is a
+            JScript expression with access to the same $ variables available
+            to the /J option.
+
+      /L  - The Search is treated as a string literal instead of a
+            regular expression. Also, all $ found in the Replace string
+            are treated as $ literals.
+
+      /M  - Multi-line mode. The entire contents of stdin is read and
+            processed in one pass instead of line by line, thus enabling
+            search for \n. This also enables preservation of the original
+            line terminators. If the /M option is not present, then every
+            printed line is terminated with carriage return and line feed.
+            The /M option is incompatible with the /A option unless the /S
+            option is also present.
+
+            Note: If working with binary data containing NULL bytes,
+                  then the /M option must be used.
+
+      /N MinWidth
+
+            Precede each output line with the line number of the source line,
+            followed by a colon. Line 1 is the first line of the source.
+
+            The MinWidth value specifies the minimum number of digits to
+            display. The default value is 0, meaning do not display the
+            line number. A value of 1 diplays the line numbers without any
+            zero padding.
+
+            The /N option is ignored if the /M or /S option is used.
+
+      /O OutFile
+
+            Output is written to file OutFile instead of stdout.
+
+            A value of "-" replaces the InFile with the output. The output
+            is first written to a temporary file with the same name as InFile
+            with .new appended. Upon completion, the temporary file is moved
+            to replace the InFile.
+
+      /OFF MinWidth
+
+            Ignored unless the /JMATCH option is used. Precede each output
+            line with the offset of the match within the original source
+            string, followed by a colon. Offset 0 is the first character of
+            the source string. The offset follows the line number if the /N
+            option is also used.
+
+            The MinWidth value specifies the minimum number of digits to
+            display. The default value is 0, meaning do not display the
+            offset. A value of 1 displays the offsets without any zero
+            padding.
+
+      /S VarName
+
+            The source is read from environment variable VarName instead
+            of from stdin. Without the /M option, ^ anchors the beginning
+            of the string, and $ the end of the string. With the /M option,
+            ^ anchors the beginning of a line, and $ the end of a line.
+
+      /V  - Search, Replace, InitCode, and FinalCode represent the name of
+            environment variables that contain the respective values.
+            An undefined variable is treated as an empty string.
+
+      /X  - Enables extended substitution pattern syntax with support
+            for the following escape sequences within the Replace string:
+
+            \\     -  Backslash
+            \b     -  Backspace
+            \f     -  Formfeed
+            \n     -  Newline
+            \q     -  Quote
+            \r     -  Carriage Return
+            \t     -  Horizontal Tab
+            \v     -  Vertical Tab
+            \xnn   -  ASCII byte code expressed as 2 hex digits
+            \unnnn -  Unicode character expressed as 4 hex digits
+
+            Also enables the \q escape sequence for the Search string.
+            The other escape sequences are already standard for a regular
+            expression Search string.
+
+            Also modifies the behavior of \xnn in the Search string to work
+            properly with extended ASCII byte codes (values above 0x7F).
+
+            Extended escape sequences are supported even when the /L option
+            is used. Both Search and Replace support all of the extended
+            escape sequences if both the /X and /L opions are combined.
+
+            Extended escape sequences are not applied to JScript code when
+            using the /J, /JMATCH, /JBEG, or /JEND options. Use the decode()
+            method if extended escape sequences are needed within the code.
+
+  There are global JScript variables/objects/methods that may be used in
+  JScript code when using the /J, /JBEG, /JEND, or /JMATCH options:
+
+      ln     - Within Replace code = line number where the match occurred.
+               Within /JEND code = total number of lines read.
+               This value is always 0 if the /M or /S otion is used.
+
+      env('varName')
+
+               Access to environment variable named varName.
+
+      decode(string)
+
+               Decodes extended escape sequences within a string as defined
+               by the /X option, and returns the result. All backslashes must
+               be escaped an extra time to use this function in your code.
+
+               Examples:
+                   quote literal:       decode('\\q')
+                   extended ASCII(128): decode('\\x80')
+                   backslash literal:   decode('\\\\')
+
+               This function is only needed if you use the \q sequence
+               or \xnn for an extended ASCII code (values above 0x7F).
+
+      input  - The TextStream object from which input is read.
+               This may be stdin or a file.
+
+      output - The TextStream object to which the output is written.
+               This may be stdout or a file.
+
+      stdin  - Equivalent to WScript.StdIn
+
+      stdout - Equivalent to WScript.StdOut
+
+      stderr - Equivalent to WScript.StdErr
+
+  Help is available by supplying a single argument beginning with /{QUEST}:
+
+      /{QUEST}        - Writes this help documentation to stdout.
+
+      /{QUEST}REGEX   - Opens up Microsoft's JScript regular expression
+                  documentation within your browser.
+
+      /{QUEST}REPLACE - Opens up Microsoft's JScript REPLACE documentation
+                  within your browser.
+
+      /{QUEST}VERSION - Writes the JREPL version number to stdout.
+
+  Return Codes:
+
+      0 = At least one change was made and /JMATCH not used
+          or at least one match returned and /JMATCH was used
+          or /{QUEST} was used
+
+      1 = No change was made and /JMATCH not used
+          or no match returned and /JMATCH was used
+
+      2 = Invalid call syntax or incompatible options
+
+      3 = JScript runtime error
+
+  JREPL.BAT was written by Dave Benham, and originally posted at
+  http://www.dostips.com/forum/viewtopic.php?f=3&t=6044
+
+

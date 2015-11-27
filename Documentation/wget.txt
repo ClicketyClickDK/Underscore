@@ -1,0 +1,27 @@
+NAME
+      wget -- Search file for a pattern and print remainder of string
+ 
+SYNOPSIS
+      wget [URL] [Output file]
+ 
+OPTIONS
+  -h      Help page
+ 
+DESCRIPTION
+  Used for downloading files from the internet
+  using a command line batch tool.
+ 
+EXAMPLES
+  wget "http://clicketyclick.dk/development/dos/_/current" "%TEMP%\current.txt" 
+ 
+ 
+REQUIRES
+  _Debug.cmd      Setting up debug environment for batch scripts 
+  _GetOpt.cmd     Parse command line options and create environment vars
+ 
+
+SOURCE
+  C:\_\wget.bat
+
+(c)2015 Erik Bachmann, ClicketyClick.dk (E_Bachmann@ClicketyClick.dk)
+

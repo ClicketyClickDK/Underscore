@@ -1,0 +1,111 @@
+NAME
+      times -- Get duration of a command
+ 
+SYNOPSIS
+      times [VAR]
+      times [flag]
+ 
+OPTIONS
+  -h          Help
+  --help      Help
+  --selftest  Simple selftest testing various combinations of date strings
+ 
+DESCRIPTION
+  Give a command (with parameters) as argument and get a messured duration 
+  of the runtime after output from the command
+  
+  This function mimics the UNIX commands time or times. Since time is
+  a build in command in Windows, the name times is prefered.
+  A simple solution of messuring the duration is printing date and 
+  time before and after calling the command in question.
+  The precision is pretty low (seconds) and some calculation is required.
+  Windows CAN actually provide you with a time stamp, that includes milliseconds.
+  But the overhead in batch scripting makes this a bit irrelevant (sic)
+  However - this is function does provide a duration of a command - in milliseconds
+  
+  This function uses a call to WMIC getting a timestamp including 
+  milliseconds (6 digits).
+  Output is duration in hours, minutes, seconds and milliseconds.
+  If duration lasts more than a day - or from one day to the next
+  the function indicates this by a no of hours larger than 23 like:
+      End  [20151120082435.630000+060]
+      Start[20151119075906.977000+060]
+      eDiff[1528653]
+      iDiff[24:25:28.653]
+  
+SEE ALSO
+  duration.cmd
+  powershell -Command "Measure-Command {echo hi | Out-Default}"
+ 
+EXAMPLES
+      times dir /s/b
+  Produces a list of files followed by timing of runtime:
+      Start       [20151119161240.177000+060]
+      End         [20151119161240.585000+060]
+      Milliseconds[408]
+      Duration    [00:00:00.408]
+  
+  Used in combination with duration:
+    @ECHO OFF
+    SETLOCAL
+        ECHO Show difference between "dir /s" and "dir /s/b
+        ECHO:: Initial call = start global timer
+        CALL duration _starttime
+        ECHO:
+        ECHO:: Time the DIR command /S /B
+        CALL times dir /s/b>nul
+        ECHO:
+        ECHO:: Show total duration - so far
+        CALL duration _starttime
+        ECHO:
+        ECHO:: Time the DIR command /S
+        CALL times dir /s>nul
+        ECHO:
+        ECHO Total
+        CALL duration _starttime
+    ENDLOCAL
+  
+  Produces:
+    Show difference between "dir /s" and "dir /s/b
+    : Initial call = start global timer
+    _starttime                               [20151120164109.826000+060       ]
+    
+    : Time the DIR command /S /B
+    Start                                    [20151120164111.085000+060       ]
+    End                                      [20151120164111.430000+060       ]
+    Milliseconds                             [345                             ]
+    Duration                                 [00:00:00.345                    ]
+    
+    : Show total duration - so far
+    Start                                    [20151120164109.826000+060       ]
+    End                                      [20151120164114.770000+060       ]
+    Milliseconds                             [4944                            ]
+    Duration                                 [00:00:04.944                    ]
+    
+    
+    : Time the DIR command /S
+    Start                                    [20151120164118.438000+060       ]
+    End                                      [20151120164118.801000+060       ]
+    Milliseconds                             [363                             ]
+    Duration                                 [00:00:00.363                    ]
+    
+    Total
+    Start                                    [20151120164109.826000+060       ]
+    End                                      [20151120164122.191000+060       ]
+    Milliseconds                             [12365                           ]
+    Duration                                 [00:00:12.365                    ]
+    
+REQUIRES
+  _Debug.cmd      Setting up debug environment for batch scripts 
+  _GetOpt.cmd     Parse command line options and create environment vars
+  _Action.cmd     Action part of _action / _status line 
+  _Status.cmd     Status part of _action / _status line 
+ 
+  Duration.cmd        Get duration between to time stamps
+  compareDuration.cmd Compare duration of two operations
+
+SOURCE
+  C:\_\times.cmd
+
+(c)2015 Erik Bachmann, ClicketyClick.dk [ErikBachmann@ClicketyClick.dk]
+

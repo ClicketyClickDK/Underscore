@@ -1,0 +1,76 @@
+NAME
+      makeDateReference -- Produces a series of dates for testing
+ 
+SYNOPSIS
+  makeDateReference [Arguments]
+ 
+OPTIONS
+  -h      Help page
+  -startyear:YYYY     First year in list (Default: 1970)
+  -endyear:YYYY       Last year in list (Default: 2030)
+  -r1c1               R1C1 reference format
+  -language           Laguage for formulas: EN, DA (DA = default)
+
+DESCRIPTION
+  Produces a list of dates to load into a spreadsheet for processing
+  Data can be used as a reference for date conversion
+  
+  Note: List includes non valid dates, since any date number 1-31 
+  for any given month is included
+  
+  Output has these colums:
+      #ISO        YYYY-MM-DD
+      YYYY        Year
+  	MM          Month
+  	DD          Day
+  	JD          Julian date (number)
+  	DOY         Day of year (1-366)
+  	DOW         Day of week (0-6)
+      Weeknum     Week number (1-53). Depend on local rules
+      1900-01-01  Days since 1900-01-01
+      Valid       Is this date actually a valid date (February 30 is NOT)
+      LeapYear    Is year a leap year
+      LeapDay     Is day a leap day (YYYY-02-29 in a leap year)
+
+  Example:
+  In this example Feb 29-31st 1979 are invalid dates and 1979 is not a leap 
+  year.
+   #ISO       YYYY MM DD Julian  DOY DOW Week 1990  Valid   LeapY    LeapD
+   28-02-1979 1979 2  28 2443932 59  2   9    28914 ok      -        -
+   1979-02-29 1979 2  29 2443933 60  3   9    28915 Invalid -        -
+   1979-02-30 1979 2  30 2443934 61  4   9    28916 Invalid -        -
+   1979-02-31 1979 2  31 2443935 62  5   9    28917 Invalid -        -
+   01-03-1979 1979 3   1 2443933 60  3   9    28915 ok      -        -
+      
+  1980 is a leap year, Feb 29th 1980 is a leap day and Feb 30-31st are invalid 
+  dates
+   #ISO       YYYY MM DD Julian  DOY DOW Week 1990  Valid   LeapY    LeapD
+   28-02-1980 1980 2  28 2444297 59  3   9    29279 ok      LeapYear -
+   29-02-1980 1980 2  29 2444298 60  4   9    29280 ok      LeapYear Leap Day
+   1980-02-30 1980 2  30 2444299 61  5   9    29281 Invalid LeapYear -
+   1980-02-31 1980 2  31 2444300 62  6   10   29282 Invalid LeapYear -
+   01-03-1980 1980 3   1 2444299 61  5   9    29281 ok      LeapYear -
+
+  Please note: On non-valid dates the calculated values of Julian Date, 
+  Day of Year, Week num etc must be ignored!
+
+
+EXAMPLES
+  :: The full monty: All dates in entire interval
+  CALL %$NAME 
+ 
+  :: Interval 1980-01-01 - 1982-12-31
+  CALL %$NAME -startYear:1980 -endYear:1982
+ 
+  :: Interval 1980-01-01 - 1982-12-31 - for english version of Excel
+  CALL %$NAME -startYear:1980 -endYear:1982 -language:en
+ 
+REQUIRES
+  _Debug.cmd      Setting up debug environment for batch scripts 
+  _GetOpt.cmd     Parse command line options and create environment vars
+
+SOURCE
+  C:\_\makeDateReference.cmd
+
+(c)2015 Erik Bachmann, ClicketyClick.dk [ErikBachmann@ClicketyClick.dk]
+

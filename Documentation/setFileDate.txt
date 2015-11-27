@@ -1,0 +1,34 @@
+NAME
+      setFileDate -- Search file for a pattern and print remainder of string
+ 
+SYNOPSIS
+      setFileDate [FILE] [DATE]
+ 
+OPTIONS
+  -h      Help page
+  FILE    The target file which date will be updated
+  DATE    A date and time string 
+ 
+ 
+DESCRIPTION
+  The date string kan be ISO [YYYY-MM-DD hh:mm:ss] or traditional
+  [MM/DD/YYYY hh:mm:ss]
+ 
+EXAMPLES
+  ECHO:Hello World>"%TMP%\hello.txt"
+  setfiledate.bat "%TMP%\hello.txt" "01/01/2008 8:00:00 AM"
+  setfiledate.bat "%TMP%\hello.txt" "2015-01-02 01:02:03"
+  dir "%TMP%\hello.txt"|findstr "hello"
+ 
+ 
+ 
+REQUIRES
+  _Debug.cmd      Setting up debug environment for batch scripts 
+  _GetOpt.cmd     Parse command line options and create environment vars
+ 
+
+SOURCE
+  C:\_\setFileDate.bat
+
+(c)2015 Erik Bachmann, ClicketyClick.dk (E_Bachmann@ClicketyClick.dk)
+

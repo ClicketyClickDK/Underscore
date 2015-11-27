@@ -1,0 +1,77 @@
+<link rel='stylesheet' href='what.css' type='text/css' />
+<h3>NAME</span></span></h3>
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span&nbsp;class='name'>makeDateReference&nbsp;--&nbsp;<span&nbsp;class='description'>Produces&nbsp;a&nbsp;series&nbsp;of&nbsp;dates&nbsp;for&nbsp;testing</span></span></tt><BR>
+<tt>&nbsp;&nbsp;&nbsp;</span></span></tt><BR>
+<h3>SYNOPSIS</span></span></h3>
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;<span&nbsp;class='name'>makeDateReference&nbsp;[Arguments]</span></span></tt><BR>
+<tt>&nbsp;&nbsp;&nbsp;</span></span></tt><BR>
+<h3>OPTIONS</span></span></h3>
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;-h&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Help&nbsp;page</span></span></tt><BR>
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;-startyear:YYYY&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;First&nbsp;year&nbsp;in&nbsp;list&nbsp;(Default:&nbsp;1970)</span></span></tt><BR>
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;-endyear:YYYY&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Last&nbsp;year&nbsp;in&nbsp;list&nbsp;(Default:&nbsp;2030)</span></span></tt><BR>
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;-r1c1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;R1C1&nbsp;reference&nbsp;format</span></span></tt><BR>
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;-language&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Laguage&nbsp;for&nbsp;formulas:&nbsp;EN,&nbsp;DA&nbsp;(DA&nbsp;=&nbsp;default)</span></span></tt><BR>
+<h3></span></span></h3>
+<h3>DESCRIPTION</span></span></h3>
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;Produces&nbsp;a&nbsp;list&nbsp;of&nbsp;dates&nbsp;to&nbsp;load&nbsp;into&nbsp;a&nbsp;spreadsheet&nbsp;for&nbsp;processing</span></span></tt><BR>
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;Data&nbsp;can&nbsp;be&nbsp;used&nbsp;as&nbsp;a&nbsp;reference&nbsp;for&nbsp;date&nbsp;conversion</span></span></tt><BR>
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;</span></span></tt><BR>
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;Note:&nbsp;List&nbsp;includes&nbsp;non&nbsp;valid&nbsp;dates,&nbsp;since&nbsp;any&nbsp;date&nbsp;number&nbsp;1-31&nbsp;</span></span></tt><BR>
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;for&nbsp;any&nbsp;given&nbsp;month&nbsp;is&nbsp;included</span></span></tt><BR>
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;</span></span></tt><BR>
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;Output&nbsp;has&nbsp;these&nbsp;colums:</span></span></tt><BR>
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#ISO&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;YYYY-MM-DD</span></span></tt><BR>
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;YYYY&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Year</span></span></tt><BR>
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;	MM&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Month</span></span></tt><BR>
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;	DD&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Day</span></span></tt><BR>
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;	JD&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Julian&nbsp;date&nbsp;(number)</span></span></tt><BR>
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;	DOY&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Day&nbsp;of&nbsp;year&nbsp;(1-366)</span></span></tt><BR>
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;	DOW&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Day&nbsp;of&nbsp;week&nbsp;(0-6)</span></span></tt><BR>
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Weeknum&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Week&nbsp;number&nbsp;(1-53).&nbsp;Depend&nbsp;on&nbsp;local&nbsp;rules</span></span></tt><BR>
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1900-01-01&nbsp;&nbsp;Days&nbsp;since&nbsp;1900-01-01</span></span></tt><BR>
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Valid&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Is&nbsp;this&nbsp;date&nbsp;actually&nbsp;a&nbsp;valid&nbsp;date&nbsp;(February&nbsp;30&nbsp;is&nbsp;NOT)</span></span></tt><BR>
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;LeapYear&nbsp;&nbsp;&nbsp;&nbsp;Is&nbsp;year&nbsp;a&nbsp;leap&nbsp;year</span></span></tt><BR>
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;LeapDay&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Is&nbsp;day&nbsp;a&nbsp;leap&nbsp;day&nbsp;(YYYY-02-29&nbsp;in&nbsp;a&nbsp;leap&nbsp;year)</span></span></tt><BR>
+<h3></span></span></h3>
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;Example:</span></span></tt><BR>
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;In&nbsp;this&nbsp;example&nbsp;Feb&nbsp;29-31st&nbsp;1979&nbsp;are&nbsp;invalid&nbsp;dates&nbsp;and&nbsp;1979&nbsp;is&nbsp;not&nbsp;a&nbsp;leap&nbsp;</span></span></tt><BR>
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;year.</span></span></tt><BR>
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#ISO&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;YYYY&nbsp;MM&nbsp;DD&nbsp;Julian&nbsp;&nbsp;DOY&nbsp;DOW&nbsp;Week&nbsp;1990&nbsp;&nbsp;Valid&nbsp;&nbsp;&nbsp;LeapY&nbsp;&nbsp;&nbsp;&nbsp;LeapD</span></span></tt><BR>
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;28-02-1979&nbsp;1979&nbsp;2&nbsp;&nbsp;28&nbsp;2443932&nbsp;59&nbsp;&nbsp;2&nbsp;&nbsp;&nbsp;9&nbsp;&nbsp;&nbsp;&nbsp;28914&nbsp;ok&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-</span></span></tt><BR>
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1979-02-29&nbsp;1979&nbsp;2&nbsp;&nbsp;29&nbsp;2443933&nbsp;60&nbsp;&nbsp;3&nbsp;&nbsp;&nbsp;9&nbsp;&nbsp;&nbsp;&nbsp;28915&nbsp;Invalid&nbsp;-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-</span></span></tt><BR>
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1979-02-30&nbsp;1979&nbsp;2&nbsp;&nbsp;30&nbsp;2443934&nbsp;61&nbsp;&nbsp;4&nbsp;&nbsp;&nbsp;9&nbsp;&nbsp;&nbsp;&nbsp;28916&nbsp;Invalid&nbsp;-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-</span></span></tt><BR>
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1979-02-31&nbsp;1979&nbsp;2&nbsp;&nbsp;31&nbsp;2443935&nbsp;62&nbsp;&nbsp;5&nbsp;&nbsp;&nbsp;9&nbsp;&nbsp;&nbsp;&nbsp;28917&nbsp;Invalid&nbsp;-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-</span></span></tt><BR>
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;01-03-1979&nbsp;1979&nbsp;3&nbsp;&nbsp;&nbsp;1&nbsp;2443933&nbsp;60&nbsp;&nbsp;3&nbsp;&nbsp;&nbsp;9&nbsp;&nbsp;&nbsp;&nbsp;28915&nbsp;ok&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-</span></span></tt><BR>
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></span></tt><BR>
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;1980&nbsp;is&nbsp;a&nbsp;leap&nbsp;year,&nbsp;Feb&nbsp;29th&nbsp;1980&nbsp;is&nbsp;a&nbsp;leap&nbsp;day&nbsp;and&nbsp;Feb&nbsp;30-31st&nbsp;are&nbsp;invalid&nbsp;</span></span></tt><BR>
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;dates</span></span></tt><BR>
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#ISO&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;YYYY&nbsp;MM&nbsp;DD&nbsp;Julian&nbsp;&nbsp;DOY&nbsp;DOW&nbsp;Week&nbsp;1990&nbsp;&nbsp;Valid&nbsp;&nbsp;&nbsp;LeapY&nbsp;&nbsp;&nbsp;&nbsp;LeapD</span></span></tt><BR>
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;28-02-1980&nbsp;1980&nbsp;2&nbsp;&nbsp;28&nbsp;2444297&nbsp;59&nbsp;&nbsp;3&nbsp;&nbsp;&nbsp;9&nbsp;&nbsp;&nbsp;&nbsp;29279&nbsp;ok&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;LeapYear&nbsp;-</span></span></tt><BR>
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;29-02-1980&nbsp;1980&nbsp;2&nbsp;&nbsp;29&nbsp;2444298&nbsp;60&nbsp;&nbsp;4&nbsp;&nbsp;&nbsp;9&nbsp;&nbsp;&nbsp;&nbsp;29280&nbsp;ok&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;LeapYear&nbsp;Leap&nbsp;Day</span></span></tt><BR>
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1980-02-30&nbsp;1980&nbsp;2&nbsp;&nbsp;30&nbsp;2444299&nbsp;61&nbsp;&nbsp;5&nbsp;&nbsp;&nbsp;9&nbsp;&nbsp;&nbsp;&nbsp;29281&nbsp;Invalid&nbsp;LeapYear&nbsp;-</span></span></tt><BR>
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1980-02-31&nbsp;1980&nbsp;2&nbsp;&nbsp;31&nbsp;2444300&nbsp;62&nbsp;&nbsp;6&nbsp;&nbsp;&nbsp;10&nbsp;&nbsp;&nbsp;29282&nbsp;Invalid&nbsp;LeapYear&nbsp;-</span></span></tt><BR>
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;01-03-1980&nbsp;1980&nbsp;3&nbsp;&nbsp;&nbsp;1&nbsp;2444299&nbsp;61&nbsp;&nbsp;5&nbsp;&nbsp;&nbsp;9&nbsp;&nbsp;&nbsp;&nbsp;29281&nbsp;ok&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;LeapYear&nbsp;-</span></span></tt><BR>
+<h3></span></span></h3>
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;Please&nbsp;note:&nbsp;On&nbsp;non-valid&nbsp;dates&nbsp;the&nbsp;calculated&nbsp;values&nbsp;of&nbsp;Julian&nbsp;Date,&nbsp;</span></span></tt><BR>
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;Day&nbsp;of&nbsp;Year,&nbsp;Week&nbsp;num&nbsp;etc&nbsp;must&nbsp;be&nbsp;ignored!</span></span></tt><BR>
+<h3></span></span></h3>
+<h3></span></span></h3>
+<h3>EXAMPLES</span></span></h3>
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;::&nbsp;The&nbsp;full&nbsp;monty:&nbsp;All&nbsp;dates&nbsp;in&nbsp;entire&nbsp;interval</span></span></tt><BR>
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;CALL&nbsp;%$NAME&nbsp;</span></span></tt><BR>
+<tt>&nbsp;&nbsp;&nbsp;</span></span></tt><BR>
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;::&nbsp;Interval&nbsp;1980-01-01&nbsp;-&nbsp;1982-12-31</span></span></tt><BR>
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;CALL&nbsp;%$NAME&nbsp;-startYear:1980&nbsp;-endYear:1982</span></span></tt><BR>
+<tt>&nbsp;&nbsp;&nbsp;</span></span></tt><BR>
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;::&nbsp;Interval&nbsp;1980-01-01&nbsp;-&nbsp;1982-12-31&nbsp;-&nbsp;for&nbsp;english&nbsp;version&nbsp;of&nbsp;Excel</span></span></tt><BR>
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;CALL&nbsp;%$NAME&nbsp;-startYear:1980&nbsp;-endYear:1982&nbsp;-language:en</span></span></tt><BR>
+<tt>&nbsp;&nbsp;&nbsp;</span></span></tt><BR>
+<h3>REQUIRES</span></span></h3>
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;_Debug.cmd&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Setting&nbsp;up&nbsp;debug&nbsp;environment&nbsp;for&nbsp;batch&nbsp;scripts&nbsp;</span></span></tt><BR>
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;_GetOpt.cmd&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Parse&nbsp;command&nbsp;line&nbsp;options&nbsp;and&nbsp;create&nbsp;environment&nbsp;vars</span></span></tt><BR>
+<h3></span></span></h3>
+<h3>SOURCE</span></span></h3>
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;C:\_\makeDateReference.cmd</span></span></tt><BR>
+<h3></span></span></h3>
+<h5>(c)2015 Erik Bachmann, ClicketyClick.dk [ErikBachmann@ClicketyClick.dk]</span></span></h5>
+

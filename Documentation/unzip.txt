@@ -1,0 +1,32 @@
+NAME
+      unzip -- Search file for a pattern and print remainder of string
+ 
+SYNOPSIS
+      unzip [ZIP] {DIR}
+
+OPTIONS
+  -h      Help page
+  ZIP     FULL path and file name of a ZIP file
+  DIR     Directories where the archive should be decompressed
+ 
+DESCRIPTION
+  Since Windows has no build in command line tool for compressing and
+  uncompressing file archive. This - originally VBS - script was build.
+ 
+EXAMPLES
+      ECHO:Hello world>"%TMP%\hello.txt"
+      CALL zip.bat "%TMP%\hello.zip" "%TMP%\hello.txt"
+      DEL "%TMP%\hello.txt"
+      DIR "%TMP%\hello.txt"
+      CALL unzip.bat "%TMP%\hello.zip" "%TMP%"
+      DIR "%TMP%\hello.txt"
+REQUIRES
+  _Debug.cmd      Setting up debug environment for batch scripts 
+  _GetOpt.cmd     Parse command line options and create environment vars
+ 
+
+SOURCE
+  C:\_\unzip.bat
+
+(c)2015 Erik Bachmann, ClicketyClick.dk (E_Bachmann@ClicketyClick.dk)
+

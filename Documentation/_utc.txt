@@ -1,0 +1,35 @@
+NAME
+  _UTC -- Set environment UTC as current date in UTC format AND UTC_FILE as valid filename
+ 
+SYNOPSIS
+  _UTC {date}
+ 
+DESCRIPTION
+  What's the quest?!?
+  ISO 8601: 
+  Complete date plus hours, minutes and seconds:
+      YYYY-MM-DDThh:mm:ssTZD (eg 1997-07-16T19:20:30+01:00)
+  Complete date plus hours, minutes, seconds and a decimal fraction of a
+  of a second
+      YYYY-MM-DDThh:mm:ss.sTZD (eg 1997-07-16T19:20:30.45+01:00)
+ 
+  where:
+ 
+  YYYY = four-digit year
+  MM   = two-digit month (01=January, etc.)
+  DD   = two-digit day of month (01 through 31)
+  hh   = two digits of hour (00 through 23) (am/pm NOT allowed)
+  mm   = two digits of minute (00 through 59)
+  ss   = two digits of second (00 through 59)
+  s    = one or more digits representing a decimal fraction of a second
+  TZD  = time zone designator (Z or +hh:mm or -hh:mm)
+ 
+REQUIRES
+  _Debug.cmd      Setting up debug environment for batch scripts 
+  _GetOpt.cmd     Parse command line options and create environment vars
+
+SOURCE
+  C:\_\_UTC.cmd
+ 
+(c)2015 Erik Bachmann, ClicketyClick.dk (ErikBachmann@ClicketyClick.dk)
+

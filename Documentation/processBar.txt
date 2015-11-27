@@ -1,0 +1,57 @@
+NAME
+      processBar -- Progress bar weighted in pct.
+ 
+SYNOPSIS
+      processBar [ [ProcessMax] [ProcessBarMaker] [CurrentValue] ]
+ 
+  Initiate process bar
+      processBar [ProcessMax] {ProcessBarMaker}
+ 
+  Update process bar
+      processBar [CurrentValue]
+ 
+OPTIONS
+  -h      Help page
+  ProcessMax          The highest value (ie. 100%%)
+  ProcessBarMaker     The marker char in the bar (Default= #)
+  CurrentValue        Current value in loop
+ 
+DESCRIPTION
+  Updates the progressbar
+      [################################..................]
+      
+  This function requires an initiating call to processBar
+      
+  NOTE There is NO loop control!
+      
+LIMITATIONS
+  The ProcessBarMarker CANNOT be a digit due to redirection rules in 
+  DOS [Default=@]
+  Avoid other special characters like ampersand or pipe
+      
+EXAMPLES
+      SET _last_line=120
+      
+      Call processBar %_last_line% #
+      
+      FOR /L %%x IN (1,1,%_last_line%) DO (
+          CALL processBar %%x
+      )
+      
+EXIT STATUS
+  Exit status is 0 if any matches were found, otherwise 1.
+ 
+REQUIRES
+  _Debug.cmd      Setting up debug environment for batch scripts 
+  _GetOpt.cmd     Parse command line options and create environment vars
+ 
+SEE ALSO
+  _registry.delete_string.cmd     _registry.list.cmd
+  _registry.read_string.cmd       _registry.write_string.cmd
+
+
+SOURCE
+  C:\_\processBar.cmd
+
+(c)2015 Erik Bachmann, ClicketyClick.dk [ErikBachmann@ClicketyClick.dk]
+
