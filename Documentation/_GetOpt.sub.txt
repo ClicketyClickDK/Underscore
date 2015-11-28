@@ -51,6 +51,6 @@ REFERENCES:
   https://en.wikipedia.org/wiki/Getopt
   
 SOURCE
-  C:\_\_GetOpt.sub.cmd
+  c:\Users\Erik\Documents\GitHub\Underscore\_GetOpt.sub.cmd
 (c)2015 Erik Bachmann, ClicketyClick.dk (ErikBachmann@ClicketyClick.dk)
 

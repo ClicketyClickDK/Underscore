@@ -29,7 +29,7 @@ REFERENCE
   Author: ANTONIO PEREZ AYALA
 
 SOURCE
-  C:\_\getWeekOfYear.cmd
+  c:\Users\Erik\Documents\GitHub\Underscore\getWeekOfYear.cmd
 
 (c)2015 Erik Bachmann, ClicketyClick.dk [ErikBachmann@ClicketyClick.dk]
 

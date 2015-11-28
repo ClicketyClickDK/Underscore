@@ -26,7 +26,7 @@ REQUIRES
 
 
 SOURCE
-  C:\_\_postscript.cmd
+  c:\Users\Erik\Documents\GitHub\Underscore\_postscript.cmd
 
 (c)2015 Erik Bachmann, ClicketyClick.dk [ErikBachmann@ClicketyClick.dk]
 

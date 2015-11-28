@@ -41,7 +41,7 @@ REQUIRES
   Times.cmd           Get duration of a command
 
 SOURCE
-  C:\_\duration.cmd
+  c:\Users\Erik\Documents\GitHub\Underscore\duration.cmd
 
 (c)2015 Erik Bachmann, ClicketyClick.dk [ErikBachmann@ClicketyClick.dk]
 

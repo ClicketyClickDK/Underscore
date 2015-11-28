@@ -22,7 +22,7 @@ REQUIRES
  
   
 SOURCE
-  C:\_\getFilesOlderThan.cmd
+  c:\Users\Erik\Documents\GitHub\Underscore\getFilesOlderThan.cmd
  
 (c)2015 Erik Bachmann, ClicketyClick.dk [ErikBachmann@ClicketyClick.dk]
 

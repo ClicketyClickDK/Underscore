@@ -21,7 +21,7 @@ REQUIRES
  
 
 SOURCE
-  C:\_\wget.bat
+  c:\Users\Erik\Documents\GitHub\Underscore\wget.bat
 
 (c)2015 Erik Bachmann, ClicketyClick.dk (E_Bachmann@ClicketyClick.dk)
 

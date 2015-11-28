@@ -25,7 +25,7 @@ SEE ALSO
 
 
 SOURCE
-  C:\_\_registry.delete_key.cmd
+  c:\Users\Erik\Documents\GitHub\Underscore\_registry.delete_key.cmd
 
 (c)2015 Erik Bachmann, ClicketyClick.dk [ErikBachmann@ClicketyClick.dk]
 

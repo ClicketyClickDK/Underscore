@@ -72,7 +72,7 @@ GLOBAL VARIABLES
 
 
 EXAMPLES
-  SET _Error_=CALL "%%~dp0\_ErrorHandler" "%C:\_\_errorhandler.cmd%"
+  SET _Error_=CALL "%%~dp0\_ErrorHandler" "%c:\Users\Erik\Documents\GitHub\Underscore\_errorhandler.cmd%"
   %%_Error_%% "ERROR.001" "Testing error 1" -1 Continue
   
   Will display:
@@ -95,7 +95,7 @@ REFERENCE
   :$source http://www.dostips.com
 
 SOURCE
-  C:\_\_errorhandler.cmd
+  c:\Users\Erik\Documents\GitHub\Underscore\_errorhandler.cmd
 
 (c)2015 Erik Bachmann, ClicketyClick.dk [ErikBachmann@ClicketyClick.dk]
 

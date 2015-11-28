@@ -22,7 +22,7 @@ REQUIRES
 
 
 SOURCE
-  C:\_\updateArchive.cmd
+  c:\Users\Erik\Documents\GitHub\Underscore\updateArchive.cmd
 
 (c)2015 Erik Bachmann, ClicketyClick.dk [ErikBachmann@ClicketyClick.dk]
 

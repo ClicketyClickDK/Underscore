@@ -20,7 +20,7 @@ REQUIRES
  
 
 SOURCE
-  C:\_\lockWorkstation.cmd
+  c:\Users\Erik\Documents\GitHub\Underscore\lockWorkstation.cmd
 
 (c)2015 Erik Bachmann, ClicketyClick.dk [ErikBachmann@ClicketyClick.dk]
 

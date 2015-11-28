@@ -105,7 +105,7 @@ REQUIRES
   compareDuration.cmd Compare duration of two operations
 
 SOURCE
-  C:\_\times.cmd
+  c:\Users\Erik\Documents\GitHub\Underscore\times.cmd
 
 (c)2015 Erik Bachmann, ClicketyClick.dk [ErikBachmann@ClicketyClick.dk]
 

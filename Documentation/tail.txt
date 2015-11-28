@@ -27,7 +27,7 @@ REFERENCE
   URL: http://ss64.org/viewtopic.php?id=506
 
 SOURCE
-  C:\_\tail.cmd
+  c:\Users\Erik\Documents\GitHub\Underscore\tail.cmd
 
 (c)2015 Simon Sheppard, ss64.org
 

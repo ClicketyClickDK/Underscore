@@ -31,7 +31,7 @@ REQUIRES
 
 
 SOURCE
-  C:\_\_isday.cmd
+  c:\Users\Erik\Documents\GitHub\Underscore\_isday.cmd
 
 (c)2015 Erik Bachmann, ClicketyClick.dk [ErikBachmann@ClicketyClick.dk]
 

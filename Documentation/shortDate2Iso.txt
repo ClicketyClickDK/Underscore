@@ -17,7 +17,7 @@ DESCRIPTION
   then you're on you own.
  
 EXAMPLES
-      FOR %%i IN (C:\_\shortDate2Iso.cmd) DO C:\_\shortDate2Iso.cmd myTime %%~ti
+      FOR %%i IN (c:\Users\Erik\Documents\GitHub\Underscore\shortDate2Iso.cmd) DO c:\Users\Erik\Documents\GitHub\Underscore\shortDate2Iso.cmd myTime %%~ti
       SET myTime
  
  Will give you date and time of the function file in ISO format
@@ -32,7 +32,7 @@ REFERENCE
   URL: http://stackoverflow.com/questions/203090/how-to-get-current-datetime-on-windows-command-line-in-a-suitable-format-for-us
 
 SOURCE
-  C:\_\shortDate2Iso.cmd
+  c:\Users\Erik\Documents\GitHub\Underscore\shortDate2Iso.cmd
 
 (c)2015 Erik Bachmann, ClicketyClick.dk [ErikBachmann@ClicketyClick.dk]
 

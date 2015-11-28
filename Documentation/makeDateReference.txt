@@ -70,7 +70,7 @@ REQUIRES
   _GetOpt.cmd     Parse command line options and create environment vars
 
 SOURCE
-  C:\_\makeDateReference.cmd
+  c:\Users\Erik\Documents\GitHub\Underscore\makeDateReference.cmd
 
 (c)2015 Erik Bachmann, ClicketyClick.dk [ErikBachmann@ClicketyClick.dk]
 
