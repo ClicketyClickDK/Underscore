@@ -36,7 +36,7 @@ REFERENCE
  
 
 SOURCE
-  C:\_\banner.cmd
+  c:\Users\Erik\Documents\GitHub\Underscore\banner.cmd
 
 (c)2015 Erik Bachmann, ClicketyClick.dk [ErikBachmann@ClicketyClick.dk]
 

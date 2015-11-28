@@ -26,7 +26,7 @@ REQUIRES
 
 
 SOURCE
-  C:\_\_prescript.cmd
+  c:\Users\Erik\Documents\GitHub\Underscore\_prescript.cmd
 
 (c)2015 Erik Bachmann, ClicketyClick.dk [ErikBachmann@ClicketyClick.dk]
 

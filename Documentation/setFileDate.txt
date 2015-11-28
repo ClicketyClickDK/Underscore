@@ -28,7 +28,7 @@ REQUIRES
  
 
 SOURCE
-  C:\_\setFileDate.bat
+  c:\Users\Erik\Documents\GitHub\Underscore\setFileDate.bat
 
 (c)2015 Erik Bachmann, ClicketyClick.dk (E_Bachmann@ClicketyClick.dk)
 

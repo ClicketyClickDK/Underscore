@@ -12,7 +12,7 @@ DESCRIPTION
  
   A pattern may be given to replace the x in (x) like:
  
-     What C:\_\What.cmd X
+     What c:\Users\Erik\Documents\GitHub\Underscore\What.cmd X
  
   Will print alle lines the sequence: "@(X)"
   Note: Patterns are case insensitive
@@ -28,7 +28,7 @@ REQUIRES
   _GetOpt.cmd     Parse command line options and create environment vars
  
 SOURCE
-  C:\_\What.cmd
+  c:\Users\Erik\Documents\GitHub\Underscore\What.cmd
  
 (c)2015 Erik Bachmann, ClicketyClick.dk (E_Bachmann@ClicketyClick.dk)
 

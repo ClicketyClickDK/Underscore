@@ -34,7 +34,7 @@ REFERENCE
   OLD http://windowsitpro.com/article/articleid/82861/jsi-tip-8971-how-can-i-change-the-case-of-string-to-all-upper-case-or-all-lower-case.html
 
 SOURCE
-  C:\_\_is32bit.cmd
+  c:\Users\Erik\Documents\GitHub\Underscore\_is32bit.cmd
 
 (C)2015 Erik Bachmann, ClicketyClick.dk [ErikBachmann@ClicketyClick.dk]
 

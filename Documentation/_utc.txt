@@ -29,7 +29,7 @@ REQUIRES
   _GetOpt.cmd     Parse command line options and create environment vars
 
 SOURCE
-  C:\_\_UTC.cmd
+  c:\Users\Erik\Documents\GitHub\Underscore\_UTC.cmd
  
 (c)2015 Erik Bachmann, ClicketyClick.dk (ErikBachmann@ClicketyClick.dk)
 

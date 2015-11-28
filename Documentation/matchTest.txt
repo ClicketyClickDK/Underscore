@@ -29,7 +29,7 @@ DESCRIPTION
   Please refer to the command findstr for more info
 
 EXAMPLES
-  CALL matchTest C:\_\matchTest.cmd C:\_\matchTest.cmd
+  CALL matchTest c:\Users\Erik\Documents\GitHub\Underscore\matchTest.cmd c:\Users\Erik\Documents\GitHub\Underscore\matchTest.cmd
   
   Should display:
   
@@ -50,7 +50,7 @@ REQUIRES
   URL: http://stackoverflow.com/questions/6612415
 
 SOURCE
-  C:\_\matchTest.cmd
+  c:\Users\Erik\Documents\GitHub\Underscore\matchTest.cmd
 
 (c)2015 Erik Bachmann, ClicketyClick.dk [ErikBachmann@ClicketyClick.dk]
 

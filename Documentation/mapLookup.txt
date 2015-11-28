@@ -24,7 +24,7 @@ REQUIRES
  
 
 SOURCE
-  C:\_\mapLookup.cmd
+  c:\Users\Erik\Documents\GitHub\Underscore\mapLookup.cmd
 
 (c)2015 Erik Bachmann, ClicketyClick.dk [ErikBachmann@ClicketyClick.dk]
 

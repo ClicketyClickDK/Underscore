@@ -5,7 +5,7 @@ SYNOPSIS
       processBar [ [ProcessMax] [ProcessBarMaker] [CurrentValue] ]
  
   Initiate process bar
-      processBar [ProcessMax] {ProcessBarMaker}
+      processBar [ProcessMax] [ProcessBarMaker]
  
   Update process bar
       processBar [CurrentValue]
@@ -51,7 +51,7 @@ SEE ALSO
 
 
 SOURCE
-  C:\_\processBar.cmd
+  c:\Users\Erik\Documents\GitHub\Underscore\processBar.cmd
 
 (c)2015 Erik Bachmann, ClicketyClick.dk [ErikBachmann@ClicketyClick.dk]
 

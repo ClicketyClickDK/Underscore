@@ -40,7 +40,7 @@ SEE ALSO
 
 
 SOURCE
-  C:\_\_registry.read_string.cmd
+  c:\Users\Erik\Documents\GitHub\Underscore\_registry.read_string.cmd
 
 (c)2015 Erik Bachmann, ClicketyClick.dk [ErikBachmann@ClicketyClick.dk]
 

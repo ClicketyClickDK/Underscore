@@ -50,7 +50,7 @@ REFERENCE
  http://www.dostips.com/forum/viewtopic.php?p=33963#p33963
 
 SOURCE
-  C:\_\cmdize.cmd
+  c:\Users\Erik\Documents\GitHub\Underscore\cmdize.cmd
 
 (c)2015 Ildar Shaimordanov
 

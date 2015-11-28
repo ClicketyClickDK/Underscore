@@ -40,7 +40,7 @@ REFERENCE
   2) Tags are changed from [] to {} since [] are useful in formatted strings
  
 SOURCE
-  C:\_\formatStr.cmd
+  c:\Users\Erik\Documents\GitHub\Underscore\formatStr.cmd
 
 (c)2015 http://www.dostips.com
 

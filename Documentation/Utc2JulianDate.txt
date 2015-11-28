@@ -27,7 +27,7 @@ REFERENCE
   URL: http://aa.usno.navy.mil/faq/docs/JD_Formula.php
 
 SOURCE
-  C:\_\Utc2JulianDate.cmd
+  c:\Users\Erik\Documents\GitHub\Underscore\Utc2JulianDate.cmd
 
 (c)2015 Erik Bachmann, ClicketyClick.dk [ErikBachmann@ClicketyClick.dk]
 
