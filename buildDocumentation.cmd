@@ -97,7 +97,8 @@ SET $SOURCE=%~f0
 ::SET $VERSION=2010-11-12&SET $REVISION=16:23:00&SET $COMMENT=Adding exact path to _prescript/ErikBachmann [01.010]
 ::SET $VERSION=2015-02-18&SET $REVISION=23:33.00&SET $COMMENT=Status on missing/failing scripts/ErikBachmann
 ::SET $VERSION=2015-02-19&SET $REVISION=03:14:08&SET $COMMENT=Autoupdate / ErikBachmann
-  SET $VERSION=2015-10-08&SET $REVISION=11:20:00&SET $COMMENT=GetOpt: Calling usage on -h and exit on error / ErikBachmann
+::SET $VERSION=2015-10-08&SET $REVISION=11:20:00&SET $COMMENT=GetOpt: Calling usage on -h and exit on error / ErikBachmann
+  SET $VERSION=2016-03-14&SET $REVISION=10:00:00&SET $COMMENT=Set "%~dp0\ prefix on function calls / ErikBachmann
 ::**********************************************************************
 ::@(#)(c)%$Version:~0,4% %$Author%
 ::**********************************************************************
@@ -140,24 +141,24 @@ GOTO :EOF :UnitTest.init
 
 :UnitTest.Process
     
-    CALL _Action "Clean up"
+    CALL "%~dp0\_Action" "Clean up"
     PUSHD "%~dp0"
     IF EXIST "%Tmp%\%~n0.*" DEL "%Tmp%\%~n0.*"
-    CALL _Status "Done"
+    CALL "%~dp0\_Status" "Done"
 
-    CALL _Action "Documentation directory"
+    CALL "%~dp0\_Action" "Documentation directory"
     IF NOT EXIST "%_DocDir%" (
         MKDIR "%_DocDir%"
         IF ERRORLEVEL 1 ( 
-            CALL _Status "ERROR Cannot create [%_DocDir%]"
+            CALL "%~dp0\_Status" "ERROR Cannot create [%_DocDir%]"
         ) ELSE (
-            CALL _Status "Created"
+            CALL "%~dp0\_Status" "Created"
         )
     ) ELSE (
-        CALL _Status "Found"
+        CALL "%~dp0\_Status" "Found"
     )
     
-    CALL _Action "Html index"
+    CALL "%~dp0\_Action" "Html index"
     
     (   REM Main index file = frameset
         ECHO:^<frameset cols="20%%,*"^>
@@ -208,9 +209,9 @@ GOTO :EOF :UnitTest.init
         ECHO:    )>Documentation\index.frame.html 
 
 
-    CALL _Status "Opened"
+    CALL "%~dp0\_Status" "Opened"
     
-    CALL _Action "Documentation JavaScript"
+    CALL "%~dp0\_Action" "Documentation JavaScript"
     (   REM Java script
         ECHO:function linkMe^(link^) {
         ECHO:    url = link.replace ^(/\.[^\.]*$/, ''^)
@@ -218,9 +219,9 @@ GOTO :EOF :UnitTest.init
         ECHO:    document.write^("<a href='" + url + "' title='Jump to HELP on [" + link + "]'>" + link + "</a>"^)
         ECHO:}
     )>Documentation\underscore.js
-    CALL _Status "Done"
+    CALL "%~dp0\_Status" "Done"
 
-    REM CALL _Action "Documentation Style Sheet"
+    REM CALL "%~dp0\_Action" "Documentation Style Sheet"
     REM IF NOT EXIST "Documentation\what.css" (
         REM (   REM CSS Style Sheet
             REM ECHO:body { Background: #F5FFFF; /* Light cyan */ }
@@ -247,22 +248,22 @@ GOTO :EOF :UnitTest.init
             REM ECHO:}
             REM ECHO:hr { width: 10% }
         REM )>Documentation\what.css
-        REM CALL _Status "Done"
+        REM CALL "%~dp0\_Status" "Done"
     REM ) ELSE (
-        REM CALL _Status "Found"
+        REM CALL "%~dp0\_Status" "Found"
     REM )
     
-    CALL _Action "Build Script list"
+    CALL "%~dp0\_Action" "Build Script list"
     FOR %%a IN (%_ScriptTypes%) DO DIR /B *.%%a >>"%_ScriptList%.tmp" 2>>"%$TraceFile%"
     SORT < "%_ScriptList%.tmp"|FIND /v /I "%~nx0" >>"%_ScriptList%"
-    CALL _STATUS "Build and sorted"
+    CALL "%~dp0\_STATUS" "Build and sorted"
     IF NOT "0"=="%DEBUG%" (
         ECHO:- Check the list of scripts in [%_ScriptList%]
         ECHO:pause
     )
-    CALL _ACTION "No of scripts to process"
+    CALL "%~dp0\_ACTION" "No of scripts to process"
     FOR /F %%a IN ('FIND /c "." ^<"%_ScriptList%"') DO SET _ScriptsTotalCount=%%a
-    CALL _Status "%_ScriptsTotalCount%"
+    CALL "%~dp0\_Status" "%_ScriptsTotalCount%"
     ECHO:
     
 ::    FOR /F %%a IN (%_ScriptList%) DO CALL :UnitTest.ProcessScript "%%a"
@@ -283,38 +284,38 @@ GOTO :EOF :UnitTest.Process
 :UnitTest.finalize
 
     ECHO:
-    CALL _Action "Html index"
+    CALL "%~dp0\_Action" "Html index"
     ECHO ^</ul^>^<HR^> >>Documentation\index.frame.html 
-    CALL _Status "Closed"
+    CALL "%~dp0\_Status" "Closed"
 
-    CALL _Action "Total scripts"
-    CALL _Status "%_ScriptsTotalCount%"
-    REM CALL _Action "Total unit tests"
-    REM CALL _Status "%_UnitTestsTotalCount%"
-    REM CALL _Action "Tests failing"
-    REM CALL _Status "%_UnitTestFailCount%"
-    REM CALL _Action "Tests not available"
-    REM CALL _Status "%_UnitTestMissingCount%"
+    CALL "%~dp0\_Action" "Total scripts"
+    CALL "%~dp0\_Status" "%_ScriptsTotalCount%"
+    REM CALL "%~dp0\_Action" "Total unit tests"
+    REM CALL "%~dp0\_Status" "%_UnitTestsTotalCount%"
+    REM CALL "%~dp0\_Action" "Tests failing"
+    REM CALL "%~dp0\_Status" "%_UnitTestFailCount%"
+    REM CALL "%~dp0\_Action" "Tests not available"
+    REM CALL "%~dp0\_Status" "%_UnitTestMissingCount%"
 
-    REM CALL _Action "Missing scripts list"
+    REM CALL "%~dp0\_Action" "Missing scripts list"
     REM IF EXIST "%_TestMissingList%" (
-        REM CALL _Status "Opening"
+        REM CALL "%~dp0\_Status" "Opening"
         REM START "Missing scripts" /B notepad "%_TestMissingList%"
     REM ) ELSE (
-        REM CALL _Status "Skip"
+        REM CALL "%~dp0\_Status" "Skip"
     REM )
 
     ::ECHO ---------------------------------------------------
-    REM CALL _Action "Failing scripts list"
+    REM CALL "%~dp0\_Action" "Failing scripts list"
     REM IF EXIST "%_TestFailingList%" (
-        REM CALL _Status "Opening"
+        REM CALL "%~dp0\_Status" "Opening"
         REM START "Failing tests"   /B notepad "%_TestFailingList%"
     REM ) ELSE (
-        REM CALL _Status "Skip"
+        REM CALL "%~dp0\_Status" "Skip"
     REM )
 
-    CALL _Action "%$NAME%"
-    CALL _Status "Done"
+    CALL "%~dp0\_Action" "%$NAME%"
+    CALL "%~dp0\_Status" "Done"
 GOTO :EOF :UnitTest.finalize
 
 ::----------------------------------------------------------------------
@@ -325,21 +326,21 @@ GOTO :EOF :UnitTest.finalize
     SET _UnitTest=UnitTest\%~n1.UnitTest%~x1
 
     TITLE %_Script% - documentation
-    CALL _Action "- %_Script%"
+    CALL "%~dp0\_Action" "- %_Script%"
 
     REM IF EXIST "%_UnitTest%" (
         REM CALL :UnitTest.TestScript
     REM ) ELSE (
-        REM CALL _Status "Not available"
+        REM CALL "%~dp0\_Status" "Not available"
         REM CALL SET /A _UnitTestMissingCount+=1
         REM ECHO %_Script% >>"%_TestMissingList%"
     REM )
-    CALL _state "*** building ***"
+    CALL "%~dp0\_state" "*** building ***"
 
     CALL what.cmd "%~1" >Documentation\%~n1.txt 
     CALL what.cmd "%~1" -html >Documentation\%~n1.html  
     ECHO ^<li^>^<a href="%~n1.html" target="main"^>%~n1^</a^>  >>Documentation\index.frame.html 
-    CALL _status "Done"
+    CALL "%~dp0\_status" "Done"
 
 GOTO :EOF :UnitTest.ProcessScript
 
@@ -347,15 +348,15 @@ GOTO :EOF :UnitTest.ProcessScript
 
 REM :UnitTest.TestScript
     REM CALL SET /A _UnitTestsTotalCount+=1
-    REM CALL _State "Test found - running.."
+    REM CALL "%~dp0\_State" "Test found - running.."
     REM SET ErrorLevel=
     REM CALL "%_UnitTest%" >> "%$LogFile%" 2>>"%$TraceFile%"
     REM IF ErrorLevel 1 ( 
-        REM CALL _Status "FAIL [%ErrorLevel%]"
+        REM CALL "%~dp0\_Status" "FAIL [%ErrorLevel%]"
         REM CALL SET /A _UnitTestFailCount+=1
         REM ECHO:%_UnitTest%>>"%_TestFailingList%"
     REM ) ELSE (
-        REM CALL _Status "OK" 
+        REM CALL "%~dp0\_Status" "OK" 
     REM )
     
 REM GOTO :EOF :UnitTest.TestScript

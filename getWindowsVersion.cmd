@@ -94,7 +94,8 @@ SET $SOURCE=%~f0
 ::SET $VERSION=2014-01-07&SET $REVISION=17:27:00&SET $COMMENT=Reading from reg/ErikBachmann [01.010]
 ::SET $VERSION=2015-02-19&SET $REVISION=03:01:53&SET $COMMENT=Autoupdate / ErikBachmann
 ::SET $VERSION=2015-03-23&SET $REVISION=10:35:00&SET $COMMENT=Fixed return variable: %~n0 / ErikBachmann
-  SET $VERSION=2015-10-08&SET $REVISION=11:20:00&SET $COMMENT=GetOpt: Calling usage on -h and exit on error / ErikBachmann
+::SET $VERSION=2015-10-08&SET $REVISION=11:20:00&SET $COMMENT=GetOpt: Calling usage on -h and exit on error / ErikBachmann
+  SET $VERSION=2016-03-14&SET $REVISION=10:00:00&SET $COMMENT=Set "%~dp0\ prefix on function calls / ErikBachmann
 ::**********************************************************************
 ::@(#)(c)%$Version:~0,4% %$Author%
 ::**********************************************************************
@@ -110,8 +111,8 @@ ENDLOCAL
 
 :MAIN
 
-    CALL _GetOpt %*
-    CALL _Debug
+    CALL "%~dp0\_GetOpt" %*
+    CALL "%~dp0\_Debug"
 
     SET $WINVERNAME=UNKNOWN
     SET $WINVERNO=UNKNOWN

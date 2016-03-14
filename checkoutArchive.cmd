@@ -73,7 +73,8 @@ SET $SOURCE=%~f0
 ::SET $VERSION=2010-11-12&SET $REVISION=16:23:00&SET $COMMENT=Adding exact path to _prescript/ErikBachmann [01.010]
 ::SET $VERSION=2015-02-19&SET $REVISION=02:54:38&SET $COMMENT=Autoupdate / ErikBachmann
 ::SET $VERSION=2015-10-08&SET $REVISION=11:20:00&SET $COMMENT=GetOpt: Calling usage on -h and exit on error / ErikBachmann
-  SET $VERSION=2015-11-12&SET $REVISION=15:32:00&SET $COMMENT=Adding Debug info / ErikBachmann
+::SET $VERSION=2015-11-12&SET $REVISION=15:32:00&SET $COMMENT=Adding Debug info / ErikBachmann
+  SET $VERSION=2016-03-14&SET $REVISION=10:00:00&SET $COMMENT=Set "%~dp0\ prefix on function calls / ErikBachmann
 ::**********************************************************************
 ::@(#)(c)%$Version:~0,4% %$Author%
 ::**********************************************************************
@@ -97,10 +98,10 @@ ECHO:
 :Finalize
     TITLE %$NAME% done: Tested %_FileCount%. Updates %_FilesCopied% 
     ECHO:
-    CALL _Action "Files tested"
-    CALL _Status "%_FileCount%"
-    CALL _Action "Files installed/updated"
-    CALL _Status "%_FilesCopied%"
+    CALL "%~dp0\_Action" "Files tested"
+    CALL "%~dp0\_Status" "%_FileCount%"
+    CALL "%~dp0\_Action" "Files installed/updated"
+    CALL "%~dp0\_Status" "%_FilesCopied%"
     ECHO:*** Done ***
 GOTO :EOF
 
@@ -121,17 +122,17 @@ GOTO :EOF
     CALL SET _FileTime=!_FileTime::=-!
     %_DEBUG_% FileTime[%_FileTime%]
 
-    CALL _Action "[%_target%] [%_fileTime%]"
+    CALL "%~dp0\_Action" "[%_target%] [%_fileTime%]"
     :: IF target does not exist COPY
     IF NOT EXIST "%_target%" (
         %_DEBUG_% Target not found: Installing
-        CALL _State "Installing"
+        CALL "%~dp0\_State" "Installing"
         
         COPY /V "%_Source%" "%_target%">nul 2>&1
         IF ErrorLevel 1 (
-            CALL _Status "Instal FAILED"
+            CALL "%~dp0\_Status" "Instal FAILED"
         ) ELSE (
-            CALL _Status "Installed OK"
+            CALL "%~dp0\_Status" "Installed OK"
             SET /A _FilesCopied+=1
         ) 
         GOTO :EOF
@@ -145,20 +146,20 @@ GOTO :EOF
     
     IF /I "%_targetTime%" LSS "%_FileTime%" (
         %_DEBUG_% _TargetTime[%_targetTime%] LSS _FileTime[%_FileTime%] = Update
-        CALL _State "Updating..."
+        CALL "%~dp0\_State" "Updating..."
         TITLE Updating %_target%
         %_DEBUG_% "%_Source%" -^> "%_target%"
         COPY /V "%_Source%" "%_target%">nul 2>&1
         IF ErrorLevel 1 (
-            CALL _Status "Update FAILED"
+            CALL "%~dp0\_Status" "Update FAILED"
         ) ELSE (
-            CALL _Status "Updated OK"
+            CALL "%~dp0\_Status" "Updated OK"
             SET /A _FilesCopied+=1
         )
         TITLE %_target% done
     )
-    IF /I "%_targetTime%" GTR "%_FileTime%" CALL _Status Ignore&%_DEBUG_% _TargetTime[%_targetTime%] GTR _FileTime[%_FileTime%] = Ignore
-    IF /I "%_targetTime%" EQU "%_FileTime%" CALL _Status Identical&%_DEBUG_% _TargetTime[%_targetTime%] EQU _FileTime[%_FileTime%] = Identical
+    IF /I "%_targetTime%" GTR "%_FileTime%" CALL "%~dp0\_Status" Ignore&%_DEBUG_% _TargetTime[%_targetTime%] GTR _FileTime[%_FileTime%] = Ignore
+    IF /I "%_targetTime%" EQU "%_FileTime%" CALL "%~dp0\_Status" Identical&%_DEBUG_% _TargetTime[%_targetTime%] EQU _FileTime[%_FileTime%] = Identical
 GOTO :EOF
 
 :ArchiveFile

@@ -71,7 +71,8 @@ SET $SOURCE=%~f0
 ::SET $VERSION=YYYY-MM-DD&SET $REVISION=hh:mm:ss&SET $COMMENT=Description/init
 ::SET $VERSION=2015-02-19&SET $REVISION=16:00:00&SET $COMMENT=Autoupdate / ErikBachmann
 ::SET $VERSION=2015-03-30&SET $REVISION=10:09:00&SET $COMMENT=Examples / ErikBachmann
-  SET $VERSION=2015-10-08&SET $REVISION=11:20:00&SET $COMMENT=GetOpt: Calling usage on -h and exit on error / ErikBachmann
+::SET $VERSION=2015-10-08&SET $REVISION=11:20:00&SET $COMMENT=GetOpt: Calling usage on -h and exit on error / ErikBachmann
+  SET $VERSION=2016-03-14&SET $REVISION=10:00:00&SET $COMMENT=Set "%~dp0\ prefix on function calls / ErikBachmann
 ::**********************************************************************
 ::@(#)(c)%$Version:~0,4% %$Author%
 ::**********************************************************************
@@ -82,7 +83,7 @@ SET $SOURCE=%~f0
 ::ENDLOCAL
 
     SET UTC=%~2
-    IF NOT DEFINED UTC CALL _utc
+    IF NOT DEFINED UTC CALL "%~dp0\_utc"
 
 ::http://stackoverflow.com/questions/11364147/setting-a-windows-batch-file-variable-to-the-day-of-the-week
 :: Man - Sun 0 - 6

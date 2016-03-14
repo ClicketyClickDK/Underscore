@@ -73,7 +73,8 @@ SET $SOURCE=%~f0
 ::*** HISTORY **********************************************************
 ::SET $VERSION=xx.xxx&SET $REVISION=YYYY-MM-DDThh:mm&SET $COMMENT=Description/init
 ::SET $VERSION=2015-02-19&SET $REVISION=00:00:00&SET $COMMENT=Initial/ErikBachmann
-  SET $VERSION=2015-10-08&SET $REVISION=16:00:00&SET $COMMENT=GetOpt: Calling usage and exit on error / ErikBachmann
+::SET $VERSION=2015-10-08&SET $REVISION=16:00:00&SET $COMMENT=GetOpt: Calling usage and exit on error / ErikBachmann
+  SET $VERSION=2016-03-14&SET $REVISION=10:00:00&SET $COMMENT=Set "%~dp0\ prefix on function calls / ErikBachmann
 ::**********************************************************************
 ::@(#)(c)%$Version:~0,4% %$Author%
 ::**********************************************************************
@@ -83,15 +84,15 @@ ENDLOCAL
 
 
 :CallFunc
-    CALL _Action "%~1"
+    CALL "%~dp0\_Action" "%~1"
 
     CALL %~2 %~3 %~4 %~5 %~6 %~7 %~8 %~9
     %_DEBUG_% ErrorLevel: [%ErrorLevel%]
     IF ERRORLEVEL 1 ( 
         SET /A $ErrorLevel+=%ErrorLevel%
-        CALL _STATUS "Failure"
+        CALL "%~dp0\_STATUS" "Failure"
     ) ELSE (
-        CALL _Status OK
+        CALL "%~dp0\_Status" OK
     )
 
 GOTO :EOF

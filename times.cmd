@@ -152,7 +152,8 @@ SET $SOURCE=%~f0
 ::@ (#)  %$AUTHOR%
 ::*** HISTORY **********************************************************
 ::SET $VERSION=YYYY-MM-DD&SET $REVISION=hh:mm:ss&SET $COMMENT=Description/init
-  SET $VERSION=2015-11-19&SET $REVISION=16:10:00&SET $COMMENT=Initial/ErikBachmann
+::SET $VERSION=2015-11-19&SET $REVISION=16:10:00&SET $COMMENT=Initial/ErikBachmann
+  SET $VERSION=2016-03-14&SET $REVISION=10:00:00&SET $COMMENT=Set "%~dp0\ prefix on function calls / ErikBachmann
 ::**********************************************************************
 ::@(#){COPY}%$VERSION:~0,4% %$Author%
 ::**********************************************************************
@@ -184,19 +185,19 @@ GOTO :EOF
     REM %_VERBOSE_%:Start       [%_start%]
     REM %_VERBOSE_%:End         [%_end%]
     REM %_VERBOSE_%:Milliseconds[%_epocDiff%]
-    1>&2 CALL _Action Start
-    1>&2 CALL _Status "%_start%"
-    1>&2 CALL _Action End
-    1>&2 CALL _Status "%_end%"
-    1>&2 CALL _Action Milliseconds
-    1>&2 CALL _Status "%_epocDiff%"
+    1>&2 CALL "%~dp0\_Action" Start
+    1>&2 CALL "%~dp0\_Status" "%_start%"
+    1>&2 CALL "%~dp0\_Action" End
+    1>&2 CALL "%~dp0\_Status" "%_end%"
+    1>&2 CALL "%~dp0\_Action" Milliseconds
+    1>&2 CALL "%~dp0\_Status" "%_epocDiff%"
 
     CALL :calc.date dDiff %_start:~0,4%-%_start:~4,2%-%_start:~6,2% %_end:~0,4%-%_end:~4,2%-%_end:~6,2%   
     CALL :epoc2iso _iso %_epocDiff% %dDiff%
 
     REM %_VERBOSE_%:Duration    [%_iso%]
-    1>&2 CALL _Action Duration
-    1>&2 CALL _Status "%_iso%"
+    1>&2 CALL "%~dp0\_Action" Duration
+    1>&2 CALL "%~dp0\_Status" "%_iso%"
 GOTO :EOF
 
 ::---------------------------------------------------------------------

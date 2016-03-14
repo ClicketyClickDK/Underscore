@@ -74,7 +74,8 @@ SET $SOURCE=%~f0
 ::SET $VERSION=xx.xxx&SET $REVISION=YYYY-MM-DDThh:mm&SET $COMMENT=Description/init
 ::SET $VERSION=2015-02-19&SET $REVISION=00:00:00&SET $COMMENT=Initial/ErikBachmann
 ::SET $VERSION=2015-10-08&SET $REVISION=11:20:00&SET $COMMENT=GetOpt: Calling usage on -h and exit on error / ErikBachmann
-  SET $VERSION=2015-11-23&SET $REVISION=16:30:00&SET $COMMENT=GetOpt replaced _getopt.sub simple call. Reduces runtime to 1/3 / ErikBachmann
+::SET $VERSION=2015-11-23&SET $REVISION=16:30:00&SET $COMMENT=GetOpt replaced _getopt.sub simple call. Reduces runtime to 1/3 / ErikBachmann
+  SET $VERSION=2016-03-14&SET $REVISION=10:00:00&SET $COMMENT=Set "%~dp0\ prefix on function calls / ErikBachmann
 ::**********************************************************************
 ::@(#)(c)%$Version:~0,4% %$Author%
 ::**********************************************************************
@@ -82,7 +83,7 @@ SET $SOURCE=%~f0
     CALL "%~dp0\_DEBUG"
     ::CALL "%~dp0\_Getopt" %*&IF ERRORLEVEL 1 EXIT /B 1
     :: Check ONLY for combinations of -h, /h, --help
-    CALL _getopt.sub %*&IF ERRORLEVEL 1 EXIT /B 1
+    CALL "%~dp0\_getopt.sub" %*&IF ERRORLEVEL 1 EXIT /B 1
 
 ::ENDLOCAL
 
@@ -93,8 +94,8 @@ SET $SOURCE=%~f0
     SET $LogFile=%$Source:~0,-4%.log
     SET $TraceFile=%$Source:~0,-4%.trc
 
-    CALL _GetOpt %*
-    CALL _DEBUG
+    CALL "%~dp0\_GetOpt" %*
+    CALL "%~dp0\_DEBUG"
 
     SET $ErrorLevel=0
     %_VERBOSE_% %$NAME% v.%$Version% -- %$Description%
@@ -105,18 +106,18 @@ SET $SOURCE=%~f0
     %_TRACE_% %$Revision% - %$Comment% >%$LogFile%
     %_DEBUG_% %$Revision% - %$Comment% >%$LogFile%
 
-::    CALL _registry.read_string "HKEY_LOCAL_MACHINE\SOFTWARE\ClicketyClick.dk\%$Name%" "ProgramFilesDir"
-    CALL _UTC>nul
-    CALL _registry.write_string ^
+::    CALL "%~dp0\_registry.read_string" "HKEY_LOCAL_MACHINE\SOFTWARE\ClicketyClick.dk\%$Name%" "ProgramFilesDir"
+    CALL "%~dp0\_UTC">nul
+    CALL "%~dp0\_registry.write_string" ^
         "HKEY_LOCAL_MACHINE\SOFTWARE\ClicketyClick.dk\%$Name%" ^
         "Status" "Started" 
-    CALL _registry.write_string ^
+    CALL "%~dp0\_registry.write_string" ^
         "HKEY_LOCAL_MACHINE\SOFTWARE\ClicketyClick.dk\%$Name%" ^
         "Start" "%UTC%"
-    CALL _registry.write_string ^
+    CALL "%~dp0\_registry.write_string" ^
         "HKEY_LOCAL_MACHINE\SOFTWARE\ClicketyClick.dk\%$Name%" ^
         "CmdLine" "%*" 
-    CALL _registry.write_string ^
+    CALL "%~dp0\_registry.write_string" ^
         "HKEY_LOCAL_MACHINE\SOFTWARE\ClicketyClick.dk\%$Name%" ^
         "Version" "%$Version% %$Revision%"
     

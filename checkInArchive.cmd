@@ -75,7 +75,8 @@ SET $SOURCE=%~f0
 ::SET $VERSION=2010-11-12&SET $REVISION=16:23:00&SET $COMMENT=Adding exact path to _prescript/ErikBachmann [01.010]
 ::SET $VERSION=2015-02-19&SET $REVISION=02:54:07&SET $COMMENT=Autoupdate / ErikBachmann
 ::SET $VERSION=2015-10-08&SET $REVISION=11:20:00&SET $COMMENT=GetOpt: Calling usage on -h and exit on error / ErikBachmann
-  SET $VERSION=2015-11-12&SET $REVISION=15:32:00&SET $COMMENT=Adding Debug info / ErikBachmann
+::SET $VERSION=2015-11-12&SET $REVISION=15:32:00&SET $COMMENT=Adding Debug info / ErikBachmann
+  SET $VERSION=2016-03-14&SET $REVISION=10:00:00&SET $COMMENT=Set "%~dp0\ prefix on function calls / ErikBachmann
 ::**********************************************************************
 ::@(#)(c)%$Version:~0,4% %$Author%
 ::**********************************************************************
@@ -98,8 +99,8 @@ ECHO:
 
 :Finalize
     ECHO:
-    CALL _Action "Files archived"
-    CALL _Status "%_FileCount%"
+    CALL "%~dp0\_Action" "Files archived"
+    CALL "%~dp0\_Status" "%_FileCount%"
     ECHO:*** Done ***
 GOTO :EOF
 

@@ -222,21 +222,21 @@ GOTO :EOF
     
     SET _PatternFile=%~f1
     SET _PatternFile=%_UnitTestScript%
-    CALL _Action "Name"
-    CALL _Status "%_scriptName%"
-    CALL _Action "Testing"
-    CALL _Status "%_scriptFile%"
-    CALL _Action "Script Dir"
-    CALL _Status "%_scriptDir%"
-    CALL _Action "Unit test"
-    CALL _Status "%_PatternFile%"
-    CALL _Action "Unit Test Dir"
-    CALL _Status "%_UnitTestDir%"
+    CALL "%~dp0\_Action" "Name"
+    CALL "%~dp0\_Status" "%_scriptName%"
+    CALL "%~dp0\_Action" "Testing"
+    CALL "%~dp0\_Status" "%_scriptFile%"
+    CALL "%~dp0\_Action" "Script Dir"
+    CALL "%~dp0\_Status" "%_scriptDir%"
+    CALL "%~dp0\_Action" "Unit test"
+    CALL "%~dp0\_Status" "%_PatternFile%"
+    CALL "%~dp0\_Action" "Unit Test Dir"
+    CALL "%~dp0\_Status" "%_UnitTestDir%"
     
-    CALL _Action "_MissingLog"
-    CALL _Status "%_MissingLog%"
-    CALL _Action "_FailedLog"
-    CALL _Status "%_FailedLog%"
+    CALL "%~dp0\_Action" "_MissingLog"
+    CALL "%~dp0\_Status" "%_MissingLog%"
+    CALL "%~dp0\_Action" "_FailedLog"
+    CALL "%~dp0\_Status" "%_FailedLog%"
 
     PUSHD "%~dp0"
 GOTO :EOF :init
@@ -245,7 +245,7 @@ GOTO :EOF :init
 
 :Process
     %_VERBOSE_%:
-    CALL _Action "%_ScriptFile%">Con:
+    CALL "%~dp0\_Action" "%_ScriptFile%">Con:
 
     TITLE %$NAME%: %_ScriptName% - Cleanup
     
@@ -256,13 +256,13 @@ GOTO :EOF :init
     )
 
     IF NOT EXIST "%_UnitTestScript%" (
-        CALL _STATUS "Missing"
+        CALL "%~dp0\_STATUS" "Missing"
         TITLE %$NAME%: %_ScriptName% - Missing
         ECHO:%_UnitTestScript%>>"%_MissingLog%"
         CALL SET _Result=999
         EXIT /b 999
     ) ELSE (
-        CALL _STATE "Testing..">CON:
+        CALL "%~dp0\_STATE" "Testing..">CON:
         TITLE %$NAME%: %_ScriptName% - Testing
     )
     %_DEBUG_% Script found - result[%_result%]
@@ -325,22 +325,22 @@ GOTO :EOF
         %_DEBUG_% %$NAME%:%0 - Success
         CALL SET /A _SuccessCount+=1
         ECHO:%_UnitTestScript% >>"%_SuccededLog%"
-        CALL _Status "OK."
+        CALL "%~dp0\_Status" "OK."
     ) ELSE IF "999"=="%_Result%" (
         %_DEBUG_% %$NAME%:%0 - Missing
         CALL SET /A _MissingCount+=1
         ECHO:%_UnitTestScript% >>"%_missingLog%"
-        CALL _Status "Missing"
+        CALL "%~dp0\_Status" "Missing"
     ) ELSE IF "998"=="%_Result%" (
         %_DEBUG_% %$NAME%:%0 - Skipped
         CALL SET /A _SkippedCount+=1
         ECHO:%_UnitTestScript% >>"%_skippedLog%"
-        CALL _State "Skipped"
-        FOR /F "DELIMS=;" %%A IN ('TYPE "%_TEMPDIR%\%_ScriptFile%.skip"') DO CALL _Status "%%A"
+        CALL "%~dp0\_State" "Skipped"
+        FOR /F "DELIMS=;" %%A IN ('TYPE "%_TEMPDIR%\%_ScriptFile%.skip"') DO CALL "%~dp0\_Status" "%%A"
     ) ELSE (
         %_DEBUG_% %$NAME%:%0 - Failed
         CALL SET /A _FailedCount+=1
-        CALL _Status "FAIL [%_Result%]"
+        CALL "%~dp0\_Status" "FAIL [%_Result%]"
         ECHO:%_UnitTestScript% >>"%_FailedLog%"
     )
     
@@ -362,8 +362,8 @@ GOTO :EOF :Finalize
         :: Count status
         FOR /F %%a IN ('DIR /B %_ScriptTypes%^|find /c "."') DO CALL SET _ScriptsTotal=%%a
 
-        CALL _Action "Scripts to process"
-        CALL _Status "%_ScriptsTotal%"
+        CALL "%~dp0\_Action" "Scripts to process"
+        CALL "%~dp0\_Status" "%_ScriptsTotal%"
         %_VERBOSE_%: 
         FOR /F %%a IN ('DIR /B %_ScriptTypes%^|sort')  DO CALL %~f0 %%a
 
@@ -375,22 +375,22 @@ GOTO :EOF :Finalize
         CALL SET /A _ScriptsCount= %_MissingCount% + %_FailedCount% + %_SuccessCount%
 
         %_VERBOSE_%:
-        CALL _Action "Scripts processed"
-        CALL _Status "%_ScriptsCount%"
-        CALL _Action "- Missing"
-        CALL _Status "%_MissingCount%"
-        CALL _Action "- Failed"
-        CALL _Status "%_FailedCount%"
-        CALL _Action "- Skipped"
-        CALL _Status "%_SkippedCount%"
-        CALL _Action "- Succeeded"
-        CALL _Status "%_SuccessCount%"
+        CALL "%~dp0\_Action" "Scripts processed"
+        CALL "%~dp0\_Status" "%_ScriptsCount%"
+        CALL "%~dp0\_Action" "- Missing"
+        CALL "%~dp0\_Status" "%_MissingCount%"
+        CALL "%~dp0\_Action" "- Failed"
+        CALL "%~dp0\_Status" "%_FailedCount%"
+        CALL "%~dp0\_Action" "- Skipped"
+        CALL "%~dp0\_Status" "%_SkippedCount%"
+        CALL "%~dp0\_Action" "- Succeeded"
+        CALL "%~dp0\_Status" "%_SuccessCount%"
         
         %_VERBOSE_%:Log files:
-        CALL _Action "_MissingLog"
-        CALL _Status "%_MissingLog%"
-        CALL _Action "_FailedLog"
-        CALL _Status "%_FailedLog%"
+        CALL "%~dp0\_Action" "_MissingLog"
+        CALL "%~dp0\_Status" "%_MissingLog%"
+        CALL "%~dp0\_Action" "_FailedLog"
+        CALL "%~dp0\_Status" "%_FailedLog%"
         %_VERBOSE_%:
         %_VERBOSE_%:Logs:
         DIR /B "%_TEMPDIR%\%$NAME%.*.log"
@@ -425,24 +425,24 @@ GOTO :EOF
 
     %_VERBOSE_%: Running aelf tests
     (
-        CALL _Action "::Missing - no script"
-        CALL _Status "Expect: Missing"
+        CALL "%~dp0\_Action" "::Missing - no script"
+        CALL "%~dp0\_Status" "Expect: Missing"
         CALL "%~f0" "%~nx0" "%~n0.%~n0.missing%~x0"
         
-        CALL _Action ":: match = no hexdump or ref"
-        CALL _Status "Expect: OK"
+        CALL "%~dp0\_Action" ":: match = no hexdump or ref"
+        CALL "%~dp0\_Status" "Expect: OK"
         CALL "%~f0" "%~nx0" "%~n0.%~n0.match%~x0"
         
-        CALL _Action "::Ref exists"
-        CALL _Status "Expect: OK"
+        CALL "%~dp0\_Action" "::Ref exists"
+        CALL "%~dp0\_Status" "Expect: OK"
         CALL "%~f0" "%~nx0" "%~n0.%~n0.ref%~x0"
         
-        CALL _Action "::HEXdump exists"
-        CALL _Status "Expect: OK"
+        CALL "%~dp0\_Action" "::HEXdump exists"
+        CALL "%~dp0\_Status" "Expect: OK"
         CALL "%~f0" "%~nx0" "%~n0.%~n0.hex%~x0"
             
-        CALL _Action "::Skip file exists"
-        CALL _Status "Expect: Skipped:..."
+        CALL "%~dp0\_Action" "::Skip file exists"
+        CALL "%~dp0\_Status" "Expect: Skipped:..."
         CALL "%~f0" "%~nx0" "%~n0.%~n0.skip%~x0"
     )
 

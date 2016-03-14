@@ -101,7 +101,8 @@ SET $SOURCE=%~f0
 ::SET $VERSION=YYYY-MM-DD&SET $REVISION=hh:mm:ss&SET $COMMENT=Init Description [xx.xxx]
 ::SET $VERSION=2015-02-09&SET $REVISION=09:55:05&SET $COMMENT=Erik/Initial
 ::SET $VERSION=2015-02-19&SET $REVISION=03:07:27&SET $COMMENT=Autoupdate / ErikBachmann
-  SET $VERSION=2015-10-08&SET $REVISION=11:20:00&SET $COMMENT=GetOpt: Calling usage on -h and exit on error / ErikBachmann
+::SET $VERSION=2015-10-08&SET $REVISION=11:20:00&SET $COMMENT=GetOpt: Calling usage on -h and exit on error / ErikBachmann
+  SET $VERSION=2016-03-14&SET $REVISION=10:00:00&SET $COMMENT=Set "%~dp0\ prefix on function calls / ErikBachmann
 ::**********************************************************************
 ::@(#)(c)%$Version:~0,4% %$Author%
 ::**********************************************************************
@@ -140,8 +141,8 @@ GOTO :EOF
     FOR /F "tokens=1 delims=:" %%G in (
         'findstr "^::MATCH[:vi]*" "%_unittest%"^|findstr /n /v "^#"^|findstr /n ":"') DO (
         CALL SET _TestsExpected=%%G)
-    CALL _Action "Tests to execute"
-    CALL _Status "%_TestsExpected%"
+    CALL "%~dp0\_Action" "Tests to execute"
+    CALL "%~dp0\_Status" "%_TestsExpected%"
     ECHO:
     FOR /F "tokens=*" %%a in ('findstr "^::MATCH[:vi]*" "%_unittest%"') DO (
         CALL SET _pattern=%%a
