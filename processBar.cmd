@@ -12,10 +12,11 @@ SET $SOURCE=%~f0
 ::@(-)  In the case of a command, a formal description of how to run it and what command line options it takes. 
 ::@(-)  For program functions, a list of the parameters the function takes and which header file contains its definition.
 ::@(-)  
-::@(#)      %$NAME% [ [ProcessMax] [ProcessBarMaker] [CurrentValue] ]
+::@(#)      %$NAME% [ [ProcessMax] [ProcessBarMaker] ]
+::@(#)      %$NAME% [ [CurrentValue] ]
 ::@(#) 
 ::@(#)  Initiate process bar
-::@(#)      %$NAME% [ProcessMax] [ProcessBarMaker]
+::@(#)      %$NAME% [ProcessMax] {ProcessBarMaker}
 ::@(#) 
 ::@(#)  Update process bar
 ::@(#)      %$NAME% [CurrentValue]
@@ -92,22 +93,24 @@ SET $SOURCE=%~f0
 ::SET $VERSION=2010-10-14&SET $REVISION=14:27:00&SET $COMMENT=Initial/ErikBachmann [01.000]
 ::SET $VERSION=2010-10-20&SET $REVISION=17:15:00&SET $COMMENT=Addding $Source/ErikBachmann [01.001]
 ::SET $VERSION=2015-02-19&SET $REVISION=03:09:09&SET $COMMENT=Autoupdate / ErikBachmann
-  SET $VERSION=2015-10-08&SET $REVISION=11:20:00&SET $COMMENT=GetOpt: Calling usage on -h and exit on error / ErikBachmann
+::SET $VERSION=2015-10-08&SET $REVISION=11:20:00&SET $COMMENT=GetOpt: Calling usage on -h and exit on error / ErikBachmann
+::SET $VERSION=2016-03-14&SET $REVISION=09:02:00&SET $COMMENT=GetOpt.sub: Uptimised argument processing / ErikBachmann
+  SET $VERSION=2016-03-14&SET $REVISION=10:00:00&SET $COMMENT=Set "%~dp0\ prefix on function calls / ErikBachmann
 ::**********************************************************************
 ::@(#)(c)%$Version:~0,4% %$Author%
 ::**********************************************************************
 
     CALL "%~dp0\_DEBUG"
-    CALL "%~dp0\_Getopt" %*&IF ERRORLEVEL 1 EXIT /B 1
-
+    CALL "%~dp0\_getopt.sub" %*&IF ERRORLEVEL 1 EXIT /B 1
+ 
 ENDLOCAL
 
 :MAIN
-    CALL _GetOpt %*
-    CALL _DEBUG
+::    CALL "%~dp0\_GetOpt" %*
+    CALL "%~dp0\_DEBUG"
 
     CALL :ProcessBar %*
-GOTO :EOF
+GOTO :EOF   *** :MAIN ***
 
 ::----------------------------------------------------------------------
 
@@ -135,18 +138,37 @@ GOTO :EOF
     
    IF "%_1:~-9%" LEQ "%_2:~-9%" (
         CALL :_SetMark
+        CALL :_tBar
     )
     EXIT /B 0
-GOTO :EOF
+GOTO :EOF   *** :ProcessBar ***
+
+::----------------------------------------------------------------------
+
+:_tBar
+    SETLOCAL ENABLEDELAYEDEXPANSION
+    SET __bar=
+    FOR /L %%i IN ( 2, 2 %_ProcessBarCurrent%) DO (
+        SET __bar=!__bar!%_ProcessBarMarker%
+    )
+
+    FOR /L %%i IN ( %_ProcessBarCurrent%, 2, 99) DO (
+        SET __bar=!__bar!_
+    )
+    ::SET __bar=!__bar!
+    TITLE[!__bar!] %_ProcessBarCurrent%%%
+
+    ENDLOCAL
+GOTO :EOF   *** _tBar ***
 
 ::----------------------------------------------------------------------
 
 :_SetMark
         FOR /L %%i IN ( %_ProcessBarMark%, 2,%_ProcessBarCurrent%) DO (
             SET /P _=%_ProcessBarMarker%<nul
-            call SET /a _ProcessBarMark+=2
+            CALL SET /a _ProcessBarMark+=2
         )
-GOTO :EOF
+GOTO :EOF   *** _SetMark ***
 
 ::----------------------------------------------------------------------
 
@@ -169,6 +191,6 @@ GOTO :EOF
     FOR /L %%x IN (1,1,50) DO >&2 SET /P _=.< NUl
     >&2 SET /P _=]< NUl
     FOR /L %%x IN (1,1,51) DO @set /p=<nul >&2
-GOTO :EOF
+GOTO :EOF   *** _ProcessBar ***
 
 ::*** End of File ******************************************************

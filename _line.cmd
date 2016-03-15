@@ -76,7 +76,8 @@ SET $SOURCE=%~f0
 ::*** HISTORY **********************************************************
 ::SET $VERSION=xx.xxx&SET $REVISION=YYYY-MM-DDThh:mm&SET $COMMENT=Description/init
 ::SET $VERSION=2015-10-08&SET $REVISION=11:20:00&SET $COMMENT=GetOpt: Calling usage on -h and exit on error / ErikBachmann
-  SET $VERSION=2015-11-23&SET $REVISION=16:30:00&SET $COMMENT=GetOpt replaced _getopt.sub simple call. Reduces runtime to 1/3 / ErikBachmann
+::SET $VERSION=2015-11-23&SET $REVISION=16:30:00&SET $COMMENT=GetOpt replaced _getopt.sub simple call. Reduces runtime to 1/3 / ErikBachmann
+  SET $VERSION=2016-03-14&SET $REVISION=10:00:00&SET $COMMENT=Set "%~dp0\ prefix on function calls / ErikBachmann
 ::**********************************************************************
 ::@(#)(c)%$Version:~0,4% %$Author%
 ::**********************************************************************
@@ -84,13 +85,13 @@ SET $SOURCE=%~f0
     CALL "%~dp0\_DEBUG"
     ::CALL "%~dp0\_Getopt" %*&IF ERRORLEVEL 1 EXIT /B 1
     :: Check ONLY for combinations of -h, /h, --help
-    CALL _getopt.sub %*&IF ERRORLEVEL 1 EXIT /B 1
+    CALL "%~dp0\_getopt.sub" %*&IF ERRORLEVEL 1 EXIT /B 1
 
 ::ENDLOCAL
 
 :INIT
-    CALL _CR
-    CALL _BS
+    CALL "%~dp0\_CR"
+    CALL "%~dp0\_BS"
 
     SET _LENGTH=%~1
     IF NOT DEFINED _LENGTH SET _LENGTH=72

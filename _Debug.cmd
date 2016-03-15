@@ -79,7 +79,8 @@ SET $Source=%~dpnx0
 ::SET $VERSION=01.023&SET $REVISION=2010-12-02T16:43:00&SET $Comment=Addding _LOG_ and _Trace_/EBP
 ::SET $VERSION=01.024&SET $REVISION=2011-01-27T14:00:00&SET $Comment=Default $LogFile and $TraceFile/EBP
 ::SET $VERSION=01.026&SET $REVISION=2011-06-06T15:03:00&SET $Comment=Stub to errorhandler/EBP
-  SET $VERSION=2015-10-08&SET $REVISION=16:00:00&SET $COMMENT=GetOpt: Calling usage and exit on error / ErikBachmann
+::SET $VERSION=2015-10-08&SET $REVISION=16:00:00&SET $COMMENT=GetOpt: Calling usage and exit on error / ErikBachmann
+  SET $VERSION=2016-03-14&SET $REVISION=10:00:00&SET $COMMENT=Set "%~dp0\ prefix on function calls / ErikBachmann
 ::**********************************************************************
 ::@(#)(C)%$Version:~0,4% %$Author%
 ::**********************************************************************
@@ -115,11 +116,11 @@ IF DEFINED DEBUG (
         )
         IF "3" == "%DEBUG%" (
             ECHO ON
-            SET _DEBUG_=CALL _DEBUG3 
+            SET _DEBUG_=CALL "%~dp0\_DEBUG3" 
         )
         IF "3" == "%DEBUG%" (
             ECHO ON
-            SET _DEBUG_=CALL _DEBUG4 
+            SET _DEBUG_=CALL "%~dp0\_DEBUG4" 
         )
         
     )

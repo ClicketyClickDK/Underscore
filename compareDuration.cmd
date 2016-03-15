@@ -95,7 +95,8 @@ SET $SOURCE=%~f0
 ::@ (#)  %$AUTHOR%
 ::*** HISTORY **********************************************************
 ::SET $VERSION=YYYY-MM-DD&SET $REVISION=hh:mm:ss&SET $COMMENT=Description/init
-  SET $VERSION=2015-11-26&SET $REVISION=11:37:00&SET $COMMENT=EB / Init
+::SET $VERSION=2015-11-26&SET $REVISION=11:37:00&SET $COMMENT=EB / Init
+  SET $VERSION=2016-03-14&SET $REVISION=10:00:00&SET $COMMENT=Set "%~dp0\ prefix on function calls / ErikBachmann
 ::**********************************************************************
 ::@(#)(c)%$Version:~0,4% %$Author%
 ::**********************************************************************
@@ -113,30 +114,30 @@ SET $SOURCE=%~f0
 
 :process
 
-    CALL _Action "No of loops"
-    CALL _Status "%_MAX_Loop%"
+    CALL "%~dp0\_Action" "No of loops"
+    CALL "%~dp0\_Status" "%_MAX_Loop%"
 
-    CALL _Action Command1
-    CALL _Status "%_CMD1%"
+    CALL "%~dp0\_Action" Command1
+    CALL "%~dp0\_Status" "%_CMD1%"
 
-    CALL _Action Command2
-    CALL _Status "%_CMD2%"
+    CALL "%~dp0\_Action" Command2
+    CALL "%~dp0\_Status" "%_CMD2%"
     ECHO:
 
 
     FOR %%i in (_loop _loop2) DO IF DEFINED %%i SET %%i=
 
-    CALL _Action Duration of command1
-    CALL _Status "%_CMD1%"
-    CALL duration _loop
+    CALL "%~dp0\_Action" Duration of command1
+    CALL "%~dp0\_Status" "%_CMD1%"
+    CALL "%~dp0\duration" _loop
     FOR /L %%a IN (1,1,%_MAX_Loop%) DO CALL %_CMD1% >"%TEMP%\cmd1.log" 2>&1
-    CALL duration _loop
+    CALL "%~dp0\duration" _loop
 
-    CALL _Action Duration of command2
-    CALL _Status "%_CMD2%"
-    CALL duration _loop2
+    CALL "%~dp0\_Action" Duration of command2
+    CALL "%~dp0\_Status" "%_CMD2%"
+    CALL "%~dp0\duration" _loop2
     FOR /L %%a IN (1,1,%_MAX_Loop%) DO CALL %_CMD2% >"%TEMP%\cmd2.log" 2>&1
-    CALL duration _loop2
+    CALL "%~dp0\duration" _loop2
 GOTO :EOF
 
 ::*** End of File *****************************************************

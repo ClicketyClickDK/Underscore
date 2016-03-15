@@ -70,7 +70,8 @@ SET $SOURCE=%~f0
 ::@ (#)  %$AUTHOR%
 ::*** HISTORY **********************************************************
 ::SET $VERSION=YYYY-MM-DD&SET $REVISION=hh:mm:ss&SET $COMMENT=Description/init
-  SET $VERSION=2015-02-19&SET $REVISION=00:00:00&SET $COMMENT=Initial/ErikBachmann
+::SET $VERSION=2015-02-19&SET $REVISION=00:00:00&SET $COMMENT=Initial/ErikBachmann
+  SET $VERSION=2016-03-14&SET $REVISION=10:00:00&SET $COMMENT=Set "%~dp0\ prefix on function calls / ErikBachmann
 ::**********************************************************************
 ::@(#){COPY}%$VERSION:~0,4% %$Author%
 ::**********************************************************************
@@ -78,7 +79,7 @@ SET $SOURCE=%~f0
 
 :MAIN
     :: Initiating global environmen
-    CALL %~dp0\_PreScript %* || (CALL %~dp0\_PostScript & EXIT /B 1 )
+    CALL "%~dp0\_PreScript" %* || (CALL %~dp0\_PostScript & EXIT /B 1 )
 
     :: Initiating Local environmen
     CALL :Init %*
@@ -99,7 +100,7 @@ SET $SOURCE=%~f0
     CALL :CallFunc "DIR out OK"             ">>out.ok.txt 2>&1" "DIR /b %SystemDrive%\"
 
     :: Post processing
-    CALL _PostScript
+    CALL "%~dp0\_PostScript"
 GOTO :EOF
 
 ::----------------------------------------------------------------------
@@ -123,15 +124,15 @@ GOTO :EOF
 
 :: SubFunction handling status reports, verbose info and trace
 :CallFunc [Argument]
-    CALL _Action "%~1"
+    CALL "%~dp0\_Action" "%~1"
 
     CALL %~2 %~3 %~4 %~5 %~6 %~7 %~8 %~9
     %_DEBUG_% ErrorLevel: [%ErrorLevel%]
     IF ERRORLEVEL 1 ( 
         SET /A $ErrorLevel+=%ErrorLevel%
-        CALL _STATUS "Failure"
+        CALL "%~dp0\_STATUS" "Failure"
     ) ELSE (
-        CALL _Status OK
+        CALL "%~dp0\_Status" OK
     )
 GOTO :EOF
 

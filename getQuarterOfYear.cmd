@@ -77,7 +77,8 @@ SET $SOURCE=%~f0
 ::*** HISTORY **********************************************************
 ::SET $VERSION=YYYY-MM-DD&SET $REVISION=hh:mm:ss&SET $COMMENT=Description/init
 ::SET $VERSION=2015-02-19&SET $REVISION=16:00:00&SET $COMMENT=Autoupdate / ErikBachmann
-  SET $VERSION=2015-10-08&SET $REVISION=11:20:00&SET $COMMENT=GetOpt: Calling usage on -h and exit on error / ErikBachmann
+::SET $VERSION=2015-10-08&SET $REVISION=11:20:00&SET $COMMENT=GetOpt: Calling usage on -h and exit on error / ErikBachmann
+  SET $VERSION=2016-03-14&SET $REVISION=10:00:00&SET $COMMENT=Set "%~dp0\ prefix on function calls / ErikBachmann
 ::**********************************************************************
 ::@(#)(c)%$Version:~0,4% %$Author%
 ::**********************************************************************
@@ -88,7 +89,7 @@ SET $SOURCE=%~f0
 ::ENDLOCAL
 
     SET UTC=%~1
-    IF NOT DEFINED UTC CALL _utc
+    IF NOT DEFINED UTC CALL "%~dp0\_utc"
     SET /A Month=10%UTC:~5,2% %% 100 - 1
     ::SET /a Month=1%month% - 101
     SET /A QuarterOfYear=(%Month% / 3) + 1

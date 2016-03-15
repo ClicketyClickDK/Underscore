@@ -18,7 +18,7 @@ SET $SOURCE=%~f0
 ::@(#)OPTIONS
 ::@(-)  Flags, parameters, arguments (NOT the Monty Python way)
 ::@(#)  -h      Help page
-::@(#)      Sequence "-\|/" [Default]
+::@(#)      Sequence "-\{PIPE}/" [Default]
 ::@(#)  o   Sequence "_.oO" 
 ::@(#) 
 ::@(#)DESCRIPTION
@@ -29,13 +29,13 @@ SET $SOURCE=%~f0
 ::@(-)  Some examples of common usage.
 ::@(#)      SET _last_line=10
 ::@(#)      SET _Spinner=
-::@(#)      FOR /L %%x IN (1,1,%_last_line%) DO (
+::@(#)      FOR /L {PCT}{PCT}x IN (1,1,{PCT}_last_line{PCT}) DO (
 ::@(#)          CALL spinner
-::@(#)          timeout 1 >nul
+::@(#)          timeout 1 {GT}nul
 ::@(#)      )
 ::@(#) 
 ::@(#) Or shorter
-::@(#)      FOR /L %%x IN (1,1,10) DO @CALL spinner&timeout 1 >nul
+::@(#)      FOR /L {PCT}%x IN (1,1,10) DO @CALL spinner{AMP}timeout 1 {GT}nul
 ::@(#) 
 ::@ (#)EXIT STATUS
 ::@(-)  Exit status / errorlevel is 0 if OK, otherwise 1+.
@@ -77,7 +77,8 @@ SET $SOURCE=%~f0
 ::*** HISTORY **********************************************************
 ::SET $VERSION=YYYY-MM-DD&SET $REVISION=hh:mm:ss&SET $COMMENT=Description/init
 ::SET $VERSION=2015-03-31&SET $REVISION=16:06:32&SET $COMMENT=Initial/ErikBachmann
-  SET $VERSION=2015-10-08&SET $REVISION=11:20:00&SET $COMMENT=GetOpt: Calling usage on -h and exit on error / ErikBachmann
+::SET $VERSION=2015-10-08&SET $REVISION=11:20:00&SET $COMMENT=GetOpt: Calling usage on -h and exit on error / ErikBachmann
+  SET $VERSION=2016-03-14&SET $REVISION=10:00:00&SET $COMMENT=Set "%~dp0\ prefix on function calls / ErikBachmann
 ::**********************************************************************
 ::@(#)(c)%$Version:~0,4% %$Author%
 ::**********************************************************************
@@ -93,7 +94,7 @@ ENDLOCAL
         SET "__SPIN=Ä\³/"
         IF /I "o"=="%~1" SET "__Spin=_.oO"
         
-        IF NOT DEFINED _BS CALL _BS
+        IF NOT DEFINED _BS CALL "%~dp0\_BS"
         IF NOT DEFINED _Spinner SET _SPINNER=0
         
         CALL SET "_Token=%%__spin:~%_spinner%,1%%"

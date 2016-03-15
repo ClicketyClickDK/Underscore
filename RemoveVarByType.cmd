@@ -71,7 +71,8 @@ SET $SOURCE=%~f0
 ::*** HISTORY **********************************************************
 ::SET $VERSION=YYYY-MM-DD&SET $REVISION=hh:mm:ss&SET $COMMENT=Description/init
 ::SET $VERSION=2015-02-19&SET $REVISION=16:00:00&SET $COMMENT=Autoupdate / ErikBachmann
-  SET $VERSION=2015-10-08&SET $REVISION=11:20:00&SET $COMMENT=GetOpt: Calling usage on -h and exit on error / ErikBachmann
+::SET $VERSION=2015-10-08&SET $REVISION=11:20:00&SET $COMMENT=GetOpt: Calling usage on -h and exit on error / ErikBachmann
+  SET $VERSION=2016-03-14&SET $REVISION=10:00:00&SET $COMMENT=Set "%~dp0\ prefix on function calls / ErikBachmann
 ::**********************************************************************
 ::@(#)(c)%$Version:~0,4% %$Author%
 ::**********************************************************************
@@ -82,14 +83,14 @@ SET $SOURCE=%~f0
 ENDLOCAL
 
 :MAIN
-    FOR /F %%A IN ('(set %~1 ^) 2^>^&1 ^| find /C "="') DO CALL _Action "- Removing vars [%~1]: %%A"
+    FOR /F %%A IN ('(set %~1 ^) 2^>^&1 ^| find /C "="') DO CALL "%~dp0\_Action" "- Removing vars [%~1]: %%A"
     CALL :RemoveVarByType %~1
     SET %~1>NUL 2>&1
     IF ERRORLEVEL 1 (
-        CALL _Status "Done"
+        CALL "%~dp0\_Status" "Done"
         EXIT /B 0
     )
-    CALL _Status "Failure"
+    CALL "%~dp0\_Status" "Failure"
     ECHO Ooops! Still vars in environment:
     SET %~1
     EXIT /B 1

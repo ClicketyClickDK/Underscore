@@ -73,7 +73,8 @@ SET $SOURCE=%~f0
 ::SET $VERSION=2010-10-20&SET $REVISION=00:00:00&SET $COMMENT=Initial [01.000]
 ::SET $VERSION=2010-11-12&SET $REVISION=16:23:00&SET $COMMENT=Adding exact path to _prescript/ErikBachmann [01.010]
 ::SET $VERSION=2015-02-19&SET $REVISION=03:15:13&SET $COMMENT=Autoupdate / ErikBachmann
-  SET $VERSION=2015-10-08&SET $REVISION=11:20:00&SET $COMMENT=GetOpt: Calling usage on -h and exit on error / ErikBachmann
+::SET $VERSION=2015-10-08&SET $REVISION=11:20:00&SET $COMMENT=GetOpt: Calling usage on -h and exit on error / ErikBachmann
+  SET $VERSION=2016-03-14&SET $REVISION=10:00:00&SET $COMMENT=Set "%~dp0\ prefix on function calls / ErikBachmann
 ::**********************************************************************
 ::@(#)(c)%$Version:~0,4% %$Author%
 ::**********************************************************************
@@ -106,7 +107,7 @@ GOTO :EOF :init
 ::---------------------------------------------------------------------
 
 :process
-    CALL _ACTION "Getting current"
+    CALL "%~dp0\_ACTION" "Getting current"
     ::CALL cscript //nologo c:\_\wget.vbs "%_URLstub%current"  "%_VersionFile%"
     CALL "%~dp0\wget.bat" "%_URLstub%current"  "%_VersionFile%"
 
@@ -121,18 +122,18 @@ GOTO :EOF :init
         IF ERRORLEVEL 1 SET /A _result=8
     )
 
-    CALL _Action "Unpacking"
-    CALL _Status "%CD%\.ARCHIVE\"
+    CALL "%~dp0\_Action" "Unpacking"
+    CALL "%~dp0\_Status" "%CD%\.ARCHIVE\"
 
-    CALL _Action "Archive"
+    CALL "%~dp0\_Action" "Archive"
     IF NOT EXIST "%CD%\.ARCHIVE" (
-        CALL _Status "Created"
+        CALL "%~dp0\_Status" "Created"
         MKDIR "%CD%\.ARCHIVE"
         IF ERRORLEVEL 1 SET /A _result=16
-    ) ELSE CALL _Status "Found"
+    ) ELSE CALL "%~dp0\_Status" "Found"
 
-    CALL _Action "Unzipping"
-    CALL _Status "%CD%\.ARCHIVE\"
+    CALL "%~dp0\_Action" "Unzipping"
+    CALL "%~dp0\_Status" "%CD%\.ARCHIVE\"
 
     ::echo cscript //nologo unzipw "%_archiveFile%" "%CD%\.ARCHIVE\"
     CALL "%~dp0\unzip.bat" "%_archiveFile%" "%CD%\.ARCHIVE\"

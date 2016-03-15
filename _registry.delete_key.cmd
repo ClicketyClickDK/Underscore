@@ -75,7 +75,8 @@ SET $Source=%~f0
 ::SET $VERSION=2014-01-03&SET $REVISION=09:21:00&SET $COMMENT=Exact path to reg.exe/ErikBachmann [01.002]
 ::SET $VERSION=2015-02-19&SET $REVISION=03:31:56&SET $COMMENT=Autoupdate / ErikBachmann
 ::SET $VERSION=2015-10-08&SET $REVISION=11:20:00&SET $COMMENT=GetOpt: Calling usage on -h and exit on error / ErikBachmann
-  SET $VERSION=2015-11-23&SET $REVISION=16:30:00&SET $COMMENT=GetOpt replaced _getopt.sub simple call. Reduces runtime to 1/3 / ErikBachmann
+::SET $VERSION=2015-11-23&SET $REVISION=16:30:00&SET $COMMENT=GetOpt replaced _getopt.sub simple call. Reduces runtime to 1/3 / ErikBachmann
+  SET $VERSION=2016-03-14&SET $REVISION=10:00:00&SET $COMMENT=Set "%~dp0\ prefix on function calls / ErikBachmann
 ::**********************************************************************
 ::@(#)(c)%$Version:~0,4% %$Author%
 ::**********************************************************************
@@ -83,9 +84,9 @@ SET $Source=%~f0
     CALL "%~dp0\_DEBUG"
     ::CALL "%~dp0\_Getopt" %*&IF ERRORLEVEL 1 EXIT /B 1
     :: Check ONLY for combinations of -h, /h, --help
-    CALL _getopt.sub %*&IF ERRORLEVEL 1 EXIT /B 1
+    CALL "%~dp0\_getopt.sub" %*&IF ERRORLEVEL 1 EXIT /B 1
 
-    CALL _Debug
+    CALL "%~dp0\_Debug"
 
     %_DEBUG_% Path=[%~1]
 ::    REG DELETE "%~1" /f >NUL 2>&1 ^

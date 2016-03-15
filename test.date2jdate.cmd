@@ -17,10 +17,10 @@ SETLOCAL ENABLEDELAYEDEXPANSION
     )
     IF EXIST "%temp%\%_dumpFile%" DEL "%temp%\%_dumpFile%"
     
-    CALL _ACTION "Source"
-    CALL _STATUS "%_SourceFile%"
-    CALL _ACTION "Output"
-    CALL _STATUS "%_dumpFile%"
+    CALL "%~dp0\_ACTION" "Source"
+    CALL "%~dp0\_STATUS" "%_SourceFile%"
+    CALL "%~dp0\_ACTION" "Output"
+    CALL "%~dp0\_STATUS" "%_dumpFile%"
     
     1>&2 ECHO:- Build dump
     (
@@ -29,8 +29,8 @@ SETLOCAL ENABLEDELAYEDEXPANSION
         FOR /F "SKIP=2 Tokens=1-9 delims=;" %%a IN ('TYPE %_SourceFile%') DO CALL :d2j2 "%%a" "%%b" "%%c" "%%d" "%%e" "%%f" "%%i" "%%g"
     )
 
-    CALL _ACTION "Errors"
-    CALL _STATUS "%_Error%"
+    CALL "%~dp0\_ACTION" "Errors"
+    CALL "%~dp0\_STATUS" "%_Error%"
 
 GOTO :EOF
 
