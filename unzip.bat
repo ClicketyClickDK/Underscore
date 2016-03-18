@@ -77,6 +77,7 @@
 ::'::SET $VERSION=2014-01-31&SET $REVISION=13:16:00&SET $COMMENT=Description/init
 ::'::SET $VERSION=2015-02-19&SET $REVISION=16:00:00&SET $COMMENT=Autoupdate / ErikBachmann
 ::'  SET $VERSION=2015-10-08&SET $REVISION=16:00:00&SET $COMMENT=GetOpt: Calling usage and exit on error / ErikBachmann
+::'  SET $VERSION=2016-02-29&SET $REVISION=22:09:00&SET $COMMENT=Truncate tags in output. Overwrite target / ErikBachmann
 ::'::**********************************************************************
 ::'::@(#)(c)%$Version:~0,4% %$Author%
 ::'::**********************************************************************
@@ -123,13 +124,15 @@ If WScript.Arguments.Count = 0 Then
 End If
 
 strArchive = args.Item(0)
-Wscript.Echo "- Archive:   [" + strArchive + "]"
+'Wscript.Echo "- Archive:   [" + strArchive + "]"
+Wscript.Echo "- <[" + strArchive + "]"
 
 If WScript.Arguments.Count > 1 Then
   strDest = args.Item(1)
 End If
 
-Wscript.Echo "- Destination: [" + strDest + "]"
+'Wscript.Echo "- Destination: [" + strDest + "]"
+Wscript.Echo "- >[" + strDest + "]"
 
 '------------------------------------------------------------------
  
@@ -147,7 +150,9 @@ Sub UnZipFile(strArchive, strDest)
     Set objArchive = objApp.NameSpace(strArchive).Items()
     Set objDest = objApp.NameSpace(strDest)
  
-    objDest.CopyHere objArchive,8+16
+    'objDest.CopyHere objArchive,8+16
+    ' Overwrite
+    objDest.CopyHere objArchive,16
 End Sub
 
 '4		Do not display a progress dialog box.

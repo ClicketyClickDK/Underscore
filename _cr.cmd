@@ -29,7 +29,7 @@ SET $Source=%~f0
 ::@(-)  Some examples of common usage.
 ::@(#)  SETLOCAL ENABLEDELAYEDEXPANSION
 ::@(#)  CALL _CR
-::@(#)  SET /P _=-- {PCT}CD{PCT} : OK      {EXCL}CR{EXCL}{LT}nul
+::@(#)  SET /P _=-- %CD% : OK      !CR!<nul
 ::@(#)
 ::@ (#)EXIT STATUS
 ::@(-)  Exit status / errorlevel is 0 if OK, otherwise 1+.
