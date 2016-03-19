@@ -317,8 +317,8 @@ SETLOCAL
     SET _sdate=%~2
     SET _edate=%~3
 
-    CALL date2jdate _sjd %_sdate%
-    CALL date2jdate _ejd %_edate%
+    CALL "%~dp0\date2jdate" _sjd %_sdate%
+    CALL "%~dp0\date2jdate" _ejd %_edate%
 
     SET /A _djd=%_ejd% - %_sjd%
 
