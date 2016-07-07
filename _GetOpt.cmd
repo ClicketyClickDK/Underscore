@@ -133,7 +133,8 @@ SET $SOURCE=%~f0
 ::SET $VERSION=2015-11-05&SET $REVISION=14:27:00&SET $COMMENT=Long options and multiple prefix flags / ErikBachmann
 ::SET $VERSION=2015-11-06&SET $REVISION=10:05:00&SET $COMMENT=Special usage flags hard coded -? et.al. usage/help / ErikBachmann
 ::SET $VERSION=2015-11-06&SET $REVISION=10:25:00&SET $COMMENT=Special usage flags hard coded -! et.al. = debug / ErikBachmann
-  SET $VERSION=2015-11-07&SET $REVISION=17:28:00&SET $COMMENT=Clean up in debug info / ErikBachmann
+::SET $VERSION=2015-11-07&SET $REVISION=17:28:00&SET $COMMENT=Clean up in debug info / ErikBachmann
+  SET $VERSION=2016-07-07&SET $REVISION=13:15:00&SET $COMMENT=  Only cut the first separator (:) / ErikBachmann
 ::**********************************************************************
 ::@(#)(c)%$Version:~0,4% %$Author%
 ::**********************************************************************
@@ -242,7 +243,9 @@ GOTO :EOF   *** :_NoFlag ***
 ::---------------------------------------------------------------------
 :__parse
     %_DEBUG_% .... Parsing(%0): %$ARG%
-    FOR /F "usebackq tokens=1-2 delims=:" %%C IN (`ECHO %$ARG%`) DO (
+    ::FOR /F "usebackq tokens=1-2 delims=:" %%C IN (`ECHO %$ARG%`) DO (
+    :: Only cut the first separator (:)
+    FOR /F "usebackq tokens=1* delims=:" %%C IN (`ECHO %$ARG%`) DO (
         IF /I "" NEQ "%%D" (
             %_DEBUG_% ...Simple argument: [%%C]=[%%D]
             SET @%$NAME%.%%C=%%D
