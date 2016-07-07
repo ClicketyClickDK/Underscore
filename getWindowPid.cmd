@@ -46,7 +46,7 @@ SET $SOURCE=%~f0
 ::@ (#)
 ::@(#)REQUIRES
 ::@(-)  Dependecies
-::@(#)  getWindowPid.cmd
+::@(#)  WMIC.exe
 ::@(#) 
 ::@ (#)SEE ALSO
 ::@(-)  A list of related commands or functions.
@@ -83,32 +83,38 @@ SET $VERSION=2016-07-07&SET $REVISION=00:00:00&SET $COMMENT=Initial/ErikBachmann
     CALL :Process
     CALL :Finalize
 
-    :: Retur Title
-    IF DEFINED _TitleTag ENDLOCAL&SET %_TitleTag%=%_Title%
+    :: Retur PID
+    IF DEFINED _PID ENDLOCAL&SET %_PID%=%PID%
 GOTO :EOF
 
 ::----------------------------------------------------------------------
 
 :: Local initiation for this script only
 :init
-    SET _TitleTag=%~1
+    SET $Status=0
+
+    :: Get env var to return PID
+    SET _PID=%~1
+    SET "uid="
 GOTO :EOF
 
 ::---------------------------------------------------------------------
 
 :: 
 :Process
-    :: Get PID for current windows
-    CALL "%~dp0\getWindowPid" _PID>nul
+    :: Set unique mask for commandLine
+    FOR /l %%i IN (1 1 128) DO (SET /a "bit=!random!&1" &SET "uid=!uid!!bit!")
 
-    FOR /F "tokens=9*" %%A IN ('tasklist /V /FI "PID eq %_PID%" ^|find "%_PID%"') DO SET "_TITLE=%%~B"
+    FOR /f "tokens=2 delims==" %%i in (
+      'WMIC Process WHERE "Name='cmd.exe' AND CommandLine LIKE '%%!uid!%%'" GET ParentProcessID /value'
+    ) DO FOR /f %%j IN ("%%i") DO SET "PID=%%j"
 GOTO :EOF
 
 ::---------------------------------------------------------------------
 
 :: 
 :Finalize
-    ECHO:%_TITLE%
+    ECHO %PID%
 GOTO :EOF
 
-::*** End of File *****************************************************
+::*** End of File ******************************************************
