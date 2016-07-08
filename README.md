@@ -395,4 +395,4 @@ Feel free..!
 
 ## BUG FIXES
 
-**WHEN** you find a bug, require a modification or has any form of comment on this library - please do not hesitate to send me an email: [ErikBachmann@ClicketyClick.dk](mailto:ErikBachmann@ClicketyClick.dk&subject=The_Underscore_Library")
+**WHEN** you find a bug, require a modification or have any form of comment on this library - please do not hesitate to send me an email: [ErikBachmann@ClicketyClick.dk](mailto:ErikBachmann@ClicketyClick.dk&subject=The_Underscore_Library")
