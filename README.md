@@ -1,8 +1,7 @@
 # The _ Windows Batch Library
 By [ErikBachmann@ClicketyClick.dk](mailto:ErikBachmann@ClicketyClick.dk&subject=The_Underscore_Library")
 
-Latest update: 2015-10-22
-
+Latest update: 2016-07-08
 
 ## WHAT'S IT ALL ABOUT
 >Mean, motive and opportunity
@@ -282,6 +281,7 @@ SETLOCAL
 GOTO :EOF *** :_UnitTest_myScript ***
 ::----------------------------------------------------------------------
 ```
+
 In this example `myScript.cmd` is supposed to echo `Hello World` into `%temp%\myscript.dump`
 
 #### Hexdump
@@ -317,6 +317,7 @@ See the matchTest for details
 ::MATCH::SET.$DESCRIPTION
 ::MATCH:vSET.FAILURE
 ```
+
 In this example output from `MatchText.cmd` are matched with "SET.$DESCRIPTION" 
 (where "." is a wildcard matching any character)
 
@@ -358,7 +359,6 @@ The library is maintained using the functions:
 * `UnitTest.cmd`
   * Runs the test suite and updates documentation using What.cmd
 
-
 Run the `updateArchive`
 The script will connect to the repository, find and download the current version, and extract the newest versions of scripts from `.ARCHIVE`
 
@@ -371,9 +371,20 @@ Before unpacking the latest version, at backup using `checkInArchive` command ha
 
 
 Be very careful when updating the patched version:
+
 1. Think about the consequences
 2. Test intensively!!!
 3. Send me the patch (please!!!!)
+
+## DEPRICATED FUNCTIONS
+
+|Old function  | Use   | Description | 
+|---|---|---|
+| `BatchSubstitute.bat`| `jrep.bat`	| Search and replace |
+| `cEcho.cmd`	| 		| Template for DOS batch script. Requres `DEBUG.EXE`, which are only available in 16+32 bit systems |
+| `REPL.bat`	| `jrepl.bat`	| Search and replace |
+| `strstr.cmd`	| `find.exe` or `findstr.exe` | Find string in file |
+| `Which.cmd`	| `Where.exe`	| [If available] Used for identifying the location of an excetutable |
 
 
 ## HOW-TO..
@@ -383,4 +394,3 @@ Feel free..!
 ## BUG FIXES
 
 **WHEN** you find a bug, require a modification or has any form of comment on this library - please do not hesitate to send me an email: [ErikBachmann@ClicketyClick.dk](mailto:ErikBachmann@ClicketyClick.dk&subject=The_Underscore_Library")
-
