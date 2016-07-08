@@ -1,6 +1,8 @@
 # The _ Windows Batch Library
 By [ErikBachmann@ClicketyClick.dk](mailto:ErikBachmann@ClicketyClick.dk&subject=The_Underscore_Library")
 
+Source: https://github.com/ClicketyClickDK/Underscore/
+
 Latest update: 2016-07-08
 
 ## WHAT'S IT ALL ABOUT
