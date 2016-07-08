@@ -160,3 +160,9 @@ filelist.3=q.cmd
 ```
 
 
+## Remove surrounding quote
+http://stackoverflow.com/a/5419228
+
+``` Batchfile
+for /f "useback tokens=*" %%a in ('%str%') do set str=%%~a
+```
