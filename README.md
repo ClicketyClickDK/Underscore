@@ -16,7 +16,7 @@ The scripts in this library are all pure text based source code. You should be a
 
 The origin of the name is due to my own practises of installing the library in `C:\_\`. You're free to install in any directory of your own choice (like `%ProgramFiles%\_\`).
 
->Please note! This is a library and should be used in context. Scripts may have dependencies and requires other scripts in the library. Most requires **_debug.cmd** and **_GetOpt.cmd**. 
+>Please note! This is a library and should be used in context. Scripts may have dependencies and requires other scripts in the library. Most requires `_debug.cmd` and `_GetOpt.cmd`. 
 
 > **Do download the entire library!**
 
