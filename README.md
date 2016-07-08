@@ -146,11 +146,11 @@ SET $SOURCE=%~f0
 ```
 
 Be careful to update the version section:
-```
+``` Batchfile
   SET $VERSION=2015-02-19&SET $REVISION=00:00:00&SET $COMMENT=Initial/ErikBachmann
 ```
 Put `::` in front of the current line and insert an update below with current time, change and you name:
-```
+``` Batchfile
 ::SET $VERSION=2015-02-19&SET $REVISION=00:00:00&SET $COMMENT=Initial/ErikBachmann
   SET $VERSION=2015-10-14&SET $REVISION=00:00:00&SET $COMMENT=This is an update/ErikBachmann
 ```
