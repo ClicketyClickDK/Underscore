@@ -1,0 +1,51 @@
+@ECHO OFF&SETLOCAL
+::**********************************************************************
+SET $NAME=%~n0
+SET $DESCRIPTION=a dummy to check for in environment using windows command WHERE.exe
+SET $Author=Erik Bachmann, ClicketyClick.dk (ErikBachmann@ClicketyClick.dk)
+SET $SOURCE=%~f0
+::----------------------------------------------------------------------
+::@(#)NAME
+::@(#)  %$Name% -- %$Description%
+::@(#) 
+::@(#)SYNOPSIS
+::@(#)      CALL %$Name% %*
+::@(#)  
+::@(#)OPTIONS
+::@(-)  Flags, parameters, arguments (NOT the Monty Python way)
+::@(#)  -h      Usage/Help page and exit 1 (Hard coded)
+::@(#)  -? /?   Usage/Help page and exit 1 (Hard coded)
+::@(#)  -! /!   Debug on (Hard coded)   See BUGS section. Use --Debug:1
+::@(#)  -!- /!- Debug off (Hard coded)  See BUGS section. Use --Debug:0
+::@(#)  
+::@(#)DESCRIPTION
+::@(#)  This is just a dummy to check for in environment using windows command WHERE.exe
+::@(#)  
+::@(#)EXAMPLES
+::@(-)  Some examples of common usage.
+::@(#)  where "ClicketyClickDK_Underscore.lib">nul 2>&1 || ( ECHO:The underscore library is not found in Path & pause & exit /B 99 )
+::@(#)  
+::@(#)  Script will print error and abort if file is not found in path
+::@ (#)  
+::@ (#)REFERENCE
+::@(-)  References to inspiration, clips and other documentation
+::@ (#)  Author:
+::@ (#)  URL: 
+::@ (#) 
+::@(#)
+::@(#)SOURCE
+::@(-)  Where to find this source
+::@(#)  %$Source%
+::@(#)
+::@ (#)AUTHOR
+::@(-)  Who did what
+::@ (#)  %$AUTHOR%
+::*** HISTORY **********************************************************
+::History
+::SET $VERSION=YYYY-MM-DD&SET $REVISION=hh:mm:ss&SET $COMMENT=Init Description/Initials [xx.xxx]
+  SET $VERSION=2016-07-07&SET $REVISION=10:14:00&SET $COMMENT=Init / ErikBachmann
+::**********************************************************************
+::@(#)(c)%$Version:~0,4% %$Author%
+::**********************************************************************
+
+::*** End of File *****************************************************

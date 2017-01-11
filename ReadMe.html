@@ -1,150 +1,300 @@
-<html>
-  <head>
-    <title>The _ Windows Batch Library - Readme</title>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+	<title>The _ Windows Batch Library - Generic DOS batch script library
+	title</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="description" content="Generic DOS batch script library" />
+	<meta name="keywords" content="dos,windows,batch" />
+	<meta name="author" content="Erik Bachmann, ErikBachmann@ClicketyClick.dk">	
+	<meta name="robots" content="index,follow" />
+	<link rel="stylesheet" type="text/css" href="underscore.css" />
+	<link rel="stylesheet" type="text/css" href="http://github.com/necolas/normalize.css" />
+	<link rel="stylesheet" type="text/css" href="https://assets-cdn.github.com/assets/github-09d197b2001b1f26848c0014339efea1e35276ca3fe01b04e4842562feb31fe0.css" />
+	<link rel="stylesheet" type="text/css" href="inline.3.css" />
+	<link rel="stylesheet" type="text/css" href="inline.4.css" />
+	<link rel="stylesheet" type="text/css" href="inline.5.css" />
+<style>
+blockquote.c {
+  font: 14px/22px normal helvetica, sans-serif;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  margin-left: 50px;
+  padding-left: 15px;
+  border-left: 3px solid #ccc;
+} 
 
-	<script language="JavaScript" src="toc.js"></script>
-	<script language="JavaScript" src="underscore.js"></script>
-	
 
-	<link rel="stylesheet" href="underscore.css" title="Readme-css" media="all" type="text/css">
-	<!--link rel="stylesheet" href="readme.css" title="Readme-css" media="all" type="text/css"-->
-	<!--link rel="stylesheet" href="toc.css" title="toc-css" media="all" type="text/css"-->
+/* https://css-tricks.com/snippets/css/simple-and-nice-blockquote-styling/ */
+blockquote {
+  background: #f9f9f9;
+  border-left: 10px solid #ccc;
+  margin: 1.5em 10px;
+  padding: 0.5em 10px;
+  quotes: "\201C""\201D""\2018""\2019";
+}
+blockquote:before {
+  color: #ccc;
+  content: open-quote;
+  font-size: 4em;
+  line-height: 0.1em;
+  margin-right: 0.25em;
+  vertical-align: -0.4em;
+}
+blockquote.c p {
+  display: inline;
+}
+</style>
+</head>
 
-  </head>  <body onload="latestUpdate();toc()">
+<body>
 
+<article class="markdown-body entry-content" itemprop="text"><h1><a id="user-content-the-_-windows-batch-library" class="anchor" href="#the-_-windows-batch-library" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>The _ Windows Batch Library</h1>
 
-<a name="_">  
-<h1>The _ Windows Batch Library</h1>
-</a>
-<p>By <a href="mailto:ErikBachmann@ClicketyClick.dk&subject=The_Underscore_Library">ErikBachmann@ClicketyClick.dk</a> - Latest update: <span id="latestUpdate"></span></p>
+<p>By <a href="mailto:ErikBachmann@ClicketyClick.dk&amp;subject=The_Underscore_Library%22">ErikBachmann@ClicketyClick.dk</a></p>
 
-<div id="TOC"></div>
+<p>Source: <a href="https://github.com/ClicketyClickDK/Underscore/">https://github.com/ClicketyClickDK/Underscore/</a></p>
 
-<!-- ************************************************************** -->
-<a name="WhatsItAllAbout">  
-<h2>WHAT'S IT ALL ABOUT</h2>
-</a>
-<dir>Mean, motive and opportunity</dir>
+<p>Latest update: 2016-07-08</p>
 
-<p><strong>The "_" Windows Batch Library</strong> (<i>The "underscore" Windows Batch Library</i>) is a collection of generic, ready-to-use batch scripts, that I've developed and refined over the years. Most of the script are self-made, but other sources or inspiration are mentioned in either $AUTHOR or URL tags in the scripts headers.</p>
+<h2><a id="user-content-whats-it-all-about" class="anchor" href="#whats-it-all-about" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>WHAT'S IT ALL ABOUT</h2>
+
+<blockquote>
+<p>Mean, motive and opportunity</p>
+</blockquote>
+
+<p><strong>The "_" Windows Batch Library</strong> (<em>The "underscore" Windows Batch Library</em>) is a collection of generic, ready-to-use batch scripts, that I've developed and refined over the years. Most of the script are self-made, but other sources or inspiration are mentioned in either $AUTHOR or URL tags in the scripts headers.</p>
 
 <p>Experience has learned me the hard way, that one cannot rely on pre-installed scripts and functionality. Often it is not possible to install binary tools like Cygwin, Unix tools or script interpreters like Perl or PHP. This leaves me with M$ tools like Debug, Basic, Visual Basic or Powerscript. Even these tools may not be available on every system.</p>
 
 <p>The scripts in this library are all pure text based source code. You should be able to install them by simply copy the library directory onto your system - and you will be ready to Rock'n'roll!</p>
 
 <p>The origin of the name is due to my own practises of installing the library in <code>C:\_\</code>. You're free to install in any directory of your own choice (like <code>%ProgramFiles%\_\</code>).</p>
-<p></p>
 
+<blockquote>
+<p>Please note! This is a library and should be used in context. Scripts may have dependencies and requires other scripts in the library. Most requires <strong>_debug.cmd</strong> and <strong>_GetOpt.cmd</strong>. </p>
 
-<!-- ************************************************************** -->
-<a name="Structure">
-<h2>STRUCTURE</h2>
-</a>
+<p><strong>Do download the entire library!</strong></p>
+</blockquote>
 
-<!-- -------------------------------------------------------------- -->
-<a name="DirectoryStructure">
-<h3>Directory structure</h3>
-</a>
-<p>Let me assume, that you install the library in <code>%ProgramFiles%\_\</code></p>
-<p>The structure will then be:</p>
+<h2><a id="user-content-structure" class="anchor" href="#structure" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>STRUCTURE</h2>
 
-<dl>
-	<dt><code>%programFile%\_</code>
-		<dd>Scripts and sub-functions
-	<dl>
-		<dt><code>%programFile%\_\.Archive</code>
-			<dd>Archived scripts and new scripts for update
-		<dt><code>%programFile%\_\bin</code>
-			<dd>Storage for binaries, I use frequently like Exiftool, SQLite, Blat, Putty
-		<dt><code>%programFile%\_\dev</code>
-			<dd>Test bench for new upcomming scripts
-		<dt><code>%programFile%\_\Documentation</code>
-			<dd>Documentation for each function with examples (text and HTML)
-		<dt><code>%programFile%\_\Tips</code>
-			<dd>Text description of Tips and tricks
-		<dt><code>%programFile%\_\UnitTests</code>
-			<dd>Unit Test Suite
-	</dl>
-</dl>
+<h3><a id="user-content-directory-structure" class="anchor" href="#directory-structure" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Directory structure</h3>
 
+<p>Let me assume, that you install the library in <code>%ProgramFiles%\_\</code>
+The structure will then be:</p>
 
-<!-- -------------------------------------------------------------- -->
-<a name="ScriptStructure">
-<h3>Script structure</h3>
-</a>
+<ul>
+<li><code>%programFile%\_</code>
+
+<ul>
+<li>Scripts and sub-functions</li>
+</ul></li>
+<li><code>%programFile%\_\.Archive</code>
+
+<ul>
+<li>Archived scripts and new scripts for update</li>
+</ul></li>
+<li><code>%programFile%\_\bin</code>
+
+<ul>
+<li>Storage for binaries, I use frequently like Exiftool, SQLite, Blat, Putty</li>
+</ul></li>
+<li><code>%programFile%\_\dev</code>
+
+<ul>
+<li>Test bench for new upcomming scripts</li>
+</ul></li>
+<li><code>%programFile%\_\Documentation</code>
+
+<ul>
+<li>Documentation for each function with examples (text and HTML)</li>
+</ul></li>
+<li><code>%programFile%\_\Tips</code>
+
+<ul>
+<li>Text description of Tips and tricks</li>
+</ul></li>
+<li><code>%programFile%\_\UnitTests</code>
+
+<ul>
+<li>Unit Test Suite</li>
+</ul></li>
+</ul>
+
+<h3><a id="user-content-script-structure" class="anchor" href="#script-structure" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Script structure</h3>
+
 <p>Scripts can be pure WinDOS commands, jscript, VBscript - or a combination</p>
 
 <p>The naming convention is as follows</p>
-<dl>
-	<dt>xxx<span class="syntax">.CMD</span>
-		<dd>A conventional ready to use scripts.
-	<dt><span class="syntax">_</span>xxx.CMD</span>
-		<dd>A sub function that provide macro like functionality 
-		to be embedded in other scripts (i.e. has no real life of it's own).
-	<dt>xxx<span class="syntax">.BAT</span>	<dd>A wrapper to VBscript or Jscript functionality.
 
-	<dt>xxx<span class="syntax">.CSV</span>
-		<dd>Data file with reference data
-	<dt>xxx<span class="syntax">.HTML</span>
-		<dd>General documentation (like this file)
-	<dt>xxx<span class="syntax">.CSS</span>
-		<dd>Style Sheet for documentation
-</dl>
+<ul>
+<li>xxx.CMD
 
-<p>Each script has a header, with description of functionality, 
-source of origin, examples. 
-This is extracted to the documentation directory in a structured form 
-using <a href="documentation/what.html">the <code>what</code> command</a> .
-</p>
-<p>
-The basic structure is as in the <a href="0template.cmd">template <code>0template.cmd</code></a>
-</p>
+<ul>
+<li>A conventional ready to use scripts.</li>
+</ul></li>
+<li>_xxx.CMD
 
-<p>
-Each script has ideally tree steps as described in the <code>:MAIN</code> section:
-<dl>
-	<dt><code>:init</code>
-		<dd>An initiation of all variables and call for initiating sub functions (like <code>_debug</code> or <code>_getopt</code>]
-	<dt><code>:Proccess</code>
-		<dd>The processing ..
-	<dt><code>:Finalize</code>
-		<dd>A Status reporting.
-</dl>
+<ul>
+<li>A sub function that provide macro like functionality to be embedded in other scripts (i.e. has no real life of it's own).</li>
+</ul></li>
+<li><p>xxx.BAT</p>
 
-Any call to another script in the library the name should be prefixed with the drive and path to the calling script. Which is assumed to be in the same directory:
+<ul>
+<li>A wrapper to VBscript or Jscript functionality.</li>
+</ul></li>
+<li><p>xxx.CSV</p>
 
-<code>CALL "<span id="syntax">%~dp0</span>\what"</code>
+<ul>
+<li>Data file with reference data</li>
+</ul></li>
+<li>xxx.HTML
 
+<ul>
+<li>General documentation (like this file)</li>
+</ul></li>
+<li>xxx.CSS
 
-</p>
+<ul>
+<li>Style Sheet for documentation</li>
+</ul></li>
+</ul>
 
+<p>Each script has a header, with description of functionality, source of origin, examples. 
+This is extracted to the documentation directory in a structured form using the <code>what</code> command .</p>
 
-<!-- ************************************************************** -->
-<a name="UnitTests">
-<h2>UNIT TESTS</h2>
-</a>
-<P>
-Any script (function or sub-function) should have a unittest 
+<p>The basic structure is as in the template <code>0template.cmd</code></p>
+
+<div class="highlight highlight-source-dosbatch"><pre>@<span class="pl-k">ECHO</span> OFF
+<span class="pl-k">SETLOCAL</span> ENABLEDELAYEDEXPANSION&amp;<span class="pl-c">::(Don't pollute the global environment with the following)</span>
+<span class="pl-c">::**********************************************************************</span>
+<span class="pl-k">SET</span> $NAME=%~n0
+<span class="pl-k">SET</span> $DESCRIPTION=Template <span class="pl-k">for</span> DOS batch script
+<span class="pl-k">SET</span> $AUTHOR=Erik Bachmann, ClicketyClick.dk [ErikBachmann@ClicketyClick.dk]
+<span class="pl-k">SET</span> $SOURCE=%~f0
+<span class="pl-c">::@(#)NAME</span>
+<span class="pl-c">::@(-)  The name of the command or function, followed by a one-line description of what it does.</span>
+<span class="pl-c">::@(#)      %$NAME% -- %$DESCRIPTION%</span>
+<span class="pl-c">::@(#) </span>
+<span class="pl-c">::@(#)SYNOPSIS</span>
+<span class="pl-c">::@(-)  In the case of a command, a formal description of how to run it and what command line options it takes. </span>
+<span class="pl-c">::@(-)  For program functions, a list of the parameters the function takes and which header file contains its definition.</span>
+<span class="pl-c">::@(-)  </span>
+<span class="pl-c">::@(#)      %$NAME% [VAR]</span>
+<span class="pl-c">::@(#) </span>
+<span class="pl-c">::@(#)OPTIONS</span>
+<span class="pl-c">::@(-)  Flags, parameters, arguments (NOT the Monty Python way)</span>
+<span class="pl-c">::@(#)  -h      Help page</span>
+<span class="pl-c">::@(#) </span>
+<span class="pl-c">::@ (#) </span>
+<span class="pl-c">::@(#)DESCRIPTION</span>
+<span class="pl-c">::@(-)  A textual description of the functioning of the command or function.</span>
+<span class="pl-c">::@(#) </span>
+<span class="pl-c">::@(#) </span>
+<span class="pl-c">::@(#)EXAMPLES</span>
+<span class="pl-c">::@(-)  Some examples of common usage.</span>
+<span class="pl-c">::@(#) </span>
+<span class="pl-c">::@(#) </span>
+<span class="pl-c">::@(#) </span>
+<span class="pl-c">::@ (#)EXIT STATUS</span>
+<span class="pl-c">::@(-)  Exit status / errorlevel is 0 if OK, otherwise 1+.</span>
+<span class="pl-c">::@ (#)</span>
+<span class="pl-c">::@ (#)ENVIRONMENT</span>
+<span class="pl-c">::@(-)  Variables affected</span>
+<span class="pl-c">::@ (#)</span>
+<span class="pl-c">::@ (#)</span>
+<span class="pl-c">::@ (#)FILES, </span>
+<span class="pl-c">::@(-)  Files used, required, affected</span>
+<span class="pl-c">::@ (#)</span>
+<span class="pl-c">::@ (#)</span>
+<span class="pl-c">::@ (#)BUGS / KNOWN PROBLEMS</span>
+<span class="pl-c">::@(-)  If any known</span>
+<span class="pl-c">::@ (#)</span>
+<span class="pl-c">::@ (#)</span>
+<span class="pl-c">::@ (#)REQUIRES</span>
+<span class="pl-c">::@(-)  Dependencies</span>
+<span class="pl-c">::@ (#)  </span>
+<span class="pl-c">::@ (#)</span>
+<span class="pl-c">::@ (#)SEE ALSO</span>
+<span class="pl-c">::@(-)  A list of related commands or functions.</span>
+<span class="pl-c">::@ (#)  </span>
+<span class="pl-c">::@ (#)  </span>
+<span class="pl-c">::@ (#)REFERENCE</span>
+<span class="pl-c">::@(-)  References to inspiration, clips and other documentation</span>
+<span class="pl-c">::@ (#)  Author:</span>
+<span class="pl-c">::@ (#)  URL: </span>
+<span class="pl-c">::@ (#) </span>
+<span class="pl-c">::@(#)</span>
+<span class="pl-c">::@(#)SOURCE</span>
+<span class="pl-c">::@(-)  Where to find this source</span>
+<span class="pl-c">::@(#)  %$Source%</span>
+<span class="pl-c">::@(#)</span>
+<span class="pl-c">::@ (#)AUTHOR</span>
+<span class="pl-c">::@(-)  Who did what</span>
+<span class="pl-c">::@ (#)  %$AUTHOR%</span>
+<span class="pl-c">::*** HISTORY **********************************************************</span>
+<span class="pl-c">::SET $VERSION=YYYY-MM-DD&amp;SET $REVISION=hh:mm:ss&amp;SET $COMMENT=Description/init</span>
+  <span class="pl-k">SET</span> $VERSION=2015-02-19&amp;<span class="pl-k">SET</span> $REVISION=00:00:00&amp;<span class="pl-k">SET</span> $COMMENT=Initial/ErikBachmann
+<span class="pl-c">::**********************************************************************</span>
+<span class="pl-c">::@(#){COPY}%$VERSION:~0,4% %$Author%</span>
+<span class="pl-c">::**********************************************************************</span>
+<span class="pl-c">::ENDLOCAL</span></pre></div>
+
+<p>Be careful to update the version section:</p>
+
+<pre><code>  SET $VERSION=2015-02-19&amp;SET $REVISION=00:00:00&amp;SET $COMMENT=Initial/ErikBachmann
+</code></pre>
+
+<p>Put <code>::</code> in front of the current line and insert an update below with current time, change and you name:</p>
+
+<pre><code>::SET $VERSION=2015-02-19&amp;SET $REVISION=00:00:00&amp;SET $COMMENT=Initial/ErikBachmann
+  SET $VERSION=2015-10-14&amp;SET $REVISION=00:00:00&amp;SET $COMMENT=This is an update/ErikBachmann
+</code></pre>
+
+<p>Each script has ideally tree steps as described in the <code>:MAIN</code> section:</p>
+
+<ul>
+<li><code>:init</code>
+
+<ul>
+<li>An initiation of all variables and call for initiating sub functions (like <code>_debug</code> or <code>_getopt</code>]</li>
+</ul></li>
+<li><code>:Proccess</code>
+
+<ul>
+<li>The processing ..</li>
+</ul></li>
+<li><code>:Finalize</code>
+
+<ul>
+<li>A Status reporting.</li>
+</ul></li>
+</ul>
+
+<p>Any call to another script in the library the name should be prefixed with the drive and path to the calling script. Which is assumed to be in the same directory:</p>
+
+<div class="highlight highlight-source-dosbatch"><pre><span class="pl-k">CALL</span> <span class="pl-s"><span class="pl-pds">"</span>%~dp0\what<span class="pl-pds">"</span></span></pre></div>
+
+<h2><a id="user-content-unit-tests" class="anchor" href="#unit-tests" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>UNIT TESTS</h2>
+
+<p>Any script (function or sub-function) should have a unittest 
 to verify the integrity of the script. 
 These tests are stored in <code>_\unittests\</code> and run 
-using <a href="documentation/what.html">the <code>unittest</code> command</a> .
-</p>
+using the <code>unittest</code> command .</p>
 
-<p>The Directory <code>UnitTests</code> contains a collection of unit tests for the functions.
-</p>
+<p>The Directory <code>UnitTests</code> contains a collection of unit tests for the functions.</p>
 
 <p>Run the entire test suite using the command: <code>UnitTest.cmd</code></p>
 
-<p>Unittest can test an individual script:
-<pre>
-C:\_>unittest what.cmd
-what.cmd                                     [OK.                             ]
-</pre>
+<p>Unittest can test an individual script:</p>
 
-or the entire suite of scripts (no arguments):
+<div class="highlight highlight-source-dosbatch"><pre>C:\_<span class="pl-k">&gt;</span>unittest what.<span class="pl-k">cmd</span>
+what.<span class="pl-k">cmd</span>                                     [OK.                             ]</pre></div>
 
-<pre>
-C:\_>unittest
+<p>or the entire suite of scripts (no arguments):</p>
+
+<pre><code>C:\_&gt;unittest
 
 unittest v.2015-03-19 -- Unittest for Underscore
 No arg
@@ -183,216 +333,217 @@ _FailedLog                                   [C:\Users\ERIKBA~1\AppData\Local ]
 HKEY_LOCAL_MACHINE.failed.log
 HKEY_LOCAL_MACHINE.missing.log
 All run
-</pre>
+</code></pre>
 
-<dl>
-	<dt>OK	<dd>UnitTest matched the expected result.
+<ul>
+<li>OK
 
-	<dt>FAIL	<dd>Unittest did <i>not</i> match the expected result. 
-		Please consult the <code>xxx.trc</code>, <code>xxx.*dump</code> 
-		and <code>xxx.*ref</code> files in the <code>%TEMP%</code> directory
+<ul>
+<li>UnitTest matched the expected result.</li>
+</ul></li>
+<li><p>FAIL</p>
 
-	<dt>Skipped	<dd>Templates, test modules - and functionality that cannot be 
-			tested in a batch job will NOT be tested. This is indicated in the unit test.
-</dl>
-</p>
+<ul>
+<li>Unittest did <em>not</em> match the expected result. Please consult the <code>xxx.trc</code>, <code>xxx.*dump</code> and <code>xxx.ref</code> files in the <code>%TEMP%</code> directory</li>
+</ul></li>
+<li><p>Skipped</p>
 
-<!-- -------------------------------------------------------------- -->
-<a name="WrittingAUnitTest">
-<h3>Writting a unit test</h3>
-</a>
-<p>A script like <code>myScript.cmd</code> placed in <code>_</code> should 
-have a valid unit test like <code>_\unitTests\myScript<span class="syntax">.unittest</span>.cmd</code>
-</p>
+<ul>
+<li>Templates, test modules - and functionality that cannot be tested in a batch job will NOT be tested. This is indicated in the unit test.</li>
+</ul></li>
+</ul>
 
-<p>
-By default there are three methods of test:
-<ol>
-	<li>Simple comparison of output <code>%temp%\myScript.cmd.dump</code> to a reference file (<code>%temp%\myScript.cmd.ref</code>)
-	<li>Comparing hexdumps of output <code>%temp%\myScript.cmd.HEXdump</code> to a reference file (<code>%temp%\myScript.cmd.HEXref</code>)
-	<li>Pattern matching on the output <code>%temp%\myScript.cmd.dump</code>
-</ol>
+<h3><a id="user-content-writting-a-unit-test" class="anchor" href="#writting-a-unit-test" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Writting a unit test</h3>
 
-Rank:
-<ol>
-<li>IF "hexref" exists the hexdumps will be compared
-<li>If "ref" exists the ref and dump will be compared
-<li>Otherwise dump will be matched against patterns found in the original script
-</ol>
+<p>A script like <code>myScript.cmd</code> placed in <code>_</code> should have a valid unit test like <code>_\unitTests\myScript.unittest.cmd</code></p>
 
-<a name="SimpleComparison">
-<h4>Simple comparison</h4>
-</a>
-<p>Create a unit test file with a label named <code>:_UnitTest_<span class="syntax">myScript</span></code>.
-This is required by the <code>unittest</code> script. 
+<p>By default there are three methods of test:
+1 Simple comparison of output <code>%temp%\myScript.cmd.dump</code> to a reference file (<code>%temp%\myScript.cmd.ref</code>)
+2 Comparing hexdumps of output <code>%temp%\myScript.cmd.HEXdump</code> to a reference file (<code>%temp%\myScript.cmd.HEXref</code>)
+3 Pattern matching on the output <code>%temp%\myScript.cmd.dump</code></p>
 
-Set a local environment using <code>SETLOCAL</code> and 
-shift arguments one position (since the script name is first argument)
-</p>
+<p>Rank:
+1 IF "hexref" exists the hexdumps will be compared
+2 If "ref" exists the ref and dump will be compared
+3 Otherwise dump will be matched against patterns found in the original script</p>
 
-<p>
-Write your reference to <code>%TEMP%\<span class="syntax">%0.ref</span></code>, test output to <code>%TEMP%\<span class="syntax">%0.dump</span></code> and any other output, info, debug, trace or whatever to <code>%TEMP%\%0.trc</code>
-</p>
-<pre>
-::----------------------------------------------------------------------
-:_UnitTest_<span class="syntax">myScript</span>
-SETLOCAL
-    SHIFT
-    
-    :: Create ref
+<h4><a id="user-content-simple-comparison" class="anchor" href="#simple-comparison" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Simple comparison</h4>
+
+<p>Create a unit test file with a label named <code>:_UnitTest_myScript</code>.
+This is required by the <code>unittest</code> script. </p>
+
+<p>Set a local environment using <code>SETLOCAL</code> and shift arguments one position (since the script name is first argument)</p>
+
+<p>Write your reference to <code>%TEMP%\%0.ref</code>, test output to <code>%TEMP%\%0.dump</code> and any other output, info, debug, trace or whatever to <code>%TEMP%\%0.trc</code></p>
+
+<div class="highlight highlight-source-dosbatch"><pre><span class="pl-c">::----------------------------------------------------------------------</span>
+:_UnitTest_myScript
+<span class="pl-k">SETLOCAL</span>
+    <span class="pl-k">SHIFT</span>
+
+<span class="pl-c">    :: Create ref</span>
     (
-        ECHO:Hello World
-    )>"%TEMP%\<span class="syntax">%0.ref</span>" 2>>"%TEMP%\%0.trc"
+        <span class="pl-k">ECHO</span>:Hello World
+    )<span class="pl-k">&gt;</span><span class="pl-s"><span class="pl-pds">"</span>%TEMP%\%0.ref<span class="pl-pds">"</span></span> <span class="pl-k">2&gt;&gt;</span><span class="pl-s"><span class="pl-pds">"</span>%TEMP%\%0.trc<span class="pl-pds">"</span></span>
 
-    :: Dump data
+<span class="pl-c">    :: Dump data</span>
     (
-        CALL %0
-    )>"%TEMP%\<span class="syntax">%0.dump</span>"
-    
-GOTO :EOF *** :_UnitTest_myScript ***
-::----------------------------------------------------------------------
-</pre>
-In this example <code>myScript.cmd</code> is supposed to echo <tt>Hello World</tt> into <code>%temp%\myscript.dump</code>
+        <span class="pl-k">CALL</span> %0
+    )<span class="pl-k">&gt;</span><span class="pl-s"><span class="pl-pds">"</span>%TEMP%\%0.dump<span class="pl-pds">"</span></span>
 
-<a name="HexDump">
-<h4>Hexdump</h4>
-</a>
+<span class="pl-k">GOTO</span> :EOF *** :_UnitTest_myScript ***
+<span class="pl-c">::----------------------------------------------------------------------</span></pre></div>
 
-<pre>
-::---------------------------------------------------------------------
-:_UnitTest_<span class="syntax">_cr</span>
-SETLOCAL
-    SHIFT
-    :: Create ref
-    ECHO 00000000: 5B 0D 5D 0D 0A                                   [.]..>"%TEMP%\%0<span class="syntax">.HEXref</span>" 2>>"%TEMP%\%0.trc"
-    ::                ^^
-    
-    :: Dump test data
-    >"%TEMP%\%0<span class="syntax">.dump</span>" 2>>"%TEMP%\%0.trc" ECHO [!_CR!]
+<p>In this example <code>myScript.cmd</code> is supposed to echo <code>Hello World</code> into <code>%temp%\myscript.dump</code></p>
 
-    :: Convert to hexdump
-    CALL HexDump /A /O "%TEMP%\%0<span class="syntax">.dump</span>" >"%TEMP%\%0<span class="syntax">.hexdump</span>" 2>>"%TEMP%\%0.trc"
-GOTO :EOF *** :_CR ***
-::---------------------------------------------------------------------
-</pre>
+<h4><a id="user-content-hexdump" class="anchor" href="#hexdump" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Hexdump</h4>
 
+<div class="highlight highlight-source-dosbatch"><pre><span class="pl-c">::---------------------------------------------------------------------</span>
+:_UnitTest__cr
+<span class="pl-k">SETLOCAL</span>
+    <span class="pl-k">SHIFT</span>
+<span class="pl-c">    :: Create ref</span>
+    <span class="pl-k">ECHO</span> 00000000: 5B 0D 5D 0D 0A                                   [.]..<span class="pl-k">&gt;</span><span class="pl-s"><span class="pl-pds">"</span>%TEMP%\%0.HEXref<span class="pl-pds">"</span></span> <span class="pl-k">2&gt;&gt;</span><span class="pl-s"><span class="pl-pds">"</span>%TEMP%\%0.trc<span class="pl-pds">"</span></span>
+<span class="pl-c">    ::                ^^</span>
 
-<a name="PatternMatching">
-<h4>Pattern matching</h4>
-</a>
+<span class="pl-c">    :: Dump test data</span>
+    <span class="pl-k">&gt;</span><span class="pl-s"><span class="pl-pds">"</span>%TEMP%\%0.dump<span class="pl-pds">"</span></span> <span class="pl-k">2&gt;&gt;</span><span class="pl-s"><span class="pl-pds">"</span>%TEMP%\%0.trc<span class="pl-pds">"</span></span> <span class="pl-k">ECHO</span> [!_CR!]
+
+<span class="pl-c">    :: Convert to hexdump</span>
+    <span class="pl-k">CALL</span> HexDump /A /O <span class="pl-s"><span class="pl-pds">"</span>%TEMP%\%0.dump<span class="pl-pds">"</span></span> <span class="pl-k">&gt;</span><span class="pl-s"><span class="pl-pds">"</span>%TEMP%\%0.hexdump<span class="pl-pds">"</span></span> <span class="pl-k">2&gt;&gt;</span><span class="pl-s"><span class="pl-pds">"</span>%TEMP%\%0.trc<span class="pl-pds">"</span></span>
+<span class="pl-k">GOTO</span> :EOF *** :_CR ***
+<span class="pl-c">::---------------------------------------------------------------------</span></pre></div>
+
+<h4><a id="user-content-pattern-matching" class="anchor" href="#pattern-matching" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Pattern matching</h4>
+
 <p>The dump file is tested using patterns stored in the <code>myScript.cmd</code> itself.
-The patterns are stored in strings prefixed with <code>::MATCH::</code>. The strings are regular expressions as used by <code>FindStr</code>
-</p>
+The patterns are stored in strings prefixed with <code>::MATCH::</code>. The strings are regular expressions as used by <code>FindStr</code></p>
 
-<p>
-See the <a href="Documentation/matchTest.html">matchTest</a> for details
-</p>
-<pre>
-::*** Match strings for testing output --------------------------------
-::# Test strings for test matching script.bat
-<span class="syntax">::MATCH::</span>SET.$DESCRIPTION
-::MATCH:vSET.FAILURE
-</pre>
-In this example output from <code>MatchText.cmd</code> are matched with "SET.$DESCRIPTION" 
-(where "." is a wildcard matching any character)
+<p>See the matchTest for details</p>
 
-</p>
+<div class="highlight highlight-source-dosbatch"><pre><span class="pl-c">::*** Match strings for testing output --------------------------------</span>
+<span class="pl-c">::# Test strings for test matching script.bat</span>
+<span class="pl-c">::MATCH::SET.$DESCRIPTION</span>
+<span class="pl-c">::MATCH:vSET.FAILURE</span></pre></div>
 
-<a name="SkippingTest">
-<h4>Skipping test</h4>
-</a>
+<p>In this example output from <code>MatchText.cmd</code> are matched with "SET.$DESCRIPTION" 
+(where "." is a wildcard matching any character)</p>
 
-If for some reason, a test is impossible or misleading, you can chose to skip testing the module (please don't!) by writting a short statement to <code>%temp\%0.skip</code> and then bail out.
-<pre>
-:_UnitTest_UnitTest
-SETLOCAL
-    SHIFT
-    :: Dummy test - UnitTest is a template. No functional test
-    ECHO:<i>Skipped:Template=no test</i>>"%TEMP%\<span class="syntax">%0.skip</span>" & GOTO :EOF
-</pre>
+<h4><a id="user-content-skipping-test" class="anchor" href="#skipping-test" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Skipping test</h4>
 
+<p>If for some reason, a test is impossible or misleading, you can chose to skip testing the module (please don't!) by writting a short statement to <code>%temp\%0.skip</code> and then bail out.</p>
 
-<!-- ************************************************************** -->
-<a name="LogDebugTraceAndTemporaryFiles">
-<h2>LOG, DEBUG, TRACE AND TEMPORARY FILES</h2>
-</a>
+<div class="highlight highlight-source-dosbatch"><pre>:_UnitTest_UnitTest
+<span class="pl-k">SETLOCAL</span>
+    <span class="pl-k">SHIFT</span>
+<span class="pl-c">    :: Dummy test - UnitTest is a template. No functional test</span>
+    <span class="pl-k">ECHO</span>:<span class="pl-k">&lt;</span>i<span class="pl-k">&gt;</span>Skipped:Template=no test<span class="pl-k">&lt;</span>/i<span class="pl-k">&gt;&gt;</span><span class="pl-s"><span class="pl-pds">"</span>%TEMP%\%0.skip<span class="pl-pds">"</span></span> &amp; <span class="pl-k">GOTO</span> :EOF</pre></div>
 
-All temporary files are written to your local temporary directory using environment variables %TEMP% or %TMP%
+<h2><a id="user-content-log-debug-trace-and-temporary-files" class="anchor" href="#log-debug-trace-and-temporary-files" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>LOG, DEBUG, TRACE AND TEMPORARY FILES</h2>
 
-<!-- ************************************************************** -->
-<a name="Installation">
-<h2>INSTALLATION</h2>
-</a>
+<p>All temporary files are written to your local temporary directory using environment variables %TEMP% or %TMP%</p>
 
-<!-- -------------------------------------------------------------- -->
-<a name="FirstTimeInstallation">
-<h3>FIRST TIME INSTALLATION</h3>
-</a>
+<h2><a id="user-content-installation" class="anchor" href="#installation" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>INSTALLATION</h2>
+
+<h3><a id="user-content-first-time-installation" class="anchor" href="#first-time-installation" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>FIRST TIME INSTALLATION</h3>
+
 <ol>
-	<li>Create a directory to hold the library (like <code>%ProgramFiles%\_\</code> or <code>C:\_\</code>.
-	<li>Download the current library from depository: <a href="http://clicketyclick.dk/development/dos/_/">http://clicketyclick.dk/development/dos/_/</a>
-	<li>Unzip the library to the chosen directory.
-	<li>Run the <a href="Documentation/unittest.html">unittest</a> without any arguments (= test entire suite)
-</ol>
-Ready to Rock'n'Roll!
-	
-<!-- -------------------------------------------------------------- -->
-<a name="Updating">
-<h3>UPDATING</h3>
-</a>
-
-<p>
-The library is maintained using the functions:
-<dl>
-	<dt><code>checkInArchive.cmd</code>	<dd>Make an archive version of batch jobs
-	<dt><code>checkoutArchive.cmd</code>	<dd>Checkout updates/install new units (Only if archived version is newer!)
-	<dt><code>updateArchive.cmd</code>	<dd>Download an update from ClicketyClick.dk
-	<dt><code>UnitTest.cmd</code>	<dd>Runs the test suite and updates documentation using What.cmd
-</dl>
-</p>
-
-<p>
-Run the <a href="Documentation/updateArchive.html">updateArchive</a>
-The script will connect to the repository, find and download the current version, and extract the newest versions of scripts from <code>.ARCHIVE</code>
-</p>
-  <fieldset>
-    <legend>Please note</legend>
-<p>
-	IF you have made any local changes to the scripts PRIOR to 
-		the latest version in the repository. 
-		Your local change will be overwritten by the update.
-</p>
-<p>
-However: You can find your local change in the backup in <code>.ARCHIVE</code> directory.
-Before unpacking the latest version, at backup using <code><a href="Documentation/checkInArchive.html">checkInArchive</a></code> command has "archived" your file in <code>.ARCHIVE\xxxx.yyyy-mm-ddThh-mm.cmd</code>, where "yyyy-mm-ddThh-mm" is the file date in ISO format.
-</p>
-  </fieldset>
- 
-  
-<p>
-Be very careful when updating the patched version:
-<ol>
-<li>Think about the consequences
-<li>Test intensively!!!
-<li>Send me the patch (please!!!!)
+<li>Create a directory to hold the library (like <code>%ProgramFiles%\_\</code> or <code>C:\_\</code>.</li>
+<li>Download the current library from depository: <a href="https://github.com/ClicketyClickDK/Underscore">https://github.com/ClicketyClickDK/Underscore</a></li>
+<li>Unzip the library to the chosen directory.</li>
+<li>Run the <code>unittest</code> without any arguments (= test entire suite)</li>
+<li>Ready to Rock'n'Roll!</li>
 </ol>
 
+<h3><a id="user-content-updating" class="anchor" href="#updating" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>UPDATING</h3>
 
-<!-- ************************************************************** -->
-<a name="How-To">
-<h2>HOW-TO..</h2>
-</a>
+<p>The library is maintained using the functions:</p>
 
-Feel free..!
+<ul>
+<li><code>checkInArchive.cmd</code>
 
-<!-- ************************************************************** -->
-<a name="BugFixes">
-<h2>BUG FIXES</h2>
-</a>
+<ul>
+<li>Make an archive version of batch jobs</li>
+</ul></li>
+<li><code>checkoutArchive.cmd</code>
 
-<strong>WHEN</strong> you find a bug, require a modification or has any form of comment on this library - please do not hesitate to send me an email: <a href="mailto:ErikBachmann@ClicketyClick.dk&subject=The_Underscore_Library">ErikBachmann@ClicketyClick.dk</a>
+<ul>
+<li>Checkout updates/install new units (Only if archived version is newer!)</li>
+</ul></li>
+<li><code>updateArchive.cmd</code>
 
-<hr>
+<ul>
+<li>Download an update from ClicketyClick.dk</li>
+</ul></li>
+<li><code>UnitTest.cmd</code>
 
-  </body>
+<ul>
+<li>Runs the test suite and updates documentation using What.cmd</li>
+</ul></li>
+</ul>
+
+<p>Run the <code>updateArchive</code>
+The script will connect to the repository, find and download the current version, and extract the newest versions of scripts from <code>.ARCHIVE</code></p>
+
+<p><em>Please note</em></p>
+
+<p>IF you have made any local changes to the scripts PRIOR to the latest version in the repository. Your local change will be overwritten by the update.</p>
+
+<p>However: You can find your local change in the backup in <code>.ARCHIVE</code> directory.
+Before unpacking the latest version, at backup using <code>checkInArchive</code> command has "archived" your file in <code>.ARCHIVE\xxxx.yyyy-mm-ddThh-mm.cmd</code>, where "yyyy-mm-ddThh-mm" is the file date in ISO format.</p>
+
+<p>Be very careful when updating the patched version:</p>
+
+<ol>
+<li>Think about the consequences</li>
+<li>Test intensively!!!</li>
+<li>Send me the patch (please!!!!)</li>
+</ol>
+
+<h2><a id="user-content-depricated-functions" class="anchor" href="#depricated-functions" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>DEPRICATED FUNCTIONS</h2>
+
+<table><thead>
+<tr>
+<th>Old function</th>
+<th>Use</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>BatchSubstitute.bat</code></td>
+<td><code>jrep.bat</code></td>
+<td>Search and replace</td>
+</tr>
+<tr>
+<td><code>cEcho.cmd</code></td>
+<td></td>
+<td>Template for DOS batch script. Requres <code>DEBUG.EXE</code>, which are only available in 16+32 bit systems</td>
+</tr>
+<tr>
+<td><code>REPL.bat</code></td>
+<td><code>jrepl.bat</code></td>
+<td>Search and replace</td>
+</tr>
+<tr>
+<td><code>strstr.cmd</code></td>
+<td><code>find.exe</code> or <code>findstr.exe</code></td>
+<td>Find string in file</td>
+</tr>
+<tr>
+<td><code>Which.cmd</code></td>
+<td><code>Where.exe</code></td>
+<td>[If available] Used for identifying the location of an excetutable</td>
+</tr>
+</tbody></table>
+
+<h2><a id="user-content-how-to" class="anchor" href="#how-to" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>HOW-TO..</h2>
+
+<p>Feel free..!</p>
+
+<h2><a id="user-content-bug-fixes" class="anchor" href="#bug-fixes" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>BUG FIXES</h2>
+
+<p><strong>WHEN</strong> you find a bug, require a modification or have any form of comment on this library - please do not hesitate to send me an email: <a href="mailto:ErikBachmann@ClicketyClick.dk&amp;subject=The_Underscore_Library%22">ErikBachmann@ClicketyClick.dk</a></p>
+</article>
+
+</body>
 </html>
