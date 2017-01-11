@@ -15,12 +15,15 @@ SET $SOURCE=%~f0
 ::@(-)  
 ::@(#)  %$NAME% 
 ::@(#)  %$NAME% "dir"
+::@(#)  %$NAME% -check:"dir"
 ::@(#)  %$NAME% -add:"dir"
+::@(#)  %$NAME% -del:"dir"
 ::@(#) 
 ::@(#)OPTIONS
 ::@(-)  Flags, parameters, arguments (NOT the Monty Python way)
-::@(#)  "dir"       The path that should be tested in PATH
-::@(#)  -add:"dir"  The path that should be appended to PATH if not found
+::@(#)  -check:"dir"    The dir that should be tested in PATH
+::@(#)  -add:"dir"      The dir that should be appended to PATH if not found
+::@(#)  -del:"dir"      The dir that should be removed from PATH if found
 ::@(#)  
 ::@(#)DESCRIPTION
 ::@(#)  The bare command will list each element in PATH
@@ -33,18 +36,23 @@ SET $SOURCE=%~f0
 ::@(#)      "C:\Windows\system32"
 ::@(#)      "C:\Windows"
 ::@(#)    
-::@(#)  :: Check a specific path
-::@(#)  CALL %$NAME% "C:\Windows"
+::@(#)  :: Check a specific dir in path
+::@(#)  CALL %$NAME% -check:"C:\Windows"
 ::@(#)  
 ::@(#)      "C:\Windows" exists in PATH
 ::@(#)  
-::@(#)  :: Adding an existing path
+::@(#)  :: Adding an existing dir to path
 ::@(#)  CALL %$NAME% -add:"C:\Windows"
 ::@(#)  
 ::@(#)      "C:\Windows" exists in PATH
 ::@(#)  
-::@(#)  :: Adding an new path
+::@(#)  :: Adding an new dir to path
 ::@(#)  CALL %$NAME% -add:"C:\msdos\"
+::@(#)  
+::@(#)      Appending [C:\msdos\]
+::@(#)  
+::@(#)  :: Removing and existing dir from path
+::@(#)  CALL %$NAME% -del:"C:\msdos\"
 ::@(#)  
 ::@(#)      Appending [C:\msdos\]
 ::@(#)  
@@ -79,40 +87,62 @@ SET $SOURCE=%~f0
 ::History
 ::SET $VERSION=xx.xxx&SET $REVISION=YYYY-MM-DDThh:mm:ss&SET COMMENT=Init/Description
   SET $VERSION=2016-07-07&SET $REVISION=14:30:00&SET $COMMENT=Initial / ErikBachmann
+  SET $VERSION=2017-01-11&SET $REVISION=10:00:00&SET $COMMENT=Adding delete / ErikBachmann
 ::**********************************************************************
 ::@(#)(c)%$Version:~0,4% %$Author%
 ::**********************************************************************
-
 CALL "%~dp0\_debug"
 CALL "%~dp0\_getopt" %*
 
 :Init
     SET _EXISTS=
+    SET _STATUS=0
     :: Get single name
     IF DEFINED @%$NAME%.1 SET _DIR=!@%$NAME%.1!!
     :: Get name to add
+    IF DEFINED @%$NAME%.check SET _DIR=!@%$NAME%.check!!
+    ::&SET _APPEND=!@%$NAME%.add!!
     IF DEFINED @%$NAME%.add SET _DIR=!@%$NAME%.add!!&SET _APPEND=!@%$NAME%.add!!
+    IF DEFINED @%$NAME%.del SET _DIR=!@%$NAME%.del!!&SET _DELETE=!@%$NAME%.del!!
     :: Remove quotes
     IF DEFINED _DIR SET _DIR=%_DIR:"=%
 
 :Process
     IF DEFINED _DIR (    REM If argument
         REM :: Check for match in path
-        @for %%P in ("%path:;=";"%") do (   REM For each element
-            @if /i %%P=="%_DIR%" (          REM If matching new dir
-                echo %%P exists in PATH
-                SET _EXISTS=1
+        @FOR %%P IN ("%path:;=";"%") DO (   REM For each element
+            @IF /i %%P=="%_DIR%" (          REM If matching new dir
+                ECHO %%P EXISTS IN PATH
+                CALL SET "_EXISTS=1"
             )
         )
 
         IF NOT DEFINED _EXISTS (            REM If dir is not in path
+            %_DEBUG_% NOT EXISTING
             IF DEFINED _APPEND (            REM AND append flag
-                ECHO Appending [%_DIR%]
-                ENDLOCAL&CALL SET "PATH=%PATH%;%_DIR%;"
+                ECHO Appending [%_DIR%] to PATH
+                rem ENDLOCAL&
+                CALL SET "PATH=%PATH%;%_DIR%;"
+            ) ELSE (
+                ECHO Not found [%_DIR%] in PATH
+                SET _Status=1
+            )
+        ) ELSE (
+            %_DEBUG_% EXISTING
+            IF DEFINED _DELETE (            REM AND append flag
+                ECHO Deleting [%_DIR%] from PATH
+                :: remove from path - trailing \ is optional
+                CALL SET "PATH=!PATH:%_DIR%\;=!"
+                CALL SET "PATH=!PATH:%_DIR%;=!"
+                rem ENDLOCAL&CALL SET "PATH=%PATH%;%_DIR%;"
+                rem ENDLOCAL&CALL SET "PATH=!PATH!"
             )
         )
     ) ELSE (    REM :: Listing elements in PATH
         FOR %%P IN ("%PATH:;=";"%") DO IF NOT "!"=="!%%~P" ECHO %%P
     )
-
+ENDLOCAL&CALL SET "PATH=%PATH%"
+SET PATH=%PATH:;;=;%
+%_DEBUG_% %PATH%
+EXIT /B %_STATUS%
 ::*** End of File *****************************************************
