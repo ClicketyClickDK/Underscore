@@ -76,7 +76,8 @@ SET $SOURCE=%~f0
 ::*** HISTORY **********************************************************
 ::SET $VERSION=YYYY-MM-DD&SET $REVISION=hh:mm:ss&SET $COMMENT=Description/init
 ::SET $VERSION=2015-02-19&SET $REVISION=00:00:00&SET $COMMENT=Initial/ErikBachmann
-  SET $VERSION=2015-10-08&SET $REVISION=11:20:00&SET $COMMENT=GetOpt: Calling usage on -h and exit on error / ErikBachmann
+::SET $VERSION=2015-10-08&SET $REVISION=11:20:00&SET $COMMENT=GetOpt: Calling usage on -h and exit on error / ErikBachmann
+  SET $VERSION=2017-03-02&SET $REVISION=09:38:00&SET $COMMENT=Left padding 0 if hour is one digit / ErikBachmann
 ::**********************************************************************
 ::@(#)(c)%$Version:~0,4% %$Author%
 ::**********************************************************************
@@ -117,6 +118,7 @@ SET $SOURCE=%~f0
 
         %_DEBUG_%_date[%_date%] _tt[%_TT%]
         
+        
         :: Find sShortDate format
         FOR /F "skip=2 tokens=2*" %%a IN ('reg query "HKCU\Control Panel\International" /v sShortDate') DO CALL SET _sShortDate=%%b
         %_DEBUG_%sShortdate[%_sShortDate%]
@@ -141,9 +143,19 @@ SET $SOURCE=%~f0
             SET _T=%%d
         )
         SET _ISO=%_yy%-%_mm%-%_dd%
+
+        :: Selecting _T or _TT
+        IF NOT DEFINED _T IF DEFINED _TT SET _T=%_TT%
+        
+        :: Normalised _T Zero padding 1:00 to 01:00
+        IF DEFINED _T (
+            SET _T0=%_T:~1,1%
+            IF ":"=="!_T0!" SET _T=0%_T%
+        )
+
         IF DEFINED _T (
             SET _ISO=%_ISO%T%_T%
-        ) ELSE IF DEFINED _TT SET _ISO=%_ISO%T%_T%
+        )
 
         rem ECHO:%_ISO%
     ENDLOCAL&IF "%~1" NEQ "" (SET %~1=%_ISO%) ELSE (echo:%_ISO%)
