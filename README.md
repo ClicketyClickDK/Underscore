@@ -5,6 +5,8 @@ Source: https://github.com/ClicketyClickDK/Underscore/
 
 Latest update: 2016-07-08
 
+This is a beta
+
 ## WHAT'S IT ALL ABOUT
 >Mean, motive and opportunity
 
