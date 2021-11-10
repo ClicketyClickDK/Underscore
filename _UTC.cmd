@@ -81,8 +81,10 @@ SET $SOURCE=%~f0
 ::ENDLOCAL
 
 :MAIN
-    :: Initiating global environmen
-    CALL "%~dp0\_PreScript" %* || (CALL %~dp0\_PostScript & EXIT /B 1 )
+    CALL "%~dp0\_DEBUG"
+    ::CALL "%~dp0\_Getopt" %*&IF ERRORLEVEL 1 EXIT /B 1
+    :: Check ONLY for combinations of -h, /h, --help
+    CALL "%~dp0\_getopt.sub" %*&IF ERRORLEVEL 1 EXIT /B 1
 
     :: Initiating Local environmen
     CALL :Init %*
