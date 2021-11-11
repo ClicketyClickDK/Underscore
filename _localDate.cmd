@@ -2,7 +2,7 @@
 SETLOCAL ENABLEDELAYEDEXPANSION&::(Don't pollute the global environment with the following)
 ::**********************************************************************
 SET $NAME=%~n0
-SET $DESCRIPTION=Setting environment variables with UTC time as strings
+SET $DESCRIPTION=Setting environment variables with local time as strings
 SET $AUTHOR=Erik Bachmann, ClicketyClick.dk [ErikBachmann@ClicketyClick.dk]
 SET $SOURCE=%~f0
 ::@(#)NAME
@@ -23,15 +23,15 @@ SET $SOURCE=%~f0
 ::@(#)DESCRIPTION
 ::@(-)  A textual description of the functioning of the command or function.
 ::@(#)  Sets the environment variables
-::@(#)  UTC           YYYY-MM-DDThh:mm:ss.Z     ISO8601 format
-::@(#)  UTCStamp      YYYYMMDDhhmmss            Valid for file stamps / names
+::@(#)  LocalDate           YYYY-MM-DDThh:mm:ss.iiiii+000   ISO8601 format
+::@(#)  LocalDateStamp      YYYYMMDDhhmmdd.iiiii+000        Valid for file stamps / names
 ::@(#) 
 ::@(#)EXAMPLES
 ::@(-)  Some examples of common usage.
-::@(#) CALL %$NAME% & SET UTC
-::@(#)
-::@(#)      UTC=2021-11-10T14:17:05.Z
-::@(#)      UTCSTAMP=20211110141705
+::@(#) CALL %$NAME% & SET LocalDate
+::@(#)  
+::@(#)  LocalDate=2021-11-10T15:23:36.667000+060
+::@(#)  LocalDateStamp=20211110152336.667000+060
 ::@(#) 
 ::@ (#)EXIT STATUS
 ::@(-)  Exit status / errorlevel is 0 if OK, otherwise 1+.
@@ -62,7 +62,7 @@ SET $SOURCE=%~f0
 ::@(#)REFERENCE
 ::@(-)  References to inspiration, clips and other documentation
 ::@ (#)  Author:
-::@(#)  URL: https://stackoverflow.com/a/65542963
+::@(#)  URL: https://stackoverflow.com/a/50577277
 ::@ (#) 
 ::@(#)
 ::@(#)SOURCE
@@ -74,7 +74,7 @@ SET $SOURCE=%~f0
 ::@ (#)  %$AUTHOR%
 ::*** HISTORY **********************************************************
 ::SET $VERSION=YYYY-MM-DD&SET $REVISION=hh:mm:ss&SET $COMMENT=Description/init
-  SET $VERSION=2021-11-10&SET $REVISION=15:22:00&SET $COMMENT=Initial/ErikBachmann
+  SET $VERSION=2021-11-10&SET $REVISION=15:13:00&SET $COMMENT=Initial/ErikBachmann
 ::**********************************************************************
 ::@(#){COPY}%$VERSION:~0,4% %$Author%
 ::**********************************************************************
@@ -89,33 +89,12 @@ SET $SOURCE=%~f0
     :: Initiating Local environment
     ::CALL :Init %*
 
-    CALL :getUTC
-    ENDLOCAL& SET UTC=%UTC%&SET UTCSTAMP=%UTCSTAMP%
-GOTO :EOF
+    ::for /F "tokens=2 delims==." %%I in ('%SystemRoot%\System32\wbem\wmic.exe OS GET LocalDateTime /VALUE') do set "LocalDate=%%I"
+    FOR /F "tokens=2-3 delims==." %%I IN ('%SystemRoot%\System32\wbem\wmic.exe OS GET LocalDateTime /VALUE') DO SET "LocalDateStamp=%%I.%%J"
+    ::set "LocalDate=%LocalDate:~0,8%"
+    SET "LocalDate=%LocalDateStamp:~0,4%-%LocalDateStamp:~4,2%-%LocalDateStamp:~6,2%T%LocalDateStamp:~8,2%:%LocalDateStamp:~10,2%:%LocalDateStamp:~12,2%%LocalDateStamp:~14%"
+ENDLOCAL&SET LocalDate=%LocalDate%&SET LocalDateStamp=%LocalDateStamp%
 
-
-
-:getUTC
-    SETLOCAL
-    REM get UTC times:
-    for /f %%a in ('wmic Path Win32_UTCTime get Year^,Month^,Day^,Hour^,Minute^,Second /Format:List ^| findstr "="') do (set %%a)
-    
-    Set Second=0%Second%
-    Set Second=%Second:~-2%
-    Set Minute=0%Minute%
-    Set Minute=%Minute:~-2%
-    Set Hour=0%Hour%
-    Set Hour=%Hour:~-2%
-    Set Day=0%Day%
-    Set Day=%Day:~-2%
-    Set Month=0%Month%
-    Set Month=%Month:~-2%
-    
-    ::set UTCTIME=%Hour%:%Minute%:%Second%
-    ::set UTCDATE=%Year%%Month%%Day%
-    SET UTC_STAMP=%Year%%Month%%Day%%Hour%%Minute%%Second%
-    SET UTC=%Year%-%Month%-%Day%T%Hour%:%Minute%:%Second%.Z
-    ENDLOCAL& SET UTC=%UTC%&SET UTCSTAMP=%UTC_STAMP%
-GOTO :EOF
+::set LocalDate
 
 ::*** End of File ******************************************************

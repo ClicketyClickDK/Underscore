@@ -2,7 +2,7 @@
 SETLOCAL ENABLEDELAYEDEXPANSION&::(Don't pollute the global environment with the following)
 ::**********************************************************************
 SET $NAME=%~n0
-SET $DESCRIPTION=Setting environment variables with UTC time as strings
+SET $DESCRIPTION=Activate Windows inputbox for getting text string
 SET $AUTHOR=Erik Bachmann, ClicketyClick.dk [ErikBachmann@ClicketyClick.dk]
 SET $SOURCE=%~f0
 ::@(#)NAME
@@ -15,23 +15,22 @@ SET $SOURCE=%~f0
 ::@(-)  
 ::@(#)      %$NAME% [VAR]
 ::@(#) 
-::@ (#)OPTIONS
+::@(#)OPTIONS
 ::@(-)  Flags, parameters, arguments (NOT the Monty Python way)
-::@ (#)  -h      Help page
-::@ (#) 
+::@(#)  -h      Help page
+::@(#) 
 ::@ (#) 
 ::@(#)DESCRIPTION
 ::@(-)  A textual description of the functioning of the command or function.
-::@(#)  Sets the environment variables
-::@(#)  UTC           YYYY-MM-DDThh:mm:ss.Z     ISO8601 format
-::@(#)  UTCStamp      YYYYMMDDhhmmss            Valid for file stamps / names
+::@(#) 
 ::@(#) 
 ::@(#)EXAMPLES
 ::@(-)  Some examples of common usage.
-::@(#) CALL %$NAME% & SET UTC
-::@(#)
-::@(#)      UTC=2021-11-10T14:17:05.Z
-::@(#)      UTCSTAMP=20211110141705
+::@(#) 
+::@(#) :: This file MUST be stored in the local Code Page
+::@(#) ::             VAR  Default            Title       text     Return default
+::@(#) CALL inputbox "ReturnVar" "Hvad vil du vide" "Sp›rgsm†l" "Vil du svare p† dette?{CrLf}HUSK: Danske tegn skal v‘re gemt i CP-865" "-"
+::@(#) ECHO Svaret er=[%ReturnVar%]
 ::@(#) 
 ::@ (#)EXIT STATUS
 ::@(-)  Exit status / errorlevel is 0 if OK, otherwise 1+.
@@ -48,21 +47,21 @@ SET $SOURCE=%~f0
 ::@(-)  If any known
 ::@ (#)
 ::@ (#)
-::@ (#)REQUIRES
+::@(#)REQUIRES
 ::@(-)  Dependecies
-::@ (#)  _Debug.cmd      Setting up debug environment for batch scripts 
-::@ (#)  _GetOpt.cmd     Parse command line options and create environment vars
-::@ (#) _Prescript.cmd
-::@ (#) _PostScript.cmd
-::@ (#) 
+::@(#)  _Debug.cmd      Setting up debug environment for batch scripts 
+::@(#)  _GetOpt.cmd     Parse command line options and create environment vars
+::@(#) _Prescript.cmd
+::@(#) _PostScript.cmd
+::@(#) 
 ::@ (#)SEE ALSO
 ::@(-)  A list of related commands or functions.
 ::@ (#)  
 ::@ (#)  
-::@(#)REFERENCE
+::@ (#)REFERENCE
 ::@(-)  References to inspiration, clips and other documentation
 ::@ (#)  Author:
-::@(#)  URL: https://stackoverflow.com/a/65542963
+::@ (#)  URL: 
 ::@ (#) 
 ::@(#)
 ::@(#)SOURCE
@@ -74,7 +73,7 @@ SET $SOURCE=%~f0
 ::@ (#)  %$AUTHOR%
 ::*** HISTORY **********************************************************
 ::SET $VERSION=YYYY-MM-DD&SET $REVISION=hh:mm:ss&SET $COMMENT=Description/init
-  SET $VERSION=2021-11-10&SET $REVISION=15:22:00&SET $COMMENT=Initial/ErikBachmann
+  SET $VERSION=2021-11-10&SET $REVISION=15:49:20&SET $COMMENT=Initial/ErikBachmann
 ::**********************************************************************
 ::@(#){COPY}%$VERSION:~0,4% %$Author%
 ::**********************************************************************
@@ -86,36 +85,33 @@ SET $SOURCE=%~f0
     :: Check ONLY for combinations of -h, /h, --help
     CALL "%~dp0\_getopt.sub" %*&IF ERRORLEVEL 1 EXIT /B 1
 
-    :: Initiating Local environment
+    :: Initiating Local environmen
     ::CALL :Init %*
 
-    CALL :getUTC
-    ENDLOCAL& SET UTC=%UTC%&SET UTCSTAMP=%UTCSTAMP%
-GOTO :EOF
-
-
-
-:getUTC
-    SETLOCAL
-    REM get UTC times:
-    for /f %%a in ('wmic Path Win32_UTCTime get Year^,Month^,Day^,Hour^,Minute^,Second /Format:List ^| findstr "="') do (set %%a)
-    
-    Set Second=0%Second%
-    Set Second=%Second:~-2%
-    Set Minute=0%Minute%
-    Set Minute=%Minute:~-2%
-    Set Hour=0%Hour%
-    Set Hour=%Hour:~-2%
-    Set Day=0%Day%
-    Set Day=%Day:~-2%
-    Set Month=0%Month%
-    Set Month=%Month:~-2%
-    
-    ::set UTCTIME=%Hour%:%Minute%:%Second%
-    ::set UTCDATE=%Year%%Month%%Day%
-    SET UTC_STAMP=%Year%%Month%%Day%%Hour%%Minute%%Second%
-    SET UTC=%Year%-%Month%-%Day%T%Hour%:%Minute%:%Second%.Z
-    ENDLOCAL& SET UTC=%UTC%&SET UTCSTAMP=%UTC_STAMP%
+:inputBox
+    ::SETLOCAL
+    :: Return variable
+    SET _RETURN=%~1
+    IF NOT DEFINED _RETURN SET _RETURN=$RETURN
+    :: Input text
+    SET _INPUT=%~2
+    IF NOT DEFINED _INPUT SET _INPUT=?input?
+    ::Window title
+    SET _TITLE=%~3
+    IF NOT DEFINED _TITLE SET _TITLE=?title?
+    :: Body
+    SET _MSG=%~4
+    IF NOT DEFINED _MSG SET _MSG=?What?
+    :: Default to return on error / cancel
+    SET _DEFAULT=%~5
+    IF NOT DEFINED _DEFAULT SET _DEFAULT=XXX
+    ::ECHO "%_DEFAULT%"
+    SET _CMD=CALL _inputBox "%_TITLE%" "%_MSG%" "%_INPUT%" "%_DEFAULT%"
+    FOR /F "tokens=* delims=" %%a IN ('CALL %_CMD%') DO SET _VAR=%%a
+    :: Return default on cancel
+    IF NOT DEFINED _VAR SET _VAR=%_DEFAULT%
+    :: Returning input
+    ENDLOCAL&SET %_RETURN%=%_VAR%
 GOTO :EOF
 
 ::*** End of File ******************************************************
