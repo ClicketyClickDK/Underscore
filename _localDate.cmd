@@ -86,8 +86,8 @@ SET $SOURCE=%~f0
     :: Check ONLY for combinations of -h, /h, --help
     CALL "%~dp0\_getopt.sub" %*&IF ERRORLEVEL 1 EXIT /B 1
 
-    :: Initiating Local environmen
-    CALL :Init %*
+    :: Initiating Local environment
+    ::CALL :Init %*
 
     ::for /F "tokens=2 delims==." %%I in ('%SystemRoot%\System32\wbem\wmic.exe OS GET LocalDateTime /VALUE') do set "LocalDate=%%I"
     FOR /F "tokens=2-3 delims==." %%I IN ('%SystemRoot%\System32\wbem\wmic.exe OS GET LocalDateTime /VALUE') DO SET "LocalDateStamp=%%I.%%J"

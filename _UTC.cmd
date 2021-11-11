@@ -86,8 +86,8 @@ SET $SOURCE=%~f0
     :: Check ONLY for combinations of -h, /h, --help
     CALL "%~dp0\_getopt.sub" %*&IF ERRORLEVEL 1 EXIT /B 1
 
-    :: Initiating Local environmen
-    CALL :Init %*
+    :: Initiating Local environment
+    ::CALL :Init %*
 
     CALL :getUTC
     ENDLOCAL& SET UTC=%UTC%&SET UTCSTAMP=%UTCSTAMP%
