@@ -45,7 +45,7 @@ SET $Source=%~f0
 ::@ (#)
 ::@ (#)BUGS / KNOWN PROBLEMS
 ::@(-)  If any known
-::@ (#)
+::@ (#) You MUST enable DelayedExpansion first!
 ::@ (#)
 ::@(#)REQUIRES
 ::@(-)  Dependecies
