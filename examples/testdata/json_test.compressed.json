@@ -1,0 +1,1 @@
+{ "solo": "Solo value", "system": { "name": "ByteMARC", "version": "04.21", "favicon": "./images/favicon.ico", "language": { "name": "Danish", "code": "da" } }, "cluster": { "name": "Default", "path": ".databases/" }, "database": { "name": "Erik III", "file": "ebp3.db", "path": ".databases/" }, "single": "Single value" }
