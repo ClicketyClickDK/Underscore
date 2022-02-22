@@ -3,7 +3,18 @@ By [ErikBachmann@ClicketyClick.dk](mailto:ErikBachmann@ClicketyClick.dk&subject=
 
 Latest update: 2016-07-08
 
-##
+## String replacement using var
+:link http://scripts.dragon-it.co.uk/scripts.nsf/docs/batch-search-replace-substitute!OpenDocument&ExpandSection=3&BaseTarget=East&AutoFramed
+	
+``` Batch
+::	set string=This is my string to work with.
+SET find=my string
+SET replace=your replacement
+CALL SET string=%%string:!find!=!replace!%%
+ECHO %string%
+```
+
+## OR failure
 :link: http://stackoverflow.com/a/334023
 
 ``` Batchfile
