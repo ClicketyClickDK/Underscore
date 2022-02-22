@@ -1,7 +1,7 @@
 # Tips2Tricks for DOS batch
 By [ErikBachmann@ClicketyClick.dk](mailto:ErikBachmann@ClicketyClick.dk&subject=The_Underscore_Library")
 
-Latest update: 2016-07-08
+Latest update: 2022-02-28
 
 ## String replacement using var
 :link http://scripts.dragon-it.co.uk/scripts.nsf/docs/batch-search-replace-substitute!OpenDocument&ExpandSection=3&BaseTarget=East&AutoFramed
